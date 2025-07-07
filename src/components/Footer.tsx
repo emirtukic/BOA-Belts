@@ -1,4 +1,5 @@
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import Link from 'next/link';
 export default function Footer() {
     return (
       <footer className="bg-[#0D0D0D] text-white pt-16 pb-8">
@@ -13,11 +14,11 @@ export default function Footer() {
           <div>
             <h5 className="text-lg font-semibold mb-3">Navigation</h5>
             <ul className="text-sm space-y-2 text-gray-300">
-              <li><a href="/" className="hover:text-white">Home</a></li>
-              <li><a href="/about" className="hover:text-white">About Us</a></li>
-              <li><a href="/services" className="hover:text-white">Services</a></li>
-              <li><a href="/projects" className="hover:text-white">Projects</a></li>
-              <li><a href="/contact" className="hover:text-white">Contact</a></li>
+              <li><Link href="/" className="hover:text-white">Home</Link></li>
+              <li><Link href="/about" className="hover:text-white">About Us</Link></li>
+              <li><Link href="/services" className="hover:text-white">Services</Link></li>
+              <li><Link href="/projects" className="hover:text-white">Projects</Link></li>
+              <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
           </div>
   
