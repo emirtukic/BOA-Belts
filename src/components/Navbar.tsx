@@ -16,8 +16,8 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 w-full z-50 text-white">
-      <div className={`max-w-7xl mx-auto px-6 py-4 flex justify-between items-center ${isMobileMenuOpen ? 'hidden' : 'bg-black/60'}`}>
+    <header className="fixed top-0 left-0 right-0 w-screen z-50 text-white">
+      <div className={`w-full px-6 py-4 flex justify-between items-center ${isMobileMenuOpen ? 'hidden' : 'bg-black/60'}`}>
         <Link href="/" className="flex items-center space-x-2">
           <Image src="/logo-white.png" alt="Logo" width={120} height={40} />
         </Link>
