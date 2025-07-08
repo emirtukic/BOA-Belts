@@ -49,7 +49,7 @@ export default function HomePage() {
           Helping companies launch reliable, secure, and scalable software through rigorous QA and modern development practices.
         </p>
         <a
-          href="/contact"
+          href="#contact"
           className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition animate-fade-in-up delay-500 mt-10"
         >
           Let’s Talk
@@ -58,18 +58,15 @@ export default function HomePage() {
 
       <div className="relative z-10 bg-gradient-to-r from-black via-gray-900 to-black" style={{ marginTop: '55vh' }}>
         {/* About Preview */}
-        <section className="relative -mt-32 py-20 px-6 max-w-5xl mx-auto text-center animate-fade-in-up delay-200">
+        <section id="about" className="relative -mt-32 py-20 px-6 max-w-5xl mx-auto text-center animate-fade-in-up delay-200">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Trusted Quality Assurance Partner</h2>
           <p className="text-gray-400 text-lg">
           At HAVE Solution, we ensure software excellence through top-tier Quality Assurance and software testing services. Based in Sarajevo, Bosnia and Herzegovina, we collaborate with clients across various industries and geographies, delivering reliable, high-performance solutions that enhance clients digital products. Whether you are a startup or an enterprise, we help you build software that meets the highest quality standards.
           </p>
-          <a href="/about" className="text-white underline mt-4 inline-block hover:text-gray-300">
-            Learn more →
-          </a>
         </section>
 
         {/* Services Preview */}
-        <section className="py-20 px-6 bg-gradient-to-r from-black via-gray-900 to-black animate-fade-in-up delay-300">
+        <section id="services" className="py-20 px-6 bg-gradient-to-r from-black via-gray-900 to-black animate-fade-in-up delay-300">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-left -mt-12">
@@ -102,14 +99,11 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <a href="/services" className="text-white underline mt-12 inline-block hover:text-gray-300">
-              Explore all services →
-            </a>
           </div>
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-20 px-6 text-white animate-fade-in-up delay-200">
+        <section id="projects" className="py-20 px-6 text-white animate-fade-in-up delay-200">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-10">Why Choose HAVE Solution?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
@@ -129,12 +123,12 @@ export default function HomePage() {
           </div>
         </section>
         {/* CTA Prompt */}
-        <section className="text-center py-10 bg-gradient-to-r from-black via-gray-900 to-black">
+        <section id="contact" className="text-center py-10 bg-gradient-to-r from-black via-gray-900 to-black">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-7">
             Want flawless software? Let’s talk QA.
           </h2>
           <a
-            href="/contact"
+            href="#contact"
             className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition"
           >
             Get in Touch
