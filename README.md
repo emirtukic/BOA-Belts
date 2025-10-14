@@ -6,7 +6,7 @@ Modern, high-performance Next.js website for Boa Belts, a handmade belts, bags a
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- TypeScript (ako koristiš)
+- TypeScript
 - Framer Motion, Lottie, React Icons (optional enhancements)
 
 ## 📁 Project Structure
