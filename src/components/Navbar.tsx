@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from './LanguageProvider';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -15,81 +17,125 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
+  const navLinks = [
+    { href: '/', label: t.nav.home },
+    { href: '/belts', label: t.nav.belts },
+    { href: '/bags', label: t.nav.bags },
+    { href: '/wallets', label: t.nav.wallets },
+    { href: '/about', label: t.nav.about },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 w-screen z-50 text-white">
-      <div className={`w-full px-6 py-4 flex justify-between items-center ${isMobileMenuOpen ? 'hidden' : 'bg-black/60'}`}>
-        <Link href="/" className="flex items-center space-x-2">
-          <Image src="/logo-white.png" alt="Logo" width={120} height={40} />
-        </Link>
-        <nav className={`hidden md:flex items-center space-x-12 text-ml font-medium ${isMobileMenuOpen ? 'hidden' : ''}`}>
-          <a href="#" className="hover:text-gray-300 transition-colors duration-200">
-            Home
-          </a>
-          <a href="#about" className="hover:text-gray-300 transition-colors duration-200">
-            About
-          </a>
-          <a href="#services" className="hover:text-gray-300 transition-colors duration-200">
-            Services
-          </a>
-          <a href="#projects" className="hover:text-gray-300 transition-colors duration-200">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-gray-300 transition-colors duration-200">
-            Contact
-          </a>
-        </nav>
-        <div className="hidden md:block">
-          <Link href="#contact">
-            <button className="px-5 py-2 text-sm rounded-full bg-white text-black hover:bg-gray-200 transition-colors duration-200">
-              Let’s Talk
-            </button>
+    <header className="fixed top-0 left-0 right-0 w-screen z-50">
+      <div
+        className={`w-full px-6 py-3 transition-colors duration-200 ${
+          isMobileMenuOpen ? 'hidden' : 'bg-white/85 backdrop-blur-lg border-b border-[#ececec]'
+        }`}
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-center">
+          <Link href="/" className="flex items-center space-x-2 text-[#111] font-semibold tracking-wide">
+            <Image src="/boalogo.png" alt="Boa Belts logo" width={170} height={40} className="h-10 w-auto" />
           </Link>
-        </div>
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="focus:outline-none"
+
+          <nav
+            className={`hidden md:flex flex-1 items-center justify-center space-x-9 text-sm font-semibold text-[#111] ${
+              isMobileMenuOpen ? 'hidden' : ''
+            }`}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-            </svg>
-          </button>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="uppercase tracking-wide hover:text-[#000] transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="ml-auto hidden md:flex items-center space-x-3">
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="rounded-full border border-[#d0d0d0] bg-white px-4 py-2 text-xs font-semibold tracking-wide text-[#111] transition-colors duration-200 hover:bg-[#111] hover:text-white"
+              aria-label={t.nav.languageToggleAria}
+            >
+              {t.nav.languageToggle}
+            </button>
+            <Link href="/#contact">
+              <button className="px-5 py-2 text-sm rounded-full bg-[#111] text-white font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-black">
+                {t.nav.contactCta}
+              </button>
+            </Link>
+          </div>
+
+          <div className="ml-auto flex items-center md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="focus:outline-none text-[#111]"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d={isMobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 text-white flex flex-col justify-between items-center py-12 px-8 space-y-8">
+        <div className="fixed inset-0 z-50 bg-white text-[#111] flex flex-col justify-between items-center py-12 px-8 space-y-8">
           <div className="w-full flex justify-between items-center mb-8">
             <div className="flex items-center space-x-2">
-              <Image src="/logo-white.png" alt="Logo" width={100} height={32} />
+              <Image src="/boalogo.png" alt="Boa Belts logo" width={95} height={26} />
             </div>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white text-3xl font-bold focus:outline-none"
-            >
-              &times;
-            </button>
+            <div className="flex items-center space-x-4">
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                className="border border-[#d0d0d0] text-[#111] px-3 py-1 rounded-full text-xs tracking-wide hover:bg-[#f3f3f3] transition-colors duration-200"
+                aria-label={t.nav.languageToggleAria}
+              >
+                {t.nav.languageToggle}
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-[#111] text-3xl font-bold focus:outline-none"
+                aria-label="Close menu"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col items-center space-y-6 text-lg font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="hover:text-black"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <div className="flex flex-col items-center space-y-6">
-            <a href="#" className="text-lg font-semibold hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-            <a href="#about" className="text-lg font-semibold hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-            <a href="#services" className="text-lg font-semibold hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
-            <a href="#projects" className="text-lg font-semibold hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
-            <a href="#contact" className="text-lg font-semibold hover:text-gray-300" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-          </div>
-          <div className="flex flex-col items-center space-y-6">
-            <button
+            <Link
+              href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="px-8 py-3 bg-white text-black rounded-full text-base font-semibold hover:bg-gray-200 transition shadow-lg"
+              className="px-8 py-3 bg-[#111] text-white rounded-full text-base font-semibold shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-black"
             >
-              <a href="#contact">Let’s Talk</a>
-            </button>
+              {t.nav.contactCta}
+            </Link>
             <div className="text-center mt-4">
-              <p className="text-sm text-gray-400 mb-2">Follow us</p>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 inline-block">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24V7h5v17H0zm7.5-17h4.7v2.54h.06c.66-1.25 2.3-2.56 4.74-2.56 5.08 0 6.01 3.33 6.01 7.66V24h-5v-7.67c0-1.83-.03-4.18-2.55-4.18-2.56 0-2.95 2-2.95 4.05V24h-5V7z"/>
-                </svg>
-              </a>
+              <p className="text-sm text-[#7b7b7b] mb-2">{t.nav.follow}</p>
+              <div className="flex items-center space-x-4">
+                <a href="https://www.instagram.com/boa_belts/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                  {t.followLinks.instagram}
+                </a>
+                <a href="https://www.facebook.com/boa.belts.ba" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                  {t.followLinks.facebook}
+                </a>
+              </div>
             </div>
           </div>
         </div>
