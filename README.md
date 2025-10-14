@@ -1,6 +1,6 @@
-# HAVE Solution – QA & Software Testing
+# Boa Belts
 
-Modern, high-performance Next.js website for HAVE Solution, a software quality assurance and testing company based in Sarajevo.
+Modern, high-performance Next.js website for Boa Belts, a handmade belts, bags and wallets company based in Travnik.
 
 ## 🚀 Tech Stack
 
@@ -15,14 +15,6 @@ Modern, high-performance Next.js website for HAVE Solution, a software quality a
 - `/public`: Static assets (images, favicon, og-image)
 - `/styles`: Global CSS and animation classes
 
-## 🧪 Features
-
-- Sticky animated hero section with background image
-- Typing effect headline
-- Scroll transitions with animated service cards
-- Contact form with styled inputs
-- SEO and Open Graph metadata
-- Responsive design
 
 ## 🛠️ Setup
 
