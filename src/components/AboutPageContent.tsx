@@ -7,18 +7,8 @@ import type { IconType } from 'react-icons';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
 
+/* ===== Types ===== */
 type ContactKey = 'instagram' | 'facebook' | 'email';
-
-const contactIcons: Record<ContactKey, IconType> = {
-  instagram: FaInstagram,
-  facebook: FaFacebookMessenger,
-  email: FaEnvelope,
-};
-
-const channelIcons: Record<string, IconType> = {
-  instagram: FaInstagram,
-  viber: SiViber,
-};
 
 type ContactMethod = {
   label?: string;
@@ -34,7 +24,51 @@ type Channel = {
   key?: string;      // optional explicit key
 };
 
-// Helper to pick the right icon key from channel data
+type AboutPage = {
+  heroTitle?: string;
+  heroSubtitle?: string;
+
+  introTitle?: string;
+  introParagraphs?: string[];
+  storyParagraphs?: string[];
+
+  highlightsTitle?: string;
+  highlights?: { title: string; description: string }[];
+  values?: { title: string; description: string }[];
+
+  processTitle?: string;
+  processSteps?: string[];
+  craftParagraphs?: string[];
+
+  timelineTitle?: string;
+  timelinePoints?: string[];
+
+  contactTitle?: string;
+  contactSubtitle?: string;
+  contactMethods?: Record<string, ContactMethod>;
+
+  channelsTitle?: string;
+  channelsSubtitle?: string;
+  channels?: Channel[];
+
+  ctaTitle?: string;
+  ctaText?: string;
+  ctaButton?: string;
+};
+
+/* ===== Icon Maps ===== */
+const contactIcons: Record<ContactKey, IconType> = {
+  instagram: FaInstagram,
+  facebook: FaFacebookMessenger,
+  email: FaEnvelope,
+};
+
+const channelIcons: Record<string, IconType> = {
+  instagram: FaInstagram,
+  viber: SiViber,
+};
+
+/* ===== Helpers ===== */
 function resolveChannelKey(ch: Channel): keyof typeof channelIcons {
   const explicit =
     (ch.platform ?? ch.key ?? ch.label ?? '').toString().toLowerCase().trim();
@@ -45,22 +79,39 @@ function resolveChannelKey(ch: Channel): keyof typeof channelIcons {
   if (href.includes('instagram.com')) return 'instagram';
   if (href.includes('viber.com') || href.includes('invite.viber.com')) return 'viber';
 
-  // default fallback so it never crashes
-  return 'instagram';
+  return 'instagram'; // safe fallback
 }
 
+/* ===== Component ===== */
 export default function AboutPageContent() {
   const { t } = useLanguage();
-  const data = t.aboutPage;
+const data: Partial<AboutPage> = (t as any)?.aboutPage ?? {};
 
-  const introParagraphs: string[] = data.introParagraphs ?? data.storyParagraphs ?? [];
-  const highlights: { title: string; description: string }[] = data.highlights ?? data.values ?? [];
-  const processSteps: string[] = data.processSteps ?? data.craftParagraphs ?? [];
-  const timelinePoints: string[] = data.timelinePoints ?? [];
-  const contactEntries: [string, ContactMethod][] = data.contactMethods
-    ? Object.entries(data.contactMethods as Record<string, ContactMethod>)
+  const introParagraphs: string[] = Array.isArray(data.introParagraphs)
+    ? data.introParagraphs
+    : Array.isArray(data.storyParagraphs)
+    ? data.storyParagraphs
     : [];
-  const channels: Channel[] = data.channels ?? [];
+
+  const highlights: { title: string; description: string }[] = Array.isArray(data.highlights)
+    ? data.highlights
+    : Array.isArray(data.values)
+    ? data.values
+    : [];
+
+  const processSteps: string[] = Array.isArray(data.processSteps)
+    ? data.processSteps
+    : Array.isArray(data.craftParagraphs)
+    ? data.craftParagraphs
+    : [];
+
+  const timelinePoints: string[] = Array.isArray(data.timelinePoints) ? data.timelinePoints : [];
+
+  const contactEntries: [string, ContactMethod][] = Object.entries(
+    data.contactMethods ?? {}
+  ) as [string, ContactMethod][];
+
+  const channels: Channel[] = Array.isArray(data.channels) ? (data.channels as Channel[]) : [];
 
   return (
     <main className="bg-white text-[#1f1f1f]">
@@ -231,19 +282,6 @@ export default function AboutPageContent() {
       <section className="py-20 px-6 bg-[#f9f9f9] border-b border-[#ececec]">
         <div className="mx-auto max-w-6xl">
           <LoyaltyCardSection />
-        </div>
-      </section>
-
-      <section className="py-20 px-6 text-center bg-white">
-        <div className="mx-auto max-w-3xl space-y-6">
-          <h2 className="text-3xl font-semibold text-[#1f1f1f]">{data.ctaTitle}</h2>
-          <p className="text-lg text-[#4b4b4b] leading-relaxed">{data.ctaText}</p>
-          <Link
-            href="/#contact"
-            className="inline-block rounded-full bg-[#111] px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#000]"
-          >
-            {data.ctaButton}
-          </Link>
         </div>
       </section>
     </main>
