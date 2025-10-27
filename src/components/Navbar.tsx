@@ -27,6 +27,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 w-screen z-50">
+      {/* Top bar (hidden when mobile menu open) */}
       <div
         className={`w-full px-6 py-3 transition-colors duration-200 ${
           isMobileMenuOpen ? 'hidden' : 'bg-white/85 backdrop-blur-lg border-b border-[#ececec]'
@@ -82,62 +83,85 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Mobile overlay menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white text-[#111] flex flex-col justify-between items-center py-12 px-8 space-y-8">
-          <div className="w-full flex justify-between items-center mb-8">
-            <div className="flex items-center space-x-2">
-              <Image src="/boalogo.png" alt="Boa Belts logo" width={95} height={26} />
-            </div>
-            <div className="flex items-center space-x-4">
+        <div
+          className="fixed inset-0 z-50 bg-white text-[#111] flex flex-col"
+          style={{ paddingTop: 'max(env(safe-area-inset-top), 0.5rem)' }}
+        >
+          {/* Compact top row */}
+          <div className="w-full border-b border-[#ececec] px-5 h-14 flex items-center justify-between">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
+              <Image src="/boalogo.png" alt="Boa Belts logo" width={110} height={28} className="h-7 w-auto" />
+            </Link>
+            <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={toggleLanguage}
-                className="border border-[#d0d0d0] text-[#111] px-3 py-1 rounded-full text-xs tracking-wide hover:bg-[#f3f3f3] transition-colors duration-200"
+                className="border border-[#d0d0d0] text-[#111] px-3 py-1 rounded-full text-xs tracking-wide hover:bg-[#f3f3f3] transition-colors"
                 aria-label={t.nav.languageToggleAria}
               >
                 {t.nav.languageToggle}
               </button>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-[#111] text-3xl font-bold focus:outline-none"
+                className="text-[#111] text-3xl font-bold leading-none focus:outline-none"
                 aria-label="Close menu"
               >
                 &times;
               </button>
             </div>
           </div>
-          <div className="flex flex-col items-center space-y-6 text-lg font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-black"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div className="flex flex-col items-center space-y-6">
+
+          {/* Content */}
+          <div className="flex-1 px-8 py-6 flex flex-col items-center gap-6 overflow-y-auto">
+            <nav className="flex flex-col items-center gap-5 text-lg font-medium">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="hover:text-black"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
             <Link
               href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="px-8 py-3 bg-[#111] text-white rounded-full text-base font-semibold shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-black"
+              className="mt-2 px-8 py-3 bg-[#111] text-white rounded-full text-base font-semibold shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-black"
             >
               {t.nav.contactCta}
             </Link>
-            <div className="text-center mt-4">
+
+            <div className="text-center mt-2">
               <p className="text-sm text-[#7b7b7b] mb-2">{t.nav.follow}</p>
               <div className="flex items-center space-x-4">
-                <a href="https://www.instagram.com/boa_belts/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                <a
+                  href="https://www.instagram.com/boa_belts/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-black"
+                >
                   {t.followLinks.instagram}
                 </a>
-                <a href="https://www.facebook.com/boa.belts.ba" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                <a
+                  href="https://www.facebook.com/boa.belts.ba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-black"
+                >
                   {t.followLinks.facebook}
                 </a>
               </div>
             </div>
           </div>
+
+          {/* Bottom safe-area padding */}
+          <div className="pt-2" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }} />
         </div>
       )}
     </header>

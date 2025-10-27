@@ -1,14 +1,18 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  FaArrowLeft,
+  FaArrowRight,
   FaGem,
   FaHandHoldingHeart,
   FaLeaf,
   FaRulerCombined,
 } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from './LanguageProvider';
+import { LoyaltyCardSection } from './LoyaltyCardSection';
 
 const beltIcons = [
   FaHandHoldingHeart,
@@ -18,11 +22,25 @@ const beltIcons = [
 ] as const;
 
 const heroBackgrounds = [
-  "url('/hero1.png')",
-  "url('/boahero.jpg')",
-  "url('/boabelts2.jpg')",
-  "url('/boabelts.jpg')",
+  "url('/boa_belts_4.jpg')",
+  "url('/belt.jpg')",
+  "url('/torba.jpg')",
+  "url('/novcanik.jpg')",
 ] as const;
+
+const galleryMedia = [
+  '/1.jpg',
+  '/2.jpg',
+  '/3.jpg',
+  '/4.jpg',
+  '/5.jpg',
+] as const;
+
+const sectionImages = {
+  belts: '/belt.jpg',
+  bags: '/boa_belts_2.jpg',
+  wallets: '/boahero.jpg',
+} as const;
 
 export default function HomeContent() {
   const { t } = useLanguage();
@@ -68,6 +86,9 @@ export default function HomeContent() {
   );
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = slides.length;
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const [galleryCanScrollLeft, setGalleryCanScrollLeft] = useState(false);
+  const [galleryCanScrollRight, setGalleryCanScrollRight] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(
@@ -76,6 +97,40 @@ export default function HomeContent() {
     );
     return () => clearInterval(interval);
   }, [totalSlides]);
+
+  useEffect(() => {
+    const container = galleryRef.current;
+    if (!container) {
+      return;
+    }
+
+    const update = () => {
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      setGalleryCanScrollLeft(container.scrollLeft > 0);
+      setGalleryCanScrollRight(container.scrollLeft < maxScrollLeft - 1);
+    };
+
+    update();
+    container.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    return () => {
+      container.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
+  const handleGalleryScroll = (direction: 'prev' | 'next') => {
+    const container = galleryRef.current;
+    if (!container) {
+      return;
+    }
+    const scrollAmount = container.clientWidth * 0.8;
+    container.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
+    });
+  };
 
   const goToSlide = (index: number) => {
     setActiveSlide((index + totalSlides) % totalSlides);
@@ -151,12 +206,89 @@ export default function HomeContent() {
       </section>
 
       <div className="relative z-10 bg-white" style={{ marginTop: '55vh' }}>
+        {/* Studio Gallery */}
+        <section
+          id="gallery"
+          className="relative overflow-hidden py-20 px-10 bg-[#f7f7f7] animate-fade-in-up delay-150 border-t border-[#ececec]"
+        >
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between text-[#1f1f1f]">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  {t.gallery.title}
+                </h2>
+                <p className="mt-4 text-[#4b4b4b] md:max-w-xl">
+                  {t.gallery.subtitle}
+                </p>
+              </div>
+            </div>
+            <div className="relative mt-10">
+              <div
+                ref={galleryRef}
+                className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory px-6 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:'none'] [&::-webkit-scrollbar]:hidden"
+              >
+                {galleryMedia.map((src, index) => {
+                  const item = t.gallery.items[index];
+                  return (
+                    <figure
+                      key={src}
+                      className="relative flex w-64 flex-shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-[#e4e4e4] bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 md:w-80"
+                    >
+                      <div className="relative h-48 md:h-64">
+                        <Image
+                          src={src}
+                          alt={item?.title ?? t.gallery.title}
+                          fill
+                          sizes="(min-width: 768px) 320px, 80vw"
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      </div>
+                      <figcaption className="flex flex-1 flex-col justify-between p-4 text-left">
+                        <div>
+                          <h3 className="text-lg font-semibold text-[#111]">
+                            {item?.title}
+                          </h3>
+                          <p className="mt-5 text-sm text-[#4b4b4b]">
+                            {item?.description}
+                          </p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  );
+                })}
+              </div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-16 bg-gradient-to-r from-[#f7f7f7] via-[#f7f7f7]/85 to-transparent md:block" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-16 bg-gradient-to-l from-[#f7f7f7] via-[#f7f7f7]/85 to-transparent md:block" />
+              <button
+                type="button"
+                onClick={() => handleGalleryScroll('prev')}
+                disabled={!galleryCanScrollLeft}
+                className="absolute left-4 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-[#d0d0d0] bg-white/90 p-3 text-[#111] shadow-md transition hover:bg-[#111] hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:flex"
+                aria-label={t.gallery.controls.previous}
+              >
+                <FaArrowLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => handleGalleryScroll('next')}
+                disabled={!galleryCanScrollRight}
+                className="absolute right-4 top-1/2 hidden -translate-y-1/2 items-center justify-center rounded-full border border-[#d0d0d0] bg-white/90 p-3 text-[#111] shadow-md transition hover:bg-[#111] hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:flex"
+                aria-label={t.gallery.controls.next}
+              >
+                <FaArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-[#f7f7f7] via-[#f7f7f7]/90 to-white z-0" />
+        </section>
+
         {/* About Preview */}
         <section
           id="about"
           className="relative -mt-32 py-20 px-6 max-w-5xl mx-auto text-center animate-fade-in-up delay-200"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1f1f1f]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#1f1f1f]">
             {t.about.title}
           </h2>
           <p className="text-lg text-[#4b4b4b] leading-relaxed">
@@ -177,37 +309,52 @@ export default function HomeContent() {
           id="belts"
           className="py-20 px-6 bg-white animate-fade-in-up delay-300 border-t border-[#ececec]"
         >
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#1f1f1f]">
-              {t.belts.title}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-left -mt-6">
-              {t.belts.cards.map((card, index) => {
-                const Icon = beltIcons[index];
-                return (
-                  <div
-                    key={card.title}
-                    className="slide-up bg-white border border-[#ececec] p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-150"
-                  >
-                    <Icon className="text-4xl text-[#111] mb-4" />
-                    <h3 className="text-2xl font-semibold mb-3 text-[#1f1f1f]">
-                      {card.title}
-                    </h3>
-                    <p className="text-[#4b4b4b]">
-                      {card.description}
-                    </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col gap-12 md:flex-row md:items-stretch">
+              <div className="text-center md:text-left md:flex md:flex-[3] md:flex-col">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#1f1f1f]">
+                    {t.belts.title}
+                  </h2>
+                  <div className="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2">
+                    {t.belts.cards.map((card, index) => {
+                      const Icon = beltIcons[index];
+                      return (
+                        <div
+                          key={card.title}
+                          className="slide-up bg-white border border-[#ececec] p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-150"
+                        >
+                          <Icon className="text-4xl text-[#111] mb-4" />
+                          <h3 className="text-2xl font-semibold mb-3 text-[#1f1f1f]">
+                            {card.title}
+                          </h3>
+                          <p className="text-[#4b4b4b]">{card.description}</p>
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              </div>
+              <div className="relative h-64 w-full overflow-hidden rounded-3xl border border-[#ececec] bg-[#111]/5 shadow-inner  md:min-h-[29rem] md:self-stretch md:flex-[2] mt-28">
+                <Image
+                  src={sectionImages.belts}
+                  alt={`${t.belts.title} preview`}
+                  fill
+                  sizes="(min-width: 1280px) 420px, (min-width: 768px) 40vw, 90vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/35 via-transparent to-transparent" />
+              </div>
             </div>
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              href="/belts"
-              className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
-            >
-              {t.belts.ctaLabel}
-            </Link>
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/belts"
+                className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
+              >
+                {t.belts.ctaLabel}
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -216,48 +363,101 @@ export default function HomeContent() {
           id="bags"
           className="py-20 px-6 text-[#1f1f1f] animate-fade-in-up delay-200 bg-white border-t border-[#ececec]"
         >
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10">
-              {t.bags.title}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-              {t.bags.cards.map((card) => (
-                  <div
-                    key={card.title}
-                    className="bg-white backdrop-blur-md p-8 rounded-xl border border-[#ececec] hover:-translate-y-1.5 transition-transform duration-300 shadow-sm"
-                >
-                  <h3 className="text-2xl font-semibold mb-3 text-[#1f1f1f]">
-                    {card.title}
-                  </h3>
-                  <p className="text-[#4b4b4b]">{card.description}</p>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col gap-12 md:flex-row-reverse md:items-stretch">
+              <div className="text-center md:text-left md:flex md:flex-[3] md:flex-col">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    {t.bags.title}
+                  </h2>
+                  <div className="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+                    {t.bags.cards.map((card) => (
+                      <div
+                        key={card.title}
+                        className="bg-white backdrop-blur-md p-8 rounded-xl border border-[#ececec] hover:-translate-y-1.5 transition-transform duration-300 shadow-sm"
+                      >
+                        <h3 className="text-2xl font-semibold mb-3 text-[#1f1f1f]">
+                          {card.title}
+                        </h3>
+                        <p className="text-[#4b4b4b]">{card.description}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </div>
+              <div className="relative h-64 w-full overflow-hidden rounded-3xl border border-[#ececec] bg-[#111]/5 shadow-inner md:h-auto md:min-h-[26rem] md:self-stretch md:flex-[2]">
+                <Image
+                  src={sectionImages.bags}
+                  alt={`${t.bags.title} preview`}
+                  fill
+                  sizes="(min-width: 1280px) 460px, (min-width: 768px) 45vw, 90vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/30 via-transparent to-transparent" />
+              </div>
             </div>
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              href="/bags"
-              className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
-            >
-              {t.bags.ctaLabel}
-            </Link>
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/bags"
+                className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
+              >
+                {t.bags.ctaLabel}
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Wallets CTA */}
         <section
           id="wallets"
-          className="text-center py-12 bg-white border-t border-[#ececec]"
+          className="py-20 px-6 bg-white border-t border-[#ececec] animate-fade-in-up delay-150"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1f1f1f] mb-6">
-            {t.wallets.title}
-          </h2>
-          <Link
-            href="/wallets"
-            className="inline-block bg-[#111] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#000] transition"
-          >
-            {t.wallets.cta}
-          </Link>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col gap-12 md:flex-row md:items-stretch">
+              <div className="text-center md:text-left md:flex md:flex-[3] md:flex-col">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1f1f1f]">
+                  {t.wallets.title}
+                </h2>
+                <div className="mt-10 grid grid-cols-1 gap-6 text-left sm:grid-cols-2">
+                  {t.wallets.cards.map((card) => (
+                    <div
+                      key={card.title}
+                      className="bg-white border border-[#ececec] p-6 rounded-2xl shadow-sm hover:-translate-y-1 transition-transform duration-200"
+                    >
+                      <h3 className="text-xl font-semibold mb-3 text-[#1f1f1f]">
+                        {card.title}
+                      </h3>
+                      <p className="text-[#4b4b4b]">{card.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative h-64 w-full overflow-hidden rounded-3xl border border-[#ececec] bg-[#111]/5 shadow-inner md:h-auto md:min-h-[26rem] md:self-stretch md:flex-[2]">
+                <Image
+                  src={sectionImages.wallets}
+                  alt={`${t.wallets.title} preview`}
+                  fill
+                  sizes="(min-width: 1280px) 420px, (min-width: 768px) 40vw, 90vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/30 via-transparent to-transparent" />
+              </div>
+            </div>
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/wallets"
+                className="inline-block bg-[#111] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#000] transition"
+              >
+                {t.wallets.cta}
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 px-6 bg-[#f9f9f9] border-t border-[#ececec] animate-fade-in-up delay-300">
+          <div className="max-w-6xl mx-auto">
+            <LoyaltyCardSection />
+          </div>
         </section>
 
         {/* Contact Card */}

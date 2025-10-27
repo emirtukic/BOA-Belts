@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   createContext,
@@ -30,6 +30,37 @@ const translations = {
       subtitle:
         'Boa Belts is a boutique leather studio shaping belts, bags, and wallets by hand with Bosnian craftsmanship and premium European hides.',
       cta: 'Explore Belts',
+    },
+    gallery: {
+      title: 'Inside the Boa studio',
+      subtitle:
+        'Scroll sideways to explore textures, tools, and finished pieces captured during our latest builds.',
+      items: [
+        {
+          title: 'Hand-burnished belt edges',
+          description: 'Every edge is sealed and polished for a glass-smooth finish that resists wear.',
+        },
+        {
+          title: 'Cutting straps to measure',
+          description: 'Precision head knives keep every strap straight before the first stitch is added.',
+        },
+        {
+          title: 'Hardware selection',
+          description: 'Solid brass buckles and clasps are matched to the tone and weight of each hide.',
+        },
+        {
+          title: 'Stitching saddle seams',
+          description: 'Saddle-stitched seams lock threads in place, even under daily tension.',
+        },
+        {
+          title: 'Finished belt lineup',
+          description: 'A look at recently delivered belts waiting for final inspection and packaging.',
+        },
+      ],
+      controls: {
+        previous: 'Scroll gallery backwards',
+        next: 'Scroll gallery forwards',
+      },
     },
     about: {
       title: 'Crafted in Travnik, Bosnia and Herzegovina',
@@ -182,6 +213,52 @@ const translations = {
       closingText:
         'Share your measurements or wardrobe plans and we will sketch a strap that fits both your style and daily routine.',
       closingButton: 'Plan a belt with us',
+      categoryMenu: {
+        womens: "Women's",
+        mens: "Men's",
+      },
+      sections: {
+        womens: {
+          title: "Women's Belts",
+          subtitle: 'Bespoke silhouettes tailored for women.',
+        },
+        mens: {
+          title: "Men's Belts",
+          subtitle: 'Rugged builds crafted for men.',
+        },
+        stylesLabel: 'styles',
+      },
+      card: {
+        materialSuffix: ' leather',
+        craftedBadge: 'Handcrafted',
+        selectColorLabel: 'Select {color} for {product}',
+        infoAriaLabel: 'View description for {product}',
+        variantLabel: '{variant} option',
+        closeLabel: 'Close',
+        closeAria: 'Close description',
+      },
+      sort: {
+        label: 'Sort',
+        options: {
+          asc: 'Lowest price first',
+          desc: 'Highest price first',
+        },
+      },
+      loyalty: {
+        badge: 'Loyalty Card',
+        title: 'Meet the Boa Loyalty Card',
+        subtitle: 'Every purchase moves you closer to richer rewards and thoughtful surprises.',
+        perks: [
+          'You receive your loyalty card with your very first enquiry and order.',
+          '3rd order: 15% off your custom build.',
+          '6th order: surprise gift tailored to your style.',
+          '9th order: 25% off.',
+          '12th order: surprise gift delivered with your piece.',
+          '15th order: 50% off.',
+          '18th order: surprise experience from the studio.',
+        ],
+        note: 'The loyalty card is active from today and remains valid indefinitely. There is no minimum spend required.',
+      },
     },
     bagsPage: {
       heroTitle: 'Leather bags built to travel with you',
@@ -214,6 +291,41 @@ const translations = {
         'Antique brass hardware developed to match the warm patina of our straps.',
         'Optional shearling or felt padding for laptop compartments and cameras.',
       ],
+      collectionTitle: 'Leather Bag Collection',
+      collectionSubtitle:
+        'Twenty handcrafted totes, crossbodies, backpacks, and weekenders presented in one unified catalogue.',
+      stylesLabel: 'designs',
+      categoryMenu: {
+        daily: 'Daily Carry',
+        travel: 'Travel Ready',
+      },
+      sections: {
+        daily: {
+          title: 'Daily Carry Bags',
+          subtitle: 'Ten designs tuned for workdays, cafe meetups, and evening outings.',
+        },
+        travel: {
+          title: 'Travel & Weekender Bags',
+          subtitle: 'Ten roomy builds prepared for airports, road trips, and gear.',
+        },
+        stylesLabel: 'designs',
+      },
+      card: {
+        materialSuffix: ' leather',
+        craftedBadge: 'Handcrafted',
+        selectColorLabel: 'Select {color} for {product}',
+        infoAriaLabel: 'View description for {product}',
+        variantLabel: '{variant} option',
+        closeLabel: 'Close',
+        closeAria: 'Close description',
+      },
+      sort: {
+        label: 'Sort',
+        options: {
+          asc: 'Lowest price first',
+          desc: 'Highest price first',
+        },
+      },
       closingTitle: 'Carry a bag that fits your rhythm',
       closingText:
         'Describe your daily routine or upcoming trip and we will recommend silhouettes, colours, and interior layouts tailored to you.',
@@ -222,7 +334,7 @@ const translations = {
     walletsPage: {
       heroTitle: 'Wallets and accessories that stay with you',
       heroSubtitle:
-        'Compact designs for cards, cash, and keepsakes—stitched by hand so they remain slim yet enduring.',
+        'Compact designs for cards, cash, and keepsakesâ€”stitched by hand so they remain slim yet enduring.',
       heroCta: 'Request a wallet mock-up',
       signatureTitle: 'Signature builds',
       signatureItems: [
@@ -245,50 +357,126 @@ const translations = {
         'Monogram embossing or laser engraving on interior panels.',
         'Contrasting saddle-stitch colours to match your existing accessories.',
       ],
+      heroParagraphs: [
+        'Compact leather goods built for longevity, with every panel cut, skived, and saddle-stitched by hand.',
+        'Choose between slim sleeves for everyday carry or organisers that keep documents, devices, and currencies in order.',
+      ],
+      collectionTitle: 'Wallet & Accessory Collection',
+      collectionSubtitle:
+        'Twenty handcrafted card sleeves, folios, and organisers unified in a single showcase.',
+      stylesLabel: 'layouts',
       careTitle: 'Care in three steps',
       careSteps: [
         'Keep the wallet away from direct moisture; pat dry if exposed to rain.',
         'Use a small amount of neutral cream every six months.',
         'Rotate cards occasionally to ensure even wear across pockets.',
       ],
+      categoryMenu: {
+        slim: 'Card Holders',
+        carry: 'Organisers',
+      },
+      sections: {
+        slim: {
+          title: 'Card Holder Wallets',
+          subtitle: 'Ten ultra-slim builds focused on cards and light cash.',
+        },
+        carry: {
+          title: 'Carry-All Wallets',
+          subtitle: 'Ten organisers sized for travel documents, phones, and notebooks.',
+        },
+        stylesLabel: 'layouts',
+      },
+      card: {
+        materialSuffix: ' leather',
+        craftedBadge: 'Handcrafted',
+        selectColorLabel: 'Select {color} for {product}',
+        infoAriaLabel: 'View description for {product}',
+        variantLabel: '{variant} option',
+        closeLabel: 'Close',
+        closeAria: 'Close description',
+      },
+      sort: {
+        label: 'Sort',
+        options: {
+          asc: 'Lowest price first',
+          desc: 'Highest price first',
+        },
+      },
       closingTitle: 'Let us tailor your everyday carry',
       closingText:
-        'Tell us how many cards you carry, the currencies you use, and any special keepsakes—our team will draft a layout just for you.',
+        'Tell us how many cards you carry, the currencies you use, and any special keepsakesâ€”our team will draft a layout just for you.',
       closingButton: 'Start a wallet order',
     },
     aboutPage: {
-      heroTitle: 'About Boa Belts',
-      heroSubtitle: 'A Travnik workshop dedicated to slow craftsmanship, honest materials, and lasting relationships.',
-      storyTitle: 'Our story',
-      storyParagraphs: [
-        'Boa Belts began in a small Travnik studio with a single stitching pony and a belief that everyday objects deserve the same care as heirlooms.',
-        'Today we serve clients across Bosnia and Herzegovina and beyond, keeping production local while sourcing the best European hides and hardware.',
+      heroTitle: 'Inside Boa Belts',
+      heroSubtitle: 'From a Travnik garage to wardrobes around the world—handmade leather pieces, transparent sourcing, and clients who become friends.',
+      introTitle: 'Why We Build Precise',
+      introParagraphs: [
+        'Boa Belts started with one stitching pony, a single hide, and a promise to treat everyday accessories like heirlooms. We still work on that same street in Travnik, shaping belts, bags, and wallets one order at a time.',
+        'Every commission begins with a conversation. We pair vegetable-tanned European leather with traditional hand tools, documenting each step so you know exactly who made your piece and how.',
       ],
-      valuesTitle: 'What we stand for',
-      values: [
+      highlightsTitle: 'What Guides Our Studio',
+      highlights: [
         {
-          title: 'Handmade in Travnik',
-          description: 'Every belt, bag, and wallet is cut, stitched, and finished in-house for complete quality control.',
+          title: 'Craft, Not Production',
+          description:
+            'We prioritise on details, precise work. Each cut, stitch, and burnish happens in-house so we can sign off on the finish personally.',
         },
         {
-          title: 'Transparent sourcing',
-          description: 'We only work with tanneries and partners who meet our standards for traceability and responsible production.',
+          title: 'Traceable Materials',
+          description:
+            'We collaborate only with tanneries and foundries that share our standards for sustainability, transparency, and respect for the craft.',
         },
         {
-          title: 'Pieces built to last',
-          description: 'Our goal is to create goods that accompany you for decades, not seasons.',
+          title: 'Pieces Built to Age',
+          description:
+            'Boa goods are designed to gather stories—not wear out. Patina, repairability, and long-term support matter more than fast seasons.',
         },
       ],
-      craftTitle: 'Tools, hides, and patience',
-      craftParagraphs: [
-        'From French skiving knives to pricking irons tuned for perfect stitch spacing, our workshop is set up for precision work.',
-        'We test every new hide for elasticity, aroma, and finish, ensuring it complements the intended product before it reaches your hands.',
+      processTitle: 'How Your Order Comes to Life',
+      processSteps: [
+        'Consult & Sketch – Tell us how you plan to use the piece and we outline the silhouette, hardware, and measurements.',
+        'Select & Prepare – We reserve the perfect hide, inspect the grain and temper, then cut, bevel, and burnish each component by hand.',
+        'Stitch & Finish – Saddle-stitching, edge sealing, conditioning, and a final inspection before your order leaves Travnik.',
       ],
-      timelineTitle: 'Milestones',
+      timelineTitle: 'Where We’re Heading',
       timelinePoints: [
-        '2018 – First bespoke belts delivered to clients in Travnik and Sarajevo.',
-        '2020 – Expanded into small-run bag production and introduced custom wallet programme.',
-        '2024 – Opened our appointment-only studio for fittings, workshops, and collaborations.',
+        'Community workshops in Travnik for clients eager to learn hand-stitching and leather care.',
+        'Collaborations with Bosnian creatives on limited capsule drops and experimental builds.',
+        'A restoration programme so your Boa pieces can be revived for the next decade of wear.',
+      ],
+      contactTitle: 'Ready for Your Own Boa Story?',
+      contactSubtitle:
+        'Place your order via Instagram, Facebook, or email—we reply within 24 hours.',
+      contactMethods: {
+        instagram: {
+          label: 'Instagram Direct',
+          href: 'https://www.instagram.com/boa.belts.ba/',
+          description: 'Send a DM with your idea, measurements, or inspiration photos.',
+        },
+        facebook: {
+          label: 'Facebook Messenger',
+          href: 'https://www.facebook.com/boa.belts.ba/',
+          description: 'Chat with us in Bosnian or English to plan your order in real time.',
+        },
+        email: {
+          label: 'Email',
+          value: 'boabelts@gmail.com',
+          description: 'Prefer detailed briefs? Drop us a note with timelines and references.',
+        },
+      },
+      channelsTitle: 'Join Our Broadcast Channels',
+      channelsSubtitle:
+        'Be the first to see new builds, reserve limited releases, and peek behind the scenes.',
+      channels: [
+        {
+          label: 'Instagram Broadcast Channel',
+          href: 'https://www.instagram.com/channel/AbZM4SjaMTlKZFSE/',
+        },
+        {
+          label: 'Viber Community',
+          href: 'https://invite.viber.com/?g2=AQAaoTnRFh7cx1QzWYBXSwkl19bz2fm%2F3SY8bj9neDsJbnIxB09dthrxxJj0pl5z',
+        },
       ],
       ctaTitle: 'Visit the workshop or write to us',
       ctaText:
@@ -315,6 +503,37 @@ const translations = {
         'Boa Belts je butik ko\u017earski studio koji ru\u010dno izra\u0111uje kai\u0161eve, torbe i nov\u010danike bosanskim zanatskim vje\u0161tinama i vrhunskim evropskim ko\u017eama.',
       cta: 'Istra\u017ei kai\u0161eve',
     },
+    gallery: {
+      title: 'Unutar Boa studija',
+      subtitle:
+        'Povuci u stranu i zaviri u teksture, alate i gotove komade nastale tokom posljednjih narud\u017ebi.',
+      items: [
+        {
+          title: 'Ru\u010dni burni\u0161 rubova',
+          description: 'Svaki rub je zatvoren i ispoliran kako bi ostao gladak i otporan na habanje.',
+        },
+        {
+          title: 'Rezanje kai\u0161eva po mjeri',
+          description: 'Precizni no\u017eevi dr\u017ee svaki remen potpuno prav prije nego \u0161to krenu prvi \u0161avovi.',
+        },
+        {
+          title: 'Biranje okova',
+          description: 'Masivne mesingane kop\u010de biramo prema tonu i te\u017eini svake ko\u017ee.',
+        },
+        {
+          title: '\u0160ivenje saddle \u0161avom',
+          description: 'Saddle \u0161avovi zaklju\u010davaju konac i ostaju \u010dvrsti \u010dak i pri svakodnevnom naprezanju.',
+        },
+        {
+          title: 'Zavr\u0161ena kolekcija kai\u0161eva',
+          description: 'Pogled na kai\u0161eve koji \u010dekaju zavr\u0161nu kontrolu i pakovanje.',
+        },
+      ],
+      controls: {
+        previous: 'Pomjeri galeriju unazad',
+        next: 'Pomjeri galeriju naprijed',
+      },
+    },
     about: {
       title: 'Izra\u0111eno u Travniku, Bosna i Hercegovina',
       body:
@@ -322,7 +541,7 @@ const translations = {
       ctaLabel: 'Saznaj vi\u0161e o nama',
     },
     belts: {
-      title: 'Potpisni kai\u0161evi',
+      title: 'Ru\u010dno ra\u0111eni kai\u0161evi',
       cards: [
         {
           title: 'Ru\u010dna zavr\u0161na obrada',
@@ -422,8 +641,24 @@ const translations = {
       location: 'Travnik, Bosna i Hercegovina',
       copyright: 'Boa Belts. Sva prava zadr\u017eana.',
     },
+    loyalty: {
+      badge: 'Loyalty kartica',
+      title: 'Upoznaj Boa Loyalty karticu',
+      subtitle:
+        'Svaka narud\u017eba te vodi do ve\u0107ih pogodnosti i pa\u017eljivo biranih iznena\u0111enja.',
+      perks: [
+        'Karticu dobija\u0161 ve\u0107 prilikom prve prijave i prve kupovine.',
+        'Tre\u0107a narud\u017eba: 15% popusta.',
+        '\u0160esta narud\u017eba: iznena\u0111enje iz na\u0161eg studija.',
+        'Deveta narud\u017eba: 25% popusta.',
+        'Dvanaesta narud\u017eba: iznena\u0111enje uz tvoju isporuku.',
+        'Petnaesta narud\u017eba: 50% popusta.',
+        'Osamnaesta narud\u017eba: posebno iznena\u0111enje iz radionice.',
+      ],
+      note: 'Loyalty kartica vrijedi od danas pa sve do daljnjeg. Iznos potro\u0161nje nije ograni\u010den.',
+    },
     beltsPage: {
-      heroTitle: 'Potpisni kai\u0161evi iz Travnika',
+      heroTitle: 'Ru\u010dno ra\u0111eni kai\u0161evi iz Travnika',
       heroSubtitle:
         'Od farmerki do odijela, na\u0161i kai\u0161evi prate svaku kombinaciju i starenjem dobijaju na ljepoti.',
       heroCta: 'Zatra\u017ei kai\u0161 po mjeri',
@@ -464,6 +699,37 @@ const translations = {
       closingText:
         'Po\u0161aljite nam mjere ili stil koji preferirate, a mi \u0107emo predlo\u017eiti kai\u0161 koji prati va\u0161 ritam.',
       closingButton: 'Planiraj kai\u0161 s nama',
+      categoryMenu: {
+        womens: '\u017denski',
+        mens: 'Mu\u0161ki',
+      },
+      sections: {
+        womens: {
+          title: '\u017denski kai\u0161evi',
+          subtitle: 'Deset modela prilago\u0111enih \u017eenskoj silueti.',
+        },
+        mens: {
+          title: 'Mu\u0161ki kai\u0161evi',
+          subtitle: 'Deset izdr\u017eljivih modela za mu\u0161karce.',
+        },
+        stylesLabel: 'modela',
+      },
+      card: {
+        materialSuffix: ' ko\u017ea',
+        craftedBadge: 'Ru\u010dno izra\u0111eno',
+        selectColorLabel: 'Odaberi {color} za {product}',
+        infoAriaLabel: 'Pogledaj opis za {product}',
+        variantLabel: '{variant} varijanta',
+        closeLabel: 'Zatvori',
+        closeAria: 'Zatvori opis',
+      },
+      sort: {
+        label: 'Sortiraj',
+        options: {
+          asc: 'Najni\u017ea cijena prvo',
+          desc: 'Najvi\u0161a cijena prvo',
+        },
+      },
     },
     bagsPage: {
       heroTitle: 'Ko\u017ene torbe koje putuju s vama',
@@ -496,6 +762,41 @@ const translations = {
         'Antikni mesing koji prate topli sjaj na\u0161ih kai\u0161eva.',
         'Opciona podstava od filca ili umjetnog krzna za tehniku ili foto opremu.',
       ],
+      collectionTitle: 'Kolekcija ko\u017enih torbi',
+      collectionSubtitle:
+        'Dvadeset ru\u010dno ra\u0111enih torbi \u2014 od tote modela do vikendera \u2014 na jednom mjestu.',
+      stylesLabel: 'modela',
+      categoryMenu: {
+        daily: 'Za svaki dan',
+        travel: 'Za putovanja',
+      },
+      sections: {
+        daily: {
+          title: 'Torbe za svakodnevnicu',
+          subtitle: 'Deset dizajna spremnih za posao, kafu i ve\u010dernji izlazak.',
+        },
+        travel: {
+          title: 'Putne torbe i vikenderi',
+          subtitle: 'Deset prostranih modela pripremljenih za letove, vo\u017enje i opremu.',
+        },
+        stylesLabel: 'modela',
+      },
+      card: {
+        materialSuffix: ' ko\u017ea',
+        craftedBadge: 'Ru\u010dno izra\u0111eno',
+        selectColorLabel: 'Odaberi {color} za {product}',
+        infoAriaLabel: 'Pogledaj opis za {product}',
+        variantLabel: '{variant} varijanta',
+        closeLabel: 'Zatvori',
+        closeAria: 'Zatvori opis',
+      },
+      sort: {
+        label: 'Sortiraj',
+        options: {
+          asc: 'Najni\u017ea cijena prvo',
+          desc: 'Najvi\u0161a cijena prvo',
+        },
+      },
       closingTitle: 'Torba koja prati tvoj ritam',
       closingText:
         'Opi\u0161ite svoje dnevne navike ili planirani put, a mi \u0107emo predlo\u017eiti formu, boju i unutra\u0161nji raspored.',
@@ -504,9 +805,9 @@ const translations = {
     walletsPage: {
       heroTitle: 'Nov\u010danici i dodaci uz koje trajete',
       heroSubtitle:
-        'Kompaktni dizajni za kartice, gotovinu i uspomene—ru\u010dno \u0161iveni kako bi ostali tanki i izdr\u017eljivi.',
+        'Kompaktni dizajni za kartice, gotovinu i uspomeneâ€”ru\u010dno \u0161iveni kako bi ostali tanki i izdr\u017eljivi.',
       heroCta: 'Zatra\u017ei skicu nov\u010danika',
-      signatureTitle: 'Potpisni modeli',
+      signatureTitle: 'Ru\u010dno ra\u0111eni modeli',
       signatureItems: [
         {
           title: 'Klasi\u010dni preklopni nov\u010danik',
@@ -527,55 +828,146 @@ const translations = {
         'Utiskivanje inicijala ili lasersko graviranje na unutra\u0161njim panelima.',
         'Kontrastni saddle \u0161av u boji koja prati va\u0161 postoje\u0107i pribor.',
       ],
+      heroParagraphs: [
+        'Ru\u010dno krojeni i \u0161iveni dodaci koji ostaju tanki i pouzdani godinama.',
+        'Birajte izme\u0111u ultra tankih futrola za kartice ili organizatora koji dr\u017ee dokumente, telefone i valute pod kontrolom.',
+      ],
+      collectionTitle: 'Kolekcija nov\u010danika i dodataka',
+      collectionSubtitle:
+        'Dvadeset modela ru\u010dno izra\u0111enih futrola, nov\u010danika i organizatora na jednom mjestu.',
+      stylesLabel: 'rasporeda',
       careTitle: 'Njega u tri koraka',
       careSteps: [
         'Za\u0161titite nov\u010danik od vlage; ako pokisne, nje\u017eno ga osu\u0161ite.',
         'Svakih \u0161est mjeseci nanesite malu koli\u010dinu neutralne kreme.',
         'Povremeno zamijenite raspored kartica kako bi se pritisak ravnomjerno rasporedio.',
       ],
+      categoryMenu: {
+        slim: 'Kartice',
+        carry: 'Organizatori',
+      },
+      sections: {
+        slim: {
+          title: 'Futrole za kartice',
+          subtitle: 'Deset ultra tankih modela za kartice i malo gotovine.',
+        },
+        carry: {
+          title: 'Organizatori i putni nov\u010danici',
+          subtitle: 'Deset rasporeda za paso\u0161e, telefone i bilje\u0161ke.',
+        },
+        stylesLabel: 'rasporeda',
+      },
+      card: {
+        materialSuffix: ' ko\u017ea',
+        craftedBadge: 'Ru\u010dno izra\u0111eno',
+        selectColorLabel: 'Odaberi {color} za {product}',
+        infoAriaLabel: 'Pogledaj opis za {product}',
+        variantLabel: '{variant} varijanta',
+        closeLabel: 'Zatvori',
+        closeAria: 'Zatvori opis',
+      },
+      sort: {
+        label: 'Sortiraj',
+        options: {
+          asc: 'Najni\u017ea cijena prvo',
+          desc: 'Najvi\u0161a cijena prvo',
+        },
+      },
+      loyalty: {
+        badge: 'Loyalty kartica',
+        title: 'Upoznaj Boa Loyalty karticu',
+        subtitle: 'Svaka narud\u017eba te vodi do ve\u0107ih pogodnosti i pa\u017eljivo biranih iznena\u0111enja.',
+        perks: [
+          'Karticu dobija\u0161 ve\u0107 prilikom prve prijave i prve kupovine.',
+          'Tre\u0107a narud\u017eba: 15% popusta.',
+          '\u0160esta narud\u017eba: iznena\u0111enje iz na\u0161eg studija.',
+          'Deveta narud\u017eba: 25% popusta.',
+          'Dvanaesta narud\u017eba: iznena\u0111enje uz tvoju isporuku.',
+          'Petnaesta narud\u017eba: 50% popusta.',
+          'Osamnaesta narud\u017eba: posebno iznena\u0111enje iz radionice.',
+        ],
+        note: 'Loyalty kartica vrijedi od danas pa sve do daljnjeg. Iznos potro\u0161nje nije ograni\u010den.',
+      },
       closingTitle: 'Prilagodimo va\u0161 svakodnevni pribor',
       closingText:
-        'Napi\u0161ite koliko kartica nosite, u kojim valutama pla\u0107ate i da li imate posebne uspomene—predlo\u017eit \u0107emo raspored koji vam savr\u0161eno odgovara.',
+        'Napi\u0161ite koliko kartica nosite, u kojim valutama pla\u0107ate i da li imate posebne uspomeneâ€”predlo\u017eit \u0107emo raspored koji vam savr\u0161eno odgovara.',
       closingButton: 'Pokreni narud\u017ebu nov\u010danika',
     },
     aboutPage: {
-      heroTitle: 'O nama',
-      heroSubtitle: 'Travni\u010dki atelje posve\u0107en sporoj izradi, \u010distim materijalima i trajnim odnosima.',
-      storyTitle: 'Na\u0161a pri\u010da',
-      storyParagraphs: [
-        'Boa Belts je nastao u malom travni\u010dkom studiju iz \u017eelje da svakodnevni predmeti dobiju pa\u017enju vrijednu porodi\u010dnih naslje\u0111a.',
-        'Danas radimo s klijentima \u0161irom Bosne i Hercegovine i inostranstva, zadr\u017eavaju\u0107i proizvodnju lokalnom dok biramo najbolje evropske ko\u017ee i okove.',
+      heroTitle: 'Boa Belts iznutra',
+      heroSubtitle: 'Od garaže u Travniku do ormara širom svijeta—ručno rađeni komadi, čisto porijeklo i klijenti koji postaju prijatelji.',
+      introTitle: 'Zašto radimo precizno',
+      introParagraphs: [
+        'Boa Belts je nastao uz jednu šivaću klupu, jednu kožu i ideju da svakodnevni predmeti zaslužuju pažnju kao porodična nasljeđa. Danas i dalje radimo u istoj ulici u Travniku, izrađujući kaiševe, torbe i novčanike po narudžbi.',
+        'Svaka narudžba počinje razgovorom. Uparujemo evropsku, površno štavljenu kožu s tradicionalnim alatima i bilježimo svaki korak kako biste znali ko je izradio vaš komad i na koji način.',
       ],
-      valuesTitle: '\u0160ta nas vodi',
-      values: [
+      highlightsTitle: 'Šta nas vodi',
+      highlights: [
         {
-          title: 'Ru\u010dno ra\u0111eno u Travniku',
-          description: 'Svaki kai\u0161, torba i nov\u010danik nastaje u na\u0161em studiju kako bismo imali potpunu kontrolu kvaliteta.',
+          title: 'Zanat, ne proizvodnja',
+          description:
+            'Radimo detaljno i precizno. Svaki rez, šav i poliranje nastaje u našem studiju kako bismo lično potpisali završnicu.',
         },
         {
-          title: 'Transparentno porijeklo',
-          description: 'Sara\u0111ujemo samo s partnerima koji zadovoljavaju na\u0161e standarde trasabilnosti i odgovorne proizvodnje.',
+          title: 'Transparentni materijali',
+          description:
+            'Sarađujemo samo s kožarama i livnicama koje dijele naše standarde održivosti, transparentnosti i poštovanja prema zanatu.',
         },
         {
-          title: 'Trajnost bez kompromisa',
-          description: 'Na\u0161 cilj je da va\u0161i komadi traju godinama, a ne sezonama.',
+          title: 'Komadi koji stare uz tebe',
+          description:
+            'Boa komadi su napravljeni da skupljaju priče, a ne da se troše. Patina i mogućnost restauracije važniji su nam od sezonskih trendova.',
         },
       ],
-      craftTitle: 'Alati, ko\u017ee i strpljenje',
-      craftParagraphs: [
-        'Od francuskih no\u017eeva za skidanje do igala za savr\u0161eni razmak \u0161avova—na\u0161a radionica je pode\u0161ena za precizan rad.',
-        'Svaku novu ko\u017eu testiramo na elasti\u010dnost, miris i zavr\u0161nu obradu prije nego \u0161to u\u0111e u va\u0161u narud\u017ebu.',
+      processTitle: 'Kako nastaje tvoja narudžba',
+      processSteps: [
+        'Konsultacije i skice – Napiši nam kako ćeš nositi komad; zajedno crtamo siluetu i biramo okove.',
+        'Selekcija i priprema – Rezervišemo odgovarajuću kožu, provjeravamo vlakna i ton, zatim ručno krojimo i profiliramo svaki dio.',
+        'Šivenje i završna obrada – Saddle šav, obrada rubova, njegovanje i završna kontrola prije isporuke.',
       ],
-      timelineTitle: 'Milestone trenuci',
+      timelineTitle: 'Kuda idemo',
       timelinePoints: [
-        '2018 – Prvi kai\u0161evi po mjeri isporu\u010deni klijentima u Travniku i Sarajevu.',
-        '2020 – Pro\u0161irenje na limitirane serije torbi i uvo\u0111enje programa prilago\u0111enih nov\u010danika.',
-        '2024 – Otvoren studio po zakazivanju za probe, radionice i saradnje.',
+        'Radionice u Travniku za sve koji žele naučiti ručno šivenje i njegu kože.',
+        'Saradnje s bh. kreativcima na limitiranim kapsulama i istraživačkim serijama.',
+        'Program restauracije kako bi Boa komadi dobili novi sjaj i nakon godina nošenja.',
       ],
-      ctaTitle: 'Posjetite nas ili nam pi\u0161ite',
+      contactTitle: 'Spreman/spremna za svoju Boa priču?',
+      contactSubtitle:
+        'Narudžbu možeš izvršiti porukom na Instagramu, Facebooku ili e-mailom — odgovaramo u roku od 24 sata.',
+      contactMethods: {
+        instagram: {
+          label: 'Instagram poruka',
+          href: 'https://www.instagram.com/boa.belts.ba/',
+          description: 'Pošalji DM s idejom, mjerama ili fotografijama za inspiraciju.',
+        },
+        facebook: {
+          label: 'Facebook Messenger',
+          href: 'https://www.facebook.com/boa.belts.ba/',
+          description: 'Piši nam na bosanskom ili engleskom i dogovori narudžbu u realnom vremenu.',
+        },
+        email: {
+          label: 'Email',
+          value: 'boabelts@gmail.com',
+          description: 'Za detaljne brifove pošalji poruku s rokovima i referencama.',
+        },
+      },
+      channelsTitle: 'Pridruži se našim kanalima',
+      channelsSubtitle:
+        'Prvi saznaj za nove modele, ograničene serije i pogled iza kulisa.',
+      channels: [
+        {
+          label: 'Instagram broadcast kanal',
+          href: 'https://www.instagram.com/channel/AbZM4SjaMTlKZFSE/',
+        },
+        {
+          label: 'Viber zajednica',
+          href: 'https://invite.viber.com/?g2=AQAaoTnRFh7cx1QzWYBXSwkl19bz2fm%2F3SY8bj9neDsJbnIxB09dthrxxJj0pl5z',
+        },
+      ],
+      ctaTitle: 'Posjetite nas ili nam pišite',
       ctaText:
-        'Termine rezervi\u0161emo za probe, izbor ko\u017ee i konsultacije o dizajnu. Radujemo se novim idejama i pri\u010dama.',
-      ctaButton: 'Zaka\u017ei posjetu studiju',
+        'Termine rezervišemo za probe, izbor kože i konsultacije o dizajnu. Radujemo se novim idejama i pričama.',
+      ctaButton: 'Zakaži posjetu studiju',
     },
   },
 } as const;
@@ -621,3 +1013,5 @@ export function useLanguage() {
 }
 
 export default LanguageProvider;
+
+

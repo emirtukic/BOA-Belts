@@ -1,0 +1,96 @@
+      <section className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 pb-24 pt-20">
+        <nav
+          aria-label="Belt categories"
+          className="mx-auto flex w-full max-w-md justify-center gap-4 rounded-full border border-[#dfdfdf] bg-white p-2 shadow-sm"
+        >
+          <button
+            type="button"
+            onClick={() => handleMenuClick('women')}
+            className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
+              activeCategory === 'women'
+                ? 'bg-[#111] text-white shadow'
+                : 'text-[#111] hover:bg-[#111] hover:text-white'
+            }`}
+            aria-pressed={activeCategory === 'women'}
+          >
+            {data.categoryMenu.womens}
+          </button>
+          <button
+            type="button"
+            onClick={() => handleMenuClick('men')}
+            className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
+              activeCategory === 'men'
+                ? 'bg-[#111] text-white shadow'
+                : 'text-[#111] hover:bg-[#111] hover:text-white'
+            }`}
+            aria-pressed={activeCategory === 'men'}
+          >
+            {data.categoryMenu.mens}
+          </button>
+        </nav>
+
+        <LoyaltyCardSection />
+
+        <section
+          ref={womensSectionRef}
+          id="womens-belts"
+          className={`space-y-8 ${activeCategory !== 'women' ? 'hidden' : ''}`}
+          aria-hidden={activeCategory !== 'women'}
+        >
+          <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
+            <div>
+              <h3 className="text-2xl font-semibold md:text-3xl">
+                {data.sections.womens.title}
+              </h3>
+              <p className="text-sm text-[#6a6a6a]">{data.sections.womens.subtitle}</p>
+            </div>
+            <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
+                {womensCountLabel}
+              </span>
+              <SortSelect
+                value={sortOrder}
+                label={sortCopy.label}
+                ascLabel={sortCopy.options.asc}
+                descLabel={sortCopy.options.desc}
+                onChange={(order) => setSortOrder(order)}
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            {womensProducts.map((product) => renderProductCard(product))}
+          </div>
+        </section>
+
+        <section
+          ref={mensSectionRef}
+          id="mens-belts"
+          className={`space-y-8 ${activeCategory !== 'men' ? 'hidden' : ''}`}
+          aria-hidden={activeCategory !== 'men'}
+        >
+          <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
+            <div>
+              <h3 className="text-2xl font-semibold md:text-3xl">{data.sections.mens.title}</h3>
+              <p className="text-sm text-[#6a6a6a]">{data.sections.mens.subtitle}</p>
+            </div>
+            <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
+                {mensCountLabel}
+              </span>
+              <SortSelect
+                value={sortOrder}
+                label={sortCopy.label}
+                ascLabel={sortCopy.options.asc}
+                descLabel={sortCopy.options.desc}
+                onChange={(order) => setSortOrder(order)}
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            {mensProducts.map((product) => renderProductCard(product))}
+          </div>
+        </section>
+      </section>
+    </main>
+  );
+}
