@@ -171,6 +171,21 @@ const translations = {
       facebookLabel: 'Facebook /boa.belts.ba',
       copyright: 'Boa Belts. All rights reserved.',
     },
+    loyalty: {
+      badge: 'Loyalty Card',
+      title: 'Meet the Boa Loyalty Card',
+      subtitle: 'Every purchase moves you closer to richer rewards and thoughtful surprises.',
+      perks: [
+        'You receive your loyalty card with your very first enquiry and order.',
+        '3rd order: 15% off your custom build.',
+        '6th order: surprise gift tailored to your style.',
+        '9th order: 25% off.',
+        '12th order: surprise gift delivered with your piece.',
+        '15th order: 50% off.',
+        '18th order: surprise experience from the studio.',
+      ],
+      note: 'The loyalty card is active from today and remains valid indefinitely. There is no minimum spend required.',
+    },
     beltsPage: {
       heroTitle: 'Signature Belts Crafted in Travnik',
       heroSubtitle:
@@ -243,21 +258,6 @@ const translations = {
           asc: 'Lowest price first',
           desc: 'Highest price first',
         },
-      },
-      loyalty: {
-        badge: 'Loyalty Card',
-        title: 'Meet the Boa Loyalty Card',
-        subtitle: 'Every purchase moves you closer to richer rewards and thoughtful surprises.',
-        perks: [
-          'You receive your loyalty card with your very first enquiry and order.',
-          '3rd order: 15% off your custom build.',
-          '6th order: surprise gift tailored to your style.',
-          '9th order: 25% off.',
-          '12th order: surprise gift delivered with your piece.',
-          '15th order: 50% off.',
-          '18th order: surprise experience from the studio.',
-        ],
-        note: 'The loyalty card is active from today and remains valid indefinitely. There is no minimum spend required.',
       },
     },
     bagsPage: {

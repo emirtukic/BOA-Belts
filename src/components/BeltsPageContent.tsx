@@ -560,8 +560,6 @@ export default function BeltsPageContent() {
           </div>
         </section>
 
-        <LoyaltyCardSection className="mt-4" />
-
         <section
           ref={mensSectionRef}
           id="mens-belts"
@@ -589,6 +587,7 @@ export default function BeltsPageContent() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {mensProducts.map((product) => renderProductCard(product))}
           </div>
+          <LoyaltyCardSection className="mt-4" />
         </section>
       </section>
     </main>
