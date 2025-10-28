@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 
 export default function Navbar() {
@@ -23,6 +24,7 @@ export default function Navbar() {
     { href: '/bags', label: t.nav.bags },
     { href: '/wallets', label: t.nav.wallets },
     { href: '/about', label: t.nav.about },
+    { href: '/loyalty', label: t.nav.loyalty },
   ];
 
   return (
@@ -138,23 +140,25 @@ export default function Navbar() {
             </Link>
 
             <div className="text-center mt-2">
-              <p className="text-sm text-[#7b7b7b] mb-2">{t.nav.follow}</p>
-              <div className="flex items-center space-x-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#7b7b7b] mb-3">
+                {t.nav.follow}
+              </p>
+              <div className="flex items-center justify-center gap-4">
                 <a
                   href="https://www.instagram.com/boa_belts/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-black"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#dcdcdc] text-[#111] transition hover:bg-[#111] hover:text-white"
                 >
-                  {t.followLinks.instagram}
+                  <FaInstagram className="h-4 w-4" />
                 </a>
                 <a
                   href="https://www.facebook.com/boa.belts.ba"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-black"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#dcdcdc] text-[#111] transition hover:bg-[#111] hover:text-white"
                 >
-                  {t.followLinks.facebook}
+                  <FaFacebookF className="h-4 w-4" />
                 </a>
               </div>
             </div>

@@ -21,11 +21,18 @@ const beltIcons = [
   FaGem,
 ] as const;
 
-const heroBackgrounds = [
+const heroBackgroundsDesktop = [
   "url('/boa_belts_4.jpg')",
   "url('/belt.jpg')",
   "url('/torba.jpg')",
   "url('/novcanik.jpg')",
+] as const;
+
+const heroBackgroundsMobile = [
+  "url('/bb1.png')",
+  "url('/bb2.png')",
+  "url('/bb3.png')",
+  "url('/bb4.png')",
 ] as const;
 
 const galleryMedia = [
@@ -44,6 +51,23 @@ const sectionImages = {
 
 export default function HomeContent() {
   const { t } = useLanguage();
+  const [isMobileHero, setIsMobileHero] = useState(false);
+  const heroBackgrounds = isMobileHero ? heroBackgroundsMobile : heroBackgroundsDesktop;
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobileHero(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener('change', update);
+
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
   type Slide = {
     title: string;
     subtitle: string;
@@ -82,8 +106,32 @@ export default function HomeContent() {
         ...slide,
         background: heroBackgrounds[index % heroBackgrounds.length],
       })),
+    [t, heroBackgrounds],
+  );
+  const mobileTiles = useMemo(
+    () => [
+      {
+        key: 'belts',
+        label: t.nav.belts,
+        href: '/belts',
+        image: sectionImages.belts,
+      },
+      {
+        key: 'bags',
+        label: t.nav.bags,
+        href: '/bags',
+        image: sectionImages.bags,
+      },
+      {
+        key: 'wallets',
+        label: t.nav.wallets,
+        href: '/wallets',
+        image: sectionImages.wallets,
+      },
+    ],
     [t],
   );
+  const mobileTilesButton = t.home.mobileTilesButton;
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = slides.length;
   const galleryRef = useRef<HTMLDivElement | null>(null);
@@ -205,7 +253,35 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <div className="relative z-10 bg-white" style={{ marginTop: '55vh' }}>
+      <section
+        className="relative z-10 bg-white px-6 pb-16 pt-12 md:hidden"
+        style={{ marginTop: '55vh' }}
+      >
+        <div className="mx-auto flex w-full max-w-md flex-col gap-6">
+          {mobileTiles.map((tile) => (
+            <Link key={tile.key} href={tile.href} className="group block">
+              <div className="relative aspect-square overflow-hidden rounded-3xl border border-[#e6e6e6] shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
+                <Image
+                  src={tile.image}
+                  alt={`${tile.label} preview`}
+                  fill
+                  sizes="90vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+                  priority={tile.key === 'belts'}
+                />
+              </div>
+              <div className="mt-4 flex flex-col items-start gap-3">
+                <h3 className="text-xl font-semibold text-[#111]">{tile.label}</h3>
+                <span className="inline-flex w-full items-center justify-center rounded-full bg-[#111] px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white">
+                  {mobileTilesButton}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="relative z-10 hidden bg-white md:block" style={{ marginTop: '55vh' }}>
         {/* Studio Gallery */}
         <section
           id="gallery"

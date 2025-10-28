@@ -19,6 +19,7 @@ const translations = {
       bags: 'Bags',
       wallets: 'Wallets',
       about: 'About',
+      loyalty: 'Loyalty',
       contact: 'Contact',
       contactCta: "Let's Talk",
       languageToggle: 'BS',
@@ -30,6 +31,9 @@ const translations = {
       subtitle:
         'Boa Belts is a boutique leather studio shaping belts, bags, and wallets by hand with Bosnian craftsmanship and premium European hides.',
       cta: 'Explore Belts',
+    },
+    home: {
+      mobileTilesButton: 'View all',
     },
     gallery: {
       title: 'Inside the Boa studio',
@@ -185,6 +189,7 @@ const translations = {
         '18th order: surprise experience from the studio.',
       ],
       note: 'The loyalty card is active from today and remains valid indefinitely. There is no minimum spend required.',
+      cta: 'Explore loyalty perks',
     },
     beltsPage: {
       heroTitle: 'Signature Belts Crafted in Travnik',
@@ -491,6 +496,7 @@ const translations = {
       bags: 'Torbe',
       wallets: 'Nov\u010danici',
       about: 'O nama',
+      loyalty: 'Loyalty kartica',
       contact: 'Kontakt',
       contactCta: 'Kontaktiraj nas',
       languageToggle: 'EN',
@@ -498,10 +504,13 @@ const translations = {
       follow: 'Pratite nas',
     },
     hero: {
-      title: 'Ru\u010dno ra\u0111eni ko\u017eni proizvodi iz Travnika',
+      title: 'Prvi bosanskohercegovacki brend rucno radjenih koznih kaiseva',
       subtitle:
         'Boa Belts je butik ko\u017earski studio koji ru\u010dno izra\u0111uje kai\u0161eve, torbe i nov\u010danike bosanskim zanatskim vje\u0161tinama i vrhunskim evropskim ko\u017eama.',
       cta: 'Istra\u017ei kai\u0161eve',
+    },
+    home: {
+      mobileTilesButton: 'Pogledaj sve',
     },
     gallery: {
       title: 'Unutar Boa studija',
@@ -656,6 +665,7 @@ const translations = {
         'Osamnaesta narud\u017eba: posebno iznena\u0111enje iz radionice.',
       ],
       note: 'Loyalty kartica vrijedi od danas pa sve do daljnjeg. Iznos potro\u0161nje nije ograni\u010den.',
+      cta: 'Saznaj vi\u0161e o loyalty programu',
     },
     beltsPage: {
       heroTitle: 'Ru\u010dno ra\u0111eni kai\u0161evi iz Travnika',
