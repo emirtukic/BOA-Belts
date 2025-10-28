@@ -1,6 +1,5 @@
 ﻿'use client';
 
-import Link from 'next/link';
 import { FaEnvelope, FaFacebookMessenger, FaInstagram } from 'react-icons/fa';
 import { SiViber } from 'react-icons/si';
 import type { IconType } from 'react-icons';
@@ -29,19 +28,19 @@ type AboutPage = {
   heroSubtitle?: string;
 
   introTitle?: string;
-  introParagraphs?: string[];
-  storyParagraphs?: string[];
+  introParagraphs?: ReadonlyArray<string>;
+  storyParagraphs?: ReadonlyArray<string>;
 
   highlightsTitle?: string;
-  highlights?: { title: string; description: string }[];
-  values?: { title: string; description: string }[];
+  highlights?: ReadonlyArray<{ title: string; description: string }>;
+  values?: ReadonlyArray<{ title: string; description: string }>;
 
   processTitle?: string;
-  processSteps?: string[];
-  craftParagraphs?: string[];
+  processSteps?: ReadonlyArray<string>;
+  craftParagraphs?: ReadonlyArray<string>;
 
   timelineTitle?: string;
-  timelinePoints?: string[];
+  timelinePoints?: ReadonlyArray<string>;
 
   contactTitle?: string;
   contactSubtitle?: string;
@@ -49,7 +48,7 @@ type AboutPage = {
 
   channelsTitle?: string;
   channelsSubtitle?: string;
-  channels?: Channel[];
+  channels?: ReadonlyArray<Channel>;
 
   ctaTitle?: string;
   ctaText?: string;
@@ -85,33 +84,40 @@ function resolveChannelKey(ch: Channel): keyof typeof channelIcons {
 /* ===== Component ===== */
 export default function AboutPageContent() {
   const { t } = useLanguage();
-const data: Partial<AboutPage> = (t as any)?.aboutPage ?? {};
+  const data = (t.aboutPage ?? {}) as Partial<AboutPage>;
 
-  const introParagraphs: string[] = Array.isArray(data.introParagraphs)
-    ? data.introParagraphs
-    : Array.isArray(data.storyParagraphs)
-    ? data.storyParagraphs
+  const introParagraphs =
+    Array.isArray(data.introParagraphs)
+      ? Array.from(data.introParagraphs)
+      : Array.isArray(data.storyParagraphs)
+        ? Array.from(data.storyParagraphs)
+        : [];
+
+  const highlights =
+    Array.isArray(data.highlights)
+      ? data.highlights.map((item) => ({ ...item }))
+      : Array.isArray(data.values)
+        ? data.values.map((item) => ({ ...item }))
+        : [];
+
+  const processSteps =
+    Array.isArray(data.processSteps)
+      ? Array.from(data.processSteps)
+      : Array.isArray(data.craftParagraphs)
+        ? Array.from(data.craftParagraphs)
+        : [];
+
+  const timelinePoints = Array.isArray(data.timelinePoints)
+    ? Array.from(data.timelinePoints)
     : [];
-
-  const highlights: { title: string; description: string }[] = Array.isArray(data.highlights)
-    ? data.highlights
-    : Array.isArray(data.values)
-    ? data.values
-    : [];
-
-  const processSteps: string[] = Array.isArray(data.processSteps)
-    ? data.processSteps
-    : Array.isArray(data.craftParagraphs)
-    ? data.craftParagraphs
-    : [];
-
-  const timelinePoints: string[] = Array.isArray(data.timelinePoints) ? data.timelinePoints : [];
 
   const contactEntries: [string, ContactMethod][] = Object.entries(
     data.contactMethods ?? {}
   ) as [string, ContactMethod][];
 
-  const channels: Channel[] = Array.isArray(data.channels) ? (data.channels as Channel[]) : [];
+  const channels = Array.isArray(data.channels)
+    ? data.channels.map((channel) => ({ ...channel }))
+    : [];
 
   return (
     <main className="bg-white text-[#1f1f1f]">

@@ -163,7 +163,7 @@ const translations = {
       description:
         'Handcrafted leather belts, bags, and wallets made in Travnik with full-grain hides and time-honoured techniques.',
       navigationTitle: 'Categories',
-      navigationTitle2: 'About us',
+      navigationTitle1: 'About us',
       contactTitle: 'Contact',
       followTitle: 'Follow us',
       location: 'Travnik, Bosnia and Herzegovina',
@@ -973,7 +973,7 @@ const translations = {
 } as const;
 
 type Translations = typeof translations;
-type Translation = Translations[Language];
+export type Translation = Translations[Language];
 
 type LanguageContextValue = {
   language: Language;
@@ -998,7 +998,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       toggleLanguage,
       t: translations[language],
     }),
-    [language],
+    [language, toggleLanguage],
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
