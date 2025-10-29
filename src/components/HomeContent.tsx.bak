@@ -1,4 +1,4 @@
-ï»¿'use client';
+'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -222,7 +222,7 @@ export default function HomeContent() {
     <main className="bg-white text-[#1f1f1f]">
       {/* Fixed Hero Section */}
       <section
-        className="sticky top-0 h-[90vh] md:h-screen w-full flex flex-col items-start justify-end px-4 pb-2 pt-24 bg-cover bg-center overflow-hidden md:bg-fixed md:px-6 md:pb-0 md:justify-start"
+        className="sticky top-0 h-screen w-full flex flex-col items-start justify-end px-4 pb-10 pt-24 bg-cover bg-center bg-fixed overflow-hidden md:px-6 md:pb-0 md:justify-start"
         style={{
           backgroundImage:
             slides[activeSlide]?.background ?? heroBackgrounds[0],
@@ -264,7 +264,7 @@ export default function HomeContent() {
             className="rounded-full border border-[#d0d0d0] bg-white px-3 py-2 text-[11px] font-semibold text-[#111] transition hover:bg-[#111] hover:text-white"
             aria-label="Previous slide"
           >
-            â€¹
+            ‹
           </button>
           <div className="flex items-center gap-2">
             {slides.map((_, index) => (
@@ -285,7 +285,7 @@ export default function HomeContent() {
             className="rounded-full border border-[#d0d0d0] bg-white px-3 py-2 text-[11px] font-semibold text-[#111] transition hover:bg-[#111] hover:text-white"
             aria-label="Next slide"
           >
-            â€º
+            ›
           </button>
         </div>
       </section>
