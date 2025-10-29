@@ -1,0 +1,1 @@
+(Get-Content 'src/components/LanguageProvider.tsx' -Raw) -replace 'https://www\.instagram\.com/boa\.belts\.ba/', 'https://www.instagram.com/boa_belts/?hl=en' -replace 'https://www\.facebook\.com/boa\.belts\.ba/', 'https://www.facebook.com/profile.php?id=100027303537151' | Set-Content 'src/components/LanguageProvider.tsx'

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -29,10 +29,10 @@ const heroBackgroundsDesktop = [
 ] as const;
 
 const heroBackgroundsMobile = [
-  "url('/bb1.png')",
-  "url('/bb2.png')",
-  "url('/bb3.png')",
-  "url('/bb4.png')",
+  "url('/bb1 (1).png')",
+  "url('/bb2 (1).png')",
+  "url('/bb3 (1).png')",
+  "url('/bb4 (1).png')",
 ] as const;
 
 const galleryMedia = [
@@ -44,15 +44,18 @@ const galleryMedia = [
 ] as const;
 
 const sectionImages = {
-  belts: '/belt.jpg',
-  bags: '/boa_belts_2.jpg',
-  wallets: '/boahero.jpg',
+  belts: '/belts-mobile.jpg',
+  bags: '/bags-mobile.jpg',
+  wallets: '/wallets-mobile.jpg',
 } as const;
 
 export default function HomeContent() {
   const { t } = useLanguage();
   const [isMobileHero, setIsMobileHero] = useState(false);
-  const heroBackgrounds = isMobileHero ? heroBackgroundsMobile : heroBackgroundsDesktop;
+  const heroBackgrounds = useMemo(
+    () => (isMobileHero ? heroBackgroundsMobile : heroBackgroundsDesktop),
+    [isMobileHero],
+  );
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -134,6 +137,8 @@ export default function HomeContent() {
   const mobileTilesButton = t.home.mobileTilesButton;
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = slides.length;
+  const heroTouchStartX = useRef<number | null>(null);
+  const heroTouchCurrentX = useRef<number | null>(null);
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const [galleryCanScrollLeft, setGalleryCanScrollLeft] = useState(false);
   const [galleryCanScrollRight, setGalleryCanScrollRight] = useState(true);
@@ -184,17 +189,49 @@ export default function HomeContent() {
     setActiveSlide((index + totalSlides) % totalSlides);
   };
 
+  const handleHeroTouchStart = (event: React.TouchEvent) => {
+    heroTouchStartX.current = event.changedTouches[0].clientX;
+    heroTouchCurrentX.current = null;
+  };
+
+  const handleHeroTouchMove = (event: React.TouchEvent) => {
+    heroTouchCurrentX.current = event.changedTouches[0].clientX;
+  };
+
+  const handleHeroTouchEnd = () => {
+    if (heroTouchStartX.current === null || heroTouchCurrentX.current === null) {
+      heroTouchStartX.current = null;
+      heroTouchCurrentX.current = null;
+      return;
+    }
+
+    const delta = heroTouchStartX.current - heroTouchCurrentX.current;
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) {
+        setActiveSlide((prev) => (prev + 1) % totalSlides);
+      } else {
+        setActiveSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+      }
+    }
+
+    heroTouchStartX.current = null;
+    heroTouchCurrentX.current = null;
+  };
+
   return (
     <main className="bg-white text-[#1f1f1f]">
       {/* Fixed Hero Section */}
       <section
-        className="sticky top-0 h-screen w-full flex flex-col justify-start items-start px-6 pt-24 bg-cover bg-center bg-fixed overflow-hidden"
+        className="sticky top-0 h-screen w-full flex flex-col items-start justify-end px-4 pb-10 pt-24 bg-cover bg-center bg-fixed overflow-hidden md:px-6 md:pb-0 md:justify-start"
         style={{
           backgroundImage:
             slides[activeSlide]?.background ?? heroBackgrounds[0],
         }}
+        onTouchStart={handleHeroTouchStart}
+        onTouchMove={handleHeroTouchMove}
+        onTouchEnd={handleHeroTouchEnd}
       >
-        <div className="relative w-full max-w-sm text-left ml-2 md:ml-4">
+        <div className="relative w-full max-w-sm text-left mx-auto md:ml-4 md:mx-0">
           {slides.map((slide, index) => (
             <div
               key={slide.title}
@@ -217,10 +254,10 @@ export default function HomeContent() {
                 {slide.cta}
               </Link>
             </div>
-          ))}
+            ))}
           <div className="block pt-[170px] md:pt-[200px]" aria-hidden="true" />
         </div>
-        <div className="mt-5 flex w-full max-w-sm items-center justify-start gap-4 pl-4 md:max-w-md md:pl-6">
+        <div className="mt-6 flex w-full max-w-sm items-center justify-center gap-4 px-2 mx-auto md:mt-5 md:max-w-md md:justify-start md:px-0 md:mx-0">
           <button
             type="button"
             onClick={() => goToSlide(activeSlide - 1)}
@@ -254,24 +291,27 @@ export default function HomeContent() {
       </section>
 
       <section
-        className="relative z-10 bg-white px-6 pb-16 pt-12 md:hidden"
+        className="relative z-10 bg-gradient-to-b from-[#f2f2f2] via-white to-white px-6 pb-16 pt-12 md:hidden"
         style={{ marginTop: '55vh' }}
       >
         <div className="mx-auto flex w-full max-w-md flex-col gap-6">
           {mobileTiles.map((tile) => (
             <Link key={tile.key} href={tile.href} className="group block">
-              <div className="relative aspect-square overflow-hidden rounded-3xl border border-[#e6e6e6] shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
-                <Image
-                  src={tile.image}
-                  alt={`${tile.label} preview`}
-                  fill
-                  sizes="90vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-[1.05]"
-                  priority={tile.key === 'belts'}
-                />
-              </div>
-              <div className="mt-4 flex flex-col items-start gap-3">
+              <div className="flex flex-col items-start gap-4">
                 <h3 className="text-xl font-semibold text-[#111]">{tile.label}</h3>
+                <div
+                  className="relative w-full overflow-hidden rounded-3xl border border-[#e6e6e6] shadow-sm transition-transform duration-300 group-hover:-translate-y-1"
+                  style={{ aspectRatio: '1 / 1' }}
+                >
+                  <Image
+                    src={tile.image}
+                    alt={`${tile.label} preview`}
+                    fill
+                    sizes="90vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+                    priority={tile.key === 'belts'}
+                  />
+                </div>
                 <span className="inline-flex w-full items-center justify-center rounded-full bg-[#111] px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white">
                   {mobileTilesButton}
                 </span>
@@ -285,7 +325,7 @@ export default function HomeContent() {
         {/* Studio Gallery */}
         <section
           id="gallery"
-          className="relative overflow-hidden py-20 px-10 bg-[#f7f7f7] animate-fade-in-up delay-150 border-t border-[#ececec]"
+          className="relative overflow-hidden py-20 px-10 bg-gradient-to-b from-[#f2f2f2] via-[#f7f7f7] to-white animate-fade-in-up delay-150 border-t border-[#ececec]"
         >
           <div className="relative z-10 max-w-6xl mx-auto">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between text-[#1f1f1f]">
@@ -536,162 +576,12 @@ export default function HomeContent() {
           </div>
         </section>
 
-        {/* Contact Card */}
-        <section
-          id="contact"
-          className="py-12 px-6 bg-white animate-fade-in-up delay-400 border-t border-[#ececec]"
-        >
-          <div className="max-w-7xl mx-auto overflow-hidden rounded-3xl bg-white border border-[#ececec] grid grid-cols-1 lg:grid-cols-2 shadow-xl">
-            {/* Left - Info */}
-            <div className="p-12 flex flex-col justify-between text-[#161616]">
-              <div>
-                <h2 className="text-4xl font-bold text-[#111] mb-4">
-                  {t.contactSection.title}
-                </h2>
-                <p className="text-[#404040] text-lg mb-8">
-                  {t.contactSection.description}
-                </p>
-              </div>
-            </div>
-            {/* Right - Form */}
-            <div className="p-12 bg-white/95">
-              <form
-                action="/api/contact"
-                method="POST"
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left text-[#1f1f1f]"
-              >
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.firstName}
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    required
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.lastName}
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    required
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phoneNumber"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.phoneNumber}
-                  </label>
-                  <input
-                    type="text"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="preferredProduct"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.preferredProduct}
-                  </label>
-                  <input
-                    type="text"
-                    id="preferredProduct"
-                    name="preferredProduct"
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.email}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="help"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.interest}
-                  </label>
-                  <select
-                    id="help"
-                    name="help"
-                    required
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      {t.contactSection.form.selectPlaceholder}
-                    </option>
-                    <option value="belt">
-                      {t.contactSection.form.options.belt}
-                    </option>
-                    <option value="bag">
-                      {t.contactSection.form.options.bag}
-                    </option>
-                    <option value="wallet">
-                      {t.contactSection.form.options.wallet}
-                    </option>
-                  </select>
-                </div>
-                <div className="md:col-span-2">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium"
-                  >
-                    {t.contactSection.form.messageLabel}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="mt-1 block w-full bg-white border border-[#d9d9d9] px-4 py-2 rounded-md text-[#1f1f1f] placeholder-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#111]"
-                  ></textarea>
-                </div>
-                <div className="md:col-span-2 flex justify-end">
-                  <button
-                    type="submit"
-                    className="bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
-                  >
-                    {t.contactSection.form.submit}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
       </div>
+
     </main>
   );
 }
+
 
 
 

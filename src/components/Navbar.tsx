@@ -65,11 +65,6 @@ export default function Navbar() {
             >
               {t.nav.languageToggle}
             </button>
-            <Link href="/#contact">
-              <button className="px-5 py-2 text-sm rounded-full bg-[#111] text-white font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-black">
-                {t.nav.contactCta}
-              </button>
-            </Link>
           </div>
 
           <div className="ml-auto flex items-center md:hidden">
@@ -131,14 +126,6 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <Link
-              href="/#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-2 px-8 py-3 bg-[#111] text-white rounded-full text-base font-semibold shadow-lg transition duration-200 hover:-translate-y-0.5 hover:bg-black"
-            >
-              {t.nav.contactCta}
-            </Link>
-
             <div className="text-center mt-2">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#7b7b7b] mb-3">
                 {t.nav.follow}
@@ -153,7 +140,7 @@ export default function Navbar() {
                   <FaInstagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://www.facebook.com/boa.belts.ba"
+                  href="https://www.facebook.com/profile.php?id=100027303537151"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-[#dcdcdc] text-[#111] transition hover:bg-[#111] hover:text-white"

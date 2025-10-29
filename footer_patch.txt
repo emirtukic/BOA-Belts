@@ -45,7 +45,7 @@ export default function Footer() {
               <FaInstagram className="text-xl" />
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=100027303537151"
+              href="https://www.facebook.com/p/Boa-Belts-100027303537151/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#111]"
@@ -66,4 +66,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 
