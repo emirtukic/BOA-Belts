@@ -321,7 +321,10 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <div className="relative z-10 hidden bg-white md:block" style={{ marginTop: '55vh' }}>
+      <div
+        className="relative z-10 hidden bg-white md:block"
+        style={{ marginTop: '55vh' }}
+      >
         {/* Studio Gallery */}
         <section
           id="gallery"
