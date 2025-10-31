@@ -7,18 +7,18 @@ const maxImagesPerProduct = Infinity;
 const locale = 'bs-BA';
 
 function encodePublicPath(relativePath) {
-  const segments = relativePath.split(/[\\/]/).filter(Boolean);
+  const segments = relativePath.split(/\\|\//).filter(Boolean);
   return '/' + segments.map(encodeURIComponent).join('/');
 }
 
-const list = `02_MUSKI KAIS — 35 KM
-35_MUSKI LOVACKI KAIS — 250 KM`;
+const list = `02_MUSKI KAIS - 35 KM
+35_MUSKI LOVACKI KAIS - 250 KM`;
 
 const wordReplacements = {
-  muski: 'Mu\\u0161ki',
-  lovacki: 'Lova\\u010dki',
-  kais: 'Kai\\u0161',
-  muska: 'Mu\\u0161ka',
+  Muski: 'Muški',
+  Lovacki: 'Lovački',
+  Kais: 'Kaiš',
+  Muska: 'Muška',
 };
 
 function formatWord(word) {
@@ -26,15 +26,12 @@ function formatWord(word) {
     return word.replace(/^no\./i, 'No.');
   }
   const lower = word.toLocaleLowerCase(locale);
-  if (wordReplacements[lower]) {
-    return wordReplacements[lower];
-  }
-  return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  const capitalised = lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  return wordReplacements[capitalised] ?? capitalised;
 }
 
 function formatName(rawName) {
   return rawName
-    .replace(/_/g, ' ')
     .split(/\s+/)
     .filter(Boolean)
     .map(formatWord)
@@ -52,7 +49,7 @@ const specs = list
     }
     const [, idName, pricePart] = match;
     const [id, ...nameParts] = idName.split('_');
-    const rawName = nameParts.join(' ').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+    const rawName = nameParts.join(' ').replace(/\s+/g, ' ').trim();
     const name = formatName(rawName);
     const price = pricePart.replace(/\s+/g, ' ');
     return { id: id.trim(), name, price };
@@ -100,7 +97,7 @@ const data = specs.map((spec) => {
   };
 });
 
-const header = `export type MensBeltVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n  swatch?: string;\n};\n\nexport type MensBelt = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'men';\n  description: string;\n  colors: MensBeltVariant[];\n};\n\nexport const mensBelts: MensBelt[] = `;
+const header = `export type MensBeltVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n};\n\nexport type MensBelt = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'men';\n  description: string;\n  colors: MensBeltVariant[];\n};\n\nexport const mensBelts: MensBelt[] = `;
 
 const fileContent = `${header}${JSON.stringify(data, null, 2)};\n`;
 

@@ -113,7 +113,7 @@ const data = specs.map((spec) => {
   };
 });
 
-const header = `export type WalletVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n  swatch?: string;\n};\n\nexport type WalletProduct = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'slim' | 'carry';\n  description: string;\n  colors: WalletVariant[];\n};\n\nexport const wallets: WalletProduct[] = `;
+const header = `export type WalletVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n};\n\nexport type WalletProduct = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'slim' | 'carry';\n  description: string;\n  colors: WalletVariant[];\n};\n\nexport const wallets: WalletProduct[] = `;
 
 const fileContent = `${header}${JSON.stringify(data, null, 2)};\n`;
 

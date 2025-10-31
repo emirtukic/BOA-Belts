@@ -119,7 +119,7 @@ const data = specs.map((spec) => {
   };
 });
 
-const header = `export type WomensBeltVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n  swatch?: string;\n};\n\nexport type WomensBelt = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'women';\n  description: string;\n  colors: WomensBeltVariant[];\n};\n\nexport const womensBelts: WomensBelt[] = `;
+const header = `export type WomensBeltVariant = {\n  label: string;\n  image: string;\n  preview?: string;\n};\n\nexport type WomensBelt = {\n  id: string;\n  name: string;\n  price: string;\n  category: 'women';\n  description: string;\n  colors: WomensBeltVariant[];\n};\n\nexport const womensBelts: WomensBelt[] = `;
 
 const fileContent = `${header}${JSON.stringify(data, null, 2)};\n`;
 
