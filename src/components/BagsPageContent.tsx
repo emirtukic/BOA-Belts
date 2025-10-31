@@ -5,13 +5,15 @@ import Image from 'next/image';
 import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
+import { bags } from '../data/bags';
 
 type Category = 'daily' | 'travel';
 
 type ProductVariant = {
   label: string;
-  swatch: string;
+  swatch?: string;
   image: string;
+  preview?: string;
 };
 
 type Product = {
@@ -25,268 +27,17 @@ type Product = {
 
 type SortOrder = 'asc' | 'desc';
 
-const products: Product[] = [
-  {
-    id: 'd1',
-    name: 'Miljacka Tote',
-    price: '€240',
-    category: 'daily',
-    description:
-      'Structured tote with reinforced handles and interior drop pockets for phone, keys, and small notebooks.',
-    colors: [
-      { label: 'Cognac', swatch: '#a36a3c', image: '/torba.jpg' },
-      { label: 'Ink', swatch: '#1f1f1f', image: '/boabelts.jpg' },
-      { label: 'Olive', swatch: '#5a5f3b', image: '/boa_belts_3.jpg' },
-    ],
-  },
-  {
-    id: 'd2',
-    name: 'Ferhadija Crossbody',
-    price: '€210',
-    category: 'daily',
-    description:
-      'Slim crossbody with double gusset compartments, adjustable strap, and hidden magnet closure.',
-    colors: [
-      { label: 'Chestnut', swatch: '#8c4a2f', image: '/boabelts2.jpg' },
-      { label: 'Onyx', swatch: '#191919', image: '/boahero.jpg' },
-      { label: 'Fog', swatch: '#dcd7ce', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'd3',
-    name: 'Travnik Market Tote',
-    price: '€230',
-    category: 'daily',
-    description:
-      'Open-top tote lined with cotton twill and finished with key leash and detachable pouch.',
-    colors: [
-      { label: 'Caramel', swatch: '#b87333', image: '/boa_belts_1.jpg' },
-      { label: 'Slate', swatch: '#444444', image: '/boabelts.jpg' },
-      { label: 'Moss', swatch: '#66734d', image: '/boa_belts_2.jpg' },
-    ],
-  },
-  {
-    id: 'd4',
-    name: 'Atelje Shoulder Bag',
-    price: '€225',
-    category: 'daily',
-    description:
-      'Curved shoulder bag with suede-lined flap, brass turn lock, and slip pocket for quick access.',
-    colors: [
-      { label: 'Merlot', swatch: '#5e1f2b', image: '/boa_belts_3.jpg' },
-      { label: 'Graphite', swatch: '#2f2f2f', image: '/boahero.jpg' },
-      { label: 'Sand', swatch: '#d6c4ae', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'd5',
-    name: 'Baščaršija Sling',
-    price: '€195',
-    category: 'daily',
-    description:
-      'Versatile sling that can be worn crossbody or around the waist, with quick-access zip pocket.',
-    colors: [
-      { label: 'Cider', swatch: '#b2642b', image: '/boa_belts_2.jpg' },
-      { label: 'Charcoal', swatch: '#272727', image: '/boabelts.jpg' },
-      { label: 'Mist', swatch: '#e5ded1', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'd6',
-    name: 'Vrbas Hobo',
-    price: '€215',
-    category: 'daily',
-    description:
-      'Soft hobo silhouette with magnetic closure, interior zip pocket, and reinforced base for structure.',
-    colors: [
-      { label: 'Walnut', swatch: '#7b4827', image: '/boa_belts_1.jpg' },
-      { label: 'Noir', swatch: '#101010', image: '/boahero.jpg' },
-      { label: 'Rose', swatch: '#caa99a', image: '/boabelts2.jpg' },
-    ],
-  },
-  {
-    id: 'd7',
-    name: 'Javor Clutch',
-    price: '€185',
-    category: 'daily',
-    description:
-      'Foldover clutch with wrist strap, card slots, and removable chain for evening wear.',
-    colors: [
-      { label: 'Amber', swatch: '#c9823a', image: '/boabelts2.jpg' },
-      { label: 'Ebony', swatch: '#171717', image: '/boabelts.jpg' },
-      { label: 'Champagne', swatch: '#dfd3c3', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'd8',
-    name: 'Kula Bucket Bag',
-    price: '€205',
-    category: 'daily',
-    description:
-      'Drawstring bucket bag with suede collar, structured base, and adjustable shoulder strap.',
-    colors: [
-      { label: 'Saddle', swatch: '#a15b2a', image: '/torba.jpg' },
-      { label: 'Ash', swatch: '#3d3d3d', image: '/boa_belts_3.jpg' },
-      { label: 'Dove', swatch: '#d9d4c8', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'd9',
-    name: 'Aida Brief',
-    price: '€260',
-    category: 'daily',
-    description:
-      'Slim briefcase with padded laptop sleeve, document divider, and detachable shoulder strap.',
-    colors: [
-      { label: 'Cognac', swatch: '#a66933', image: '/boa_belts_1.jpg' },
-      { label: 'Midnight', swatch: '#0c0c0c', image: '/boabelts.jpg' },
-      { label: 'Steel', swatch: '#b5b8bd', image: '/boa_belts_2.jpg' },
-    ],
-  },
-  {
-    id: 'd10',
-    name: 'Skenderija Laptop Tote',
-    price: '€245',
-    category: 'daily',
-    description:
-      'Zippered tote with padded laptop pocket, leather cable tie, and luggage sleeve for commuting.',
-    colors: [
-      { label: 'Hazel', swatch: '#ad6b3a', image: '/boabelts2.jpg' },
-      { label: 'Navy', swatch: '#1b2a3b', image: '/boabelts.jpg' },
-      { label: 'Ivory', swatch: '#f1e9dd', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't1',
-    name: 'Bjelašnica Weekender',
-    price: '€320',
-    category: 'travel',
-    description:
-      'Oversized weekender with removable shoulder strap, shoe compartment, and brass feet.',
-    colors: [
-      { label: 'Whiskey', swatch: '#8d4b28', image: '/boa_belts_1.jpg' },
-      { label: 'Obsidian', swatch: '#161616', image: '/boabelts.jpg' },
-      { label: 'Stone', swatch: '#c8beb0', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't2',
-    name: 'Una Carryall',
-    price: '€305',
-    category: 'travel',
-    description:
-      'Carryall with wide opening, waxed canvas lining, and external passport pocket for airport ease.',
-    colors: [
-      { label: 'Hazelnut', swatch: '#a05f36', image: '/torba.jpg' },
-      { label: 'Graphite', swatch: '#2c2c2c', image: '/boa_belts_3.jpg' },
-      { label: 'Fjord', swatch: '#698196', image: '/boahero.jpg' },
-    ],
-  },
-  {
-    id: 't3',
-    name: 'Kozara Duffel',
-    price: '€315',
-    category: 'travel',
-    description:
-      'Barrel duffel reinforced with double-stitched straps, side grab handles, and lockable zipper pulls.',
-    colors: [
-      { label: 'Sienna', swatch: '#a14f2b', image: '/boa_belts_2.jpg' },
-      { label: 'Ink', swatch: '#121314', image: '/boabelts.jpg' },
-      { label: 'Frost', swatch: '#d7d4cc', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't4',
-    name: 'Trebević Backpack',
-    price: '€290',
-    category: 'travel',
-    description:
-      'Roll-top backpack with padded back panel, laptop sleeve, and quick-access side zip.',
-    colors: [
-      { label: 'Chestnut', swatch: '#8f512c', image: '/boa_belts_1.jpg' },
-      { label: 'Raven', swatch: '#1a1a1a', image: '/boahero.jpg' },
-      { label: 'Pine', swatch: '#43563d', image: '/boa_belts_3.jpg' },
-    ],
-  },
-  {
-    id: 't5',
-    name: 'Sutjeska Messenger',
-    price: '€275',
-    category: 'travel',
-    description:
-      'Messenger bag with padded shoulder strap, organiser panel, and quick-release buckle.',
-    colors: [
-      { label: 'Copper', swatch: '#9c552c', image: '/boabelts2.jpg' },
-      { label: 'Slate', swatch: '#3a3a3a', image: '/boabelts.jpg' },
-      { label: 'Stone', swatch: '#ccc4b6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't6',
-    name: 'Prenj Garment Bag',
-    price: '€360',
-    category: 'travel',
-    description:
-      'Tri-fold garment bag with hanger clip system, interior zip pockets, and exterior document sleeve.',
-    colors: [
-      { label: 'Brandy', swatch: '#874327', image: '/boa_belts_2.jpg' },
-      { label: 'Coal', swatch: '#202020', image: '/boabelts.jpg' },
-      { label: 'Ivory', swatch: '#dfd8cc', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't7',
-    name: 'Drina Camera Bag',
-    price: '€265',
-    category: 'travel',
-    description:
-      'Camera bag with padded modular dividers, weather flap, and tripod strap anchors.',
-    colors: [
-      { label: 'Canyon', swatch: '#aa6233', image: '/boabelts2.jpg' },
-      { label: 'Shadow', swatch: '#242424', image: '/boabelts.jpg' },
-      { label: 'Cloud', swatch: '#d9d6cc', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't8',
-    name: 'Tara Convertible Tote',
-    price: '€285',
-    category: 'travel',
-    description:
-      'Convertible tote that shifts into a backpack with slide hardware and concealed straps.',
-    colors: [
-      { label: 'Maple', swatch: '#b66a35', image: '/boa_belts_1.jpg' },
-      { label: 'Iron', swatch: '#2e2e2e', image: '/boabelts.jpg' },
-      { label: 'Birch', swatch: '#e4dccc', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't9',
-    name: 'Lukomir Gear Duffel',
-    price: '€335',
-    category: 'travel',
-    description:
-      'Large-format gear duffel with waterproof lining, tie-down straps, and hidden tracker pocket.',
-    colors: [
-      { label: 'Mahogany', swatch: '#7f3a21', image: '/boa_belts_3.jpg' },
-      { label: 'Night', swatch: '#151515', image: '/boahero.jpg' },
-      { label: 'Glacier', swatch: '#ced1d6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 't10',
-    name: 'Igman Flight Bag',
-    price: '€295',
-    category: 'travel',
-    description:
-      'Cabin-sized flight bag with document organiser, removable strap, and trolley sleeve.',
-    colors: [
-      { label: 'Amber', swatch: '#b8622c', image: '/boabelts2.jpg' },
-      { label: 'Shadow', swatch: '#232323', image: '/boabelts.jpg' },
-      { label: 'Linen', swatch: '#ddd6c8', image: '/boa_belts_4.jpg' },
-    ],
-  },
-];
+const bagCatalog: Product[] = bags.map((bag) => ({
+  ...bag,
+  colors: bag.colors.map((variant) => ({
+    label: variant.label,
+    image: variant.image,
+    preview: variant.preview ?? variant.image,
+  })),
+}));
+
+const products: Product[] = bagCatalog;
+const leadProductId = products[0]?.id ?? null;
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
 
@@ -335,7 +86,7 @@ export default function BagsPageContent() {
       options: { asc: 'Lowest price first', desc: 'Highest price first' },
     } as const);
 
-  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   const formatTemplate = (template: string, replacements: Record<string, string>) =>
     Object.entries(replacements).reduce(
       (acc, [key, value]) => acc.replace(new RegExp(`\\{${key}\\}`, 'g'), value),
@@ -359,8 +110,12 @@ export default function BagsPageContent() {
   };
 
   const renderProductCard = (product: Product) => {
+    const variants =
+      product.colors.length > 0
+        ? product.colors
+        : [{ label: 'Photo 1', image: '/boabelts.jpg', preview: '/boabelts.jpg' }];
     const activeIndex = selectedColors[product.id] ?? 0;
-    const activeVariant = product.colors[activeIndex] ?? product.colors[0];
+    const activeVariant = variants[activeIndex] ?? variants[0];
 
     return (
       <article
@@ -382,12 +137,12 @@ export default function BagsPageContent() {
             fill
             sizes="(min-width: 1280px) 280px, (min-width: 768px) 33vw, 90vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority={product.id === 'd1'}
+            priority={leadProductId !== null && product.id === leadProductId}
           />
         </div>
         <div className="flex flex-1 flex-col gap-6 p-6">
           <div className="flex flex-wrap items-center gap-2">
-            {product.colors.map((variant, index) => {
+            {variants.map((variant, index) => {
               const isActive = activeIndex === index;
               return (
                 <button
@@ -397,7 +152,13 @@ export default function BagsPageContent() {
                   className={`relative flex h-6 w-6 items-center justify-center rounded-full border border-white shadow-sm transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#1f1f1f]/50 md:h-7 md:w-7 ${
                     isActive ? 'ring-2 ring-offset-2 ring-[#1f1f1f] shadow-md' : 'hover:shadow-md'
                   }`}
-                  style={{ backgroundColor: variant.swatch }}
+                  style={{
+                    backgroundColor: variant.swatch ?? '#dcdcdc',
+                    backgroundImage: variant.preview ? `url(${variant.preview})` : undefined,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
                   aria-label={formatTemplate(data.card.selectColorLabel, {
                     color: variant.label,
                     product: product.name,
@@ -410,7 +171,7 @@ export default function BagsPageContent() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-[#111]">{product.name}</h3>
             <p className="text-sm uppercase tracking-wide text-[#696969]">
-              {`${activeVariant.label}${data.card.materialSuffix}`}
+              {data.card.availabilityLabel}
             </p>
           </div>
           <div className="mt-auto flex items-baseline justify-between">

@@ -252,7 +252,7 @@ const translations = {
         stylesLabel: 'styles',
       },
       card: {
-        materialSuffix: ' leather',
+        availabilityLabel: 'Available in multiple colours',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -318,7 +318,7 @@ const translations = {
         stylesLabel: 'designs',
       },
       card: {
-        materialSuffix: ' leather',
+        availabilityLabel: 'Available in multiple colours',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -394,7 +394,7 @@ const translations = {
         stylesLabel: 'layouts',
       },
       card: {
-        materialSuffix: ' leather',
+        availabilityLabel: 'Available in multiple colours',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -731,7 +731,7 @@ const translations = {
         stylesLabel: 'modela',
       },
       card: {
-        materialSuffix: ' ko\u017ea',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',
@@ -797,7 +797,7 @@ const translations = {
         stylesLabel: 'modela',
       },
       card: {
-        materialSuffix: ' ko\u017ea',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',
@@ -873,7 +873,7 @@ const translations = {
         stylesLabel: 'rasporeda',
       },
       card: {
-        materialSuffix: ' ko\u017ea',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',

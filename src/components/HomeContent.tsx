@@ -29,7 +29,7 @@ const heroBackgroundsDesktop = [
 ] as const;
 
 const heroBackgroundsMobile = [
-  "url('/bb1 (1).png')",
+  "url('/hero12.png')",
   "url('/bb2 (1).png')",
   "url('/bb3 (1).png')",
   "url('/bb4 (1).png')",

@@ -5,13 +5,16 @@ import Image from 'next/image';
 import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
+import { womensBelts } from '../data/womensBelts';
+import { mensBelts } from '../data/mensBelts';
 
 type Category = 'women' | 'men';
 
 type ProductVariant = {
   label: string;
-  swatch: string;
+  swatch?: string;
   image: string;
+  preview?: string;
 };
 
 type Product = {
@@ -25,268 +28,27 @@ type Product = {
 
 type SortOrder = 'asc' | 'desc';
 
-const products: Product[] = [
-  {
-    id: 'w1',
-    name: 'Travnik Slim',
-    price: '€120',
-    category: 'women',
-    description:
-      'Elegant, hand-stitched slim belt that pairs with dresses and high-waist tailoring. Features Italian brass hardware.',
-    colors: [
-      { label: 'Chestnut', swatch: '#8b5a2b', image: '/boa_belts_1.jpg' },
-      { label: 'Obsidian', swatch: '#1f1f1f', image: '/belt.jpg' },
-      { label: 'Ivory', swatch: '#f2e5d7', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w2',
-    name: 'Sutjeska Wrap',
-    price: '€135',
-    category: 'women',
-    description:
-      'Soft wrap belt crafted for layering over knitwear. Double-sided leather with suede backing for grip.',
-    colors: [
-      { label: 'Cognac', swatch: '#a0522d', image: '/boa_belts_2.jpg' },
-      { label: 'Coal', swatch: '#2a2a2a', image: '/boa_belts_3.jpg' },
-      { label: 'Ash', swatch: '#d7d2cb', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w3',
-    name: 'Sarajevo Knot',
-    price: '€140',
-    category: 'women',
-    description:
-      'Signature knotted belt with polished edges and tapered tips. Designed to cinch without bulk.',
-    colors: [
-      { label: 'Burgundy', swatch: '#5c1a27', image: '/boa_belts_3.jpg' },
-      { label: 'Night', swatch: '#141414', image: '/belt.jpg' },
-      { label: 'Sand', swatch: '#d6c2a6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w4',
-    name: 'Pliva Double',
-    price: '€150',
-    category: 'women',
-    description:
-      'Double-strap keeper belt with adjustable spacing. Finished with hand-polished edge paint for longevity.',
-    colors: [
-      { label: 'Caramel', swatch: '#b07335', image: '/boa_belts_1.jpg' },
-      { label: 'Espresso', swatch: '#2f1b0c', image: '/boa_belts_2.jpg' },
-      { label: 'Pebble', swatch: '#c4b5a5', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w5',
-    name: 'Ravna Minimal',
-    price: '€115',
-    category: 'women',
-    description:
-      'Minimalist one-piece strap with hidden Chicago screws for quick buckle swaps. Ideal for capsule wardrobes.',
-    colors: [
-      { label: 'Maple', swatch: '#c16a3b', image: '/boa_belts_1.jpg' },
-      { label: 'Slate', swatch: '#3f3f3f', image: '/belt.jpg' },
-      { label: 'Bone', swatch: '#efe1d0', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w6',
-    name: 'Lipa Statement',
-    price: '€165',
-    category: 'women',
-    description:
-      'Wide cinch belt with sculpted brass buckle. Hand-dyed edges and saddle-stitched seams for durability.',
-    colors: [
-      { label: 'Walnut', swatch: '#7b4b2a', image: '/boa_belts_2.jpg' },
-      { label: 'Ink', swatch: '#0f0f0f', image: '/boa_belts_3.jpg' },
-      { label: 'Cream', swatch: '#f3eadf', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w7',
-    name: 'Una Contour',
-    price: '€145',
-    category: 'women',
-    description:
-      'Contour-cut belt that hugs the waistline. Finished with beveled edges and matte hardware for a modern look.',
-    colors: [
-      { label: 'Russet', swatch: '#8c4023', image: '/boa_belts_1.jpg' },
-      { label: 'Char', swatch: '#242424', image: '/belt.jpg' },
-      { label: 'Fawn', swatch: '#d9c2a7', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w8',
-    name: 'Mahala Braid',
-    price: '€155',
-    category: 'women',
-    description:
-      'Hand-braided strap in premium veg-tan leather. Slight stretch for comfort with a polished brass buckle.',
-    colors: [
-      { label: 'Honey', swatch: '#c77935', image: '/boa_belts_2.jpg' },
-      { label: 'Graphite', swatch: '#3b3b3b', image: '/boa_belts_3.jpg' },
-      { label: 'Linen', swatch: '#e9ded0', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w9',
-    name: 'Vila Accent',
-    price: '€130',
-    category: 'women',
-    description:
-      'Accent belt with stitched tonal piping and petite buckle. Perfect for blazers and pencil skirts.',
-    colors: [
-      { label: 'Cedar', swatch: '#a8653d', image: '/boa_belts_1.jpg' },
-      { label: 'Obsidian', swatch: '#1d1d1d', image: '/belt.jpg' },
-      { label: 'Shell', swatch: '#f5e7d6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'w10',
-    name: 'Lukava Curve',
-    price: '€160',
-    category: 'women',
-    description:
-      'Curved strap that sits naturally on the hips. Hand burnished and conditioned for a soft sheen.',
-    colors: [
-      { label: 'Brandy', swatch: '#934d2c', image: '/boa_belts_2.jpg' },
-      { label: 'Pitch', swatch: '#191919', image: '/boa_belts_3.jpg' },
-      { label: 'Mist', swatch: '#ded1c3', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm1',
-    name: 'Bosna Heritage',
-    price: '€175',
-    category: 'men',
-    description:
-      'Full-grain harness leather belt with heavy brass buckle. Built for denim and everyday wear.',
-    colors: [
-      { label: 'Oak', swatch: '#784421', image: '/boa_belts_1.jpg' },
-      { label: 'Coal', swatch: '#161616', image: '/belt.jpg' },
-      { label: 'Whiskey', swatch: '#a1572f', image: '/boa_belts_2.jpg' },
-    ],
-  },
-  {
-    id: 'm2',
-    name: 'Drina Workwear',
-    price: '€165',
-    category: 'men',
-    description:
-      'Robust workwear belt with hand saddle-stitched keeper and beveled edges for comfort.',
-    colors: [
-      { label: 'Umber', swatch: '#845634', image: '/boa_belts_2.jpg' },
-      { label: 'Iron', swatch: '#2b2b2b', image: '/boa_belts_3.jpg' },
-      { label: 'Taupe', swatch: '#c2b5a6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm3',
-    name: 'Neretva Classic',
-    price: '€155',
-    category: 'men',
-    description:
-      'Classic dress belt with slim profile and polished nickel buckle. Ideal for tailoring.',
-    colors: [
-      { label: 'Mahogany', swatch: '#6e2f21', image: '/boa_belts_1.jpg' },
-      { label: 'Jet', swatch: '#111111', image: '/belt.jpg' },
-      { label: 'Clay', swatch: '#c7b7a1', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm4',
-    name: 'Dinara Ranger',
-    price: '€185',
-    category: 'men',
-    description:
-      'Ranger-style belt with layered strap and Chicago screws. Built to handle heavy use.',
-    colors: [
-      { label: 'Rust', swatch: '#8d3f1f', image: '/boa_belts_2.jpg' },
-      { label: 'Graphite', swatch: '#232323', image: '/boa_belts_3.jpg' },
-      { label: 'Stone', swatch: '#d8ccbf', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm5',
-    name: 'Jajce Field',
-    price: '€170',
-    category: 'men',
-    description:
-      'Field belt with matte buckle and waxed stitching. Treated with natural oils for weather resistance.',
-    colors: [
-      { label: 'Elm', swatch: '#7b4a24', image: '/boa_belts_1.jpg' },
-      { label: 'Carbon', swatch: '#1c1c1c', image: '/belt.jpg' },
-      { label: 'Flint', swatch: '#b7aa9b', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm6',
-    name: 'Kozara Minimal',
-    price: '€145',
-    category: 'men',
-    description:
-      'Slim minimal belt with hidden slot for interchangeable buckles. Satin burnished finish.',
-    colors: [
-      { label: 'Tobacco', swatch: '#9a5a34', image: '/boa_belts_2.jpg' },
-      { label: 'Midnight', swatch: '#121212', image: '/boa_belts_3.jpg' },
-      { label: 'Smoke', swatch: '#d0c4b7', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm7',
-    name: 'Zenica Utility',
-    price: '€190',
-    category: 'men',
-    description:
-      'Utility belt with reinforced holes and brass roller buckle. Perfect for rugged denim.',
-    colors: [
-      { label: 'Saddle', swatch: '#8a4e2a', image: '/boa_belts_1.jpg' },
-      { label: 'Charcoal', swatch: '#292929', image: '/belt.jpg' },
-      { label: 'Drift', swatch: '#c9bdac', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm8',
-    name: 'Igman Braided',
-    price: '€180',
-    category: 'men',
-    description:
-      'Loosely braided strap for added flex and comfort. Finished with hand-beveled edges.',
-    colors: [
-      { label: 'Hazel', swatch: '#a05e2f', image: '/boa_belts_2.jpg' },
-      { label: 'Steel', swatch: '#303030', image: '/boa_belts_3.jpg' },
-      { label: 'Dune', swatch: '#dbcebf', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm9',
-    name: 'Modrac Buckle',
-    price: '€160',
-    category: 'men',
-    description:
-      'Custom buckle belt with laser engraved interior detailing. Designed for business casual looks.',
-    colors: [
-      { label: 'Amber', swatch: '#a65c2b', image: '/boa_belts_1.jpg' },
-      { label: 'Onyx', swatch: '#171717', image: '/belt.jpg' },
-      { label: 'Marble', swatch: '#d5c7b8', image: '/boa_belts_4.jpg' },
-    ],
-  },
-  {
-    id: 'm10',
-    name: 'Visoko Traveller',
-    price: '€200',
-    category: 'men',
-    description:
-      'Traveller belt with removable pouch slot and reinforced loop. Oil-treated for patina-rich aging.',
-    colors: [
-      { label: 'Chestnut', swatch: '#8c4f2a', image: '/boa_belts_2.jpg' },
-      { label: 'Eclipse', swatch: '#101010', image: '/boa_belts_3.jpg' },
-      { label: 'Birch', swatch: '#e1d4c6', image: '/boa_belts_4.jpg' },
-    ],
-  },
-];
+const womensCatalog: Product[] = womensBelts.map((belt) => ({
+  ...belt,
+  colors: belt.colors.map((variant) => ({
+    label: variant.label,
+    image: variant.image,
+    preview: variant.preview ?? variant.image,
+  })),
+}));
+
+const mensCatalog: Product[] = mensBelts.map((belt) => ({
+  ...belt,
+  colors: belt.colors.map((variant) => ({
+    label: variant.label,
+    image: variant.image,
+    preview: variant.preview ?? variant.image,
+  })),
+}));
+
+const products: Product[] = [...womensCatalog, ...mensCatalog];
+const leadProductId = womensCatalog[0]?.id ?? mensCatalog[0]?.id ?? null;
+
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
 
@@ -335,7 +97,7 @@ export default function BeltsPageContent() {
       options: { asc: 'Lowest price first', desc: 'Highest price first' },
     } as const);
 
-  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   const formatTemplate = (template: string, replacements: Record<string, string>) =>
     Object.entries(replacements).reduce(
       (acc, [key, value]) => acc.replace(new RegExp(`\\{${key}\\}`, 'g'), value),
@@ -400,7 +162,7 @@ export default function BeltsPageContent() {
             fill
             sizes="(min-width: 1280px) 280px, (min-width: 768px) 33vw, 90vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority={product.id === 'w1'}
+            priority={leadProductId !== null && product.id === leadProductId}
           />
         </div>
         <div className="flex flex-1 flex-col gap-6 p-6">
@@ -417,7 +179,13 @@ export default function BeltsPageContent() {
                       ? 'ring-2 ring-offset-2 ring-[#1f1f1f] shadow-md'
                       : 'hover:shadow-md'
                   }`}
-                  style={{ backgroundColor: variant.swatch }}
+                  style={{
+                    backgroundColor: variant.swatch ?? '#dcdcdc',
+                    backgroundImage: variant.preview ? `url(${variant.preview})` : undefined,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
                   aria-label={formatTemplate(data.card.selectColorLabel, {
                     color: variant.label,
                     product: product.name,
@@ -430,7 +198,7 @@ export default function BeltsPageContent() {
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-[#111]">{product.name}</h3>
             <p className="text-sm uppercase tracking-wide text-[#696969]">
-              {`${activeVariant.label}${data.card.materialSuffix}`}
+              {data.card.availabilityLabel}
             </p>
           </div>
           <div className="mt-auto flex items-baseline justify-between">
