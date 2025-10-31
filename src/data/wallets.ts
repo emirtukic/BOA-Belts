@@ -2,7 +2,6 @@ export type WalletVariant = {
   label: string;
   image: string;
   preview?: string;
-  swatch?: string;
 };
 
 export type WalletProduct = {

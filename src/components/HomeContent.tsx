@@ -273,7 +273,7 @@ export default function HomeContent() {
                 type="button"
                 onClick={() => goToSlide(index)}
                 className={`h-2.5 w-2.5 rounded-full transition ${
-                  index === activeSlide ? 'bg-[#111]' : 'bg-[#d0d0d0]'
+                  index === activeSlide ? 'bg-[#111]' : 'bg-[#5a5a5a]'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

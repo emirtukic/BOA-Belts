@@ -23,6 +23,7 @@ export default function Navbar() {
     { href: '/belts', label: t.nav.belts },
     { href: '/bags', label: t.nav.bags },
     { href: '/wallets', label: t.nav.wallets },
+    { href: '/dodaci', label: t.nav.accessories },
     { href: '/about', label: t.nav.about },
     { href: '/loyalty', label: t.nav.loyalty },
   ];

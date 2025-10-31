@@ -2,7 +2,6 @@ export type BagVariant = {
   label: string;
   image: string;
   preview?: string;
-  swatch?: string;
 };
 
 export type BagProduct = {

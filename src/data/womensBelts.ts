@@ -2,7 +2,6 @@ export type WomensBeltVariant = {
   label: string;
   image: string;
   preview?: string;
-  swatch?: string;
 };
 
 export type WomensBelt = {
@@ -916,18 +915,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.24_0b018c31.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.24_0b018c31.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.jpg",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.32_22cfe024.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.32_22cfe024.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.jpg",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_416e38dc.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_416e38dc.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.jpg",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.jpg"
       }
     ]
   },

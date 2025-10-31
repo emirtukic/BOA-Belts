@@ -23,6 +23,7 @@ export default function Footer() {
             <li><Link href="/belts" className="hover:text-[#111] transition-colors">{t.nav.belts}</Link></li>
             <li><Link href="/bags" className="hover:text-[#111] transition-colors">{t.nav.bags}</Link></li>
             <li><Link href="/wallets" className="hover:text-[#111] transition-colors">{t.nav.wallets}</Link></li>
+            <li><Link href="/dodaci" className="hover:text-[#111] transition-colors">{t.nav.accessories}</Link></li>
           </ul>
         </div>
         <div>

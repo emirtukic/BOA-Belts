@@ -6,12 +6,11 @@ import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
-import { wallets } from '../data/wallets';
-
-type Category = 'slim' | 'carry';
+import { accessories } from '../data/accessories';
 
 type ProductVariant = {
   label: string;
+  swatch?: string;
   image: string;
   preview?: string;
 };
@@ -20,23 +19,23 @@ type Product = {
   id: string;
   name: string;
   price: string;
-  category: Category;
   description: string;
   colors: ProductVariant[];
 };
 
 type SortOrder = 'asc' | 'desc';
 
-const walletCatalog: Product[] = wallets.map((wallet) => ({
-  ...wallet,
-  colors: wallet.colors.map((variant) => ({
+const accessoryCatalog: Product[] = accessories.map((item) => ({
+  ...item,
+  colors: item.colors.map((variant) => ({
     label: variant.label,
     image: variant.image,
     preview: variant.preview ?? variant.image,
+    swatch: variant.swatch,
   })),
 }));
 
-const products: Product[] = walletCatalog;
+const products: Product[] = accessoryCatalog;
 const leadProductId = products[0]?.id ?? null;
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
@@ -75,16 +74,21 @@ function SortSelect({ value, label, ascLabel, descLabel, onChange }: SortSelectP
   );
 }
 
-export default function WalletsPageContent() {
+export default function AccessoriesPageContent() {
   const { t } = useLanguage();
-  const data = t.walletsPage;
+  const data = t.accessoriesPage;
 
   const sortCopy =
     data.sort ??
-    ({
-      label: 'Sort',
-      options: { asc: 'Lowest price first', desc: 'Highest price first' },
-    } as const);
+    ([
+      'Sort',
+      { asc: 'Lowest price first', desc: 'Highest price first' },
+    ] as const);
+
+  const sortLabels =
+    Array.isArray(sortCopy) ?
+      { label: sortCopy[0], options: sortCopy[1] } :
+      sortCopy;
 
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   const formatTemplate = (template: string, replacements: Record<string, string>) =>
@@ -170,7 +174,7 @@ export default function WalletsPageContent() {
                     isActive ? 'ring-2 ring-offset-2 ring-[#1f1f1f] shadow-md' : 'hover:shadow-md'
                   }`}
                   style={{
-                    backgroundColor: '#dcdcdc',
+                    backgroundColor: variant.swatch ?? '#dcdcdc',
                     backgroundImage: variant.preview ? `url(${variant.preview})` : undefined,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -230,7 +234,12 @@ export default function WalletsPageContent() {
     );
   };
 
-  const heroParagraphs = data.heroParagraphs ?? [data.heroSubtitle];
+  const heroParagraphs = [data.heroSubtitle, ...(data.heroParagraphs ?? [])];
+
+  const sortConfig =
+    'label' in sortLabels
+      ? sortLabels
+      : { label: 'Sort', options: { asc: 'Lowest price first', desc: 'Highest price first' } };
 
   return (
     <main className="bg-[#f9f9f9] text-[#1f1f1f]">
@@ -245,7 +254,7 @@ export default function WalletsPageContent() {
       >
         <div className="relative z-10 mx-auto max-w-3xl space-y-5">
           <p className="text-sm uppercase tracking-[0.4em] text-[#9a7048]">{data.heroTitle}</p>
-          <h1 className="text-4xl font-semibold md:text-5xl">{data.signatureTitle}</h1>
+          <h1 className="text-4xl font-semibold md:text-5xl">{data.heroHeading}</h1>
           <div className="space-y-4 text-base text-[#3a3a3a] md:text-lg">
             {heroParagraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -266,9 +275,9 @@ export default function WalletsPageContent() {
             </span>
             <SortSelect
               value={sortOrder}
-              label={sortCopy.label}
-              ascLabel={sortCopy.options.asc}
-              descLabel={sortCopy.options.desc}
+              label={sortConfig.label}
+              ascLabel={sortConfig.options.asc}
+              descLabel={sortConfig.options.desc}
               onChange={(order) => setSortOrder(order)}
             />
           </div>

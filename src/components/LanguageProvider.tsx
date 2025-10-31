@@ -18,6 +18,7 @@ const translations = {
       belts: 'Belts',
       bags: 'Bags',
       wallets: 'Wallets',
+      accessories: 'Accessories',
       about: 'About',
       loyalty: 'Loyalty',
       contact: 'Contact',
@@ -252,7 +253,7 @@ const translations = {
         stylesLabel: 'styles',
       },
       card: {
-        availabilityLabel: 'Available in multiple colours',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -318,7 +319,7 @@ const translations = {
         stylesLabel: 'designs',
       },
       card: {
-        availabilityLabel: 'Available in multiple colours',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -394,7 +395,7 @@ const translations = {
         stylesLabel: 'layouts',
       },
       card: {
-        availabilityLabel: 'Available in multiple colours',
+        availabilityLabel: 'Dostupno u vise boja',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -413,6 +414,35 @@ const translations = {
       closingText:
         'Tell us what you carry and we\'ll shape a wallet that fits your routine without adding bulk.',
       closingButton: 'Start your wallet enquiry',
+    },
+    accessoriesPage: {
+      heroTitle: 'Accessories',
+      heroHeading: 'Leather Accessories Built to Last',
+      heroSubtitle:
+        'Wraps, bracelets, and cases crafted in Travnik to elevate daily rituals.',
+      heroParagraphs: [
+        'Each piece is cut, stitched, and finished from the same full-grain hides we use for our belts.',
+        'Mix and match hues or pair them with gifts\u2014the patina deepens with every season.',
+      ],
+      collectionTitle: 'Accessories Collection',
+      collectionSubtitle: 'Five handcrafted accessories ready for everyday use or gifting.',
+      stylesLabel: 'pieces',
+      card: {
+        availabilityLabel: 'Dostupno u vise boja',
+        craftedBadge: 'Handcrafted',
+        selectColorLabel: 'Select {color} for {product}',
+        infoAriaLabel: 'View description for {product}',
+        variantLabel: '{variant} option',
+        closeLabel: 'Close',
+        closeAria: 'Close description',
+      },
+      sort: {
+        label: 'Sort',
+        options: {
+          asc: 'Lowest price first',
+          desc: 'Highest price first',
+        },
+      },
     },
     aboutPage: {
       heroTitle: 'Inside Boa Belts',
@@ -498,6 +528,7 @@ const translations = {
       belts: 'Kai\u0161evi',
       bags: 'Torbe',
       wallets: 'Nov\u010danici',
+      accessories: 'Dodaci',
       about: 'O nama',
       loyalty: 'Loyalty kartica',
       contact: 'Kontakt',
@@ -908,6 +939,35 @@ const translations = {
         'Zavirite u dodatke koji funkcioni\u0161u \u2013 i izgledaju odli\u010dno.',
       closingButton: 'Zapo\u010dni upit za nov\u010danik',
     },
+    accessoriesPage: {
+      heroTitle: 'Dodaci',
+      heroHeading: 'Ko\u017eni dodaci koji prate tvoj stil',
+      heroSubtitle:
+        'Omoti, narukvice i futrole ra\u0111ene u Travniku \u2013 mali detalji koji zaokru\u017euju pri\u010du.',
+      heroParagraphs: [
+        'Svaki dodatak izra\u0111ujemo od istih punozrnih ko\u017ea, uz istu ru\u010dnu obradu kao i na\u0161e kai\u0161eve.',
+        'Kombinuj nijanse ili ih pokloni dragim ljudima \u2013 patina s vremenom postaje jedinstvena.',
+      ],
+      collectionTitle: 'Kolekcija dodataka',
+      collectionSubtitle: 'Pet ru\u010dno izra\u0111enih dodataka spremnih za poklanjanje ili svakodnevnu upotrebu.',
+      stylesLabel: 'komada',
+      card: {
+        availabilityLabel: 'Dostupno u vise boja',
+        craftedBadge: 'Ru\u010dno izra\u0111eno',
+        selectColorLabel: 'Odaberi {color} za {product}',
+        infoAriaLabel: 'Pogledaj opis za {product}',
+        variantLabel: '{variant} varijanta',
+        closeLabel: 'Zatvori',
+        closeAria: 'Zatvori opis',
+      },
+      sort: {
+        label: 'Sortiraj',
+        options: {
+          asc: 'Najni\u017ea cijena prvo',
+          desc: 'Najvi\u0161a cijena prvo',
+        },
+      },
+    },
     aboutPage: {
       heroTitle: 'Boa Belts iznutra',
       heroSubtitle:
@@ -1029,6 +1089,7 @@ export function useLanguage() {
 }
 
 export default LanguageProvider;
+
 
 
 

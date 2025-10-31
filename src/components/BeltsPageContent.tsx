@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
+import { ImageLightbox } from './ImageLightbox';
 import { womensBelts } from '../data/womensBelts';
 import { mensBelts } from '../data/mensBelts';
 
@@ -108,6 +109,9 @@ export default function BeltsPageContent() {
     Object.fromEntries(products.map((product) => [product.id, 0])),
   );
   const [openProductId, setOpenProductId] = useState<string | null>(null);
+  const [lightboxState, setLightboxState] = useState<
+    { items: { src: string; alt: string }[]; index: number } | null
+  >(null);
   const [activeCategory, setActiveCategory] = useState<Category>('women');
 
   const womensSectionRef = useRef<HTMLDivElement | null>(null);
@@ -139,8 +143,13 @@ export default function BeltsPageContent() {
   };
 
   const renderProductCard = (product: Product) => {
+    const variants =
+      product.colors.length > 0
+        ? product.colors
+        : [{ label: 'Photo 1', image: '/boabelts.jpg', preview: '/boabelts.jpg' }];
     const activeIndex = selectedColors[product.id] ?? 0;
-    const activeVariant = product.colors[activeIndex] ?? product.colors[0];
+    const activeVariant = variants[activeIndex] ?? variants[0];
+    const imageAlt = `${product.name} - ${activeVariant.label}`;
 
     return (
       <article
@@ -155,19 +164,32 @@ export default function BeltsPageContent() {
         >
           <FaInfoCircle className="h-4 w-4" />
         </button>
-        <div className="relative h-72 overflow-hidden bg-[#f5f5f5]">
+        <button
+          type="button"
+          onClick={() =>
+            setLightboxState({
+              items: variants.map((variant) => ({
+                src: variant.image,
+                alt: `${product.name} - ${variant.label}`,
+              })),
+              index: activeIndex,
+            })
+          }
+          className="relative h-72 w-full overflow-hidden bg-[#f5f5f5] focus:outline-none focus:ring-2 focus:ring-[#111]"
+          aria-label={`Open larger view of ${imageAlt}`}
+        >
           <Image
             src={activeVariant.image}
-            alt={`${product.name} in ${activeVariant.label}`}
+            alt={imageAlt}
             fill
             sizes="(min-width: 1280px) 280px, (min-width: 768px) 33vw, 90vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             priority={leadProductId !== null && product.id === leadProductId}
           />
-        </div>
+        </button>
         <div className="flex flex-1 flex-col gap-6 p-6">
           <div className="flex flex-wrap items-center gap-2">
-            {product.colors.map((variant, index) => {
+            {variants.map((variant, index) => {
               const isActive = activeIndex === index;
               return (
                 <button
@@ -185,6 +207,7 @@ export default function BeltsPageContent() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
+                    filter: isActive ? 'none' : 'brightness(0.7)',
                   }}
                   aria-label={formatTemplate(data.card.selectColorLabel, {
                     color: variant.label,
@@ -213,9 +236,6 @@ export default function BeltsPageContent() {
             <div className="flex items-start justify-between">
               <div>
                 <h4 className="text-xl font-semibold">{product.name}</h4>
-                <p className="mt-1 text-sm uppercase tracking-wide text-white/70">
-                  {formatTemplate(data.card.variantLabel, { variant: activeVariant.label })}
-                </p>
               </div>
               <button
                 type="button"
@@ -358,6 +378,13 @@ export default function BeltsPageContent() {
           <LoyaltyCardSection className="mt-4" />
         </section>
       </section>
+      {lightboxState && (
+        <ImageLightbox
+          items={lightboxState.items}
+          initialIndex={lightboxState.index}
+          onClose={() => setLightboxState(null)}
+        />
+      )}
     </main>
   );
 }
