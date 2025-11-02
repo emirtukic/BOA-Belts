@@ -30,6 +30,7 @@ export default function Footer() {
           <h5 className="text-lg font-semibold mb-3">{t.footer.navigationTitle1}</h5>
           <ul className="text-sm space-y-2 text-[#777]">
             <li><Link href="/about" className="hover:text-[#111] transition-colors">{t.nav.about}</Link></li>
+            <li><Link href="/loyalty" className="hover:text-[#111] transition-colors">{t.nav.loyalty}</Link></li>
           </ul>
         </div>
 
