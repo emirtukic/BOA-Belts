@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     'Discover handmade leather tote, crossbody, and travel bags crafted in Travnik with reinforced stitching and premium hardware.',
 };
 
-export default function BagsPage({ searchParams }: { searchParams?: any }) {
+type SearchParams = Record<string, string | string[] | undefined>;
+
+export default function BagsPage({ searchParams }: { searchParams?: SearchParams }) {
   const rawProduct = searchParams?.product;
   const focusedProductId = Array.isArray(rawProduct) ? rawProduct[0] ?? null : rawProduct ?? null;
 
