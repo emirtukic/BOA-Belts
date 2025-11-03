@@ -7,7 +7,16 @@ export const metadata: Metadata = {
     'Explore Travnik-crafted leather accessories including wristwear, sheaths, and covers designed to accompany your everyday carry.',
 };
 
-export default function AccessoriesPage() {
-  return <AccessoriesPageContent />;
+type PageProps = {
+  searchParams?: {
+    product?: string | string[];
+  };
+};
+
+export default function AccessoriesPage({ searchParams }: PageProps) {
+  const rawProduct = searchParams?.product;
+  const focusedProductId = Array.isArray(rawProduct) ? rawProduct[0] ?? null : rawProduct ?? null;
+
+  return <AccessoriesPageContent focusedProductId={focusedProductId} />;
 }
 

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
-import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
@@ -88,11 +88,14 @@ function SortSelect({ value, label, ascLabel, descLabel, onChange }: SortSelectP
   );
 }
 
-export default function BeltsPageContent() {
+type BeltsPageContentProps = {
+  focusedProductId?: string | null;
+};
+
+export default function BeltsPageContent({ focusedProductId = null }: BeltsPageContentProps) {
   const { t } = useLanguage();
-  const searchParams = useSearchParams();
-  const focusedProductId = searchParams?.get('product') ?? null;
   const data = t.beltsPage;
+  const isFiltering = Boolean(focusedProductId);
 
   const sortCopy =
     data.sort ??
@@ -148,9 +151,10 @@ export default function BeltsPageContent() {
     }
     return sorted;
   }, [sortOrder, focusedProductId]);
-
   const womensCountLabel = `${womensProducts.length} ${data.sections.stylesLabel}`;
   const mensCountLabel = `${mensProducts.length} ${data.sections.stylesLabel}`;
+  const showWomenSection = womensProducts.length > 0;
+  const showMenSection = mensProducts.length > 0;
 
   const handleColorChange = (productId: string, index: number) => {
     setSelectedColors((prev) => ({
@@ -308,48 +312,62 @@ export default function BeltsPageContent() {
       </section>
 
       <section className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 pb-24 pt-20">
-        <nav
-          aria-label="Belt categories"
-          className="mx-auto flex w-full max-w-md justify-center gap-4 rounded-full border border-[#dfdfdf] bg-white p-2 shadow-sm"
-        >
-          <button
-            type="button"
-            onClick={() => handleMenuClick('women')}
-            className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
-              activeCategory === 'women'
-                ? 'bg-[#111] text-white shadow'
-                : 'text-[#111] hover:bg-[#111] hover:text-white'
-            }`}
-            aria-pressed={activeCategory === 'women'}
+        {isFiltering && (
+          <div className="flex items-center justify-start">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#111] transition hover:text-[#9a7048]"
+            >
+              <FaArrowLeft className="h-4 w-4" aria-hidden="true" />
+              <span>{t.search.backToHome}</span>
+            </Link>
+          </div>
+        )}
+        {!isFiltering && (
+          <nav
+            aria-label="Belt categories"
+            className="mx-auto flex w-full max-w-md justify-center gap-4 rounded-full border border-[#dfdfdf] bg-white p-2 shadow-sm"
           >
-            {data.categoryMenu.womens}
-          </button>
-          <button
-            type="button"
-            onClick={() => handleMenuClick('men')}
-            className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
-              activeCategory === 'men'
-                ? 'bg-[#111] text-white shadow'
-                : 'text-[#111] hover:bg-[#111] hover:text-white'
-            }`}
-            aria-pressed={activeCategory === 'men'}
-          >
-            {data.categoryMenu.mens}
-          </button>
-        </nav>
+            <button
+              type="button"
+              onClick={() => handleMenuClick('women')}
+              className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
+                activeCategory === 'women'
+                  ? 'bg-[#111] text-white shadow'
+                  : 'text-[#111] hover:bg-[#111] hover:text-white'
+              }`}
+              aria-pressed={activeCategory === 'women'}
+            >
+              {data.categoryMenu.womens}
+            </button>
+            <button
+              type="button"
+              onClick={() => handleMenuClick('men')}
+              className={`flex-1 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide transition ${
+                activeCategory === 'men'
+                  ? 'bg-[#111] text-white shadow'
+                  : 'text-[#111] hover:bg-[#111] hover:text-white'
+              }`}
+              aria-pressed={activeCategory === 'men'}
+            >
+              {data.categoryMenu.mens}
+            </button>
+          </nav>
+        )}
 
-        <section
-          ref={womensSectionRef}
-          id="womens-belts"
-          className={`space-y-8 ${activeCategory !== 'women' ? 'hidden' : ''}`}
-          aria-hidden={activeCategory !== 'women'}
-        >
+        {showWomenSection && (
+          <section
+            ref={womensSectionRef}
+            id="womens-belts"
+            className={`space-y-8 ${!isFiltering && activeCategory !== 'women' ? 'hidden' : ''}`}
+            aria-hidden={!isFiltering && activeCategory !== 'women'}
+          >
           <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             <div>
               <h3 className="text-2xl font-semibold md:text-3xl">
                 {data.sections.womens.title}
               </h3>
-              {!focusedProductId && (
+              {!isFiltering && (
                 <p className="text-sm text-[#6a6a6a]">{data.sections.womens.subtitle}</p>
               )}
             </div>
@@ -369,18 +387,20 @@ export default function BeltsPageContent() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {womensProducts.map((product) => renderProductCard(product))}
           </div>
-        </section>
+          </section>
+        )}
 
-        <section
-          ref={mensSectionRef}
-          id="mens-belts"
-          className={`space-y-8 ${activeCategory !== 'men' ? 'hidden' : ''}`}
-          aria-hidden={activeCategory !== 'men'}
-        >
+        {showMenSection && (
+          <section
+            ref={mensSectionRef}
+            id="mens-belts"
+            className={`space-y-8 ${!isFiltering && activeCategory !== 'men' ? 'hidden' : ''}`}
+            aria-hidden={!isFiltering && activeCategory !== 'men'}
+          >
           <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             <div>
               <h3 className="text-2xl font-semibold md:text-3xl">{data.sections.mens.title}</h3>
-              {!focusedProductId && (
+              {!isFiltering && (
                 <p className="text-sm text-[#6a6a6a]">{data.sections.mens.subtitle}</p>
               )}
             </div>
@@ -401,7 +421,8 @@ export default function BeltsPageContent() {
             {mensProducts.map((product) => renderProductCard(product))}
           </div>
           <LoyaltyCardSection className="mt-4" />
-        </section>
+          </section>
+        )}
       </section>
       {lightboxState && (
         <ImageLightbox

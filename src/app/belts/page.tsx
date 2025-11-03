@@ -7,7 +7,16 @@ export const metadata: Metadata = {
     'Explore handcrafted belts made in Travnik with full-grain leather, solid hardware, and bespoke sizing options.',
 };
 
-export default function BeltsPage() {
-  return <BeltsPageContent />;
+type PageProps = {
+  searchParams?: {
+    product?: string | string[];
+  };
+};
+
+export default function BeltsPage({ searchParams }: PageProps) {
+  const rawProduct = searchParams?.product;
+  const focusedProductId = Array.isArray(rawProduct) ? rawProduct[0] ?? null : rawProduct ?? null;
+
+  return <BeltsPageContent focusedProductId={focusedProductId} />;
 }
 

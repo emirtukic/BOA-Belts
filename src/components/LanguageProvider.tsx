@@ -35,6 +35,7 @@ const translations = {
       closeLabel: 'Close search',
       noResults: 'No results for',
       noImage: 'No image',
+      backToHome: 'Back to homepage',
       categoryLabels: {
         womensBelts: "Women's belt",
         mensBelts: "Men's belt",
@@ -515,7 +516,7 @@ const translations = {
         },
         email: {
           label: 'Email',
-          value: 'boabelts@gmail.com',
+          value: 'beltsboa@gmail.com',
           description: 'Prefer detailed briefs? Drop us a note with timelines and references.',
         },
       },
@@ -561,6 +562,7 @@ const translations = {
       closeLabel: 'Zatvori pretragu',
       noResults: 'Nije prona\u0111en rezultat za',
       noImage: 'Bez slike',
+      backToHome: 'Nazad na po\u010detnu',
       categoryLabels: {
         womensBelts: '\u017denski kai\u0161',
         mensBelts: 'Mu\u0161ki kai\u0161',
@@ -1055,7 +1057,7 @@ const translations = {
         },
         email: {
           label: 'Email',
-          value: 'boabelts@gmail.com',
+          value: 'beltsboa@gmail.com',
           description: 'Za detaljne brifove po\u0161alji poruku s rokovima i referencama.',
         },
       },
