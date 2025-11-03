@@ -19,13 +19,13 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: '/', label: t.nav.home },
-    { href: '/belts', label: t.nav.belts },
-    { href: '/bags', label: t.nav.bags },
-    { href: '/wallets', label: t.nav.wallets },
-    { href: '/dodaci', label: t.nav.accessories },
-    { href: '/about', label: t.nav.about },
-    { href: '/loyalty', label: t.nav.loyalty },
+    { href: '/', label: t.nav.home, highlight: false },
+    { href: '/belts', label: t.nav.belts, highlight: false },
+    { href: '/bags', label: t.nav.bags, highlight: false },
+    { href: '/wallets', label: t.nav.wallets, highlight: false },
+    { href: '/dodaci', label: t.nav.accessories, highlight: false },
+    { href: '/about', label: t.nav.about, highlight: false },
+    { href: '/loyalty', label: t.nav.loyalty, highlight: true },
   ];
 
   return (
@@ -46,13 +46,23 @@ export default function Navbar() {
               isMobileMenuOpen ? 'hidden' : ''
             }`}
           >
-            {navLinks.map((link) => (
+            {navLinks.map(({ href, label, highlight }) => (
               <Link
-                key={link.label}
-                href={link.href}
-                className="uppercase tracking-wide hover:text-[#000] transition-colors duration-200"
+                key={label}
+                href={href}
+                className={`uppercase tracking-wide transition-colors duration-200 ${
+                  highlight ? 'text-[#9a7048]' : 'hover:text-[#000]'
+                }`}
               >
-                {link.label}
+                <span className="inline-flex items-center gap-2">
+                  {highlight && (
+                    <span
+                      className="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-[#9a7048] shadow-[0_0_0_4px_rgba(154,112,72,0.18)]"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span>{label}</span>
+                </span>
               </Link>
             ))}
           </nav>
@@ -115,14 +125,20 @@ export default function Navbar() {
           {/* Content */}
           <div className="flex-1 px-8 py-6 flex flex-col items-center gap-6 overflow-y-auto">
             <nav className="flex flex-col items-center gap-5 text-lg font-medium">
-              {navLinks.map((link) => (
+              {navLinks.map(({ href, label, highlight }) => (
                 <Link
-                  key={link.label}
-                  href={link.href}
-                  className="hover:text-black"
+                  key={label}
+                  href={href}
+                  className={`flex items-center gap-2 ${highlight ? 'text-[#9a7048]' : 'hover:text-black'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.label}
+                  {highlight && (
+                    <span
+                      className="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-[#9a7048] shadow-[0_0_0_4px_rgba(154,112,72,0.18)]"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span>{label}</span>
                 </Link>
               ))}
             </nav>

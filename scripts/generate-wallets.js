@@ -11,10 +11,10 @@ function encodePublicPath(relativePath) {
   return '/' + segments.map(encodeURIComponent).join('/');
 }
 
-const list = `01_MINI NOVCANIK - 35 KM
-34_MUSKI NOVCANIK ZA KONOBARE - 50 KM
-55_NOVCANICI VELIKI - 45 KM
-64_DJECIJI NOVCANIK - 30 KM`;
+const list = `01_Mini nov\u010danik - 35 KM
+34_Ugostiteljski nov\u010danik - 50 KM
+55_Boa nov\u010danik - 45 KM
+64_Dje\u010diji nov\u010danik - 30 KM`;
 
 const categoryMap = {
   '01': 'slim',
@@ -23,33 +23,22 @@ const categoryMap = {
   '64': 'slim',
 };
 
-const wordReplacements = {
-  mini: 'Mini',
-  novcanik: 'Novčanik',
-  novcanici: 'Novčanici',
-  muski: 'Muški',
-  konobare: 'Konobare',
-  veliki: 'Veliki',
-  djeciji: 'Dječiji',
-  za: 'Za',
-};
-
-function formatWord(word) {
-  if (/^no\./i.test(word)) {
-    return word.replace(/^no\./i, 'No.');
-  }
+function formatWord(word, index) {
   const lower = word.toLocaleLowerCase(locale);
-  if (wordReplacements[lower]) {
-    return wordReplacements[lower];
+  if (/^no\./i.test(lower)) {
+    return lower.replace(/^no\./i, 'No.');
   }
-  return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  if (index === 0) {
+    return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  }
+  return lower;
 }
 
 function formatName(rawName) {
   return rawName
     .split(/\s+/)
     .filter(Boolean)
-    .map(formatWord)
+    .map((word, index) => formatWord(word, index))
     .join(' ');
 }
 
@@ -58,7 +47,7 @@ const specs = list
   .map((line) => line.trim())
   .filter(Boolean)
   .map((line) => {
-    const match = line.match(/^(.*?)\s*[-–—]\s*(.+)$/);
+    const match = line.match(/^(.*?)\s*[---]\s*(.+)$/);
     if (!match) {
       throw new Error(`Invalid line in wallets list: "${line}"`);
     }
@@ -75,7 +64,7 @@ const folders = fs
   .readdirSync(baseDir, { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory());
 
-const description = 'Ru\u010dna izrada u Travniku, prilagodljiva silueta i zavr\u0161na obrada spremna za va\u0161 stil.';
+const description = 'Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.';
 
 const data = specs.map((spec) => {
   const folder = folders.find((dirent) => dirent.name.startsWith(spec.id + '_'));

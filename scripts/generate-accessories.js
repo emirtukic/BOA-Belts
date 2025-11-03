@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const baseDir = path.join(process.cwd(), 'public', 'Accesories');
@@ -7,42 +7,27 @@ const maxImagesPerProduct = Infinity;
 const locale = 'bs-BA';
 
 function encodePublicPath(relativePath) {
-  const segments = relativePath.split(/[\\/]/).filter(Boolean);
+  const segments = relativePath.split(/\\|\//).filter(Boolean);
   return '/' + segments.map(encodeURIComponent).join('/');
 }
 
 const list = [
-  { id: '31', rawName: 'OMOT', price: '30 KM' },
-  { id: '56', rawName: 'NARUKVICA', price: '30 KM' },
-  { id: '57', rawName: 'OGRLICE', price: '30 KM' },
-  { id: '58', rawName: 'FUTROLA_ZA NO\u017dEVE', price: '60 KM' },
-  { id: '60', rawName: 'FUTROLA ZA NAO\u010cALE', price: '40 KM' },
+  { id: '31', rawName: 'Omot', price: '30 KM' },
+  { id: '56', rawName: 'Narukvica', price: '30 KM' },
+  { id: '57', rawName: 'Ogrlice', price: '30 KM' },
+  { id: '58', rawName: 'Futrola za no\u017eeve', price: '60 KM' },
+  { id: '60', rawName: 'Futrola za nao\u010dale', price: '40 KM' },
 ];
 
-const wordReplacements = {
-  omot: 'Omot',
-  narukvica: 'Narukvica',
-  ogrlice: 'Ogrlice',
-  futrola: 'Futrola',
-  za: 'Za',
-  no\u017eeve: 'No\u017eeve',
-  nao\u010dale: 'Nao\u010dale',
-  dje\u010diji: 'Dje\u010diji',
-};
-
-function formatWord(word) {
-  if (/^no\./i.test(word)) {
-    return word.replace(/^no\./i, 'No.');
-  }
-
+function formatWord(word, index) {
   const lower = word.toLocaleLowerCase(locale);
-
-  if (Object.prototype.hasOwnProperty.call(wordReplacements, lower)) {
-    return wordReplacements[lower];
+  if (/^no\./i.test(lower)) {
+    return lower.replace(/^no\./i, 'No.');
   }
-
-  const [first = '', ...rest] = lower;
-  return first.toLocaleUpperCase(locale) + rest.join('');
+  if (index === 0) {
+    return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  }
+  return lower;
 }
 
 function formatName(rawName) {
@@ -50,7 +35,7 @@ function formatName(rawName) {
     .replace(/_/g, ' ')
     .split(/\s+/)
     .filter(Boolean)
-    .map(formatWord)
+    .map((word, index) => formatWord(word, index))
     .join(' ');
 }
 
@@ -64,8 +49,7 @@ const folders = fs
   .readdirSync(baseDir, { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory());
 
-const description =
-  'Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.';
+const description = 'Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.';
 
 const data = specs.map((spec) => {
   const folder = folders.find((dirent) => dirent.name.startsWith(`${spec.id}_`));
@@ -109,3 +93,4 @@ const fileContent = `${header}${JSON.stringify(data, null, 2)};\n`;
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, fileContent, { encoding: 'utf8' });
 console.log(`Wrote ${data.length} accessories to ${outputPath}`);
+

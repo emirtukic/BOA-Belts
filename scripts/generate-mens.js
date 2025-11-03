@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const baseDir = path.join(process.cwd(), 'public', 'Mens Belts');
@@ -12,22 +12,22 @@ function encodePublicPath(relativePath) {
 }
 
 const list = [
-  { id: '02', rawName: 'MU\u0160KI KAI\u0160', price: '35 KM' },
-  { id: '35', rawName: 'MU\u0160KI LOVA\u010cKI KAI\u0160', price: '250 KM' },
+  { id: '02', rawName: 'Classic belt', price: '35 KM' },
+  { id: '35', rawName: 'Hunter belt', price: '250 KM' },
 ];
 
-const wordReplacements = {
-  mu\u0161ki: 'Mu\u0161ki',
-  lova\u010dki: 'Lova\u010dki',
-  kai\u0161: 'Kai\u0161',
-  mu\u0161ka: 'Mu\u0161ka',
-};
+const wordReplacements = {};
 
 function formatWord(word) {
   const lower = word.toLocaleLowerCase(locale);
 
   if (Object.prototype.hasOwnProperty.call(wordReplacements, lower)) {
     return wordReplacements[lower];
+  }
+
+  if (word.includes('.')) {
+    const [before, after] = word.split('.');
+    return `${before}.${after}`;
   }
 
   const [first = '', ...rest] = lower;
@@ -54,7 +54,7 @@ const folders = fs
   .filter((dirent) => dirent.isDirectory());
 
 const description =
-  'Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.';
+  'RuÄna izrada u Travniku, prilagodljiva silueta i zavrÅ¡na obrada spremna za vaÅ¡ stil.';
 
 const data = specs.map((spec) => {
   const folder = folders.find((dirent) => dirent.name.startsWith(`${spec.id}_`));

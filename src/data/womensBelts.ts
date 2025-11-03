@@ -16,7 +16,7 @@ export type WomensBelt = {
 export const womensBelts: WomensBelt[] = [
   {
     "id": "w03",
-    "name": "Angel Belt",
+    "name": "Angel belt",
     "price": "150 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -40,7 +40,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w04",
-    "name": "Eva Belt",
+    "name": "Eva belt",
     "price": "85 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -64,31 +64,31 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w05",
-    "name": "Kaiš Sa Mašnicom",
+    "name": "No.6 belt",
     "price": "40 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg",
-        "preview": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg",
-        "preview": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg",
-        "preview": "/Womens%20Belts/05_KAI%C5%A0%20SA%20MA%C5%A0NICOM_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg"
       }
     ]
   },
   {
     "id": "w06",
-    "name": "Furious Belt",
+    "name": "Furious belt",
     "price": "100 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -112,122 +112,112 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w07",
-    "name": "No.1",
+    "name": "No.1 belt",
     "price": "85 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/07_No.1_85%20KM/66683.jpg",
-        "preview": "/Womens%20Belts/07_No.1_85%20KM/66683.jpg"
-      },
-      {
-        "label": "Photo 2",
         "image": "/Womens%20Belts/07_No.1_85%20KM/189253.jpg",
         "preview": "/Womens%20Belts/07_No.1_85%20KM/189253.jpg"
-      },
-      {
-        "label": "Photo 3",
-        "image": "/Womens%20Belts/07_No.1_85%20KM/189285.jpg",
-        "preview": "/Womens%20Belts/07_No.1_85%20KM/189285.jpg"
       }
     ]
   },
   {
     "id": "w08",
-    "name": "Crni Na Vezanje",
+    "name": "No.3 belt",
     "price": "70 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189254.jpg",
-        "preview": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189254.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189254.jpg",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189254.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189277.jpg",
-        "preview": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189277.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189277.jpg",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189277.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189278.jpg",
-        "preview": "/Womens%20Belts/08_CRNI%20NA%20VEZANJE_70%20KM/189278.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189278.jpg",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189278.jpg"
       }
     ]
   },
   {
     "id": "w09",
-    "name": "Crni Sa Resama",
+    "name": "No.4 belt",
     "price": "70 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/66686.jpg",
-        "preview": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/66686.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/66686.jpg",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/66686.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/66687.jpg",
-        "preview": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/66687.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/66687.jpg",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/66687.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/189283.jpg",
-        "preview": "/Womens%20Belts/09_%20CRNI%20SA%20RESAMA_70%20KM/189283.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/189283.jpg",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/189283.jpg"
       }
     ]
   },
   {
     "id": "w10",
-    "name": "Dvije Boje",
+    "name": "No.5 belt",
     "price": "60 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/10_DVIJE%20BOJE%20_%2060%20KM/189271.jpg",
-        "preview": "/Womens%20Belts/10_DVIJE%20BOJE%20_%2060%20KM/189271.jpg"
+        "image": "/Womens%20Belts/10_No.5_60%20KM/189271.jpg",
+        "preview": "/Womens%20Belts/10_No.5_60%20KM/189271.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/10_DVIJE%20BOJE%20_%2060%20KM/189272.jpg",
-        "preview": "/Womens%20Belts/10_DVIJE%20BOJE%20_%2060%20KM/189272.jpg"
+        "image": "/Womens%20Belts/10_No.5_60%20KM/189272.jpg",
+        "preview": "/Womens%20Belts/10_No.5_60%20KM/189272.jpg"
       }
     ]
   },
   {
     "id": "w11",
-    "name": "Basic Kaiš",
+    "name": "Basic belt",
     "price": "35 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/121872.jpg",
-        "preview": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/121872.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.jpg",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/189269.jpg",
-        "preview": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/189269.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.jpg",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/189270.jpg",
-        "preview": "/Womens%20Belts/11_BASIC%20KAI%C5%A0%20_35%20KM/189270.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.jpg",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.jpg"
       }
     ]
   },
   {
     "id": "w12",
-    "name": "Bold Belt",
+    "name": "Bold belt",
     "price": "55 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -251,26 +241,21 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w13",
-    "name": "Široki Sa Dvije Šnale",
+    "name": "No.2 belt",
     "price": "80 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/13_%C5%A0IROKI%20SA%20DVIJE%20%C5%A0NALE_%2080%20KM/189265.jpg",
-        "preview": "/Womens%20Belts/13_%C5%A0IROKI%20SA%20DVIJE%20%C5%A0NALE_%2080%20KM/189265.jpg"
-      },
-      {
-        "label": "Photo 2",
-        "image": "/Womens%20Belts/13_%C5%A0IROKI%20SA%20DVIJE%20%C5%A0NALE_%2080%20KM/189266.jpg",
-        "preview": "/Womens%20Belts/13_%C5%A0IROKI%20SA%20DVIJE%20%C5%A0NALE_%2080%20KM/189266.jpg"
+        "image": "/Womens%20Belts/13_No.2_80%20KM/189266.jpg",
+        "preview": "/Womens%20Belts/13_No.2_80%20KM/189266.jpg"
       }
     ]
   },
   {
     "id": "w14",
-    "name": "Teja Belt",
+    "name": "Teja belt",
     "price": "80 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -294,7 +279,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w15",
-    "name": "Invicta Belt",
+    "name": "Invicta belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -318,7 +303,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w16",
-    "name": "Nefertiti Belt",
+    "name": "Nefertiti belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -342,7 +327,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w17",
-    "name": "Tena Belt",
+    "name": "Tena belt",
     "price": "45 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -366,7 +351,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w18",
-    "name": "Adrienne Belt",
+    "name": "Adrienne belt",
     "price": "80 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -390,7 +375,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w19",
-    "name": "Afrodita Belt",
+    "name": "Afrodita belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -414,7 +399,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w20",
-    "name": "Alba Belt",
+    "name": "Alba belt",
     "price": "70 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -438,7 +423,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w21",
-    "name": "Salvia Belt",
+    "name": "Salvia belt",
     "price": "45 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -447,22 +432,12 @@ export const womensBelts: WomensBelt[] = [
         "label": "Photo 1",
         "image": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.jpg",
         "preview": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.jpg"
-      },
-      {
-        "label": "Photo 2",
-        "image": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/193791.jpg",
-        "preview": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/193791.jpg"
-      },
-      {
-        "label": "Photo 3",
-        "image": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/193792.jpg",
-        "preview": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/193792.jpg"
       }
     ]
   },
   {
     "id": "w22",
-    "name": "Lily Belt",
+    "name": "Lily belt",
     "price": "60 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -486,7 +461,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w23",
-    "name": "Zinnia Belt",
+    "name": "Zinnia belt",
     "price": "60 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -510,7 +485,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w24",
-    "name": "Rose Belt",
+    "name": "Rose belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -534,7 +509,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w25",
-    "name": "Grace Belt",
+    "name": "Grace belt",
     "price": "55 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -558,7 +533,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w26",
-    "name": "Nika Belt",
+    "name": "Nika belt",
     "price": "75 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -582,7 +557,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w27",
-    "name": "Iris Belt",
+    "name": "Iris belt",
     "price": "90 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -606,7 +581,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w28",
-    "name": "Glorija Belt",
+    "name": "Glorija belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -630,7 +605,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w30",
-    "name": "Inga Belt",
+    "name": "Inga belt",
     "price": "150 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -654,7 +629,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w33",
-    "name": "Andrea Belt",
+    "name": "Andrea belt",
     "price": "250 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -678,7 +653,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w38",
-    "name": "Samantha Belt",
+    "name": "Samantha belt",
     "price": "90 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -702,7 +677,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w39",
-    "name": "Hera Belt",
+    "name": "Hera belt",
     "price": "100 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -721,7 +696,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w40",
-    "name": "Klea Belt",
+    "name": "Klea belt",
     "price": "90 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -745,7 +720,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w41",
-    "name": "Kleopatra Belt",
+    "name": "Kleopatra belt",
     "price": "85 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -769,7 +744,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w42",
-    "name": "Femme Belt",
+    "name": "Femme belt",
     "price": "70 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -793,7 +768,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w43",
-    "name": "Demetra Belt",
+    "name": "Demetra belt",
     "price": "90 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -817,7 +792,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w44",
-    "name": "Xena Belt",
+    "name": "Xena belt",
     "price": "150 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -841,7 +816,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w45",
-    "name": "Teona Belt",
+    "name": "Teona belt",
     "price": "65 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -865,7 +840,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w49",
-    "name": "Sabrina Belt",
+    "name": "Sabrina belt",
     "price": "100 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -889,7 +864,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w50",
-    "name": "Devon Belt",
+    "name": "Devon belt",
     "price": "85 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -908,7 +883,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w51",
-    "name": "Leon Belt",
+    "name": "Leon belt",
     "price": "120 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -932,7 +907,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w52",
-    "name": "Domina Belt",
+    "name": "Domina belt",
     "price": "150 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -956,7 +931,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w53",
-    "name": "Suzana Belt",
+    "name": "Suzana belt",
     "price": "150 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -980,7 +955,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w54",
-    "name": "Lores Belt",
+    "name": "Lores belt",
     "price": "85 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -1004,7 +979,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w65",
-    "name": "Lana Belt",
+    "name": "Lana belt",
     "price": "60 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
@@ -1028,7 +1003,7 @@ export const womensBelts: WomensBelt[] = [
   },
   {
     "id": "w66",
-    "name": "Zana Belt",
+    "name": "Zana belt",
     "price": "180 KM",
     "category": "women",
     "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",

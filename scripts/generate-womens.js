@@ -13,15 +13,15 @@ function encodePublicPath(relativePath) {
 
 const list = `03_ANGEL BELT — 150 KM
 04_EVA BELT — 85 KM
-05_KAIŠ SA MAŠNICOM — 40 KM
+05_No.6 belt - 40 KM
 06_FURIOUS BELT — 100 KM
-07_No.1 — 85 KM
-08_CRNI NA VEZANJE — 70 KM
-09_CRNI SA RESAMA — 70 KM
-10_DVIJE BOJE — 60 KM
-11_BASIC KAIŠ — 35 KM
+07_No.1 belt — 85 KM
+08_No.3 belt - 70 KM
+09_No.4 belt - 70 KM
+10_No.5 belt - 60 KM
+11_Basic belt — 35 KM
 12_BOLD BELT — 55 KM
-13_ŠIROKI SA DVIJE ŠNALE — 80 KM
+13_No.2 belt - 80 KM
 14_TEJA BELT — 80 KM
 15_INVICTA BELT — 120 KM
 16_NEFERTITI BELT — 120 KM
@@ -60,12 +60,12 @@ function formatName(rawName) {
   return rawName
     .split(/\s+/)
     .filter(Boolean)
-    .map((word) => {
-      if (/^no\./i.test(word)) {
-        return word.replace(/^no\./i, 'No.');
-      }
+    .map((word, index) => {
       const lower = word.toLocaleLowerCase(locale);
-      return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+      if (index === 0 || /^no\./i.test(lower)) {
+        return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+      }
+      return lower;
     })
     .join(' ');
 }
@@ -126,3 +126,13 @@ const fileContent = `${header}${JSON.stringify(data, null, 2)};\n`;
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, fileContent, { encoding: 'utf8' });
 console.log(`Wrote ${data.length} womens belts to ${outputPath}`);
+
+
+
+
+
+
+
+
+
+

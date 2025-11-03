@@ -226,9 +226,6 @@ export default function BeltsPageContent() {
           </div>
           <div className="mt-auto flex items-baseline justify-between">
             <span className="text-base font-semibold text-[#111]">{product.price}</span>
-            <span className="text-sm font-medium text-[#9a7048] uppercase">
-              {data.card.craftedBadge}
-            </span>
           </div>
         </div>
         {openProductId === product.id && (

@@ -18,7 +18,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a31",
     "name": "Omot",
     "price": "30 KM",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
     "colors": [
       {
         "label": "Photo 1",
@@ -41,7 +41,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a56",
     "name": "Narukvica",
     "price": "30 KM",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
     "colors": [
       {
         "label": "Photo 1",
@@ -64,7 +64,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a57",
     "name": "Ogrlice",
     "price": "30 KM",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
     "colors": [
       {
         "label": "Photo 1",
@@ -75,19 +75,14 @@ export const accessories: AccessoryProduct[] = [
         "label": "Photo 2",
         "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.jpg",
         "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.jpg"
-      },
-      {
-        "label": "Photo 3",
-        "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-33-03-017.jpg",
-        "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-33-03-017.jpg"
       }
     ]
   },
   {
     "id": "a58",
-    "name": "Futrola Za Noževe",
+    "name": "Futrola za noževe",
     "price": "60 KM",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
     "colors": [
       {
         "label": "Photo 1",
@@ -108,9 +103,9 @@ export const accessories: AccessoryProduct[] = [
   },
   {
     "id": "a60",
-    "name": "Futrola Za Naočale",
+    "name": "Futrola za naočale",
     "price": "40 KM",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
     "colors": [
       {
         "label": "Photo 1",

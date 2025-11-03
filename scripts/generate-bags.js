@@ -11,13 +11,13 @@ function encodePublicPath(relativePath) {
   return '/' + segments.map(encodeURIComponent).join('/');
 }
 
-const list = `32_MAYA TORBA - 180 KM
-36_TORBICA MALA - 80 KM
-37_TORBA VELIKA - 150 KM
-59_TORBA - 80 KM
-61_TORBICA ZA MUSKARCE ZA TELEFON - 60 KM
-62_TORBA SREDNJA - 100 KM
-63_MUSKA VELIKA TORBA - 120 KM`;
+const list = `32_Maya bag - 180 KM
+36_Mini bag - 80 KM
+37_Big bag - 150 KM
+59_Cube bag - 80 KM
+61_Mens bag - 60 KM
+62_Boa bag - 100 KM
+63_Business bag - 120 KM`;
 
 const categoryMap = {
   '32': 'daily',
@@ -29,27 +29,19 @@ const categoryMap = {
   '63': 'travel',
 };
 
-const wordReplacements = {
-  Torba: 'Torba',
-  Torbica: 'Torbica',
-  Muska: 'Muška',
-  Muskarce: 'Muškarce',
-};
-
-function formatWord(word) {
-  if (/^no\./i.test(word)) {
-    return word.replace(/^no\./i, 'No.');
-  }
+function formatWord(word, index) {
   const lower = word.toLocaleLowerCase(locale);
-  const capitalised = lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
-  return wordReplacements[capitalised] ?? capitalised;
+  if (index === 0) {
+    return lower.charAt(0).toLocaleUpperCase(locale) + lower.slice(1);
+  }
+  return lower;
 }
 
 function formatName(rawName) {
   return rawName
     .split(/\s+/)
     .filter(Boolean)
-    .map(formatWord)
+    .map((word, index) => formatWord(word, index))
     .join(' ');
 }
 
@@ -58,7 +50,7 @@ const specs = list
   .map((line) => line.trim())
   .filter(Boolean)
   .map((line) => {
-    const match = line.match(/^(.*?)\s*[-–—]\s*(.+)$/);
+    const match = line.match(/^(.*?)\s*[---]\s*(.+)$/);
     if (!match) {
       throw new Error(`Invalid line in bags list: "${line}"`);
     }

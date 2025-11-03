@@ -16,10 +16,10 @@ export type WalletProduct = {
 export const wallets: WalletProduct[] = [
   {
     "id": "w01",
-    "name": "Mini Novčanik",
+    "name": "Mini novčanik",
     "price": "35 KM",
     "category": "slim",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
@@ -40,58 +40,58 @@ export const wallets: WalletProduct[] = [
   },
   {
     "id": "w34",
-    "name": "Muški Novčanik Za Konobare",
+    "name": "Ugostiteljski novčanik",
     "price": "50 KM",
     "category": "slim",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_08e0197e.jpg",
-        "preview": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_08e0197e.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.jpg",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_70b54da6.jpg",
-        "preview": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_70b54da6.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.jpg",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_f7c612c4.jpg",
-        "preview": "/Wallets/34_MU%C5%A0KI%20NOV%C4%8CANIK%20ZA%20KONOBARE_50%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.28_f7c612c4.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.jpg",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.jpg"
       }
     ]
   },
   {
     "id": "w55",
-    "name": "Novčanici Veliki",
+    "name": "Boa novčanik",
     "price": "45 KM",
     "category": "carry",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/1.jpg",
-        "preview": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/1.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.jpg",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.jpg"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/147066.jpg",
-        "preview": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/147066.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.jpg",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.jpg"
       },
       {
         "label": "Photo 3",
-        "image": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/210221.jpg",
-        "preview": "/Wallets/55_NOV%C4%8CANICI%20VELIKI%20_45%20KM/210221.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.jpg",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.jpg"
       }
     ]
   },
   {
     "id": "w64",
-    "name": "Dječiji Novčanik",
+    "name": "Dječiji novčanik",
     "price": "30 KM",
     "category": "slim",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
     "colors": [
       {
         "label": "Photo 1",
