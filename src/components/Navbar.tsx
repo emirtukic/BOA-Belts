@@ -3,20 +3,22 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaSearch } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
+import { SearchModal } from './SearchModal';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { t, toggleLanguage } = useLanguage();
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isSearchOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isSearchOpen]);
 
   const navLinks = [
     { href: '/', label: t.nav.home, highlight: false },
@@ -70,6 +72,17 @@ export default function Navbar() {
           <div className="ml-auto hidden md:flex items-center space-x-3">
             <button
               type="button"
+              onClick={() => {
+                setIsSearchOpen(true);
+                setIsMobileMenuOpen(false);
+              }}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d0d0d0] text-[#111] transition hover:bg-[#111] hover:text-white"
+              aria-label={t.search.openLabel}
+            >
+              <FaSearch className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
               onClick={toggleLanguage}
               className="rounded-full border border-[#d0d0d0] bg-white px-4 py-2 text-xs font-semibold tracking-wide text-[#111] transition-colors duration-200 hover:bg-[#111] hover:text-white"
               aria-label={t.nav.languageToggleAria}
@@ -104,6 +117,17 @@ export default function Navbar() {
               <Image src="/boalogo.png" alt="Boa Belts logo" width={110} height={28} className="h-7 w-auto" />
             </Link>
             <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSearchOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="rounded-full border border-[#d0d0d0] p-2 text-[#111] transition hover:bg-[#f3f3f3]"
+                aria-label={t.search.openLabel}
+              >
+                <FaSearch className="h-4 w-4" aria-hidden="true" />
+              </button>
               <button
                 type="button"
                 onClick={toggleLanguage}
@@ -172,6 +196,7 @@ export default function Navbar() {
           <div className="pt-2" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }} />
         </div>
       )}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   );
 }

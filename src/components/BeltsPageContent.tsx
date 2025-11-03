@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
@@ -89,6 +90,8 @@ function SortSelect({ value, label, ascLabel, descLabel, onChange }: SortSelectP
 
 export default function BeltsPageContent() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
+  const focusedProductId = searchParams?.get('product') ?? null;
   const data = t.beltsPage;
 
   const sortCopy =
@@ -112,19 +115,39 @@ export default function BeltsPageContent() {
   const [lightboxState, setLightboxState] = useState<
     { items: { src: string; alt: string }[]; index: number } | null
   >(null);
-  const [activeCategory, setActiveCategory] = useState<Category>('women');
+  const determineCategory = (productId: string | null): Category =>
+    productId && mensCatalog.some((product) => product.id === productId) ? 'men' : 'women';
+
+  const [activeCategory, setActiveCategory] = useState<Category>(() => determineCategory(focusedProductId));
+
+  useEffect(() => {
+    const targetCategory = determineCategory(focusedProductId);
+    setActiveCategory((prev) => (prev === targetCategory ? prev : targetCategory));
+  }, [focusedProductId]);
 
   const womensSectionRef = useRef<HTMLDivElement | null>(null);
   const mensSectionRef = useRef<HTMLDivElement | null>(null);
 
-  const womensProducts = useMemo(
-    () => sortProductsByPrice(products.filter((product) => product.category === 'women'), sortOrder),
-    [sortOrder],
-  );
-  const mensProducts = useMemo(
-    () => sortProductsByPrice(products.filter((product) => product.category === 'men'), sortOrder),
-    [sortOrder],
-  );
+  const womensProducts = useMemo(() => {
+    const sorted = sortProductsByPrice(
+      products.filter((product) => product.category === 'women'),
+      sortOrder,
+    );
+    if (focusedProductId) {
+      return sorted.filter((product) => product.id === focusedProductId);
+    }
+    return sorted;
+  }, [sortOrder, focusedProductId]);
+  const mensProducts = useMemo(() => {
+    const sorted = sortProductsByPrice(
+      products.filter((product) => product.category === 'men'),
+      sortOrder,
+    );
+    if (focusedProductId) {
+      return sorted.filter((product) => product.id === focusedProductId);
+    }
+    return sorted;
+  }, [sortOrder, focusedProductId]);
 
   const womensCountLabel = `${womensProducts.length} ${data.sections.stylesLabel}`;
   const mensCountLabel = `${mensProducts.length} ${data.sections.stylesLabel}`;
@@ -154,6 +177,7 @@ export default function BeltsPageContent() {
     return (
       <article
         key={product.id}
+        id={`product-${product.id}`}
         className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#e5e5e5] bg-white shadow-sm transition-shadow hover:shadow-xl"
       >
         <button
@@ -325,7 +349,9 @@ export default function BeltsPageContent() {
               <h3 className="text-2xl font-semibold md:text-3xl">
                 {data.sections.womens.title}
               </h3>
-              <p className="text-sm text-[#6a6a6a]">{data.sections.womens.subtitle}</p>
+              {!focusedProductId && (
+                <p className="text-sm text-[#6a6a6a]">{data.sections.womens.subtitle}</p>
+              )}
             </div>
             <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
               <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
@@ -354,7 +380,9 @@ export default function BeltsPageContent() {
           <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             <div>
               <h3 className="text-2xl font-semibold md:text-3xl">{data.sections.mens.title}</h3>
-              <p className="text-sm text-[#6a6a6a]">{data.sections.mens.subtitle}</p>
+              {!focusedProductId && (
+                <p className="text-sm text-[#6a6a6a]">{data.sections.mens.subtitle}</p>
+              )}
             </div>
             <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
               <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">

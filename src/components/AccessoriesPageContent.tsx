@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
@@ -76,7 +77,10 @@ function SortSelect({ value, label, ascLabel, descLabel, onChange }: SortSelectP
 
 export default function AccessoriesPageContent() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
+  const focusedProductId = searchParams?.get('product') ?? null;
   const data = t.accessoriesPage;
+  const isFiltering = Boolean(focusedProductId);
 
   const sortCopy =
     data.sort ??
@@ -105,7 +109,13 @@ export default function AccessoriesPageContent() {
     { items: { src: string; alt: string }[]; index: number } | null
   >(null);
 
-  const sortedProducts = useMemo(() => sortProductsByPrice(products, sortOrder), [sortOrder]);
+  const sortedProducts = useMemo(() => {
+    const sorted = sortProductsByPrice(products, sortOrder);
+    if (focusedProductId) {
+      return sorted.filter((product) => product.id === focusedProductId);
+    }
+    return sorted;
+  }, [sortOrder, focusedProductId]);
 
   const productCountLabel = `${sortedProducts.length} ${data.stylesLabel}`;
 
@@ -128,6 +138,7 @@ export default function AccessoriesPageContent() {
     return (
       <article
         key={product.id}
+        id={`product-${product.id}`}
         className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#e5e5e5] bg-white shadow-sm transition-shadow hover:shadow-xl"
       >
         <button
@@ -264,7 +275,9 @@ export default function AccessoriesPageContent() {
         <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
           <div>
             <h2 className="text-2xl font-semibold md:text-3xl">{data.collectionTitle}</h2>
-            <p className="text-sm text-[#6a6a6a] md:text-base">{data.collectionSubtitle}</p>
+            {!isFiltering && (
+              <p className="text-sm text-[#6a6a6a] md:text-base">{data.collectionSubtitle}</p>
+            )}
           </div>
           <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
             <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">

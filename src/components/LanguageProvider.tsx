@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   createContext,
@@ -26,6 +26,22 @@ const translations = {
       languageToggle: 'BS',
       languageToggleAria: 'Switch to Bosnian',
       follow: 'Follow us',
+    },
+    search: {
+      openLabel: 'Open search',
+      modalLabel: 'Search products',
+      placeholder: 'Search belts, bags, wallets\u2026',
+      inputLabel: 'Search products',
+      closeLabel: 'Close search',
+      noResults: 'No results for',
+      noImage: 'No image',
+      categoryLabels: {
+        womensBelts: "Women's belt",
+        mensBelts: "Men's belt",
+        bags: 'Bag',
+        wallets: 'Wallet',
+        accessories: 'Accessory',
+      },
     },
     hero: {
       title: 'The First Bosnian Leather Accessories Brand',
@@ -537,6 +553,22 @@ const translations = {
       languageToggleAria: 'Prebaci na engleski',
       follow: 'Pratite nas',
     },
+    search: {
+      openLabel: 'Otvori pretragu',
+      modalLabel: 'Pretraga proizvoda',
+      placeholder: 'Pretra\u017ei kai\u0161eve, torbe, nov\u010danike\u2026',
+      inputLabel: 'Pretraga proizvoda',
+      closeLabel: 'Zatvori pretragu',
+      noResults: 'Nije prona\u0111en rezultat za',
+      noImage: 'Bez slike',
+      categoryLabels: {
+        womensBelts: '\u017denski kai\u0161',
+        mensBelts: 'Mu\u0161ki kai\u0161',
+        bags: 'Torba',
+        wallets: 'Nov\u010danik',
+        accessories: 'Dodatak',
+      },
+    },
     hero: {
       title: 'Prvi bosanskohercegova\u010dki brend ko\u017enih dodataka',
       subtitle:
@@ -808,7 +840,7 @@ const translations = {
         'Antikni mesing koji prate topli sjaj na\u0161ih kai\u0161eva.',
         'Opciona podstava od filca ili umjetnog krzna za tehniku ili foto opremu.',
       ],
-      collectionTitle: 'Kolekcija ko\u017enih torbi',
+      collectionTitle: 'Kolekcija torbi',
       collectionSubtitle:
         'Dvadeset ru\u010dno ra\u0111enih torbi \u2014 od tote modela do vikendera \u2014 na jednom mjestu.',
       stylesLabel: 'modela',
@@ -878,7 +910,7 @@ const translations = {
         'Minimalizam bez kompromisa: sve \u0161to vam treba staje u d\u017eep, a ostaje organizovano i za\u0161ti\u0107eno.',
         'Zavirite u dodatke koji funkcioni\u0161u \u2013 i izgledaju odli\u010dno.',
       ],
-      collectionTitle: 'Kolekcija nov\u010danika i dodataka',
+      collectionTitle: 'Kolekcija nov\u010danika',
       collectionSubtitle:
         'Dvadeset modela ru\u010dno izra\u0111enih futrola, nov\u010danika i organizatora na jednom mjestu.',
       stylesLabel: 'rasporeda',

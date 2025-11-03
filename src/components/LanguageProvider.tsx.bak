@@ -842,7 +842,7 @@ const translations = {
         'Ru\u010dno krojeni i \u0161iveni dodaci koji ostaju tanki i pouzdani godinama.',
         'Birajte izme\u0111u ultra tankih futrola za kartice ili organizatora koji dr\u017ee dokumente, telefone i valute pod kontrolom.',
       ],
-      collectionTitle: 'Kolekcija nov\u010danika i dodataka',
+      collectionTitle: 'Kolekcija nov\u010danika',
       collectionSubtitle:
         'Dvadeset modela ru\u010dno izra\u0111enih futrola, nov\u010danika i organizatora na jednom mjestu.',
       stylesLabel: 'rasporeda',
