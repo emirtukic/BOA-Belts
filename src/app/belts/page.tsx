@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import BeltsPageContent from '@/components/BeltsPageContent';
+import { BeltsPageContainer } from '@/components/BeltsPageContainer';
 
 export const metadata: Metadata = {
   title: 'Boa Belts | Signature Leather Belts',
@@ -7,13 +9,10 @@ export const metadata: Metadata = {
     'Explore handcrafted belts made in Travnik with full-grain leather, solid hardware, and bespoke sizing options.',
 };
 
-type SearchParamsPromise = Promise<Record<string, string | string[]>>;
-
-export default function BeltsPage({ searchParams }: { searchParams?: SearchParamsPromise }) {
-  const resolved =
-    (searchParams as unknown as Record<string, string | string[] | undefined> | undefined) ?? undefined;
-  const rawProduct = resolved?.product;
-  const focusedProductId = Array.isArray(rawProduct) ? rawProduct[0] ?? null : rawProduct ?? null;
-
-  return <BeltsPageContent focusedProductId={focusedProductId} />;
+export default function BeltsPage() {
+  return (
+    <Suspense fallback={<BeltsPageContent focusedProductId={null} />}>
+      <BeltsPageContainer />
+    </Suspense>
+  );
 }
