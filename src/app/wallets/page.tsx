@@ -7,16 +7,9 @@ export const metadata: Metadata = {
     'Custom card holders, bifold wallets, and travel folios handcrafted in Travnik with saddle-stitched seams.',
 };
 
-type PageProps = {
-  searchParams?: {
-    product?: string | string[];
-  };
-};
-
-export default function WalletsPage({ searchParams }: PageProps) {
+export default function WalletsPage({ searchParams }: { searchParams?: any }) {
   const rawProduct = searchParams?.product;
   const focusedProductId = Array.isArray(rawProduct) ? rawProduct[0] ?? null : rawProduct ?? null;
 
   return <WalletsPageContent focusedProductId={focusedProductId} />;
 }
-
