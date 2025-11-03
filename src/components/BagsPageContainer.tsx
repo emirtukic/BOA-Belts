@@ -5,6 +5,6 @@ import BagsPageContent from './BagsPageContent';
 
 export function BagsPageContainer() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get('product');
+  const productId = searchParams?.get('product') ?? null;
   return <BagsPageContent focusedProductId={productId} />;
 }

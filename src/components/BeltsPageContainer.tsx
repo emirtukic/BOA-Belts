@@ -5,6 +5,6 @@ import BeltsPageContent from './BeltsPageContent';
 
 export function BeltsPageContainer() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get('product');
+  const productId = searchParams?.get('product') ?? null;
   return <BeltsPageContent focusedProductId={productId} />;
 }

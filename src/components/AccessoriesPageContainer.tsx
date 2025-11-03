@@ -5,6 +5,6 @@ import AccessoriesPageContent from './AccessoriesPageContent';
 
 export function AccessoriesPageContainer() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get('product');
+  const productId = searchParams?.get('product') ?? null;
   return <AccessoriesPageContent focusedProductId={productId} />;
 }
