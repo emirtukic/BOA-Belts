@@ -45,9 +45,8 @@ const translations = {
       },
     },
     hero: {
-      title: 'The First Bosnian Leather Accessories Brand',
-      subtitle:
-        'Handmade in Travnik: belts, bags, and wallets in full-grain leather\u2014where craft meets style.',
+      title: 'Prvi bosanskohercegova\u010dki brend ko\u017enih dodataka',
+      subtitle: 'Spoj tradicije, kreativnosti i znanja u jednom modnom dodatku.',
       cta: 'Explore the collection',
     },
     home: {
@@ -183,7 +182,7 @@ const translations = {
     },
     footer: {
       description:
-        'Prvi bosanskohercegovacki brend rucno radjenih, koznih kaiseva,',
+        'Prvi bosanskohercegova\u010dki brend ru\u010dno ra\u0111enih ko\u017eenih kai\u0161eva koji odnedavno \u0161iri svoj asortiman i na druge modne dodatke. Nastanjeni u Travniku, ovaj brend iza sebe krije i izuzetno lijepu porodi\u010dnu pri\u010du koja se gradi korak po korak. Kroz svaki napravljeni i isporu\u010deni dodatak pokazujemo svoju ljubav prema onome \u0161to radimo. Utkani u svaku poru, i proizvodi pri\u010daju svoju pri\u010du. Otkrijte i Vi o \u010demu je rije\u010d!',
       navigationTitle: 'Categories',
       navigationTitle1: 'About us',
       contactTitle: 'Contact',
@@ -210,9 +209,9 @@ const translations = {
       cta: 'Explore loyalty perks',
     },
     beltsPage: {
-      heroTitle: 'Belts That Elevate Every Look',
+      heroTitle: 'Kai\u0161evi koji podi\u017eu svaki outfit',
       heroSubtitle:
-        'Handcrafted from premium leather and proudly presenting Bosnia and Herzegovina\'s first specialist belt brand. Style that endures.',
+        'Izrada od kvalitetne, prirodne premium ko\u017ee. Pogodna za sve stilove i ukuse.',
       heroCta: 'View the collection',
       craftsmanshipTitle: 'Belts \u2013 Style that Lasts',
       craftsmanshipParagraphs: [
@@ -436,10 +435,9 @@ const translations = {
       heroTitle: 'Accessories',
       heroHeading: 'Leather Accessories Built to Last',
       heroSubtitle:
-        'Wraps, bracelets, and cases crafted in Travnik to elevate daily rituals.',
+        'Wraps, bracelets and cases are small details that complete the whole story.',
       heroParagraphs: [
-        'Each piece is cut, stitched, and finished from the same full-grain hides we use for our belts.',
-        'Mix and match hues or pair them with gifts\u2014the patina deepens with every season.',
+        'Each accessory is made with the same hand-crafted craftsmanship as the straps, and its shoe becomes more natural and shiny over time.',
       ],
       collectionTitle: 'Accessories Collection',
       collectionSubtitle: 'Five handcrafted accessories ready for everyday use or gifting.',
@@ -462,25 +460,24 @@ const translations = {
       },
     },
     aboutPage: {
-      heroTitle: 'Inside Boa Belts',
-      heroSubtitle:
-        'From a Travnik garage to wardrobes around the world\u2014handmade leather pieces, transparent sourcing, and clients who become friends.',
-      introTitle: 'Why We Build Precise',
+      heroTitle: 'About us',
       introParagraphs: [
-        'Boa Belts started with one stitching pony, a single hide, and a promise to treat everyday accessories like heirlooms. We still work on that same street in Travnik, shaping belts, bags, and wallets one order at a time.',
-        'Every commission begins with a conversation. We pair vegetable-tanned European leather with traditional hand tools, documenting each step so you know exactly who made your piece and how.',
+        'Boa Belts was created with a single sewing machine, a slightly larger piece of leather, and the vision that everyday objects deserve attention as family heirlooms.',
+        'Durability and quality became the guiding star, opening the way for creativity and freedom. Today, we still work on the same street, with the same passion, with the same machine, and with much bigger dreams.',
+        'Every order starts with a conversation. Getting to know the clients style, we work together to find the ideal fashion accessory that is exclusively made according to the clients wishes.',
+        'However, there is a special meaning hidden in the names of our models. Each fashion accessory has a name with a meaning that ideally describes the character of the person who wears it.',
       ],
-      highlightsTitle: 'What Guides Our Studio',
+      highlightsTitle: 'What Guides Us',
       highlights: [
         {
           title: 'Craft, Not Production',
           description:
-            'We obsess over detail. Every cut, stitch, and burnish happens in-house so we can sign off on the finish personally.',
+            'Every cut, seam, thread and packaging is exclusively created in our workshop so that we can personally accompany the production from start to finish.',
         },
         {
-          title: 'Traceable Materials',
+          title: 'Natural Materials',
           description:
-            'We collaborate only with tanneries and foundries that share our standards for sustainability, transparency, and respect for the craft.',
+            'We only work with local tanneries who share our standards of sustainability, transparency and respect for craftsmanship',
         },
         {
           title: 'Pieces Built to Age',
@@ -490,17 +487,17 @@ const translations = {
       ],
       processTitle: 'How Your Order Comes to Life',
       processSteps: [
-        'Consult & Sketch \u2013 Tell us how you plan to use the piece and we outline the silhouette, hardware, and measurements.',
+        'Consultations and sketches - together we draw the silhouette and choose fittings or simply find the best solution from our standard models',
         'Select & Prepare \u2013 We reserve the perfect hide, inspect the grain and temper, then cut, bevel, and burnish each component by hand.',
-        'Stitch & Finish \u2013 Saddle-stitching, edge sealing, conditioning, and a final inspection before your order leaves Travnik.',
+        'Final processing - Pre-delivery inspection, packing in special boxes, with special details and sending to our clients',
       ],
-      timelineTitle: 'Where We\'re Heading',
+      timelineTitle: 'Long-term brand goal:',
       timelinePoints: [
         'Community workshops in Travnik for clients eager to learn hand-stitching and leather care.',
         'Collaborations with Bosnian creatives on limited capsule drops and experimental builds.',
         'A restoration programme so your Boa pieces can be revived for the next decade of wear.',
       ],
-      contactTitle: 'Ready for Your Own Boa Story?',
+      contactTitle: 'Ready for Your Own Boa Belts Story?',
       contactSubtitle:
         'Place your order via Instagram, Facebook, or email\u2014we reply within 24 hours.',
       contactMethods: {
@@ -574,7 +571,7 @@ const translations = {
     hero: {
       title: 'Prvi bosanskohercegova\u010dki brend ko\u017enih dodataka',
       subtitle:
-        'Ru\u010dna izrada u Travniku: kai\u0161evi, torbe i nov\u010danici od punog zrna ko\u017ee \u2013 spoj zanata i stila.',
+        'Spoj tradicije, kreativnosti i znanja u jednom modnom dodatku.',
       cta: 'Istra\u017ei kolekciju',
     },
     home: {
@@ -710,7 +707,7 @@ const translations = {
     },
     footer: {
       description:
-        'Prvi bosanskohercegova\u010dki brend ru\u010dno ra\u0111enih ko\u017enih kai\u0161eva.',
+        'Prvi bosanskohercegova\u010dki brend ru\u010dno ra\u0111enih ko\u017eenih kai\u0161eva koji odnedavno \u0161iri svoj asortiman i na druge modne dodatke. Nastanjeni u Travniku, ovaj brend iza sebe krije i izuzetno lijepu porodi\u010dnu pri\u010du koja se gradi korak po korak. Kroz svaki napravljeni i isporu\u010deni dodatak pokazujemo svoju ljubav prema onome \u0161to radimo. Utkani u svaku poru, i proizvodi pri\u010daju svoju pri\u010du. Otkrijte i Vi o \u010demu je rije\u010d!',
       navigationTitle: 'Kategorije',
       navigationTitle1: 'O nama',
       contactTitle: 'Kontakt',
@@ -736,9 +733,9 @@ const translations = {
       cta: 'Saznaj vi\u0161e o loyalty programu',
     },
     beltsPage: {
-      heroTitle: 'Kai\u0161evi koji podi\u017eu svaki izgled',
+      heroTitle: 'Kai\u0161evi koji podi\u017eu svaki outfit',
       heroSubtitle:
-        'Ru\u010dna izrada od premium ko\u017ee i s ponosom predstavljamo prvi bosanskohercegova\u010dki brend specijaliziran za ko\u017ene kai\u0161eve. Stil koji traje.',
+        'Izrada od kvalitetne, prirodne premium ko\u017ee. Pogodna za sve stilove i ukuse.',
       heroCta: 'Pogledaj kolekciju',
       craftsmanshipTitle: 'Kai\u0161evi \u2013 stil koji traje',
       craftsmanshipParagraphs: [
@@ -977,10 +974,9 @@ const translations = {
       heroTitle: 'Dodaci',
       heroHeading: 'Ko\u017eni dodaci koji prate tvoj stil',
       heroSubtitle:
-        'Omoti, narukvice i futrole ra\u0111ene u Travniku \u2013 mali detalji koji zaokru\u017euju pri\u010du.',
+        'Omoti, narukvice i futrole su mali detalji koji zaokru\u017euju \u010ditavu pri\u010du.',
       heroParagraphs: [
-        'Svaki dodatak izra\u0111ujemo od istih punozrnih ko\u017ea, uz istu ru\u010dnu obradu kao i na\u0161e kai\u0161eve.',
-        'Kombinuj nijanse ili ih pokloni dragim ljudima \u2013 patina s vremenom postaje jedinstvena.',
+        'Svaki dodatak je ra\u0111en uz istu ru\u010dnu obradu kao i kai\u0161evi, a njegova patika s vremenom postaje sve prirodnija i sjajnija.',
       ],
       collectionTitle: 'Kolekcija dodataka',
       collectionSubtitle: 'Pet ru\u010dno izra\u0111enih dodataka spremnih za poklanjanje ili svakodnevnu upotrebu.',
@@ -1003,25 +999,24 @@ const translations = {
       },
     },
     aboutPage: {
-      heroTitle: 'Boa Belts iznutra',
-      heroSubtitle:
-        'Od gara\u017ee u Travniku do ormara \u0161irom svijeta\u2014ru\u010dno ra\u0111eni komadi, \u010disto porijeklo i klijenti koji postaju prijatelji.',
-      introTitle: 'Za\u0161to radimo precizno',
+      heroTitle: 'O nama',
       introParagraphs: [
-        'Boa Belts je nastao uz jednu \u0161iva\u0107u klupu, jednu ko\u017eu i ideju da svakodnevni predmeti zaslu\u017euju pa\u017enju kao porodi\u010dna naslije\u0111a. Danas i dalje radimo u istoj ulici u Travniku, izra\u0111uju\u0107i kai\u0161eve, torbe i nov\u010danike po narud\u017ebi.',
-        'Svaka narud\u017eba po\u010dinje razgovorom. Uparujemo evropsku, povr\u0161inski \u0161tavljenu ko\u017eu s tradicionalnim alatima i bilje\u017eimo svaki korak kako biste znali ko je izradio va\u0161 komad i na koji na\u010din.',
+        'Boa Belts je nastao uz jednu \u0161iva\u0107u ma\u0161inu, ne\u0161to ve\u0107i komad ko\u017ee i viziju da svakodnevni predmeti zaslu\u017euju pa\u017enju kao porodi\u010dno naslije\u0111e. Dugotrajnost i kvalitet postaje zvijezda vodilja i otvara put kreativnosti i slobode. Danas, i dalje radimo u istoj ulici, sa istim \u017earom, sa istom ma\u0161inom i sa puno ve\u0107im snovima.',
+        'Svaka narud\u017eba po\u010dinje razgovorom. Upoznavaju\u0107i stil klijenta, zajedni\u010dkim snagama pronalazimo idealan modni dodatak koji je isklju\u010divo napravljen prema \u017eeljama klijenta.',
+        'Me\u0111utim, u nazivima na\u0161ih modela se krije posebno zna\u010denje. Svaki modni dodatak nosi ime sa zna\u010denjem koji idealno opisuje karakter osobe koja ga nosi.',
+
       ],
       highlightsTitle: '\u0160ta nas vodi',
       highlights: [
         {
           title: 'Zanat, ne proizvodnja',
           description:
-            'Radimo detaljno i precizno. Svaki rez, \u0161av i poliranje nastaje u na\u0161em studiju kako bismo li\u010dno potpisali zavr\u0161nicu.',
+            'Svaki rez, \u0161av, konac i pakovanje, isklju\u010divo nastaje u na\u0161oj radionici kako bi li\u010dno mi ispratili izradu od po\u010detka do kraja.',
         },
         {
-          title: 'Transparentni materijali',
+          title: 'Prirodni materijali',
           description:
-            'Saradujemo samo s ko\u017earama i livnicama koje dijele na\u0161e standarde odr\u017eivosti, transparentnosti i po\u0161tovanja prema zanatu.',
+            'Sara\u0111ujemo samo sa lokalnim ko\u017earima koji dijele na\u0161e standarde odr\u017eivosti, transparentnosti i po\u0161tovanja prema zanatu.',
         },
         {
           title: 'Komadi koji stare uz tebe',
@@ -1031,17 +1026,17 @@ const translations = {
       ],
       processTitle: 'Kako nastaje tvoja narud\u017eba',
       processSteps: [
-        'Konsultacije i skice \u2013 Napi\u0161i nam kako \u0107e\u0161 nositi komad; zajedno crtamo siluetu i biramo okove.',
+        'Konsultacije i skice - zajedno crtamo siluetu i biramo okove ili jednostavno pronalazimo najbolje rje\u0161enje iz na\u0161ih standardnih modela.',
         'Selekcija i priprema \u2013 Rezervi\u0161emo odgovaraju\u0107u ko\u017eu, provjeravamo vlakna i ton, zatim ru\u010dno krojimo i profiliramo svaki dio.',
-        '\u0160ivenje i zavr\u0161na obrada \u2013 Saddle \u0161av, obrada rubova, njegovanje i zavr\u0161na kontrola prije isporuke.',
+        'Zavr\u0161na obrada. Kontrola prije isporuke, pakovanje u posebne kutije, sa posebnim detaljima i slanje na\u0161im klijentima.',
       ],
-      timelineTitle: 'Kuda idemo',
+      timelineTitle: 'Dugoro\u010dni cilj brenda:',
       timelinePoints: [
         'Radionice u Travniku za sve koji \u017eele nau\u010diti ru\u010dno \u0161ivenje i njegu ko\u017ee.',
         'Saradnje s bh. kreativcima na limitiranim kapsulama i istra\u017eiva\u010dkim serijama.',
         'Program restauracije kako bi Boa komadi dobili novi sjaj i nakon godina no\u0161enja.',
       ],
-      contactTitle: 'Spreman/spremna za svoju Boa pri\u010du?',
+      contactTitle: 'Spreman/spremna za svoju Boa Belts pri\u010du?',
       contactSubtitle:
         'Narud\u017ebu mo\u017ee\u0161 izvr\u0161iti porukom na Instagramu, Facebooku ili e-mailom\u2014odgovaramo u roku od 24 sata.',
       contactMethods: {

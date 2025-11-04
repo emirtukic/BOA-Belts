@@ -18,7 +18,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a31",
     "name": "Omot",
     "price": "30 KM",
-    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
+    "description": "Model pogodan za tablete za čitanje knjige ili eventualno za knjige.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -41,7 +41,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a56",
     "name": "Narukvica",
     "price": "30 KM",
-    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
+    "description": "Model je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -64,7 +64,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a57",
     "name": "Ogrlice",
     "price": "30 KM",
-    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
+    "description": "Model je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -82,7 +82,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a58",
     "name": "Futrola za noževe",
     "price": "60 KM",
-    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
+    "description": "Model idealan za kuhare, lovce ili jednostavno za onog ko ima mnoštvo različitih noževa. Model je moguće izraditi u boji po želji, ali i sa gravurom po želji. Također se može količina dijelova za noževe prilagoditi.",
     "colors": [
       {
         "label": "Photo 1",
@@ -105,7 +105,7 @@ export const accessories: AccessoryProduct[] = [
     "id": "a60",
     "name": "Futrola za naočale",
     "price": "40 KM",
-    "description": "Ru\\u010dno izra\\u0111eno u Travniku, prilagodljiva silueta i zavr\\u0161na obrada spremna za va\\u0161 stil.",
+    "description": "Model je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",

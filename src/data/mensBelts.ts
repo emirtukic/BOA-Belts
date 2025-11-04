@@ -1,4 +1,4 @@
-﻿export type MensBeltVariant = {
+export type MensBeltVariant = {
   label: string;
   image: string;
   preview?: string;
@@ -20,7 +20,7 @@ export const mensBelts: MensBelt[] = [
     "name": "Classic belt",
     "price": "35 KM",
     "category": "men",
-    "description": "RuÃ„Âna izrada u Travniku, prilagodljiva silueta i zavrÃ…Â¡na obrada spremna za vaÃ…Â¡ stil.",
+    "description": "Model muškog kaiša dostupan u četiri boje: crna, smeđa, konjak i tamnoplava.",
     "colors": [
       {
         "label": "Photo 1",
@@ -44,7 +44,7 @@ export const mensBelts: MensBelt[] = [
     "name": "Hunter belt",
     "price": "250 KM",
     "category": "men",
-    "description": "RuÃ„Âna izrada u Travniku, prilagodljiva silueta i zavrÃ…Â¡na obrada spremna za vaÃ…Â¡ stil.",
+    "description": "Model namijenjen isključivo lovcima napravljen tako da odgovara zadatku funkcionalnosti i ljepote u jednom.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",

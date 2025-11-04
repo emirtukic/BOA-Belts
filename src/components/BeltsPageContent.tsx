@@ -367,9 +367,7 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
               <h3 className="text-2xl font-semibold md:text-3xl">
                 {data.sections.womens.title}
               </h3>
-              {!isFiltering && (
-                <p className="text-sm text-[#6a6a6a]">{data.sections.womens.subtitle}</p>
-              )}
+              
             </div>
             <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
               <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
@@ -400,9 +398,7 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
           <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             <div>
               <h3 className="text-2xl font-semibold md:text-3xl">{data.sections.mens.title}</h3>
-              {!isFiltering && (
-                <p className="text-sm text-[#6a6a6a]">{data.sections.mens.subtitle}</p>
-              )}
+              
             </div>
             <div className="flex flex-col items-end gap-2 sm:flex-row sm:items-center sm:gap-3">
               <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">

@@ -67,7 +67,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "No.6 belt",
     "price": "40 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Basic kaiš sa preslatkom mašnicom u fronti. Moguće ga je nositi i na kukovima i na struku.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -129,7 +129,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "No.3 belt",
     "price": "70 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jednostavnost, elegancija, čistoća i fleksibilnost idealni su opisi za ovaj široki kaiš koji se veže naprijed ili, ukoliko tako odlučite, nazad.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -153,7 +153,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "No.4 belt",
     "price": "70 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji, za razliku od modela No.3, naprijed ima tanke kaiševe za vezanje.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -177,7 +177,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "No.5 belt",
     "price": "60 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji se pretežno nosi na kukovima, u dvije boje ili samo u jednoj boji. Idealan za jednostavne odjevne kombinacije.",
     "colors": [
       {
         "label": "Photo 1",
@@ -196,7 +196,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Basic belt",
     "price": "35 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jednostavan kaiš kod kojeg birate njegovu širinu kao i boju. Od širine kaiša zavisi i širina kopče.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -220,7 +220,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Bold belt",
     "price": "55 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jednostavan kaiš kod kojeg se tregeri mogu skinuti i na taj način postaje klasični kaiš.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -244,7 +244,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "No.2 belt",
     "price": "80 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Ponovno jedan od zahtjevnijih, prvih kaiševa. Rađen je iz jednog komada, gdje se iz jednog dijela širi prema drugom i sve se završava sa dvije šnale.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -258,7 +258,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Teja belt",
     "price": "80 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jedan od najprodavanijih modela ikada! Birate širinu kaišića, boju i boju detalja. Ovaj model, mimo toga što ističe struk ispreplićući više malih kaiševa, naglašava i ramena.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -330,7 +330,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Tena belt",
     "price": "45 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Basic kaiš sa unakrsnim vezivanjem.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -354,7 +354,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Adrienne belt",
     "price": "80 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Vrlo jednostavan kaiš sa nešto manjim lukom na kukovima. Veličinu podešava sa dvije kopče.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -402,7 +402,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Alba belt",
     "price": "70 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji sa svojom jednostavnošću govori mnogo toga. Veoma elegantan, ali istovremeno i snažan modni dodatak.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -426,7 +426,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Salvia belt",
     "price": "45 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Neobičan, a jednostavan. Kopčanje preko malih nitnica sa strana kaiša, a najveći akcent ostavlja centralni krug.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -440,7 +440,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Lily belt",
     "price": "60 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji odgovara poslovnom outfitu. Vezanje je isključivo kožom, bez ikakve kopče.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -464,7 +464,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Zinnia belt",
     "price": "60 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji nastaje kombinacijom kože i marame. Maramu možete odabrati iz naše kolekcije ili iskombinirati sa svojom.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -512,7 +512,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Grace belt",
     "price": "55 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model sa jednom kopčom koji se dva puta omota oko struka. Dodatni twist je detalj na kraju kaiša koji se može i ukloniti.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -536,7 +536,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Nika belt",
     "price": "75 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji je najprodavaniji ljeti jer najveći efekt ima kada je proizveden u jarkim bojama. Dosta sličan Teja belt-u, samo što se vezanje nalazi tačno ispod grudi i ima dva unakrsna kaišića.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -723,7 +723,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Kleopatra belt",
     "price": "85 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji u sebi kombinuje dva materijala - kožu i gumu. Koža se naprijed isprepleteno veže, a nazad se nalazi guma koja je idealna za prilagođavanje svim oblicima i veličinama tijela.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -747,7 +747,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Femme belt",
     "price": "70 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Nastao za one koje vole da sve svoje stvarčice drže blizu sebe. Torbica se može skinuti pa tako ostane samo obični kaiš.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -819,7 +819,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Teona belt",
     "price": "65 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model prepoznatljiv po kružnom detalju kroz koji se provlači dio kaiša i tako se veže.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -867,7 +867,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Devon belt",
     "price": "85 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jednostavan kaiš koji ima mali twist, a to je omotavanje tijela čak dva puta što dodatno daje akcent na sam model. Kači se sa dvije šnale te je isti moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -958,7 +958,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Lores belt",
     "price": "85 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Još jedan model inspirisan western filmovima. Neravni, obli, fluidni rubovi i široka prednja kopča idealan su spoj jednostavnog i elegantnog modnog dodatka.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -982,7 +982,7 @@ export const womensBelts: WomensBelt[] = [
     "name": "Lana belt",
     "price": "60 KM",
     "category": "women",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model je definitivno namijenjen za smjele dame koje vole biti drugačije.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",

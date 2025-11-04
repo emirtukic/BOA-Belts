@@ -19,7 +19,7 @@ export const wallets: WalletProduct[] = [
     "name": "Mini novčanik",
     "price": "35 KM",
     "category": "slim",
-    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Idealan uz naše mini torbice. Unutar njega mogu stati sitni novci, sa kopčanjem na nitnu ili samo provlačenjem kože. Mogu stati i osnovni dokumenti i krupni novac.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -43,7 +43,7 @@ export const wallets: WalletProduct[] = [
     "name": "Ugostiteljski novčanik",
     "price": "50 KM",
     "category": "slim",
-    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model je moguće izraditi u boji po želji kao i sa gravurom po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -67,7 +67,7 @@ export const wallets: WalletProduct[] = [
     "name": "Boa novčanik",
     "price": "45 KM",
     "category": "carry",
-    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model koji ima nastavak za nošenje oko ruke, a u njega može stati čak i telefon.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -91,7 +91,7 @@ export const wallets: WalletProduct[] = [
     "name": "Dječiji novčanik",
     "price": "30 KM",
     "category": "slim",
-    "description": "Ručno izrađeno u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model idealan za najmlađu populaciju.\nModel je moguće izraditi u boji po želji pa čak i u obliku životinje po želji.",
     "colors": [
       {
         "label": "Photo 1",

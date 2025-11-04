@@ -19,7 +19,7 @@ export const bags: BagProduct[] = [
     "name": "Maya bag",
     "price": "180 KM",
     "category": "daily",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Jednostavna torba koja unutar sebe ima samo jedan džep.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -43,7 +43,7 @@ export const bags: BagProduct[] = [
     "name": "Mini bag",
     "price": "80 KM",
     "category": "daily",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Torbice idealne za one osobe koje vole da imaju slatku malu torbicu dovoljnu za osnovne stvari.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -67,7 +67,7 @@ export const bags: BagProduct[] = [
     "name": "Big bag",
     "price": "150 KM",
     "category": "travel",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Model idealan za ljubitelje velikih i efektnih modnih dodataka.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -91,7 +91,7 @@ export const bags: BagProduct[] = [
     "name": "Cube bag",
     "price": "80 KM",
     "category": "daily",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Nastala od kombinacije različitih boja. Broj kockica definiše veličinu torbe.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -115,7 +115,7 @@ export const bags: BagProduct[] = [
     "name": "Mens bag",
     "price": "60 KM",
     "category": "daily",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Torba idealna za telefon, pasoš ili druge dokumente.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -139,7 +139,7 @@ export const bags: BagProduct[] = [
     "name": "Boa bag",
     "price": "100 KM",
     "category": "travel",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Retro i šik mala torbica koja pored standardnog lanca ima i duži lanac.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
@@ -163,7 +163,7 @@ export const bags: BagProduct[] = [
     "name": "Business bag",
     "price": "120 KM",
     "category": "travel",
-    "description": "Ručna izrada u Travniku, prilagodljiva silueta i završna obrada spremna za vaš stil.",
+    "description": "Idealan za zaposlene muškarce, prilagođeno svakom dlanu i ruci.\nModel je moguće izraditi u boji po želji.",
     "colors": [
       {
         "label": "Photo 1",
