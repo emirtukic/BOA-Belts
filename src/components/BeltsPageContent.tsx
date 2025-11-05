@@ -9,7 +9,6 @@ import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
 import { womensBelts } from '../data/womensBelts';
 import { mensBelts } from '../data/mensBelts';
-import type { Translation } from './LanguageProvider';
 
 type Category = 'women' | 'men';
 
@@ -102,7 +101,10 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
   const { t } = useLanguage();
   const data = t.beltsPage;
   const isFiltering = Boolean(focusedProductId);
-  const descriptionMap = (t.products?.descriptions ?? {}) as Translation['products']['descriptions'];
+  const descriptionMap = useMemo<Record<string, string>>(
+    () => (t.products?.descriptions ?? {}) as Record<string, string>,
+    [t],
+  );
   const normalizedDescriptionMap = useMemo(() => {
     return Object.entries(descriptionMap).reduce<Record<string, string>>((acc, [key, value]) => {
       acc[normalizeProductKey(key)] = value;

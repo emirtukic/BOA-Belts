@@ -38,8 +38,11 @@ export type SearchModalProps = {
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const { t } = useLanguage();
+  const descriptionOverrides = useMemo<Record<string, string>>(
+    () => (t.products?.descriptions ?? {}) as Record<string, string>,
+    [t],
+  );
   const productIndex = useMemo<SearchProduct[]>(() => {
-    const descriptionOverrides = t.products?.descriptions ?? {};
     return catalogProducts.map((product) => {
       const description = descriptionOverrides[product.name] ?? product.description ?? '';
       const searchableTokens = [product.name, description, ...(categoryTokens[product.category] ?? [])].map(
@@ -58,7 +61,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         searchable: searchableTokens,
       };
     });
-  }, [t]);
+  }, [descriptionOverrides]);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -103,7 +106,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return productIndex.filter((item) =>
       tokens.every((token) => item.searchable.some((value) => value.includes(token))),
     );
-  }, [query]);
+  }, [query, productIndex]);
 
   if (!isOpen) {
     return null;

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
-import type { Translation } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
 import { wallets } from '../data/wallets';
@@ -90,7 +89,10 @@ type WalletsPageContentProps = {
 export default function WalletsPageContent({ focusedProductId = null }: WalletsPageContentProps) {
   const { t } = useLanguage();
   const data = t.walletsPage;
-  const descriptionSource = (t.products?.descriptions ?? {}) as Translation['products']['descriptions'];
+  const descriptionSource = useMemo<Record<string, string>>(
+    () => (t.products?.descriptions ?? {}) as Record<string, string>,
+    [t],
+  );
   const normalizedDescriptionMap = useMemo(() => {
     return Object.entries(descriptionSource).reduce<Record<string, string>>((acc, [key, value]) => {
       acc[normalizeProductKey(key)] = value;
