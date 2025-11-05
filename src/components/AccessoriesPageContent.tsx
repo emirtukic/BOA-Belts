@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
+import type { Translation } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
 import { accessories } from '../data/accessories';
@@ -38,6 +39,12 @@ const accessoryCatalog: Product[] = accessories.map((item) => ({
 
 const products: Product[] = accessoryCatalog;
 const leadProductId = products[0]?.id ?? null;
+
+const normalizeProductKey = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase();
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
 
@@ -82,6 +89,13 @@ type AccessoriesPageContentProps = {
 export default function AccessoriesPageContent({ focusedProductId = null }: AccessoriesPageContentProps) {
   const { t } = useLanguage();
   const data = t.accessoriesPage;
+  const descriptionSource = (t.products?.descriptions ?? {}) as Translation['products']['descriptions'];
+  const normalizedDescriptionMap = useMemo(() => {
+    return Object.entries(descriptionSource).reduce<Record<string, string>>((acc, [key, value]) => {
+      acc[normalizeProductKey(key)] = value;
+      return acc;
+    }, {});
+  }, [descriptionSource]);
   const isFiltering = Boolean(focusedProductId);
 
   const sortCopy =
@@ -136,6 +150,9 @@ export default function AccessoriesPageContent({ focusedProductId = null }: Acce
     const activeIndex = selectedColors[product.id] ?? 0;
     const activeVariant = variants[activeIndex] ?? variants[0];
     const imageAlt = `${product.name} - ${activeVariant.label}`;
+    const descriptionOverride =
+      descriptionSource[product.name] ?? normalizedDescriptionMap[normalizeProductKey(product.name)];
+    const description = descriptionOverride ?? product.description;
 
     return (
       <article
@@ -228,7 +245,7 @@ export default function AccessoriesPageContent({ focusedProductId = null }: Acce
                 <FaTimes className="h-4 w-4" />
               </button>
             </div>
-            <p className="text-sm leading-relaxed text-white/90">{product.description}</p>
+            <p className="text-sm leading-relaxed text-white/90">{description}</p>
             <div className="mt-auto">
               <button
                 type="button"

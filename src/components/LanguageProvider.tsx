@@ -45,12 +45,138 @@ const translations = {
       },
     },
     hero: {
-      title: 'Prvi bosanskohercegova\u010dki brend ko\u017enih dodataka',
-      subtitle: 'Spoj tradicije, kreativnosti i znanja u jednom modnom dodatku.',
+      title: 'The first Bosnian leather accessories brand',
+      subtitle: 'A blend of tradition, creativity, and expertise in a single fashion accessory.',
       cta: 'Explore the collection',
     },
     home: {
       mobileTilesButton: 'View all',
+    },
+    products: {
+      availabilityLabel: 'Available in multiple colors',
+      descriptions: {
+        'Angel belt':
+          'A refined take on the Zana belt where soft leather pleats replace the dramatic feather trim.\nAvailable in the color of your choice.',
+        'Eva belt':
+          'Made for those who prefer hands-free moments, with space for essentials like cash, keys, and cards.\nAvailable in the color of your choice.',
+        'No.6 belt':
+          'A sweet bow-front belt that works at the hips or the waist for easy styling versatility.\nAvailable in the color of your choice.',
+        'Furious belt':
+          'Built for people who keep everything close—pouches and details cascade along the strap so nothing is out of reach.\nAvailable in the color of your choice.',
+        'No.1 belt':
+          'Our very first design: a wide wrap belt that cinches any outfit and leaves a statement.\nAvailable in the color of your choice.',
+        'No.3 belt':
+          'Clean, elegant, and flexible—tie it at the front or the back to suit the look you have in mind.\nAvailable in the color of your choice.',
+        'No.4 belt':
+          'A slimmer, wraparound variation of the No.3 belt with delicate front ties.\nAvailable in the color of your choice.',
+        'No.5 belt':
+          'Designed for hips, this belt works beautifully in one shade or a two-tone combination for effortless outfits.\nAvailable in the color of your choice.',
+        'Basic belt':
+          'Choose the width and the finish—this belt adapts to your wardrobe, with the buckle proportioned to match.\nAvailable in the color of your choice.',
+        'Bold belt':
+          'Detach the suspenders and it becomes a classic strap; keep them on when you want extra attitude.\nAvailable in the color of your choice.',
+        'No.2 belt':
+          'An early, technically demanding build cut from a single piece that widens elegantly toward twin buckles.\nAvailable in the color of your choice.',
+        'Teja belt':
+          'A best-seller where you pick the strap width, colors, and detailing—multiple slim straps weave to highlight the waist and shoulders.\nAvailable in the color of your choice.',
+        'Invicta belt':
+          'One of our original harness belts with removable suspenders and subtle western-inspired detailing.\nAvailable in the color of your choice.',
+        'Nefertiti belt':
+          'A gentle curve at the hips accentuates shape while the front tie lets you fine-tune the fit.\nAvailable in the color of your choice.',
+        'Tena belt':
+          'A clean, cross-tie belt that adds structure without overpowering the outfit.\nAvailable in the color of your choice.',
+        'Adrienne belt':
+          'Minimal lines with a soft hip curve and twin buckles to adjust the fit.\nAvailable in the color of your choice.',
+        'Afrodita belt':
+          'Corset-inspired with a rigid build that controls the silhouette and closes with a single back buckle.\nAvailable in the color of your choice.',
+        'Alba belt':
+          'Understated yet powerful—this belt makes a statement through simplicity.\nAvailable in the color of your choice.',
+        'Salvia belt':
+          'Slim side studs secure the belt while a central circular accent steals the show.\nAvailable in the color of your choice.',
+        'Lily belt':
+          'Office-ready and buckle-free, secured entirely with leather ties for a streamlined finish.\nAvailable in the color of your choice.',
+        'Zinnia belt':
+          'Leather meets scarf: mix and match the wrap with any print from our library or your own.\nAvailable in the color of your choice.',
+        'Rose belt':
+          'Inspired by western films—wear it with or without suspenders for a different silhouette.\nAvailable in the color of your choice.',
+        'Grace belt':
+          'Wraps twice around the waist with a removable accent piece at the tail for extra flair.\nAvailable in the color of your choice.',
+        'Nika belt':
+          'A summer favourite with bold colour pairings and two crossing straps that sit just under the bust.\nAvailable in the color of your choice.',
+        'Iris belt':
+          'For the daring—leg harness attachments can be worn or removed depending on the mood.\nAvailable in the color of your choice.',
+        'Glorija belt':
+          'Two ways to style: cross the straps in front or showcase the dual buckles, even mixing colours for each strap.\nAvailable in the color of your choice.',
+        'Inga belt':
+          'Tailored for polished looks with adjustable front straps and a gentle flare at the hips to flatter every figure.\nAvailable in the color of your choice.',
+        'Andrea belt':
+          'Built for cyclists and riders, with pockets and straps that stay close to the body yet move with you.\nAvailable in the color of your choice.',
+        'Samantha belt':
+          'Sits directly under the bust with fixed suspenders and an adjustable side chain for styling options.\nAvailable in the color of your choice.',
+        'Hera belt':
+          'Designed to sit under the bust; rounded rings hold the suspenders while a side chain fine-tunes the fit.\nAvailable in the color of your choice.',
+        'Klea belt':
+          'A reinterpretation of the Teja belt with interlinked back straps and fixed suspenders.\nAvailable in the color of your choice.',
+        'Kleopatra belt':
+          'Combines leather and elastic—woven leather up front, flexible support at the back for every body type.\nAvailable in the color of your choice.',
+        'Femme belt':
+          'Keep essentials close: the detachable pouch lets you switch between utility and minimal styling.\nAvailable in the color of your choice.',
+        'Demetra belt':
+          'Three belts in one: wear it as a classic strap, as a harness, or split into dual suspender styles.\nAvailable in the color of your choice.',
+        'Xena belt':
+          'Made for bold silhouettes—the extra-long profile commands attention over any outfit.\nAvailable in the color of your choice.',
+        'Teona belt':
+          'Recognisable by its circular hardware that the strap threads through to fasten.\nAvailable in the color of your choice.',
+        'Sabrina belt':
+          'Twin half-moon straps cross to highlight the waist—choose any shade from our palette.\nAvailable in the color of your choice.',
+        'Devon belt':
+          'Wraps around the body twice and closes with two buckles for an understated twist.\nAvailable in the color of your choice.',
+        'Leon belt':
+          'Our top-selling belt of 2025, shipped with a removable round pouch that totally changes the look.\nAvailable in the color of your choice.',
+        'Domina belt':
+          'Sculpts the waist while softly covering the midsection, with a front strap for extra adjustability.\nAvailable in the color of your choice.',
+        'Suzana belt':
+          'Forms a gentle point at the centre while side straps adjust the fit to your shape.\nAvailable in the color of your choice.',
+        'Lana belt':
+          'For fearless dressers who want something different and striking.\nAvailable in the color of your choice.',
+        'Lores belt':
+          'Western-inspired with flowing edges and a wide buckle for a blend of simplicity and elegance.\nAvailable in the color of your choice.',
+        'Zana belt':
+          'An extravagant showpiece secured with suspenders and detailed with feathers for unforgettable moments.\nAvailable in the color of your choice.',
+        'Classic belt':
+          'Our everyday men’s belt, available in black, brown, cognac, or deep navy.',
+        'Hunter belt':
+          'Purpose-built for hunters, balancing rugged practicality with polish.\nAvailable in the color of your choice.',
+        'Maya bag':
+          'A streamlined bag with a single interior pocket for daily essentials.\nAvailable in the color of your choice.',
+        'Mini bag':
+          'A petite companion sized for just the essentials when you want to travel light.\nAvailable in the color of your choice.',
+        'Big bag':
+          'Designed for fans of bold, oversized accessories with plenty of presence.\nAvailable in the color of your choice.',
+        'Cube bag':
+          'Pieced together from multicolour leather squares—the number of cubes determines the size.\nAvailable in the color of your choice.',
+        'Mens bag':
+          'Sized for a phone, passport, and documents—ideal for streamlined carry.\nAvailable in the color of your choice.',
+        'Boa bag':
+          'A retro-chic mini bag delivered with both a classic chain and a longer crossbody chain.\nAvailable in the color of your choice.',
+        'Business bag':
+          'Tailored for workdays, proportioned to sit comfortably in any hand.\nAvailable in the color of your choice.',
+        'Mini nov\u010danik':
+          'A compact wallet for coins, notes, and key documents with snap or wrap closure.\nAvailable in the color of your choice.',
+        'Ugostiteljski nov\u010danik':
+          'Service-ready wallet that can be customised in colour and finished with engraving.',
+        'Boa nov\u010danik':
+          'Features a wrist strap and room for a phone so you can leave the bag behind.\nAvailable in the color of your choice.',
+        'Dje\u010diji nov\u010danik':
+          'Built for little ones—customise the colour or even the animal-inspired shape.\nAvailable in the color of your choice.',
+        Omot:
+          'Protective sleeve for e-readers or books that you carry every day.\nAvailable in the color of your choice.',
+        Narukvica: 'A leather bracelet you can match to any belt or bag in your collection.',
+        Ogrlice: 'Leather necklaces designed to echo the tone and finish of your favourite Boa pieces.',
+        'Futrola za no\u017eeve':
+          'Ideal for chefs, hunters, or collectors—customise the colour, engraving, and number of knife slots.',
+        'Futrola za nao\u010dale': 'A sturdy leather case to keep your glasses protected.\nAvailable in the color of your choice.',
+      },
     },
     gallery: {
       title: 'Inside the Boa studio',
@@ -182,7 +308,7 @@ const translations = {
     },
     footer: {
       description:
-        'Prvi bosanskohercegova\u010dki brend ru\u010dno ra\u0111enih ko\u017eenih kai\u0161eva koji odnedavno \u0161iri svoj asortiman i na druge modne dodatke. Nastanjeni u Travniku, ovaj brend iza sebe krije i izuzetno lijepu porodi\u010dnu pri\u010du koja se gradi korak po korak. Kroz svaki napravljeni i isporu\u010deni dodatak pokazujemo svoju ljubav prema onome \u0161to radimo. Utkani u svaku poru, i proizvodi pri\u010daju svoju pri\u010du. Otkrijte i Vi o \u010demu je rije\u010d!',
+        'The first Bosnian brand of handmade leather belts, now expanding into other accessories. Based in Travnik, we carry a beautiful family story built step by step. Every piece we craft and deliver shows how much we love what we do. It\u2019s woven into every detail\u2014discover it for yourself.',
       navigationTitle: 'Categories',
       navigationTitle1: 'About us',
       contactTitle: 'Contact',
@@ -209,9 +335,9 @@ const translations = {
       cta: 'Explore loyalty perks',
     },
     beltsPage: {
-      heroTitle: 'Kai\u0161evi koji podi\u017eu svaki outfit',
+      heroTitle: 'Belts that elevate every outfit',
       heroSubtitle:
-        'Izrada od kvalitetne, prirodne premium ko\u017ee. Pogodna za sve stilove i ukuse.',
+        'Crafted from premium natural leather. Made to suit every style and taste.',
       heroCta: 'View the collection',
       craftsmanshipTitle: 'Belts \u2013 Style that Lasts',
       craftsmanshipParagraphs: [
@@ -269,7 +395,7 @@ const translations = {
         stylesLabel: 'styles',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Available in multiple colors',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -335,7 +461,7 @@ const translations = {
         stylesLabel: 'designs',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Available in multiple colors',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -411,7 +537,7 @@ const translations = {
         stylesLabel: 'layouts',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Available in multiple colors',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -435,15 +561,15 @@ const translations = {
       heroTitle: 'Accessories',
       heroHeading: 'Leather Accessories Built to Last',
       heroSubtitle:
-        'Wraps, bracelets and cases are small details that complete the whole story.',
+        'Wraps, bracelets, and cases are the finishing details that complete the story.',
       heroParagraphs: [
-        'Each accessory is made with the same hand-crafted craftsmanship as the straps, and its shoe becomes more natural and shiny over time.',
+        'Every accessory is finished with the same hand processes as our belts, and its patina becomes more natural and luminous with time.',
       ],
       collectionTitle: 'Accessories Collection',
       collectionSubtitle: 'Five handcrafted accessories ready for everyday use or gifting.',
       stylesLabel: 'pieces',
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Available in multiple colors',
         craftedBadge: 'Handcrafted',
         selectColorLabel: 'Select {color} for {product}',
         infoAriaLabel: 'View description for {product}',
@@ -576,6 +702,10 @@ const translations = {
     },
     home: {
       mobileTilesButton: 'Pogledaj sve',
+    },
+    products: {
+      availabilityLabel: 'Dostupno u više boja',
+      descriptions: {},
     },
     gallery: {
       title: 'Unutar Boa studija',
@@ -793,7 +923,7 @@ const translations = {
         stylesLabel: 'modela',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Dostupno u više boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',
@@ -859,7 +989,7 @@ const translations = {
         stylesLabel: 'modela',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Dostupno u više boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',
@@ -935,7 +1065,7 @@ const translations = {
         stylesLabel: 'rasporeda',
       },
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Dostupno u više boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',
@@ -982,7 +1112,7 @@ const translations = {
       collectionSubtitle: 'Pet ru\u010dno izra\u0111enih dodataka spremnih za poklanjanje ili svakodnevnu upotrebu.',
       stylesLabel: 'komada',
       card: {
-        availabilityLabel: 'Dostupno u vise boja',
+        availabilityLabel: 'Dostupno u više boja',
         craftedBadge: 'Ru\u010dno izra\u0111eno',
         selectColorLabel: 'Odaberi {color} za {product}',
         infoAriaLabel: 'Pogledaj opis za {product}',

@@ -31,22 +31,6 @@ const categoryTokens: Record<CatalogCategory, string[]> = {
   accessories: ['accessory', 'dodatak', 'dodaci'],
 };
 
-const productIndex: SearchProduct[] = catalogProducts.map((product) => ({
-  id: product.id,
-  name: product.name,
-  price: product.price,
-  image: product.colors[0]?.preview ?? product.colors[0]?.image,
-  href: (() => {
-    const [path, fragment] = product.listHref.split('#');
-    const base = `${path}?product=${product.id}`;
-    return fragment ? `${base}#${fragment}` : base;
-  })(),
-  category: product.category,
-  searchable: [product.name, product.description ?? '', ...(categoryTokens[product.category] ?? [])].map(
-    (value) => normalizeText(value),
-  ),
-}));
-
 export type SearchModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -54,6 +38,27 @@ export type SearchModalProps = {
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const { t } = useLanguage();
+  const productIndex = useMemo<SearchProduct[]>(() => {
+    const descriptionOverrides = t.products?.descriptions ?? {};
+    return catalogProducts.map((product) => {
+      const description = descriptionOverrides[product.name] ?? product.description ?? '';
+      const searchableTokens = [product.name, description, ...(categoryTokens[product.category] ?? [])].map(
+        (value) => normalizeText(value),
+      );
+      const [path, fragment] = product.listHref.split('#');
+      const baseHref = `${path}?product=${product.id}`;
+      const href = fragment ? `${baseHref}#${fragment}` : baseHref;
+      return {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.colors[0]?.preview ?? product.colors[0]?.image,
+        href,
+        category: product.category,
+        searchable: searchableTokens,
+      };
+    });
+  }, [t]);
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement | null>(null);
 

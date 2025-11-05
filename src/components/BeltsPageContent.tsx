@@ -9,6 +9,7 @@ import { LoyaltyCardSection } from './LoyaltyCardSection';
 import { ImageLightbox } from './ImageLightbox';
 import { womensBelts } from '../data/womensBelts';
 import { mensBelts } from '../data/mensBelts';
+import type { Translation } from './LanguageProvider';
 
 type Category = 'women' | 'men';
 
@@ -51,6 +52,11 @@ const mensCatalog: Product[] = mensBelts.map((belt) => ({
 const products: Product[] = [...womensCatalog, ...mensCatalog];
 const leadProductId = womensCatalog[0]?.id ?? mensCatalog[0]?.id ?? null;
 
+const normalizeProductKey = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase();
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
 
@@ -96,6 +102,13 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
   const { t } = useLanguage();
   const data = t.beltsPage;
   const isFiltering = Boolean(focusedProductId);
+  const descriptionMap = (t.products?.descriptions ?? {}) as Translation['products']['descriptions'];
+  const normalizedDescriptionMap = useMemo(() => {
+    return Object.entries(descriptionMap).reduce<Record<string, string>>((acc, [key, value]) => {
+      acc[normalizeProductKey(key)] = value;
+      return acc;
+    }, {});
+  }, [descriptionMap]);
 
   const sortCopy =
     data.sort ??
@@ -177,6 +190,9 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
     const activeIndex = selectedColors[product.id] ?? 0;
     const activeVariant = variants[activeIndex] ?? variants[0];
     const imageAlt = `${product.name} - ${activeVariant.label}`;
+    const descriptionOverride =
+      descriptionMap[product.name] ?? normalizedDescriptionMap[normalizeProductKey(product.name)];
+    const description = descriptionOverride ?? product.description;
 
     return (
       <article
@@ -271,7 +287,7 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
                 <FaTimes className="h-4 w-4" />
               </button>
             </div>
-            <p className="text-sm leading-relaxed text-white/90">{product.description}</p>
+            <p className="text-sm leading-relaxed text-white/90">{description}</p>
             <div className="mt-auto">
               <button
                 type="button"
