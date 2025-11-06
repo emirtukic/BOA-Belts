@@ -24,12 +24,12 @@ export const metadata = {
     card: "summary_large_image",
     title: "Boa Belts | Leather Goods",
     description: "Handcrafted belts, bags, and wallets from Travnik.",
-    images: ["favicon-32x32.png"],
+    images: ["android-chrome-192x192"],
   },
   icons: {
-    icon: "/favicon-32x32.png",
-    shortcut: "url('/favicon-32x32.png')",
-    apple: "/apple-touch-icon.png",
+    icon: "/android-chrome-192x192",
+    shortcut: "url('/android-chrome-192x192')",
+    apple: "/android-chrome-192x192",
   },
 };
 
