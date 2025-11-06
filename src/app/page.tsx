@@ -11,10 +11,10 @@ export const metadata = {
     siteName: "Boa Belts",
     images: [
       {
-        url: "/favicon-32x32.png",
+        url: "/og-image'v3.png",
         width: 1200,
         height: 630,
-        alt: "Boa Belts Handmade Leather Goods",
+        alt: "Boa Belts Travnik Leather Studio",
       },
     ],
     locale: "en_GB",
