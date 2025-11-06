@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.boabelts.com';
 const resolvedSiteUrl = siteUrl.replace(/\/$/, '');
-const ogImage = `${resolvedSiteUrl}/og-image.jpg`;
+const ogImage = `${resolvedSiteUrl}/og-image-v2.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(resolvedSiteUrl),
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
         width: 1600,
         height: 900,
         alt: "Handcrafted Boa Belts leather accessories displayed together.",
+        type: "image/jpeg",
       },
     ],
   },
