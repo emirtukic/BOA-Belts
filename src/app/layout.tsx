@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.boabelts.com';
 const resolvedSiteUrl = siteUrl.replace(/\/$/, '');
-const ogImageBasePath = '/og-image-v2.png';
-const ogImageVersion = 'v=3';
+const ogImageBasePath = '/og-image-v3.png';
+const ogImageVersion = 'v=1';
 const ogImage = `${resolvedSiteUrl}${ogImageBasePath}?${ogImageVersion}`;
 
 export const metadata: Metadata = {
