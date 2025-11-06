@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import './animations.css';
 import LanguageProvider from "@/components/LanguageProvider";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,42 +16,46 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://boa-belts.vercel.app';
+const resolvedSiteUrl = siteUrl.replace(/\/$/, '');
+const ogImage = `${resolvedSiteUrl}/og-image.jpg`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://boabelts.com'),
+  metadataBase: new URL(resolvedSiteUrl),
   title: {
-    default: 'Boa Belts | Handcrafted Leather Goods',
-    template: '%s | Boa Belts',
+    default: "Boa Belts | Handcrafted Leather Goods",
+    template: "%s | Boa Belts",
   },
-  description: 'Boa Belts crafts handmade belts, bags, and wallets in Travnik, Bosnia and Herzegovina.',
+  description: "Boa Belts crafts handmade belts, bags, and wallets in Travnik, Bosnia and Herzegovina.",
   openGraph: {
-    type: 'website',
-    locale: 'bs_BA',
-    url: 'https://boabelts.com',
-    siteName: 'Boa Belts',
-    title: 'Boa Belts | Handcrafted Leather Goods',
-    description: 'Handmade belts, bags, and wallets from Travnik, crafted with premium leather.',
+    type: "website",
+    locale: "bs_BA",
+    url: resolvedSiteUrl,
+    siteName: "Boa Belts",
+    title: "Boa Belts | Handcrafted Leather Goods",
+    description: "Handmade belts, bags, and wallets from Travnik, crafted with premium leather.",
     images: [
       {
-        url: '/og-image.jpg',
+        url: ogImage,
         width: 1600,
         height: 900,
-        alt: 'Handcrafted Boa Belts leather accessories displayed together.',
+        alt: "Handcrafted Boa Belts leather accessories displayed together.",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Boa Belts | Handcrafted Leather Goods',
-    description: 'Handmade belts, bags, and wallets from Travnik, crafted with premium leather.',
-    images: ['/og-image.jpg'],
+    card: "summary_large_image",
+    title: "Boa Belts | Handcrafted Leather Goods",
+    description: "Handmade belts, bags, and wallets from Travnik, crafted with premium leather.",
+    images: [ogImage],
   },
   icons: {
     icon: [
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-    shortcut: ['/favicon.ico'],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
 };
 
