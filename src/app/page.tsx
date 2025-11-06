@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "Boa Belts",
     images: [
       {
-        url: "/og-image'v3.png",
+        url: "/og-image-v3.png",
         width: 1200,
         height: 630,
         alt: "Boa Belts Travnik Leather Studio",
