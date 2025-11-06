@@ -18,8 +18,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Boa Belts | Handcrafted Leather Goods",
-  description: "Boa Belts crafts handmade belts, bags, and wallets in Travnik, Bosnia and Herzegovina.",
+  metadataBase: new URL('https://boabelts.com'),
+  title: {
+    default: 'Boa Belts | Handcrafted Leather Goods',
+    template: '%s | Boa Belts',
+  },
+  description: 'Boa Belts crafts handmade belts, bags, and wallets in Travnik, Bosnia and Herzegovina.',
+  openGraph: {
+    type: 'website',
+    locale: 'bs_BA',
+    url: 'https://boabelts.com',
+    siteName: 'Boa Belts',
+    title: 'Boa Belts | Handcrafted Leather Goods',
+    description: 'Handmade belts, bags, and wallets from Travnik, crafted with premium leather.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1600,
+        height: 900,
+        alt: 'Handcrafted Boa Belts leather accessories displayed together.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Boa Belts | Handcrafted Leather Goods',
+    description: 'Handmade belts, bags, and wallets from Travnik, crafted with premium leather.',
+    images: ['/og-image.jpg'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: ['/favicon.ico'],
+  },
 };
 
 export default function RootLayout({
