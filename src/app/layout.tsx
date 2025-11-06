@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         width: 1600,
         height: 900,
         alt: "Handcrafted Boa Belts leather accessories displayed together.",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
