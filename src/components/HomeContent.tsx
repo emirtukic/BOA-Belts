@@ -220,9 +220,9 @@ export default function HomeContent() {
 
   return (
     <main className="bg-white text-[#1f1f1f]">
-      {/* Fixed Hero Section */}
+      {/* Hero Section */}
       <section
-        className="sticky top-0 h-[90vh] md:h-screen w-full flex flex-col items-start justify-end px-4 pb-2 pt-24 bg-cover bg-center overflow-hidden md:bg-fixed md:px-6 md:pb-0 md:justify-start"
+        className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col items-start justify-end px-4 pb-2 pt-24 bg-cover bg-center overflow-hidden md:px-6 md:pb-0 md:justify-start"
         style={{
           backgroundImage:
             slides[activeSlide]?.background ?? heroBackgrounds[0],
@@ -290,10 +290,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <section
-        className="relative z-10 bg-gradient-to-b from-[#f2f2f2] via-white to-white px-6 pb-16 pt-12 md:hidden"
-        style={{ marginTop: '55vh' }}
-      >
+      <section className="relative z-10 bg-gradient-to-b from-[#f2f2f2] via-white to-white px-6 pb-16 pt-12 md:hidden">
         <div className="mx-auto flex w-full max-w-md flex-col gap-6">
           {mobileTiles.map((tile) => (
             <Link key={tile.key} href={tile.href} className="group block">
@@ -321,10 +318,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <div
-        className="relative z-10 hidden bg-white md:block"
-        style={{ marginTop: '55vh' }}
-      >
+      <div className="relative z-10 hidden bg-white md:block">
         {/* Studio Gallery */}
         <section
           id="gallery"

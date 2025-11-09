@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-screen z-50">
+    <header className="relative w-full z-40">
       {/* Top bar (hidden when mobile menu open) */}
       <div
         className={`w-full px-6 py-3 transition-colors duration-200 ${
