@@ -23,32 +23,32 @@ const ogImage = `${resolvedSiteUrl}/og-image-v3.png`;
 export const metadata: Metadata = {
   metadataBase: new URL(resolvedSiteUrl),
   title: {
-    default: "Boa Belts | Travnik Leather Studio",
+    default: "Boa Belts",
     template: "%s | Boa Belts",
   },
-  description: "Discover handmade leather belts, bags, and wallets created in Travnik, Bosnia and Herzegovina.",
+  description: "Otkrij ručno rađene kožne kaiševe, torbe i novčanike nastale u Travniku, Bosna i Hercegovina.",
   openGraph: {
     type: "website",
     locale: "bs_BA",
     url: resolvedSiteUrl,
     siteName: "Boa Belts",
-    title: "Boa Belts | Travnik Leather Studio",
-    description: "Discover handmade leather belts, bags, and wallets created in Travnik, Bosnia and Herzegovina.",
+    title: "Ručno rađeni kaiševi",
+    description: "Otkrij ručno rađene kožne kaiševe, torbe i novčanike nastale u Travniku, Bosna i Hercegovina.",
     images: [
       {
         url: ogImage,
         secureUrl: ogImage,
         width: 1600,
         height: 900,
-        alt: "Handcrafted Boa Belts leather accessories displayed together.",
+        alt: "Ručno izrađeni Boa Belts kožni dodaci prikazani zajedno.",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Boa Belts | Travnik Leather Studio",
-    description: "Discover handmade leather belts, bags, and wallets created in Travnik, Bosnia and Herzegovina.",
+    title: "Boa Belts",
+    description: "Otkrij ručno rađene kožne kaiševe, torbe i novčanike nastale u Travniku, Bosna i Hercegovina.",
     images: [ogImage],
   },
   icons: {
@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="bs">
       <head>
         <link
           rel="stylesheet"
@@ -80,6 +80,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LanguageProvider>
           <Navbar />
+          <div aria-hidden="true" className="h-20 bg-white md:h-24" />
           {children}
           <Footer />
         </LanguageProvider>

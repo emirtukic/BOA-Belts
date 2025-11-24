@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { FaArrowLeft, FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
@@ -25,6 +26,8 @@ type Product = {
   price: string;
   category: Category;
   description: string;
+  badge?: string;
+  priority?: number;
   colors: ProductVariant[];
 };
 
@@ -58,9 +61,14 @@ const normalizeProductKey = (value: string) =>
     .toLowerCase();
 
 const parsePrice = (price: string) => Number(price.replace(/[^\d.]/g, '')) || 0;
+const getProductPriority = (product: Product) => product.priority ?? 0;
 
 const sortProductsByPrice = (items: Product[], order: SortOrder) =>
   [...items].sort((a, b) => {
+    const priorityDiff = getProductPriority(b) - getProductPriority(a);
+    if (priorityDiff !== 0) {
+      return priorityDiff;
+    }
     const priceA = parsePrice(a.price);
     const priceB = parsePrice(b.price);
     return order === 'asc' ? priceA - priceB : priceB - priceA;
@@ -99,6 +107,7 @@ type BeltsPageContentProps = {
 
 export default function BeltsPageContent({ focusedProductId = null }: BeltsPageContentProps) {
   const { t } = useLanguage();
+  const router = useRouter();
   const data = t.beltsPage;
   const isFiltering = Boolean(focusedProductId);
   const descriptionMap = useMemo<Record<string, string>>(
@@ -171,6 +180,14 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
   const showWomenSection = womensProducts.length > 0;
   const showMenSection = mensProducts.length > 0;
 
+  const handleCardNavigate = (event: MouseEvent<HTMLElement>, productId: string) => {
+    const target = event.target as HTMLElement | null;
+    if (target && target.closest('button, a')) {
+      return;
+    }
+    router.push(`/proizvod/${productId}`);
+  };
+
   const handleColorChange = (productId: string, index: number) => {
     setSelectedColors((prev) => ({
       ...prev,
@@ -201,7 +218,13 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
         key={product.id}
         id={`product-${product.id}`}
         className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#e5e5e5] bg-white shadow-sm transition-shadow hover:shadow-xl"
+        onClick={(event) => handleCardNavigate(event, product.id)}
       >
+        {product.badge && (
+          <span className="absolute left-4 top-4 z-20 rounded-full bg-[#9a7048] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-md">
+            {product.badge}
+          </span>
+        )}
         <button
           type="button"
           onClick={() => setOpenProductId(product.id)}
@@ -270,8 +293,14 @@ export default function BeltsPageContent({ focusedProductId = null }: BeltsPageC
               {data.card.availabilityLabel}
             </p>
           </div>
-          <div className="mt-auto flex items-baseline justify-between">
+          <div className="mt-auto flex items-center justify-between gap-3">
             <span className="text-base font-semibold text-[#111]">{product.price}</span>
+            <Link
+              href={`/proizvod/${product.id}`}
+              className="inline-flex items-center justify-center rounded-full border border-[#111] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#111] transition hover:bg-[#111] hover:text-white"
+            >
+              Vidi detalje
+            </Link>
           </div>
         </div>
         {openProductId === product.id && (

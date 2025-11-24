@@ -85,25 +85,25 @@ export default function HomeContent() {
           title: t.hero.title,
           subtitle: t.hero.subtitle,
           cta: t.hero.cta,
-          href: '/belts',
+          href: '/kaisevi',
         },
         {
           title: t.beltsPage.heroTitle,
           subtitle: t.beltsPage.heroSubtitle,
           cta: t.belts.ctaLabel,
-          href: '/belts',
+          href: '/kaisevi',
         },
         {
           title: t.bagsPage.heroTitle,
           subtitle: t.bagsPage.heroSubtitle,
           cta: t.bags.ctaLabel,
-          href: '/bags',
+          href: '/torbe',
         },
         {
           title: t.walletsPage.heroTitle,
           subtitle: t.walletsPage.heroSubtitle,
           cta: t.wallets.cta,
-          href: '/wallets',
+          href: '/novcanici',
         },
       ].map((slide, index) => ({
         ...slide,
@@ -116,19 +116,19 @@ export default function HomeContent() {
       {
         key: 'belts',
         label: t.nav.belts,
-        href: '/belts',
+        href: '/kaisevi',
         image: sectionImages.belts,
       },
       {
         key: 'bags',
         label: t.nav.bags,
-        href: '/bags',
+        href: '/torbe',
         image: sectionImages.bags,
       },
       {
         key: 'wallets',
         label: t.nav.wallets,
-        href: '/wallets',
+        href: '/novcanici',
         image: sectionImages.wallets,
       },
     ],
@@ -409,7 +409,7 @@ export default function HomeContent() {
           </p>
           <div className="mt-8">
             <Link
-              href="/about"
+              href="/o-nama"
               className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
             >
               {t.about.ctaLabel}
@@ -462,7 +462,7 @@ export default function HomeContent() {
             </div>
             <div className="mt-12 flex justify-center">
               <Link
-                href="/belts"
+                href="/kaisevi"
                 className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
               >
                 {t.belts.ctaLabel}
@@ -511,7 +511,7 @@ export default function HomeContent() {
             </div>
             <div className="mt-12 flex justify-center">
               <Link
-                href="/bags"
+                href="/torbe"
                 className="inline-block bg-[#111] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#000] transition"
               >
                 {t.bags.ctaLabel}
@@ -558,7 +558,7 @@ export default function HomeContent() {
             </div>
             <div className="mt-12 flex justify-center">
               <Link
-                href="/wallets"
+                href="/novcanici"
                 className="inline-block bg-[#111] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#000] transition"
               >
                 {t.wallets.cta}

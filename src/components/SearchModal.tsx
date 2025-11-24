@@ -48,9 +48,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       const searchableTokens = [product.name, description, ...(categoryTokens[product.category] ?? [])].map(
         (value) => normalizeText(value),
       );
-      const [path, fragment] = product.listHref.split('#');
-      const baseHref = `${path}?product=${product.id}`;
-      const href = fragment ? `${baseHref}#${fragment}` : baseHref;
+      const href = `/proizvod/${product.id}`;
       return {
         id: product.id,
         name: product.name,

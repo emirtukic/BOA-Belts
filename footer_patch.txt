@@ -20,15 +20,15 @@ export default function Footer() {
         <div>
           <h5 className="text-lg font-semibold mb-3">{t.footer.navigationTitle}</h5>
           <ul className="text-sm space-y-2 text-[#777]">
-            <li><Link href="/belts" className="hover:text-[#111] transition-colors">{t.nav.belts}</Link></li>
-            <li><Link href="/bags" className="hover:text-[#111] transition-colors">{t.nav.bags}</Link></li>
-            <li><Link href="/wallets" className="hover:text-[#111] transition-colors">{t.nav.wallets}</Link></li>
+            <li><Link href="/kaisevi" className="hover:text-[#111] transition-colors">{t.nav.belts}</Link></li>
+            <li><Link href="/torbe" className="hover:text-[#111] transition-colors">{t.nav.bags}</Link></li>
+            <li><Link href="/novcanici" className="hover:text-[#111] transition-colors">{t.nav.wallets}</Link></li>
           </ul>
         </div>
         <div>
           <h5 className="text-lg font-semibold mb-3">{t.footer.navigationTitle1}</h5>
           <ul className="text-sm space-y-2 text-[#777]">
-            <li><Link href="/about" className="hover:text-[#111] transition-colors">{t.nav.about}</Link></li>
+            <li><Link href="/o-nama" className="hover:text-[#111] transition-colors">{t.nav.about}</Link></li>
           </ul>
         </div>
 

@@ -4,9 +4,9 @@ import WalletsPageContent from '@/components/WalletsPageContent';
 import { WalletsPageContainer } from '@/components/WalletsPageContainer';
 
 export const metadata: Metadata = {
-  title: 'Boa Belts | Leather Wallets and Accessories',
+  title: 'Nov\u010danici',
   description:
-    'Custom card holders, bifold wallets, and travel folios handcrafted in Travnik with saddle-stitched seams.',
+    'Ru\u010dno \u0161iveni card holderi, nov\u010danici i putne futrole sa saddle \u0161avom i personalizacijom inicijala.',
 };
 
 export default function WalletsPage() {

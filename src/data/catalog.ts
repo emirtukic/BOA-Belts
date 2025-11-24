@@ -33,7 +33,7 @@ const womensCatalog: CatalogProduct[] = womensBelts.map((product) => ({
   description: product.description ?? '',
   colors: product.colors,
   category: 'womensBelts',
-  listHref: '/belts#womens-belts',
+  listHref: '/kaisevi#womens-belts',
 }));
 
 const mensCatalog: CatalogProduct[] = mensBelts.map((product) => ({
@@ -43,7 +43,7 @@ const mensCatalog: CatalogProduct[] = mensBelts.map((product) => ({
   description: product.description ?? '',
   colors: product.colors,
   category: 'mensBelts',
-  listHref: '/belts#mens-belts',
+  listHref: '/kaisevi#mens-belts',
 }));
 
 const bagsCatalog: CatalogProduct[] = bags.map((product) => ({
@@ -53,7 +53,7 @@ const bagsCatalog: CatalogProduct[] = bags.map((product) => ({
   description: product.description ?? '',
   colors: product.colors,
   category: 'bags',
-  listHref: '/bags',
+  listHref: '/torbe',
 }));
 
 const walletsCatalog: CatalogProduct[] = wallets.map((product) => ({
@@ -63,7 +63,7 @@ const walletsCatalog: CatalogProduct[] = wallets.map((product) => ({
   description: product.description ?? '',
   colors: product.colors,
   category: 'wallets',
-  listHref: '/wallets',
+  listHref: '/novcanici',
 }));
 
 const accessoriesCatalog: CatalogProduct[] = accessories.map((product) => ({
@@ -83,3 +83,7 @@ export const catalogProducts: CatalogProduct[] = [
   ...walletsCatalog,
   ...accessoriesCatalog,
 ];
+
+export const catalogProductMap: Record<string, CatalogProduct> = Object.fromEntries(
+  catalogProducts.map((product) => [product.id, product]),
+);

@@ -10,7 +10,7 @@ import { SearchModal } from './SearchModal';
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { t, toggleLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (isMobileMenuOpen || isSearchOpen) {
@@ -22,20 +22,20 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: t.nav.home, highlight: false },
-    { href: '/belts', label: t.nav.belts, highlight: false },
-    { href: '/bags', label: t.nav.bags, highlight: false },
-    { href: '/wallets', label: t.nav.wallets, highlight: false },
+    { href: '/kaisevi', label: t.nav.belts, highlight: false },
+    { href: '/torbe', label: t.nav.bags, highlight: false },
+    { href: '/novcanici', label: t.nav.wallets, highlight: false },
     { href: '/dodaci', label: t.nav.accessories, highlight: false },
-    { href: '/about', label: t.nav.about, highlight: false },
-    { href: '/loyalty', label: t.nav.loyalty, highlight: true },
+    { href: '/o-nama', label: t.nav.about, highlight: false },
+    { href: '/lojalnost', label: t.nav.loyalty, highlight: true },
   ];
 
   return (
-    <header className="relative w-full z-40">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white">
       {/* Top bar (hidden when mobile menu open) */}
       <div
         className={`w-full px-6 py-3 transition-colors duration-200 ${
-          isMobileMenuOpen ? 'hidden' : 'bg-white/85 backdrop-blur-lg border-b border-[#ececec]'
+          isMobileMenuOpen ? 'hidden' : 'bg-white/95 backdrop-blur-lg'
         }`}
       >
         <div className="mx-auto flex w-full max-w-6xl items-center">
@@ -81,14 +81,6 @@ export default function Navbar() {
             >
               <FaSearch className="h-4 w-4" aria-hidden="true" />
             </button>
-            <button
-              type="button"
-              onClick={toggleLanguage}
-              className="rounded-full border border-[#d0d0d0] bg-white px-4 py-2 text-xs font-semibold tracking-wide text-[#111] transition-colors duration-200 hover:bg-[#111] hover:text-white"
-              aria-label={t.nav.languageToggleAria}
-            >
-              {t.nav.languageToggle}
-            </button>
           </div>
 
           <div className="ml-auto flex items-center md:hidden">
@@ -127,14 +119,6 @@ export default function Navbar() {
                 aria-label={t.search.openLabel}
               >
                 <FaSearch className="h-4 w-4" aria-hidden="true" />
-              </button>
-              <button
-                type="button"
-                onClick={toggleLanguage}
-                className="border border-[#d0d0d0] text-[#111] px-3 py-1 rounded-full text-xs tracking-wide hover:bg-[#f3f3f3] transition-colors"
-                aria-label={t.nav.languageToggleAria}
-              >
-                {t.nav.languageToggle}
               </button>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}

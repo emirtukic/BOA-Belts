@@ -1,8 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type MouseEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { FaArrowLeft, FaChevronDown, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { useLanguage } from './LanguageProvider';
 import { LoyaltyCardSection } from './LoyaltyCardSection';
@@ -89,6 +90,7 @@ type BagsPageContentProps = {
 
 export default function BagsPageContent({ focusedProductId = null }: BagsPageContentProps) {
   const { t } = useLanguage();
+  const router = useRouter();
   const data = t.bagsPage;
   const descriptionSource = useMemo<Record<string, string>>(
     () => (t.products?.descriptions ?? {}) as Record<string, string>,
@@ -135,6 +137,14 @@ export default function BagsPageContent({ focusedProductId = null }: BagsPageCon
 
   const productCountLabel = `${sortedProducts.length} ${data.stylesLabel}`;
 
+  const handleCardNavigate = (event: MouseEvent<HTMLElement>, productId: string) => {
+    const target = event.target as HTMLElement | null;
+    if (target && target.closest('button, a')) {
+      return;
+    }
+    router.push(`/proizvod/${productId}`);
+  };
+
   const handleColorChange = (productId: string, index: number) => {
     setSelectedColors((prev) => ({
       ...prev,
@@ -159,6 +169,7 @@ export default function BagsPageContent({ focusedProductId = null }: BagsPageCon
         key={product.id}
         id={`product-${product.id}`}
         className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#e5e5e5] bg-white shadow-sm transition-shadow hover:shadow-xl"
+        onClick={(event) => handleCardNavigate(event, product.id)}
       >
         <button
           type="button"
@@ -226,8 +237,14 @@ export default function BagsPageContent({ focusedProductId = null }: BagsPageCon
               {data.card.availabilityLabel}
             </p>
           </div>
-          <div className="mt-auto flex items-baseline justify-between">
+          <div className="mt-auto flex items-center justify-between gap-3">
             <span className="text-base font-semibold text-[#111]">{product.price}</span>
+            <Link
+              href={`/proizvod/${product.id}`}
+              className="inline-flex items-center justify-center rounded-full border border-[#111] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#111] transition hover:bg-[#111] hover:text-white"
+            >
+              Vidi detalje
+            </Link>
           </div>
         </div>
         {openProductId === product.id && (

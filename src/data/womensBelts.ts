@@ -10,10 +10,38 @@ export type WomensBelt = {
   price: string;
   category: 'women';
   description: string;
+  badge?: string;
+  priority?: number;
   colors: WomensBeltVariant[];
 };
 
 export const womensBelts: WomensBelt[] = [
+  {
+    "id": "w67",
+    "name": "Ruby belt",
+    "price": "100 KM",
+    "category": "women",
+    "description": "Ruby belt je statement model koji kombinira strukturu korzeta i mekane remenice kako bi naglasio struk. Model je moguce izraditi u boji po zelji.",
+    "badge": "Novo",
+    "priority": 1,
+    "colors": [
+      {
+        "label": "Photo 1",
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.jpeg",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.jpeg"
+      },
+      {
+        "label": "Photo 2",
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.jpeg",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.jpeg"
+      },
+      {
+        "label": "Photo 3",
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.jpeg",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.jpeg"
+      }
+    ]
+  },
   {
     "id": "w03",
     "name": "Angel belt",
@@ -1024,5 +1052,5 @@ export const womensBelts: WomensBelt[] = [
         "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.18.28_ff4790f9.jpg"
       }
     ]
-  }
+  },
 ];

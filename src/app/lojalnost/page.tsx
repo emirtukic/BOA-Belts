@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { LoyaltyCardSection } from '@/components/LoyaltyCardSection';
 
 export const metadata: Metadata = {
-  title: 'Loyalty | Boa Belts',
+  title: 'Program lojalnosti',
+  description:
+    'Prikupi bodove kroz kupovinu i otklju\u010daj popuste, limitirane modele i poklone za vjerne kupce.',
 };
 
 export default function LoyaltyPage() {

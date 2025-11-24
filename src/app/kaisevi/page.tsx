@@ -4,9 +4,9 @@ import BeltsPageContent from '@/components/BeltsPageContent';
 import { BeltsPageContainer } from '@/components/BeltsPageContainer';
 
 export const metadata: Metadata = {
-  title: 'Boa Belts | Signature Leather Belts',
+  title: 'Kai\u0161evi po mjeri',
   description:
-    'Explore handcrafted belts made in Travnik with full-grain leather, solid hardware, and bespoke sizing options.',
+    'Pregledaj \u017eenske i mu\u0161ke kai\u0161eve izra\u0111ene ru\u010dno u Travniku od ko\u017ee punog zrna, uz mesingane kop\u010de i mogu\u0107nost prilago\u0111avanja svake narud\u017ebe.',
 };
 
 export default function BeltsPage() {
