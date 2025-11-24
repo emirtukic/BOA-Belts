@@ -6,10 +6,10 @@ import { ProductGallery } from '@/components/ProductGallery';
 import { FaTruck } from 'react-icons/fa';
 
 const categoryLabels: Record<string, string> = {
-  womensBelts: '��enski kai��',
-  mensBelts: 'Mu��ki kai��',
+  womensBelts: '\u017denski kai\u0161',
+  mensBelts: 'Mu\u0161ki kai\u0161',
   bags: 'Torba',
-  wallets: 'Nov�?anik',
+  wallets: 'Nov\u010danik',
   accessories: 'Dodatak',
 };
 
@@ -17,7 +17,7 @@ type ProductPageParams = {
   params: Promise<{ productId: string }>;
 };
 
-const defaultDescription = 'Ru�?no izra�`en predmet iz Boa Belts radionice.';
+const defaultDescription = 'Ru\u010dno izra\u0111en predmet iz Boa Belts radionice.';
 
 const getProduct = (productId: string) => catalogProductMap[productId];
 
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ProductPageParams): Promise<M
   const product = getProduct(productId);
   if (!product) {
     return {
-      title: 'Proizvod nije prona�`en | Boa Belts',
+      title: 'Proizvod nije prona\u0111en | Boa Belts',
       description: defaultDescription,
     };
   }
@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
             href={product.listHref}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#111] transition hover:text-[#9a7048]"
           >
-            <span aria-hidden="true">←</span>
+            <span aria-hidden="true">\u2190</span>
             <span>Nazad na listu</span>
           </Link>
           <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
@@ -106,10 +106,10 @@ export default async function ProductPage({ params }: ProductPageParams) {
               {product.description || defaultDescription}
             </p>
             <div className="rounded-2xl bg-[#f7f4f1] p-5 text-sm text-[#2a2a2a]">
-              <p className="font-semibold text-[#111]">Kako naručiti</p>
+              <p className="font-semibold text-[#111]">Kako naru\u010diti</p>
               <p className="mt-2 leading-relaxed">
-                Pošalji poruku na Instagram ili Facebook sa nazivom <strong>{product.name}</strong> i željenom bojom.
-                Odgovaramo u što kraćem roku sa svim potrebnim informacijama.
+                Po\u0161alji poruku na Instagram ili Facebook sa nazivom <strong>{product.name}</strong> i
+                \u017deljenom bojom. Odgovaramo u roku od 24 sata sa svim potrebnim informacijama.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -127,13 +127,13 @@ export default async function ProductPage({ params }: ProductPageParams) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-[#111] px-5 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#111] hover:text-white"
               >
-                Piši na Facebooku
+                Pi\u0161i na Facebooku
               </a>
             </div>
             <div className="flex items-center gap-3 rounded-2xl border border-dashed border-[#d9d9d9] bg-[#fdf9f6] px-4 py-3 text-sm text-[#3a3a3a]">
               <FaTruck className="h-5 w-5 text-[#9a7048]" aria-hidden="true" />
               <p className="leading-relaxed">
-                Dostava u roku od 48h nakon završetka izrade.
+                Dostavljamo u roku od 48h nakon zavr\u0161etka izrade.
               </p>
             </div>
           </div>
