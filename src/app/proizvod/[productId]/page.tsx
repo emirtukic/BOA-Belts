@@ -6,14 +6,18 @@ import { ProductGallery } from '@/components/ProductGallery';
 import { FaTruck } from 'react-icons/fa';
 
 const categoryLabels: Record<string, string> = {
-  womensBelts: 'Ženski kaiš',
-  mensBelts: 'Muški kaiš',
+  womensBelts: '��enski kai��',
+  mensBelts: 'Mu��ki kai��',
   bags: 'Torba',
-  wallets: 'Novčanik',
+  wallets: 'Nov�?anik',
   accessories: 'Dodatak',
 };
 
-const defaultDescription = 'Ručno izrađen predmet iz Boa Belts radionice.';
+type ProductPageParams = {
+  params: Promise<{ productId: string }>;
+};
+
+const defaultDescription = 'Ru�?no izra�`en predmet iz Boa Belts radionice.';
 
 const getProduct = (productId: string) => catalogProductMap[productId];
 
@@ -21,11 +25,12 @@ export function generateStaticParams() {
   return catalogProducts.map((product) => ({ productId: product.id }));
 }
 
-export function generateMetadata({ params }: { params: { productId: string } }): Metadata {
-  const product = getProduct(params.productId);
+export async function generateMetadata({ params }: ProductPageParams): Promise<Metadata> {
+  const { productId } = await params;
+  const product = getProduct(productId);
   if (!product) {
     return {
-      title: 'Proizvod nije pronađen | Boa Belts',
+      title: 'Proizvod nije prona�`en | Boa Belts',
       description: defaultDescription,
     };
   }
@@ -59,8 +64,9 @@ export function generateMetadata({ params }: { params: { productId: string } }):
   };
 }
 
-export default function ProductPage({ params }: { params: { productId: string } }) {
-  const product = getProduct(params.productId);
+export default async function ProductPage({ params }: ProductPageParams) {
+  const { productId } = await params;
+  const product = getProduct(productId);
   if (!product) {
     notFound();
   }
