@@ -22,7 +22,10 @@ const fallbackVariant: Variant = {
 };
 
 export function ProductGallery({ productName, variants }: ProductGalleryProps) {
-  const safeVariants = variants.length > 0 ? variants : [fallbackVariant];
+  const safeVariants = useMemo(
+    () => (variants.length > 0 ? variants : [fallbackVariant]),
+    [variants],
+  );
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 

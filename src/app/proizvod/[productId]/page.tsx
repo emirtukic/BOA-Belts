@@ -13,10 +13,6 @@ const categoryLabels: Record<string, string> = {
   accessories: 'Dodatak',
 };
 
-type ProductPageProps = {
-  params: { productId: string };
-};
-
 const defaultDescription = 'Ručno izrađen predmet iz Boa Belts radionice.';
 
 const getProduct = (productId: string) => catalogProductMap[productId];
@@ -25,7 +21,7 @@ export function generateStaticParams() {
   return catalogProducts.map((product) => ({ productId: product.id }));
 }
 
-export function generateMetadata({ params }: ProductPageProps): Metadata {
+export function generateMetadata({ params }: { params: { productId: string } }): Metadata {
   const product = getProduct(params.productId);
   if (!product) {
     return {
@@ -63,7 +59,7 @@ export function generateMetadata({ params }: ProductPageProps): Metadata {
   };
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({ params }: { params: { productId: string } }) {
   const product = getProduct(params.productId);
   if (!product) {
     notFound();
