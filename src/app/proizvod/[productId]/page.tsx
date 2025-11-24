@@ -85,7 +85,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
             href={product.listHref}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#111] transition hover:text-[#9a7048]"
           >
-            <span aria-hidden="true">\u2190</span>
+            <span aria-hidden="true">←</span>
             <span>Nazad na listu</span>
           </Link>
           <span className="rounded-full border border-[#dedede] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#9a7048]">
@@ -106,10 +106,10 @@ export default async function ProductPage({ params }: ProductPageParams) {
               {product.description || defaultDescription}
             </p>
             <div className="rounded-2xl bg-[#f7f4f1] p-5 text-sm text-[#2a2a2a]">
-              <p className="font-semibold text-[#111]">Kako naru\u010diti</p>
+              <p className="font-semibold text-[#111]">Kako naručiti</p>
               <p className="mt-2 leading-relaxed">
-                Po\u0161alji poruku na Instagram ili Facebook sa nazivom <strong>{product.name}</strong> i
-                \u017deljenom bojom. Odgovaramo u roku od 24 sata sa svim potrebnim informacijama.
+                Pošalji poruku na Instagram ili Facebook sa nazivom <strong>{product.name}</strong> i željenom bojom.
+                Odgovaramo u roku od 24 sata sa svim potrebnim informacijama.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -127,14 +127,12 @@ export default async function ProductPage({ params }: ProductPageParams) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-[#111] px-5 py-3 text-sm font-semibold text-[#111] transition hover:bg-[#111] hover:text-white"
               >
-                Pi\u0161i na Facebooku
+                Piši na Facebooku
               </a>
             </div>
             <div className="flex items-center gap-3 rounded-2xl border border-dashed border-[#d9d9d9] bg-[#fdf9f6] px-4 py-3 text-sm text-[#3a3a3a]">
               <FaTruck className="h-5 w-5 text-[#9a7048]" aria-hidden="true" />
-              <p className="leading-relaxed">
-                Dostavljamo u roku od 48h nakon zavr\u0161etka izrade.
-              </p>
+              <p className="leading-relaxed">Dostavljamo u roku od 48h nakon završetka izrade.</p>
             </div>
           </div>
         </div>
