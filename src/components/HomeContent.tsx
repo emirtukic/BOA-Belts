@@ -49,6 +49,8 @@ const sectionImages = {
   wallets: '/wallets-mobile.jpg',
 } as const;
 
+const fashionWeekHeroImage = '/revija/8J3A0630.jpg';
+
 export default function HomeContent() {
   const { t } = useLanguage();
   const [isMobileHero, setIsMobileHero] = useState(false);
@@ -142,6 +144,7 @@ export default function HomeContent() {
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const [galleryCanScrollLeft, setGalleryCanScrollLeft] = useState(false);
   const [galleryCanScrollRight, setGalleryCanScrollRight] = useState(true);
+  const fashionWeekSection = t.home.fashionWeek;
 
   useEffect(() => {
     const interval = setInterval(
@@ -289,6 +292,77 @@ export default function HomeContent() {
           </button>
         </div>
       </section>
+
+      {fashionWeekSection && (
+        <section className="bg-[#0b0b0b] px-4 py-16 text-white md:px-10">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 lg:flex-row">
+            <div className="flex-1 space-y-6">
+              <span className="inline-flex w-fit items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                {fashionWeekSection.badge}
+              </span>
+              <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+                {fashionWeekSection.title}
+              </h2>
+              <p className="text-base leading-relaxed text-white/80">{fashionWeekSection.description}</p>
+              {fashionWeekSection.secondaryDescription && (
+                <p className="text-base leading-relaxed text-white/80">{fashionWeekSection.secondaryDescription}</p>
+              )}
+              {fashionWeekSection.summaryItems?.length ? (
+                <div className="space-y-3">
+                  {fashionWeekSection.summaryTitle ? (
+                    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/60">
+                      {fashionWeekSection.summaryTitle}
+                    </p>
+                  ) : null}
+                  <ul className="space-y-3">
+                    {fashionWeekSection.summaryItems.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-white/80">
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {fashionWeekSection.highlights?.length ? (
+                <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {fashionWeekSection.highlights.map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-white/15 bg-white/5 p-4 text-sm text-white/80 backdrop-blur"
+                    >
+                      <dt className="text-xs uppercase tracking-wide text-white">{item.label}</dt>
+                      <dd className="mt-2 font-semibold text-white">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/BHFashionWeek"
+                  aria-label={fashionWeekSection.ctaAria}
+                  className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0b0b0b] transition hover:bg-[#f4f4f4]"
+                >
+                  {fashionWeekSection.ctaLabel}
+                </Link>
+              </div>
+            </div>
+            <div className="relative w-full max-w-xl self-center rounded-3xl border border-white/20 bg-white/5 shadow-2xl lg:flex-1 lg:self-auto">
+              <div className="relative aspect-[3/4] w-full min-h-[320px] overflow-hidden rounded-3xl md:min-h-[420px]">
+                <Image
+                  src={fashionWeekHeroImage}
+                  alt="Boa Belts prikaz na BH Fashion Weeku"
+                  fill
+                  sizes="(min-width: 1280px) 520px, (min-width: 768px) 45vw, 90vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-[#0b0b0b] via-transparent to-transparent" />
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="relative z-10 bg-gradient-to-b from-[#f2f2f2] via-white to-white px-6 pb-16 pt-12 md:hidden">
         <div className="mx-auto flex w-full max-w-md flex-col gap-6">

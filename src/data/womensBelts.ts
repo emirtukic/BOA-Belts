@@ -17,6 +17,32 @@ export type WomensBelt = {
 
 export const womensBelts: WomensBelt[] = [
   {
+    "id": "w68",
+    "name": "Nora belt",
+    "price": "70 KM",
+    "category": "women",
+    "description": "Nora belt spaja mekane nabrane plohe i čistu liniju koja naglašava struk bez osjećaja težine. Model izrađujemo ručno od kvalitetne kože i moguće ga je naručiti u boji po želji.",
+    "badge": "Novo",
+    "priority": 2,
+    "colors": [
+      {
+        "label": "Photo 1",
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.jpg",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.jpg"
+      },
+      {
+        "label": "Photo 2",
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.jpg",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.jpg"
+      },
+      {
+        "label": "Photo 3",
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.jpg",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.jpg"
+      }
+    ]
+  },
+  {
     "id": "w67",
     "name": "Ruby belt",
     "price": "100 KM",

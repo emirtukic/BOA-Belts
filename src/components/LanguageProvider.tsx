@@ -43,6 +43,26 @@ const translations = {
     },
     home: {
       mobileTilesButton: 'Pogledaj sve',
+      fashionWeek: {
+        badge: 'BH Fashion Week 2025',
+        title: 'Boa Belts na 49. BH Fashion Weeku',
+        description:
+          'Na otvaranju 49. BH Fashion Weeka u hotelu Bosmal Arjaan by Rotana prikazali smo kolekciju uz No Nation Fashion, AMAL i druge brendove koji podr\u017eavaju kampanju "Udru\u017eene protiv nasilja nad \u017eenama".',
+        secondaryDescription:
+          'Revija u Sarajevu bila je prilika da doma\u0107u publiku i goste iz regiona upoznamo s ru\u010dno ra\u0111enim kai\u0161evima i torbama iz Travnika.',
+        summaryTitle: '\u0160ta smo zabilje\u017eili',
+        summaryItems: [
+          'Otvorili smo pistu prve ve\u010deri zajedno sa No Nation Fashion i me\u0111unarodnim gostima.',
+          'Kroz kreacije smo naglasili poruke kampanje "Udru\u017eene protiv nasilja nad \u017eenama".',
+          'Mediji su prenijeli atmosferu i fotografije iz Bosmal Arjaan by Rotana hotela.',
+        ],
+        highlights: [
+          { label: 'Lokacija', value: 'Bosmal Arjaan by Rotana, Sarajevo' },
+          { label: 'Program', value: 'Otvaranje 49. BH Fashion Weeka' },
+        ],
+        ctaLabel: 'Pogledaj fotografije',
+        ctaAria: 'Otvori galeriju sa revije BH Fashion Week 2025',
+      },
     },
     products: {
       availabilityLabel: 'Dostupno u više boja',
