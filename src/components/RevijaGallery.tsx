@@ -12,13 +12,23 @@ type RevijaGalleryProps = {
 export function RevijaGallery({ images }: RevijaGalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  const uniqueImages = useMemo(
+    () => Array.from(new Set(images)),
+    [images],
+  );
+  const excludedIndexes = useMemo(() => new Set<number>([1, 4, 6, 12, 13, 14, 21, 23, 24, 27, 28, 34, 44]), []);
+  const filteredImages = useMemo(
+    () => uniqueImages.filter((_, index) => !excludedIndexes.has(index)),
+    [uniqueImages, excludedIndexes],
+  );
+
   const items = useMemo(
     () =>
-      images.map((src, index) => ({
+      filteredImages.map((src, index) => ({
         src,
         alt: `BH Fashion Week runway fotografija ${index + 1}`,
       })),
-    [images],
+    [filteredImages],
   );
 
   const openLightbox = (index: number) => {
