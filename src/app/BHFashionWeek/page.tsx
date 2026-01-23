@@ -54,7 +54,7 @@ export default function RevijaPage() {
             </h1>
             <p className="text-base leading-relaxed text-white/80">
               Na pozornici hotela Bosmal Arjaan by Rotana u Sarajevu podijelili smo runway sa brendovima No Nation Fashion, AMAL i
-              drugim dizajnerima koji podržavaju kampanju "Udružene protiv nasilja nad ženama". Publika je imala priliku vidjeti
+              drugim dizajnerima koji podržavaju kampanju &ldquo;Udružene protiv nasilja nad ženama&rdquo;. Publika je imala priliku vidjeti
               kako ručno rađeni kaiševi i torbe iz Travnika ulaze u fokus domaće i međunarodne modne scene.
             </p>
             <p className="text-base leading-relaxed text-white/80">
