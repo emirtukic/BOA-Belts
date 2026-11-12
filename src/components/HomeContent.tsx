@@ -22,34 +22,34 @@ const beltIcons = [
 ] as const;
 
 const heroBackgroundsDesktop = [
-  "url('/boa_belts_4.jpg')",
-  "url('/belt.jpg')",
-  "url('/torba.jpg')",
-  "url('/novcanik.jpg')",
+  "url('/boa_belts_4.webp')",
+  "url('/belt.webp')",
+  "url('/torba.webp')",
+  "url('/novcanik.webp')",
 ] as const;
 
 const heroBackgroundsMobile = [
-  "url('/hero12.png')",
-  "url('/bb2 (1).png')",
-  "url('/bb3 (1).png')",
-  "url('/bb4 (1).png')",
+  "url('/hero12.webp')",
+  "url('/bb2 (1).webp')",
+  "url('/bb3 (1).webp')",
+  "url('/bb4 (1).webp')",
 ] as const;
 
 const galleryMedia = [
-  '/1.jpg',
-  '/2.jpg',
-  '/3.jpg',
-  '/4.jpg',
-  '/5.jpg',
+  '/1.webp',
+  '/2.webp',
+  '/3.webp',
+  '/4.webp',
+  '/5.webp',
 ] as const;
 
 const sectionImages = {
-  belts: '/belts-mobile.jpg',
-  bags: '/bags-mobile.jpg',
-  wallets: '/wallets-mobile.jpg',
+  belts: '/belts-mobile.webp',
+  bags: '/bags-mobile.webp',
+  wallets: '/wallets-mobile.webp',
 } as const;
 
-const fashionWeekHeroImage = '/revija/8J3A0630.jpg';
+const fashionWeekHeroImage = '/revija/8J3A0630.webp';
 
 export default function HomeContent() {
   const { t } = useLanguage();

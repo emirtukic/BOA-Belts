@@ -27,18 +27,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.jpg",
-        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.jpg"
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.webp",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0636.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.jpg",
-        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.jpg"
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.webp",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0637.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.jpg",
-        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.jpg"
+        "image": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.webp",
+        "preview": "/Womens%20Belts/Nora%20belt%2070%20KM/8J3A0638.webp"
       }
     ]
   },
@@ -53,18 +53,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.jpeg",
-        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.jpeg"
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.webp",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/58ff3d91-60bd-4066-96a5-392d1fd9ac70.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.jpeg",
-        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.jpeg"
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.webp",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/75ebe430-c3ed-4e78-a777-e6ade36059e7.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.jpeg",
-        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.jpeg"
+        "image": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.webp",
+        "preview": "/Womens%20Belts/RUBY%20BELT%20100%20KM/a4d22a04-e8f8-4214-a005-54bae9ccb82a.webp"
       }
     ]
   },
@@ -77,18 +77,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_5d6f888a.jpg",
-        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_5d6f888a.jpg"
+        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_5d6f888a.webp",
+        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_5d6f888a.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_535b4d61.jpg",
-        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_535b4d61.jpg"
+        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_535b4d61.webp",
+        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_535b4d61.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_02801c73.jpg",
-        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_02801c73.jpg"
+        "image": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_02801c73.webp",
+        "preview": "/Womens%20Belts/03_ANGEL%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.46_02801c73.webp"
       }
     ]
   },
@@ -101,18 +101,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_332896f5.jpg",
-        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_332896f5.jpg"
+        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_332896f5.webp",
+        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_332896f5.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_bd4cef2e.jpg",
-        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_bd4cef2e.jpg"
+        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_bd4cef2e.webp",
+        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_bd4cef2e.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_dfdbbecb.jpg",
-        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_dfdbbecb.jpg"
+        "image": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_dfdbbecb.webp",
+        "preview": "/Womens%20Belts/04_EVA%20BELT_%2085%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.45_dfdbbecb.webp"
       }
     ]
   },
@@ -125,18 +125,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg",
-        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.webp",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_ba571411.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg",
-        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.webp",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_c7b95368.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg",
-        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.jpg"
+        "image": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.webp",
+        "preview": "/Womens%20Belts/05_No.6%20belt_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.44_eeb2c374.webp"
       }
     ]
   },
@@ -149,18 +149,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189273.jpg",
-        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189273.jpg"
+        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189273.webp",
+        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189273.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189279.jpg",
-        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189279.jpg"
+        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189279.webp",
+        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/189279.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/viber_image_2020-11-06_18-19-23.jpg",
-        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/viber_image_2020-11-06_18-19-23.jpg"
+        "image": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/viber_image_2020-11-06_18-19-23.webp",
+        "preview": "/Womens%20Belts/06_FURIOUS%20BELT%20_100%20KM/viber_image_2020-11-06_18-19-23.webp"
       }
     ]
   },
@@ -173,8 +173,8 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/07_No.1_85%20KM/189253.jpg",
-        "preview": "/Womens%20Belts/07_No.1_85%20KM/189253.jpg"
+        "image": "/Womens%20Belts/07_No.1_85%20KM/189253.webp",
+        "preview": "/Womens%20Belts/07_No.1_85%20KM/189253.webp"
       }
     ]
   },
@@ -187,18 +187,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/08_No.3_70%20KM/189254.jpg",
-        "preview": "/Womens%20Belts/08_No.3_70%20KM/189254.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189254.webp",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189254.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/08_No.3_70%20KM/189277.jpg",
-        "preview": "/Womens%20Belts/08_No.3_70%20KM/189277.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189277.webp",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189277.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/08_No.3_70%20KM/189278.jpg",
-        "preview": "/Womens%20Belts/08_No.3_70%20KM/189278.jpg"
+        "image": "/Womens%20Belts/08_No.3_70%20KM/189278.webp",
+        "preview": "/Womens%20Belts/08_No.3_70%20KM/189278.webp"
       }
     ]
   },
@@ -211,18 +211,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/09_No.4_70%20KM/66686.jpg",
-        "preview": "/Womens%20Belts/09_No.4_70%20KM/66686.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/66686.webp",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/66686.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/09_No.4_70%20KM/66687.jpg",
-        "preview": "/Womens%20Belts/09_No.4_70%20KM/66687.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/66687.webp",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/66687.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/09_No.4_70%20KM/189283.jpg",
-        "preview": "/Womens%20Belts/09_No.4_70%20KM/189283.jpg"
+        "image": "/Womens%20Belts/09_No.4_70%20KM/189283.webp",
+        "preview": "/Womens%20Belts/09_No.4_70%20KM/189283.webp"
       }
     ]
   },
@@ -235,13 +235,13 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/10_No.5_60%20KM/189271.jpg",
-        "preview": "/Womens%20Belts/10_No.5_60%20KM/189271.jpg"
+        "image": "/Womens%20Belts/10_No.5_60%20KM/189271.webp",
+        "preview": "/Womens%20Belts/10_No.5_60%20KM/189271.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/10_No.5_60%20KM/189272.jpg",
-        "preview": "/Womens%20Belts/10_No.5_60%20KM/189272.jpg"
+        "image": "/Womens%20Belts/10_No.5_60%20KM/189272.webp",
+        "preview": "/Womens%20Belts/10_No.5_60%20KM/189272.webp"
       }
     ]
   },
@@ -254,18 +254,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.jpg",
-        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.webp",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/01-basic-belt-onbody.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.jpg",
-        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.webp",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/02-basic-belt-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.jpg",
-        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.jpg"
+        "image": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.webp",
+        "preview": "/Womens%20Belts/11_Basic%20belt_35%20KM/03-basic-belt-front.webp"
       }
     ]
   },
@@ -278,18 +278,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189267.jpg",
-        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189267.jpg"
+        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189267.webp",
+        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189267.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189268.jpg",
-        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189268.jpg"
+        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189268.webp",
+        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/189268.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/viber_image_2020-11-18_17-06-36.jpg",
-        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/viber_image_2020-11-18_17-06-36.jpg"
+        "image": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/viber_image_2020-11-18_17-06-36.webp",
+        "preview": "/Womens%20Belts/12_BOLD%20BELT_55%20KM/viber_image_2020-11-18_17-06-36.webp"
       }
     ]
   },
@@ -302,8 +302,8 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/13_No.2_80%20KM/189266.jpg",
-        "preview": "/Womens%20Belts/13_No.2_80%20KM/189266.jpg"
+        "image": "/Womens%20Belts/13_No.2_80%20KM/189266.webp",
+        "preview": "/Womens%20Belts/13_No.2_80%20KM/189266.webp"
       }
     ]
   },
@@ -316,18 +316,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189150.jpg",
-        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189150.jpg"
+        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189150.webp",
+        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189150.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189263.jpg",
-        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189263.jpg"
+        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189263.webp",
+        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189263.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189264.jpg",
-        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189264.jpg"
+        "image": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189264.webp",
+        "preview": "/Womens%20Belts/14_TEJA%20BELT%20_80%20KM/189264.webp"
       }
     ]
   },
@@ -340,18 +340,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/10.jpg",
-        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/10.jpg"
+        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/10.webp",
+        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/10.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/189257.jpg",
-        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/189257.jpg"
+        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/189257.webp",
+        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/189257.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/viber_image_2020-12-10_20-58-10.jpg",
-        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/viber_image_2020-12-10_20-58-10.jpg"
+        "image": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/viber_image_2020-12-10_20-58-10.webp",
+        "preview": "/Womens%20Belts/15_INVICTA%20BELT_%20120%20KM/viber_image_2020-12-10_20-58-10.webp"
       }
     ]
   },
@@ -364,18 +364,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/101.jpg",
-        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/101.jpg"
+        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/101.webp",
+        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/101.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/106.jpg",
-        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/106.jpg"
+        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/106.webp",
+        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/106.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/199925.jpg",
-        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/199925.jpg"
+        "image": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/199925.webp",
+        "preview": "/Womens%20Belts/16_NEFERTITI%20BELT_%20120%20KM/199925.webp"
       }
     ]
   },
@@ -388,18 +388,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/9.jpg",
-        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/9.jpg"
+        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/9.webp",
+        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/9.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/19.jpg",
-        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/19.jpg"
+        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/19.webp",
+        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/19.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/189140.jpg",
-        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/189140.jpg"
+        "image": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/189140.webp",
+        "preview": "/Womens%20Belts/17_TENA%20BELT_%2045%20KM/189140.webp"
       }
     ]
   },
@@ -412,18 +412,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189252.jpg",
-        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189252.jpg"
+        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189252.webp",
+        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189252.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189314.jpg",
-        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189314.jpg"
+        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189314.webp",
+        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189314.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189318.jpg",
-        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189318.jpg"
+        "image": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189318.webp",
+        "preview": "/Womens%20Belts/18_ADRIENN%20BELT_%2080%20KM/189318.webp"
       }
     ]
   },
@@ -436,18 +436,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/32.jpg",
-        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/32.jpg"
+        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/32.webp",
+        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/32.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189299.jpg",
-        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189299.jpg"
+        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189299.webp",
+        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189299.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189300.jpg",
-        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189300.jpg"
+        "image": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189300.webp",
+        "preview": "/Womens%20Belts/19_%20AFRODITA%20BELT%20_%20120%20KM/189300.webp"
       }
     ]
   },
@@ -460,18 +460,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189294.jpg",
-        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189294.jpg"
+        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189294.webp",
+        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189294.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189295.jpg",
-        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189295.jpg"
+        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189295.webp",
+        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189295.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189296.jpg",
-        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189296.jpg"
+        "image": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189296.webp",
+        "preview": "/Womens%20Belts/20_ALBA%20BELT%20_%2070%20KM/189296.webp"
       }
     ]
   },
@@ -484,8 +484,8 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.jpg",
-        "preview": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.jpg"
+        "image": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.webp",
+        "preview": "/Womens%20Belts/21_SALVIA%20BELT_45%20KM/147067.webp"
       }
     ]
   },
@@ -498,18 +498,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/147070.jpg",
-        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/147070.jpg"
+        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/147070.webp",
+        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/147070.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210215.jpg",
-        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210215.jpg"
+        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210215.webp",
+        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210215.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210232.jpg",
-        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210232.jpg"
+        "image": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210232.webp",
+        "preview": "/Womens%20Belts/22_%20LILY%20BELT_60%20KM/210232.webp"
       }
     ]
   },
@@ -522,18 +522,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147071.jpg",
-        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147071.jpg"
+        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147071.webp",
+        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147071.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147075.jpg",
-        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147075.jpg"
+        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147075.webp",
+        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/147075.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/210219.jpg",
-        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/210219.jpg"
+        "image": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/210219.webp",
+        "preview": "/Womens%20Belts/23_ZINNIA%20BELT_60%20KM/210219.webp"
       }
     ]
   },
@@ -546,18 +546,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_7727d72d.jpg",
-        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_7727d72d.jpg"
+        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_7727d72d.webp",
+        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_7727d72d.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_fd94a5c8.jpg",
-        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_fd94a5c8.jpg"
+        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_fd94a5c8.webp",
+        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_fd94a5c8.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.40_d47364bb.jpg",
-        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.40_d47364bb.jpg"
+        "image": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.40_d47364bb.webp",
+        "preview": "/Womens%20Belts/24_ROSE%20BELT%20120%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.40_d47364bb.webp"
       }
     ]
   },
@@ -570,18 +570,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_1c0c23a1.jpg",
-        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_1c0c23a1.jpg"
+        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_1c0c23a1.webp",
+        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_1c0c23a1.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_48926d46.jpg",
-        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_48926d46.jpg"
+        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_48926d46.webp",
+        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_48926d46.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_e3c6d7ee.jpg",
-        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_e3c6d7ee.jpg"
+        "image": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_e3c6d7ee.webp",
+        "preview": "/Womens%20Belts/25_GRACE%20BELT_%2055%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.39_e3c6d7ee.webp"
       }
     ]
   },
@@ -594,18 +594,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n2.jpg",
-        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n2.jpg"
+        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n2.webp",
+        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n2.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n7.jpg",
-        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n7.jpg"
+        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n7.webp",
+        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n7.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n15.jpg",
-        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n15.jpg"
+        "image": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n15.webp",
+        "preview": "/Womens%20Belts/26_NIKA%20BELT_%2075%20KM/n15.webp"
       }
     ]
   },
@@ -618,18 +618,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203148.jpg",
-        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203148.jpg"
+        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203148.webp",
+        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203148.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203151.jpg",
-        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203151.jpg"
+        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203151.webp",
+        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203151.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203152.jpg",
-        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203152.jpg"
+        "image": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203152.webp",
+        "preview": "/Womens%20Belts/27_%20IRIS%20BELT%20_90%20KM/203152.webp"
       }
     ]
   },
@@ -642,18 +642,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/c.jpg",
-        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/c.jpg"
+        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/c.webp",
+        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/c.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/d.jpg",
-        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/d.jpg"
+        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/d.webp",
+        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/d.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/g.jpg",
-        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/g.jpg"
+        "image": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/g.webp",
+        "preview": "/Womens%20Belts/28_GLORIJA%20BELT_%20120%20KM/g.webp"
       }
     ]
   },
@@ -666,18 +666,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_5a04a9f2.jpg",
-        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_5a04a9f2.jpg"
+        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_5a04a9f2.webp",
+        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_5a04a9f2.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_df712a74.jpg",
-        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_df712a74.jpg"
+        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_df712a74.webp",
+        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_df712a74.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_f271d9c0.jpg",
-        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_f271d9c0.jpg"
+        "image": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_f271d9c0.webp",
+        "preview": "/Womens%20Belts/30_INGA%20BELT_150%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.35_f271d9c0.webp"
       }
     ]
   },
@@ -690,18 +690,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_98dad276.jpg",
-        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_98dad276.jpg"
+        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_98dad276.webp",
+        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_98dad276.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_29c7ee50.jpg",
-        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_29c7ee50.jpg"
+        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_29c7ee50.webp",
+        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_29c7ee50.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_d8b2b961.jpg",
-        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_d8b2b961.jpg"
+        "image": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_d8b2b961.webp",
+        "preview": "/Womens%20Belts/33_ANDREA%20BELT_%20250%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.27_d8b2b961.webp"
       }
     ]
   },
@@ -714,18 +714,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.32_fb906907.jpg",
-        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.32_fb906907.jpg"
+        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.32_fb906907.webp",
+        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.32_fb906907.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_8e53d1a1.jpg",
-        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_8e53d1a1.jpg"
+        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_8e53d1a1.webp",
+        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_8e53d1a1.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_a5bac53d.jpg",
-        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_a5bac53d.jpg"
+        "image": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_a5bac53d.webp",
+        "preview": "/Womens%20Belts/38_SAMANTHA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_a5bac53d.webp"
       }
     ]
   },
@@ -738,13 +738,13 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_8061c11b.jpg",
-        "preview": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_8061c11b.jpg"
+        "image": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_8061c11b.webp",
+        "preview": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_8061c11b.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_67689faf.jpg",
-        "preview": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_67689faf.jpg"
+        "image": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_67689faf.webp",
+        "preview": "/Womens%20Belts/39_HERA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2018.04.24_67689faf.webp"
       }
     ]
   },
@@ -757,18 +757,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_1e07919c.jpg",
-        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_1e07919c.jpg"
+        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_1e07919c.webp",
+        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.33_1e07919c.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_a7857a3c.jpg",
-        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_a7857a3c.jpg"
+        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_a7857a3c.webp",
+        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_a7857a3c.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_c198617f.jpg",
-        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_c198617f.jpg"
+        "image": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_c198617f.webp",
+        "preview": "/Womens%20Belts/40_KLEA%20BELT_90%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_c198617f.webp"
       }
     ]
   },
@@ -781,18 +781,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_5fedeea1.jpg",
-        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_5fedeea1.jpg"
+        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_5fedeea1.webp",
+        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_5fedeea1.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_8270a395.jpg",
-        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_8270a395.jpg"
+        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_8270a395.webp",
+        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_8270a395.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_e34f1363.jpg",
-        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_e34f1363.jpg"
+        "image": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_e34f1363.webp",
+        "preview": "/Womens%20Belts/41_KLEOPATRA%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.37_e34f1363.webp"
       }
     ]
   },
@@ -805,18 +805,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_4509765d.jpg",
-        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_4509765d.jpg"
+        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_4509765d.webp",
+        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.34_4509765d.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.35_0ca89a9f.jpg",
-        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.35_0ca89a9f.jpg"
+        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.35_0ca89a9f.webp",
+        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.35_0ca89a9f.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.36_ad8dcc00.jpg",
-        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.36_ad8dcc00.jpg"
+        "image": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.36_ad8dcc00.webp",
+        "preview": "/Womens%20Belts/42_FEMME%20BELT_70%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.36_ad8dcc00.webp"
       }
     ]
   },
@@ -829,18 +829,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.36_4b0dea25.jpg",
-        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.36_4b0dea25.jpg"
+        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.36_4b0dea25.webp",
+        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.36_4b0dea25.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.37_62291152.jpg",
-        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.37_62291152.jpg"
+        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.37_62291152.webp",
+        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.37_62291152.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_25afcaa7.jpg",
-        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_25afcaa7.jpg"
+        "image": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_25afcaa7.webp",
+        "preview": "/Womens%20Belts/43_DEMETRA%20BELT_%2090%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.38_25afcaa7.webp"
       }
     ]
   },
@@ -853,18 +853,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/1.jpg",
-        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/1.jpg"
+        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/1.webp",
+        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/1.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/3.jpg",
-        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/3.jpg"
+        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/3.webp",
+        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/3.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/4.jpg",
-        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/4.jpg"
+        "image": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/4.webp",
+        "preview": "/Womens%20Belts/44_XENA%20BELT_%20150%20KM/4.webp"
       }
     ]
   },
@@ -877,18 +877,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/5.jpg",
-        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/5.jpg"
+        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/5.webp",
+        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/5.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/6.jpg",
-        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/6.jpg"
+        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/6.webp",
+        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/6.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/7.jpg",
-        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/7.jpg"
+        "image": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/7.webp",
+        "preview": "/Womens%20Belts/45_TEONA%20BELT_65%20KM/7.webp"
       }
     ]
   },
@@ -901,18 +901,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_7eafd4fe.jpg",
-        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_7eafd4fe.jpg"
+        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_7eafd4fe.webp",
+        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_7eafd4fe.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_6624f45a.jpg",
-        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_6624f45a.jpg"
+        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_6624f45a.webp",
+        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_6624f45a.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_eef2d4c1.jpg",
-        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_eef2d4c1.jpg"
+        "image": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_eef2d4c1.webp",
+        "preview": "/Womens%20Belts/49_SABRINA%20BELT_100%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.43_eef2d4c1.webp"
       }
     ]
   },
@@ -925,13 +925,13 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_39bd0144.jpg",
-        "preview": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_39bd0144.jpg"
+        "image": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_39bd0144.webp",
+        "preview": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_39bd0144.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.42_513556cc.jpg",
-        "preview": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.42_513556cc.jpg"
+        "image": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.42_513556cc.webp",
+        "preview": "/Womens%20Belts/50_DEVON%20BELT_85%20KM/WhatsApp%20Image%202025-10-26%20at%2017.38.42_513556cc.webp"
       }
     ]
   },
@@ -944,18 +944,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.webp",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/01-leon-belt-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.webp",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/02-leon-belt-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.jpg",
-        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.jpg"
+        "image": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.webp",
+        "preview": "/Womens%20Belts/51_LEON%20BELT_120%20KM/03-leon-belt-onbody.webp"
       }
     ]
   },
@@ -968,18 +968,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.27_ce57225e.jpg",
-        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.27_ce57225e.jpg"
+        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.27_ce57225e.webp",
+        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.27_ce57225e.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.28_f15d0e33.jpg",
-        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.28_f15d0e33.jpg"
+        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.28_f15d0e33.webp",
+        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.28_f15d0e33.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.29_bf00c09c.jpg",
-        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.29_bf00c09c.jpg"
+        "image": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.29_bf00c09c.webp",
+        "preview": "/Womens%20Belts/52_DOMINA%20BELT_150%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.29_bf00c09c.webp"
       }
     ]
   },
@@ -992,18 +992,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/11.jpg",
-        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/11.jpg"
+        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/11.webp",
+        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/11.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/13.jpg",
-        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/13.jpg"
+        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/13.webp",
+        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/13.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/14.jpg",
-        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/14.jpg"
+        "image": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/14.webp",
+        "preview": "/Womens%20Belts/53_SUZANA%20BELT_150%20KM/14.webp"
       }
     ]
   },
@@ -1016,18 +1016,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/01.jpg",
-        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/01.jpg"
+        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/01.webp",
+        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/01.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/02.jpg",
-        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/02.jpg"
+        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/02.webp",
+        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/02.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/03.jpg",
-        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/03.jpg"
+        "image": "/Womens%20Belts/54_LORES%20BELT_85%20KM/03.webp",
+        "preview": "/Womens%20Belts/54_LORES%20BELT_85%20KM/03.webp"
       }
     ]
   },
@@ -1040,18 +1040,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_2b15d1e9.jpg",
-        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_2b15d1e9.jpg"
+        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_2b15d1e9.webp",
+        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_2b15d1e9.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_ed2edb14.jpg",
-        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_ed2edb14.jpg"
+        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_ed2edb14.webp",
+        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.38_ed2edb14.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.39_64bedae9.jpg",
-        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.39_64bedae9.jpg"
+        "image": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.39_64bedae9.webp",
+        "preview": "/Womens%20Belts/65_LANA%20BELT_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.52.39_64bedae9.webp"
       }
     ]
   },
@@ -1064,18 +1064,18 @@ export const womensBelts: WomensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.56_0e7f4836.jpg",
-        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.56_0e7f4836.jpg"
+        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.56_0e7f4836.webp",
+        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.56_0e7f4836.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.57_9211c123.jpg",
-        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.57_9211c123.jpg"
+        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.57_9211c123.webp",
+        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.08.57_9211c123.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.18.28_ff4790f9.jpg",
-        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.18.28_ff4790f9.jpg"
+        "image": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.18.28_ff4790f9.webp",
+        "preview": "/Womens%20Belts/66_ZANA%20BELT_180%20KM/WhatsApp%20Image%202025-10-14%20at%2023.18.28_ff4790f9.webp"
       }
     ]
   },

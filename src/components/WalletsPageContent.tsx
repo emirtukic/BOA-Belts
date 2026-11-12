@@ -154,7 +154,7 @@ export default function WalletsPageContent({ focusedProductId = null }: WalletsP
     const variants =
       product.colors.length > 0
         ? product.colors
-        : [{ label: 'Photo 1', image: '/boabelts.jpg', preview: '/boabelts.jpg' }];
+        : [{ label: 'Photo 1', image: '/boabelts.webp', preview: '/boabelts.webp' }];
     const activeIndex = selectedColors[product.id] ?? 0;
     const activeVariant = variants[activeIndex] ?? variants[0];
     const imageAlt = `${product.name} - ${activeVariant.label}`;
@@ -284,7 +284,7 @@ export default function WalletsPageContent({ focusedProductId = null }: WalletsP
         className="relative py-28 px-6 text-center text-[#111]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(249,249,249,0.92), rgba(249,249,249,0.92)), url('/boabelts.jpg')",
+            "linear-gradient(rgba(249,249,249,0.92), rgba(249,249,249,0.92)), url('/boabelts.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

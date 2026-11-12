@@ -1,60 +1,52 @@
 # Boa Belts
 
-Modern, high-performance Next.js website for Boa Belts, a handmade belts, bags and wallets company based in Travnik.
+Web stranica za **Boa Belts**, ručno rađene kožne kaiševe, torbe, novčanike i dodatke iz Travnika (BiH).
+Produkcija: https://www.boabelts.com
 
-## 🚀 Tech Stack
+## Tehnologije
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- TypeScript
-- Framer Motion, Lottie, React Icons (optional enhancements)
+- [Next.js 15](https://nextjs.org/) (App Router, statički export – `output: 'export'`)
+- React 19 + TypeScript
+- Tailwind CSS 4
+- React Icons, Lottie, Font Awesome (CDN)
 
-## 📁 Project Structure
-
-- `/src/app`: App pages and layout
-- `/public`: Static assets (images, favicon, og-image)
-- `/styles`: Global CSS and animation classes
-
-
-## 🛠️ Setup
+## Pokretanje
 
 ```bash
 npm install
-npm run dev
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # razvojni server na http://localhost:3000
+npm run build    # statički build u folder out/
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Opcionalno: `NEXT_PUBLIC_SITE_URL` postavlja osnovni URL za metapodatke i OG slike (zadano `https://www.boabelts.com`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struktura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Putanja | Sadržaj |
+| --- | --- |
+| `src/app/` | Stranice (App Router): početna, `kaisevi`, `torbe`, `novcanici`, `dodaci`, `proizvod/[productId]`, `o-nama`, `lojalnost`, `BHFashionWeek` |
+| `src/components/` | UI komponente (Navbar, Footer, galerije, lightbox, pretraga) i `LanguageProvider` (prijevodi BS/EN) |
+| `src/data/` | Katalog proizvoda (`mensBelts`, `womensBelts`, `bags`, `wallets`, `accessories`, `revijaGallery`, `catalog`) |
+| `scripts/` | Node skripte koje generišu fajlove u `src/data/` iz foldera sa slikama |
+| `public/` | Slike proizvoda (po kategorijama), revija, favikone, OG slike, `sitemap.xml`, `robots.txt` |
 
-## Learn More
+## Dodavanje proizvoda
 
-To learn more about Next.js, take a look at the following resources:
+Slike proizvoda nalaze se u `public/<Kategorija>/<ID>_<Naziv>_<Cijena>/`
+(npr. `public/Bags/32_Maya bag_180 KM/`). Nakon dodavanja foldera pokreni odgovarajuću skriptu iz korijena projekta:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+node scripts/generate-bags.js
+node scripts/generate-wallets.js
+node scripts/generate-mens.js
+node scripts/generate-womens.js
+node scripts/generate-accessories.js
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Slike
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Zbog statičkog exporta Next.js ne optimizuje slike (`images.unoptimized`), pa se fajlovi serviraju onakvi kakvi jesu.
+Sve slike su zato u **WebP** formatu, najviše 2000 px po dužoj strani. Nove slike prije dodavanja treba smanjiti i
+pretvoriti u WebP (npr. [Squoosh](https://squoosh.app) ili `cwebp -q 80`). Izuzetak su favikone i OG slike
+(`og-image*`), koje ostaju PNG/JPG radi kompatibilnosti sa društvenim mrežama.

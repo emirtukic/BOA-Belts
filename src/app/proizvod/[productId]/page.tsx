@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: ProductPageParams): Promise<M
     };
   }
 
-  const heroImage = product.colors[0]?.image ?? '/boabelts.jpg';
+  const heroImage = product.colors[0]?.image ?? '/boabelts.webp';
   const description = product.description || defaultDescription;
 
   return {
@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
 
   const variants = product.colors.length
     ? product.colors
-    : [{ label: 'Photo 1', image: '/boabelts.jpg', preview: '/boabelts.jpg' }];
+    : [{ label: 'Photo 1', image: '/boabelts.webp', preview: '/boabelts.webp' }];
 
   const categoryLabel = categoryLabels[product.category] ?? 'Boa Belts';
 

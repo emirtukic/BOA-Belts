@@ -125,7 +125,7 @@ export default function AboutPageContent() {
         className="relative overflow-hidden py-28 px-6 text-center text-[#111]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/boabelts.jpg')",
+            "linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/boabelts.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

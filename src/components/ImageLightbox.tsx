@@ -17,7 +17,7 @@ type ImageLightboxProps = {
 
 export function ImageLightbox({ items, initialIndex = 0, onClose }: ImageLightboxProps) {
   const safeItems = useMemo(
-    () => (items.length > 0 ? items : [{ src: '/boabelts.jpg', alt: 'Product image' }]),
+    () => (items.length > 0 ? items : [{ src: '/boabelts.webp', alt: 'Product image' }]),
     [items],
   );
   const [currentIndex, setCurrentIndex] = useState(() =>

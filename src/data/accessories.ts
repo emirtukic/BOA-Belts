@@ -22,18 +22,18 @@ export const accessories: AccessoryProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_1c59196d.jpg",
-        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_1c59196d.jpg"
+        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_1c59196d.webp",
+        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_1c59196d.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_e22e1f7f.jpg",
-        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_e22e1f7f.jpg"
+        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_e22e1f7f.webp",
+        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.14_e22e1f7f.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_d3f9881d.jpg",
-        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_d3f9881d.jpg"
+        "image": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_d3f9881d.webp",
+        "preview": "/Accesories/31_OMOT_30%20KM/WhatsApp%20Image%202025-10-26%20at%2017.42.23_d3f9881d.webp"
       }
     ]
   },
@@ -45,18 +45,18 @@ export const accessories: AccessoryProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Accesories/56_NARUKVICA_30%20KM/76341.jpg",
-        "preview": "/Accesories/56_NARUKVICA_30%20KM/76341.jpg"
+        "image": "/Accesories/56_NARUKVICA_30%20KM/76341.webp",
+        "preview": "/Accesories/56_NARUKVICA_30%20KM/76341.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Accesories/56_NARUKVICA_30%20KM/76344.jpg",
-        "preview": "/Accesories/56_NARUKVICA_30%20KM/76344.jpg"
+        "image": "/Accesories/56_NARUKVICA_30%20KM/76344.webp",
+        "preview": "/Accesories/56_NARUKVICA_30%20KM/76344.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Accesories/56_NARUKVICA_30%20KM/76347.jpg",
-        "preview": "/Accesories/56_NARUKVICA_30%20KM/76347.jpg"
+        "image": "/Accesories/56_NARUKVICA_30%20KM/76347.webp",
+        "preview": "/Accesories/56_NARUKVICA_30%20KM/76347.webp"
       }
     ]
   },
@@ -68,13 +68,13 @@ export const accessories: AccessoryProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-07-726.jpg",
-        "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-07-726.jpg"
+        "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-07-726.webp",
+        "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-07-726.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.jpg",
-        "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.jpg"
+        "image": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.webp",
+        "preview": "/Accesories/57_OGRLICE%20_30%20KM/viber_image_2023-11-13_20-32-16-866.webp"
       }
     ]
   },
@@ -86,18 +86,18 @@ export const accessories: AccessoryProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_4c5080d6.jpg",
-        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_4c5080d6.jpg"
+        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_4c5080d6.webp",
+        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_4c5080d6.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.39_80eb1094.jpg",
-        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.39_80eb1094.jpg"
+        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.39_80eb1094.webp",
+        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.39_80eb1094.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_ac2325c0.jpg",
-        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_ac2325c0.jpg"
+        "image": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_ac2325c0.webp",
+        "preview": "/Accesories/58_%20FUTROLA_ZA%20NO%C5%BDEVE%20_60%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.42_ac2325c0.webp"
       }
     ]
   },
@@ -109,18 +109,18 @@ export const accessories: AccessoryProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_7b901231.jpg",
-        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_7b901231.jpg"
+        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_7b901231.webp",
+        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_7b901231.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_f09c9ec0.jpg",
-        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_f09c9ec0.jpg"
+        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_f09c9ec0.webp",
+        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.37_f09c9ec0.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_b381f82a.jpg",
-        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_b381f82a.jpg"
+        "image": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_b381f82a.webp",
+        "preview": "/Accesories/60_FUTROLA%20ZA%20NAO%C4%8CALE%20_40%20KM/WhatsApp%20Image%202025-10-26%20at%2017.24.38_b381f82a.webp"
       }
     ]
   }

@@ -23,18 +23,18 @@ export const wallets: WalletProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/1.jpg",
-        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/1.jpg"
+        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/1.webp",
+        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/1.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/2.jpg",
-        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/2.jpg"
+        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/2.webp",
+        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/2.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/3.jpg",
-        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/3.jpg"
+        "image": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/3.webp",
+        "preview": "/Wallets/01_MINI%20NOV%C4%8CANIK_35%20KM/3.webp"
       }
     ]
   },
@@ -47,18 +47,18 @@ export const wallets: WalletProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.jpg",
-        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.webp",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/01-ugostiteljski-wallet-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.jpg",
-        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.webp",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/02-ugostiteljski-wallet-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.jpg",
-        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.jpg"
+        "image": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.webp",
+        "preview": "/Wallets/34_Ugostiteljski%20novcanik_50%20KM/03-ugostiteljski-wallet-onbody.webp"
       }
     ]
   },
@@ -71,18 +71,18 @@ export const wallets: WalletProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.jpg",
-        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.webp",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/01-boa-wallet-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.jpg",
-        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.webp",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/02-boa-wallet-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.jpg",
-        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.jpg"
+        "image": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.webp",
+        "preview": "/Wallets/55_Boa%20novcanik_45%20KM/03-boa-wallet-onbody.webp"
       }
     ]
   },
@@ -95,13 +95,13 @@ export const wallets: WalletProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189248.jpg",
-        "preview": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189248.jpg"
+        "image": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189248.webp",
+        "preview": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189248.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189249.jpg",
-        "preview": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189249.jpg"
+        "image": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189249.webp",
+        "preview": "/Wallets/64_DJE%C4%8CIJI%20NOV%C4%8CANIK_30%20KM/189249.webp"
       }
     ]
   }

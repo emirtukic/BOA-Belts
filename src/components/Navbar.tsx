@@ -40,7 +40,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex w-full max-w-6xl items-center">
           <Link href="/" className="flex items-center space-x-2 text-[#111] font-semibold tracking-wide">
-            <Image src="/boalogo.png" alt="Boa Belts logo" width={170} height={40} className="h-10 w-auto" />
+            <Image src="/boalogo.webp" alt="Boa Belts logo" width={170} height={40} className="h-10 w-auto" />
           </Link>
 
           <nav
@@ -106,7 +106,7 @@ export default function Navbar() {
           {/* Compact top row */}
           <div className="w-full border-b border-[#ececec] px-5 h-14 flex items-center justify-between">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
-              <Image src="/boalogo.png" alt="Boa Belts logo" width={110} height={28} className="h-7 w-auto" />
+              <Image src="/boalogo.webp" alt="Boa Belts logo" width={110} height={28} className="h-7 w-auto" />
             </Link>
             <div className="flex items-center gap-3">
               <button

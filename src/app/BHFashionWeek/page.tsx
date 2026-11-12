@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { revijaGalleryImages } from '@/data/revijaGallery';
 import { RevijaGallery } from '@/components/RevijaGallery';
 
-const heroImage = '/revija/8J3A0630.jpg';
+const heroImage = '/revija/8J3A0630.webp';
 
 export const metadata: Metadata = {
   title: 'Boa Belt BH Fashion Week | Boa Belts',

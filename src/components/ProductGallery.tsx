@@ -17,8 +17,8 @@ type ProductGalleryProps = {
 
 const fallbackVariant: Variant = {
   label: 'Photo 1',
-  image: '/boabelts.jpg',
-  preview: '/boabelts.jpg',
+  image: '/boabelts.webp',
+  preview: '/boabelts.webp',
 };
 
 export function ProductGallery({ productName, variants }: ProductGalleryProps) {

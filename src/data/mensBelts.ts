@@ -24,18 +24,18 @@ export const mensBelts: MensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/01-classic-belt-front.jpg",
-        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/01-classic-belt-front.jpg"
+        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/01-classic-belt-front.webp",
+        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/01-classic-belt-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/02-classic-belt-detail.jpg",
-        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/02-classic-belt-detail.jpg"
+        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/02-classic-belt-detail.webp",
+        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/02-classic-belt-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/03-classic-belt-onbody.jpg",
-        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/03-classic-belt-onbody.jpg"
+        "image": "/Mens%20Belts/02_Classic%20belt_35%20KM/03-classic-belt-onbody.webp",
+        "preview": "/Mens%20Belts/02_Classic%20belt_35%20KM/03-classic-belt-onbody.webp"
       }
     ]
   },
@@ -48,18 +48,18 @@ export const mensBelts: MensBelt[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/01-hunter-belt-front.jpg",
-        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/01-hunter-belt-front.jpg"
+        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/01-hunter-belt-front.webp",
+        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/01-hunter-belt-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/02-hunter-belt-detail.jpg",
-        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/02-hunter-belt-detail.jpg"
+        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/02-hunter-belt-detail.webp",
+        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/02-hunter-belt-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/03-hunter-belt-onbody.jpg",
-        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/03-hunter-belt-onbody.jpg"
+        "image": "/Mens%20Belts/35_Hunter%20belt_250%20KM/03-hunter-belt-onbody.webp",
+        "preview": "/Mens%20Belts/35_Hunter%20belt_250%20KM/03-hunter-belt-onbody.webp"
       }
     ]
   }

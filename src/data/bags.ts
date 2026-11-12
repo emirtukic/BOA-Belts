@@ -23,18 +23,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/32_Maya%20bag_180%20KM/01-maya-bag-front.jpg",
-        "preview": "/Bags/32_Maya%20bag_180%20KM/01-maya-bag-front.jpg"
+        "image": "/Bags/32_Maya%20bag_180%20KM/01-maya-bag-front.webp",
+        "preview": "/Bags/32_Maya%20bag_180%20KM/01-maya-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/32_Maya%20bag_180%20KM/02-maya-bag-detail.jpg",
-        "preview": "/Bags/32_Maya%20bag_180%20KM/02-maya-bag-detail.jpg"
+        "image": "/Bags/32_Maya%20bag_180%20KM/02-maya-bag-detail.webp",
+        "preview": "/Bags/32_Maya%20bag_180%20KM/02-maya-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/32_Maya%20bag_180%20KM/03-maya-bag-onbody.jpg",
-        "preview": "/Bags/32_Maya%20bag_180%20KM/03-maya-bag-onbody.jpg"
+        "image": "/Bags/32_Maya%20bag_180%20KM/03-maya-bag-onbody.webp",
+        "preview": "/Bags/32_Maya%20bag_180%20KM/03-maya-bag-onbody.webp"
       }
     ]
   },
@@ -47,18 +47,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/36_Mini%20bag_80%20KM/01-mini-bag-front.jpg",
-        "preview": "/Bags/36_Mini%20bag_80%20KM/01-mini-bag-front.jpg"
+        "image": "/Bags/36_Mini%20bag_80%20KM/01-mini-bag-front.webp",
+        "preview": "/Bags/36_Mini%20bag_80%20KM/01-mini-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/36_Mini%20bag_80%20KM/02-mini-bag-detail.jpg",
-        "preview": "/Bags/36_Mini%20bag_80%20KM/02-mini-bag-detail.jpg"
+        "image": "/Bags/36_Mini%20bag_80%20KM/02-mini-bag-detail.webp",
+        "preview": "/Bags/36_Mini%20bag_80%20KM/02-mini-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/36_Mini%20bag_80%20KM/03-mini-bag-onbody.jpg",
-        "preview": "/Bags/36_Mini%20bag_80%20KM/03-mini-bag-onbody.jpg"
+        "image": "/Bags/36_Mini%20bag_80%20KM/03-mini-bag-onbody.webp",
+        "preview": "/Bags/36_Mini%20bag_80%20KM/03-mini-bag-onbody.webp"
       }
     ]
   },
@@ -71,18 +71,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/37_Big%20bag_150%20KM/01-big-bag-front.jpg",
-        "preview": "/Bags/37_Big%20bag_150%20KM/01-big-bag-front.jpg"
+        "image": "/Bags/37_Big%20bag_150%20KM/01-big-bag-front.webp",
+        "preview": "/Bags/37_Big%20bag_150%20KM/01-big-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/37_Big%20bag_150%20KM/02-big-bag-detail.jpg",
-        "preview": "/Bags/37_Big%20bag_150%20KM/02-big-bag-detail.jpg"
+        "image": "/Bags/37_Big%20bag_150%20KM/02-big-bag-detail.webp",
+        "preview": "/Bags/37_Big%20bag_150%20KM/02-big-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/37_Big%20bag_150%20KM/03-big-bag-onbody.jpg",
-        "preview": "/Bags/37_Big%20bag_150%20KM/03-big-bag-onbody.jpg"
+        "image": "/Bags/37_Big%20bag_150%20KM/03-big-bag-onbody.webp",
+        "preview": "/Bags/37_Big%20bag_150%20KM/03-big-bag-onbody.webp"
       }
     ]
   },
@@ -95,18 +95,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/59_Cube%20bag_80%20KM/01-cube-bag-front.jpg",
-        "preview": "/Bags/59_Cube%20bag_80%20KM/01-cube-bag-front.jpg"
+        "image": "/Bags/59_Cube%20bag_80%20KM/01-cube-bag-front.webp",
+        "preview": "/Bags/59_Cube%20bag_80%20KM/01-cube-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/59_Cube%20bag_80%20KM/02-cube-bag-detail.jpg",
-        "preview": "/Bags/59_Cube%20bag_80%20KM/02-cube-bag-detail.jpg"
+        "image": "/Bags/59_Cube%20bag_80%20KM/02-cube-bag-detail.webp",
+        "preview": "/Bags/59_Cube%20bag_80%20KM/02-cube-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/59_Cube%20bag_80%20KM/03-cube-bag-onbody.jpg",
-        "preview": "/Bags/59_Cube%20bag_80%20KM/03-cube-bag-onbody.jpg"
+        "image": "/Bags/59_Cube%20bag_80%20KM/03-cube-bag-onbody.webp",
+        "preview": "/Bags/59_Cube%20bag_80%20KM/03-cube-bag-onbody.webp"
       }
     ]
   },
@@ -119,18 +119,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/61_Mens%20bag_60%20KM/01-mens-bag-front.jpg",
-        "preview": "/Bags/61_Mens%20bag_60%20KM/01-mens-bag-front.jpg"
+        "image": "/Bags/61_Mens%20bag_60%20KM/01-mens-bag-front.webp",
+        "preview": "/Bags/61_Mens%20bag_60%20KM/01-mens-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/61_Mens%20bag_60%20KM/02-mens-bag-detail.jpg",
-        "preview": "/Bags/61_Mens%20bag_60%20KM/02-mens-bag-detail.jpg"
+        "image": "/Bags/61_Mens%20bag_60%20KM/02-mens-bag-detail.webp",
+        "preview": "/Bags/61_Mens%20bag_60%20KM/02-mens-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/61_Mens%20bag_60%20KM/03-mens-bag-onbody.jpg",
-        "preview": "/Bags/61_Mens%20bag_60%20KM/03-mens-bag-onbody.jpg"
+        "image": "/Bags/61_Mens%20bag_60%20KM/03-mens-bag-onbody.webp",
+        "preview": "/Bags/61_Mens%20bag_60%20KM/03-mens-bag-onbody.webp"
       }
     ]
   },
@@ -143,18 +143,18 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/62_Boa%20bag_100%20KM/01-boa-bag-front.jpg",
-        "preview": "/Bags/62_Boa%20bag_100%20KM/01-boa-bag-front.jpg"
+        "image": "/Bags/62_Boa%20bag_100%20KM/01-boa-bag-front.webp",
+        "preview": "/Bags/62_Boa%20bag_100%20KM/01-boa-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/62_Boa%20bag_100%20KM/02-boa-bag-detail.jpg",
-        "preview": "/Bags/62_Boa%20bag_100%20KM/02-boa-bag-detail.jpg"
+        "image": "/Bags/62_Boa%20bag_100%20KM/02-boa-bag-detail.webp",
+        "preview": "/Bags/62_Boa%20bag_100%20KM/02-boa-bag-detail.webp"
       },
       {
         "label": "Photo 3",
-        "image": "/Bags/62_Boa%20bag_100%20KM/03-boa-bag-onbody.jpg",
-        "preview": "/Bags/62_Boa%20bag_100%20KM/03-boa-bag-onbody.jpg"
+        "image": "/Bags/62_Boa%20bag_100%20KM/03-boa-bag-onbody.webp",
+        "preview": "/Bags/62_Boa%20bag_100%20KM/03-boa-bag-onbody.webp"
       }
     ]
   },
@@ -167,13 +167,13 @@ export const bags: BagProduct[] = [
     "colors": [
       {
         "label": "Photo 1",
-        "image": "/Bags/63_Business%20bag_120%20KM/01-business-bag-front.jpg",
-        "preview": "/Bags/63_Business%20bag_120%20KM/01-business-bag-front.jpg"
+        "image": "/Bags/63_Business%20bag_120%20KM/01-business-bag-front.webp",
+        "preview": "/Bags/63_Business%20bag_120%20KM/01-business-bag-front.webp"
       },
       {
         "label": "Photo 2",
-        "image": "/Bags/63_Business%20bag_120%20KM/02-business-bag-detail.jpg",
-        "preview": "/Bags/63_Business%20bag_120%20KM/02-business-bag-detail.jpg"
+        "image": "/Bags/63_Business%20bag_120%20KM/02-business-bag-detail.webp",
+        "preview": "/Bags/63_Business%20bag_120%20KM/02-business-bag-detail.webp"
       }
     ]
   }
