@@ -1,0 +1,94 @@
+<% blocks.forEach(function(b, idx) { %>
+  <% const headingTag = (idx === 0 && !showTitle) ? 'h1' : 'h2'; %>
+
+  <% if (b.type === 'text') { %>
+    <section class="section pb-block pb-text<%= b.align === 'center' ? ' is-center' : '' %>">
+      <div class="container story-content">
+        <% if (b.heading) { %><<%= headingTag %> class="pb-heading"><%= b.heading %></<%= headingTag %>><% } %>
+        <%- b.html %>
+      </div>
+    </section>
+
+  <% } else if (b.type === 'image' && b.src) { %>
+    <section class="pb-block pb-image is-<%= b.size %>">
+      <figure class="<%= b.size === 'full' ? '' : 'container' %>">
+        <picture>
+          <source media="(max-width: 700px)" srcset="<%= smallOf(b.src) %>">
+          <img src="<%= b.src %>" alt="<%= b.alt || b.caption || title %>" loading="<%= idx < 2 ? 'eager' : 'lazy' %>" decoding="async">
+        </picture>
+        <% if (b.caption) { %><figcaption><%= b.caption %></figcaption><% } %>
+      </figure>
+    </section>
+
+  <% } else if (b.type === 'gallery' && b.items.length) { %>
+    <section class="section pb-block pb-gallery">
+      <div class="container">
+        <% if (b.heading) { %><<%= headingTag %> class="pb-heading text-center"><%= b.heading %></<%= headingTag %>><% } %>
+        <div class="story-gallery revija-gallery">
+          <% b.items.forEach(function(img, i) { %>
+            <figure class="revija-item">
+              <img src="<%= img.small %>" srcset="<%= img.small %> 600w, <%= img.src %> <%= img.width %>w" sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 380px" data-full="<%= img.src %>" alt="<%= title %> - fotografija <%= i + 1 %>" width="<%= img.width %>" height="<%= img.height %>" loading="lazy" decoding="async">
+            </figure>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+  <% } else if (b.type === 'video' && (b.youtube || b.src)) { %>
+    <section class="section pb-block pb-video">
+      <div class="container">
+        <div class="pb-video-frame">
+          <% if (b.youtube) { %>
+            <iframe src="https://www.youtube-nocookie.com/embed/<%= b.youtube %>" title="<%= b.caption || title %>" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% } else { %>
+            <video src="<%= b.src %>" controls playsinline preload="metadata"></video>
+          <% } %>
+        </div>
+        <% if (b.caption) { %><p class="pb-caption"><%= b.caption %></p><% } %>
+      </div>
+    </section>
+
+  <% } else if (b.type === 'products' && b.items.length) { %>
+    <section class="section pb-block pb-products">
+      <div class="container">
+        <% if (b.heading) { %><<%= headingTag %> class="shelf-heading"><%= b.heading %></<%= headingTag %>><% } %>
+        <div class="product-grid">
+          <% b.items.forEach(function(product) { %>
+            <%- include('product-card', { product: product, categories: categories }) %>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+  <% } else if (b.type === 'banner' && b.image) { %>
+    <section class="home-banner pb-block pb-banner">
+      <picture>
+        <source media="(max-width: 700px)" srcset="<%= smallOf(b.image) %>">
+        <img src="<%= b.image %>" alt="<%= b.heading || title %>" loading="<%= idx < 2 ? 'eager' : 'lazy' %>" decoding="async">
+      </picture>
+      <div class="container home-banner-inner">
+        <% if (b.eyebrow) { %><div class="eyebrow"><%= b.eyebrow %></div><% } %>
+        <% if (b.heading) { %><<%= headingTag %> class="pb-banner-heading"><%= b.heading %></<%= headingTag %>><% } %>
+        <% if (b.text) { %><p><%= b.text %></p><% } %>
+        <% if (b.cta_text && b.cta_link) { %><a href="<%= b.cta_link %>" class="btn home-btn-light"><%= b.cta_text %></a><% } %>
+      </div>
+    </section>
+
+  <% } else if (b.type === 'imageText') { %>
+    <section class="section pb-block pb-image-text">
+      <div class="container home-story<%= b.side === 'right' ? ' is-reversed' : '' %>">
+        <% if (b.image) { %>
+          <div class="home-story-image">
+            <img src="<%= b.image %>" alt="<%= b.heading || title %>" loading="lazy" decoding="async">
+          </div>
+        <% } %>
+        <div class="home-story-text">
+          <% if (b.eyebrow) { %><div class="eyebrow"><%= b.eyebrow %></div><% } %>
+          <% if (b.heading) { %><<%= headingTag %>><%= b.heading %></<%= headingTag %>><% } %>
+          <div class="pb-rich"><%- b.html %></div>
+          <% if (b.cta_text && b.cta_link) { %><a href="<%= b.cta_link %>" class="btn btn-primary"><%= b.cta_text %></a><% } %>
+        </div>
+      </div>
+    </section>
+  <% } %>
+<% }) %>

@@ -1,0 +1,92 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= page.id ? 'Uredi stranicu' : 'Nova stranica' %></h1>
+  <a href="/admin/stranice" class="btn btn-outline">&larr; Sve stranice</a>
+</div>
+
+<form action="<%= page.id ? '/admin/stranice/uredi/' + page.id : '/admin/stranice/nova' %>" method="POST" id="pageForm" class="pb-form">
+  <input type="hidden" name="blocks" id="blocksInput" value="">
+
+  <div class="pb-layout">
+    <div class="pb-main">
+      <div class="form-panel">
+        <h2 style="margin-top:0;">Sadržaj stranice</h2>
+        <p class="admin-hint">Stranica se slaže od blokova, odozgo prema dolje. Strelicama mijenjaš redoslijed.</p>
+        <div id="blocksList" class="pb-blocks"></div>
+
+        <div class="pb-add">
+          <span class="pb-add-label">Dodaj blok:</span>
+          <% Object.keys(blockTypes).forEach(function(type) { %>
+            <button type="button" class="btn btn-outline btn-small" data-add-block="<%= type %>">+ <%= blockTypes[type] %></button>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <aside class="pb-side">
+      <div class="form-panel">
+        <h2 style="margin-top:0;">Postavke</h2>
+        <div class="form-row">
+          <label for="title">Naslov stranice</label>
+          <input type="text" id="title" name="title" value="<%= page.title %>" required maxlength="150">
+        </div>
+        <div class="form-row">
+          <label for="slug">Adresa</label>
+          <div class="pb-slug">
+            <span>boabelts.com/</span>
+            <input type="text" id="slug" name="slug" value="<%= page.slug %>" maxlength="80" placeholder="nova-kolekcija" data-touched="<%= page.slug ? '1' : '' %>">
+          </div>
+          <small>Samo mala slova, brojevi i crtice. Popunjava se sama iz naslova.</small>
+        </div>
+        <div class="form-row">
+          <label for="description">Opis za Google (nije obavezno)</label>
+          <textarea id="description" name="description" rows="3" maxlength="300"><%= page.description %></textarea>
+          <small>Kratka rečenica koja se pojavi ispod naslova u Google pretrazi.</small>
+        </div>
+
+        <div class="form-row">
+          <label>Status</label>
+          <div class="pill-options">
+            <label><input type="radio" name="status" value="draft" <%= page.status !== 'published' ? 'checked' : '' %>><span>Skica (vidiš samo ti)</span></label>
+            <label><input type="radio" name="status" value="published" <%= page.status === 'published' ? 'checked' : '' %>><span>Objavljena</span></label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="menu">Prikaži u meniju</label>
+          <select id="menu" name="menu">
+            <option value="none" <%= page.menu === 'none' ? 'selected' : '' %>>Ne prikazuj u meniju</option>
+            <option value="header" <%= page.menu === 'header' ? 'selected' : '' %>>Meni gore (pored O nama)</option>
+            <option value="footer" <%= page.menu === 'footer' ? 'selected' : '' %>>Dolje, u footeru</option>
+          </select>
+          <small>U meniju se vidi samo kad je stranica objavljena.</small>
+        </div>
+        <div class="form-row pb-menu-extra">
+          <label for="menu_label">Naziv u meniju</label>
+          <input type="text" id="menu_label" name="menu_label" value="<%= page.menu_label %>" maxlength="40" placeholder="Isto kao naslov">
+        </div>
+        <div class="form-row pb-menu-extra">
+          <label for="menu_order">Redoslijed u meniju</label>
+          <input type="number" id="menu_order" name="menu_order" value="<%= page.menu_order %>" step="1">
+          <small>Manji broj ide prije, kad imaš više stranica u meniju.</small>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="pb-actions">
+    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+    <button type="submit" class="btn btn-outline" formaction="/admin/stranice/pregled" formtarget="_blank" formnovalidate>Pregled &#8599;</button>
+    <% if (page.id && page.status === 'published') { %>
+      <a href="/<%= page.slug %>" target="_blank" class="btn btn-outline">Pogledaj na sajtu &#8599;</a>
+    <% } %>
+    <span class="pb-actions-hint">Pregled otvara stranicu u novoj kartici bez čuvanja.</span>
+  </div>
+</form>
+
+<script type="application/json" id="pbData"><%- JSON.stringify({ blocks: page.blocks, products: products, categories: categories.map(function(c) { return { slug: c.slug, name: c.name }; }), types: blockTypes }).replace(/</g, '\\u003c') %></script>
+<script src="/js/admin-pages.js?v=2"></script>
+
+<%- include('../../partials/admin-footer') %>

@@ -1,0 +1,66 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Stranice (<%= pages.length %>)</h1>
+  <a href="/admin/stranice/nova" class="btn btn-primary">+ Nova stranica</a>
+</div>
+
+<p class="admin-hint">Ovdje praviš svoje stranice: slažeš tekst, slike, video i proizvode redom koji želiš, i biraš da li se stranica vidi u meniju.</p>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Naslov</th>
+        <th>Adresa</th>
+        <th>Status</th>
+        <th>Meni</th>
+        <th>Izmijenjeno</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (pages.length === 0) { %>
+        <tr><td colspan="6">Još nema stranica. Klikni "+ Nova stranica".</td></tr>
+      <% } %>
+      <% pages.forEach(function(page) { %>
+        <tr>
+          <td><a href="/admin/stranice/uredi/<%= page.id %>"><strong><%= page.title %></strong></a></td>
+          <td>
+            <% if (page.published) { %>
+              <a href="/<%= page.slug %>" target="_blank">/<%= page.slug %> &#8599;</a>
+            <% } else { %>
+              /<%= page.slug %>
+            <% } %>
+          </td>
+          <td>
+            <% if (page.published) { %>
+              <span class="status-tag status-zavrseno">Objavljena</span>
+            <% } else { %>
+              <span class="status-tag status-novo">Skica</span>
+            <% } %>
+          </td>
+          <td><%= page.menu === 'header' ? 'Gore' : page.menu === 'footer' ? 'Dolje (footer)' : '-' %></td>
+          <td><%= page.updated_at.slice(0, 16).replace('T', ' ') %></td>
+          <td style="display:flex; gap:8px;">
+            <a href="/admin/stranice/uredi/<%= page.id %>" class="btn btn-outline btn-small">Uredi</a>
+            <form action="/admin/stranice/obrisi/<%= page.id %>" method="POST" onsubmit="return confirm('Obrisati stranicu &quot;<%= page.title.replace(/'/g, '') %>&quot;? Ovo se ne može vratiti.');">
+              <button type="submit" class="btn btn-danger btn-small">Obriši</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<h2 style="margin-top:40px;">Postojeće stranice sajta</h2>
+<p class="admin-hint">Ove stranice imaju svoj raspored, a tekst i slike mijenjaš ovdje:</p>
+<p style="display:flex; gap:10px; flex-wrap:wrap;">
+  <a href="/admin/pocetna" class="btn btn-outline btn-small">Početna</a>
+  <a href="/admin/stranice/o-nama" class="btn btn-outline btn-small">O nama</a>
+  <a href="/admin/stranice/program-lojalnosti" class="btn btn-outline btn-small">Program lojalnosti</a>
+</p>
+
+<%- include('../../partials/admin-footer') %>

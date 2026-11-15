@@ -1,4 +1,7 @@
 <%- include('partials/head') %>
+<% if (typeof previewMode !== 'undefined' && previewMode) { %>
+  <div class="preview-bar">PREGLED: ovako će početna izgledati nakon što klikneš "Sačuvaj sve". Kupci ovo još ne vide.</div>
+<% } %>
 <%- include('partials/header') %>
 
 <%

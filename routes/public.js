@@ -10,6 +10,7 @@ const PageContent = require('../models/PageContent');
 const NewsletterSubscriber = require('../models/NewsletterSubscriber');
 const { renderRichText } = require('../config/richText');
 const Category = require('../models/Category');
+const Page = require('../models/Page');
 const { sendContactEmail } = require('../config/mailer');
 const { subscribeWithWelcome } = require('../config/newsletter');
 const { cleanText, isValidEmail } = require('../config/format');
@@ -60,9 +61,9 @@ async function fashionWeekImages() {
   return revijaCache;
 }
 
-router.get('/', (req, res) => {
+// Podaci za pocetnu; isti se koriste i za pregled iz admina (sa nesacuvanim izmjenama).
+function homeRenderData(res, hero, sections) {
   const products = Product.all().filter((p) => p.available);
-  const hero = Hero.get();
   // Kategorije sa slikom prvog proizvoda; prazne se ne prikazuju.
   const categories = Category.all()
     .map((c) => {
@@ -74,17 +75,21 @@ router.get('/', (req, res) => {
   const tabs = HOME_TABS.map((t) => ({ ...t, products: products.filter((p) => t.categories.includes(p.category)).slice(0, 8) })).filter(
     (t) => t.products.length
   );
-  res.render('index', {
+  return {
     title: 'Boa Belts - ručno rađeni kožni kaiševi, torbe i novčanici',
     description:
       'Ručno rađeni kožni kaiševi, torbe, novčanici i dodaci iz radionice u Travniku. Naručite online, platite pouzećem, dostava širom BiH za 3-4 radna dana.',
     jsonLdBlocks: [jsonLd(storeSchema(res.locals.siteUrl))],
-    preloadImage: hero.images && hero.images[0],
+    preloadImage: hero.images && hero.images[0] && !hero.images[0].startsWith('data:') ? hero.images[0] : null,
     categories,
     tabs,
     hero,
-    sections: HomeSections.getAll()
-  });
+    sections
+  };
+}
+
+router.get('/', (req, res) => {
+  res.render('index', homeRenderData(res, Hero.get(), HomeSections.getAll()));
 });
 
 router.get('/o-nama', (req, res) => {
@@ -311,6 +316,9 @@ router.get('/sitemap.xml', (req, res) => {
     ...products.map(
       (p) =>
         `  <url>\n    <loc>${base}/kolekcija/${p.slug}</loc>\n    <lastmod>${(p.updated_at || p.created_at).slice(0, 10)}</lastmod>\n    <priority>0.7</priority>\n  </url>`
+    ),
+    ...Page.published().map(
+      (p) => `  <url>\n    <loc>${base}/${p.slug}</loc>\n    <lastmod>${p.updated_at.slice(0, 10)}</lastmod>\n    <priority>0.6</priority>\n  </url>`
     )
   ];
   res.type('application/xml');
@@ -318,3 +326,4 @@ router.get('/sitemap.xml', (req, res) => {
 });
 
 module.exports = router;
+module.exports.homeRenderData = homeRenderData;

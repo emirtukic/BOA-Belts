@@ -48,6 +48,9 @@
         <p><a href="/o-nama">O nama</a></p>
         <p><a href="/program-lojalnosti">Program lojalnosti</a></p>
         <p><a href="/bh-fashion-week">BH Fashion Week</a></p>
+        <% (typeof menuPages !== 'undefined' ? menuPages.footer : []).forEach(function(p) { %>
+          <p><a href="/<%= p.slug %>"><%= p.menuLabel %></a></p>
+        <% }) %>
         <p><a href="/kontakt">Kontakt</a></p>
       </div>
 

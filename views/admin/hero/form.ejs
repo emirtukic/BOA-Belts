@@ -135,8 +135,12 @@
   </div>
 <% }) %>
 
-<button type="submit" class="btn btn-primary">Sačuvaj sve</button>
-<a href="/" target="_blank" class="btn btn-outline">Pogledaj početnu &#8599;</a>
+<div class="pb-actions">
+  <button type="submit" class="btn btn-primary">Sačuvaj sve</button>
+  <button type="submit" class="btn btn-outline" formaction="/admin/pocetna/pregled" formtarget="_blank" formnovalidate>Pregled &#8599;</button>
+  <a href="/" target="_blank" class="btn btn-outline">Pogledaj početnu &#8599;</a>
+  <span class="pb-actions-hint">Pregled otvara početnu sa tvojim izmjenama u novoj kartici, bez čuvanja.</span>
+</div>
 </form>
 
 <%- include('../../partials/admin-footer') %>

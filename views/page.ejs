@@ -1,0 +1,26 @@
+<%- include('partials/head') %>
+<% if (typeof previewMode !== 'undefined' && previewMode) { %>
+  <div class="preview-bar">PREGLED: ovako će izgledati nakon što klikneš "Sačuvaj". Kupci ovo još ne vide.</div>
+<% } %>
+<%- include('partials/header') %>
+
+<main class="custom-page">
+  <% if (showTitle) { %>
+    <section class="section pb-title">
+      <div class="container story-content">
+        <div class="section-header">
+          <h1><%= page.title %></h1>
+          <hr class="divider">
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <% if (!blocks.length) { %>
+    <section class="section"><div class="container story-content"><p class="text-center">Stranica još nema sadržaja.</p></div></section>
+  <% } %>
+
+  <%- include('partials/page-blocks', { blocks: blocks, categories: categories, title: page.title, showTitle: showTitle }) %>
+</main>
+
+<%- include('partials/footer') %>

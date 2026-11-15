@@ -147,3 +147,18 @@ CREATE TABLE IF NOT EXISTS page_views (
   device TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_page_views_day ON page_views (day);
+
+-- Stranice koje admin slaze od blokova (tekst, slike, video, proizvodi...).
+CREATE TABLE IF NOT EXISTS pages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  slug TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL DEFAULT '',
+  blocks TEXT NOT NULL DEFAULT '[]',
+  status TEXT NOT NULL DEFAULT 'draft',
+  menu TEXT NOT NULL DEFAULT 'none',
+  menu_label TEXT NOT NULL DEFAULT '',
+  menu_order INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);

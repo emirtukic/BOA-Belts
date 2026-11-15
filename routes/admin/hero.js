@@ -1,5 +1,7 @@
 const express = require('express');
+const sharp = require('sharp');
 const router = express.Router();
+const { homeRenderData } = require('../public');
 const { removeUploadedFile } = require('../../config/paths');
 const Hero = require('../../models/Hero');
 const HomeSections = require('../../models/HomeSections');
@@ -12,6 +14,60 @@ router.get('/pocetna', (req, res) => {
     sections: HomeSections.getAll()
   });
 });
+
+// Nova slika u pregledu se ne snima na disk, nego se ugradi u stranicu.
+async function previewImage(file) {
+  const buffer = await sharp(file.buffer).rotate().resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 72 }).toBuffer();
+  return `data:image/webp;base64,${buffer.toString('base64')}`;
+}
+
+// Pregled pocetne sa nesacuvanim izmjenama; nista se ne cuva.
+router.post(
+  '/pocetna/pregled',
+  heroUpload.fields([
+    { name: 'images', maxCount: 12 },
+    { name: 'video', maxCount: 1 },
+    { name: 'lifestyle_image', maxCount: 1 },
+    { name: 'banner_image', maxCount: 1 },
+    { name: 'story_image', maxCount: 1 }
+  ]),
+  async (req, res, next) => {
+    try {
+      const files = req.files || {};
+      const current = Hero.get();
+      const keep = [].concat(req.body.keepImages || []);
+      const newImages = [];
+      for (const file of files.images || []) newImages.push(await previewImage(file));
+      const hero = {
+        ...current,
+        eyebrow: req.body.eyebrow || '',
+        heading: req.body.heading || '',
+        text: req.body.text || '',
+        cta_text: req.body.cta_text || '',
+        media_type: req.body.media_type === 'video' ? 'video' : 'images',
+        images: [...current.images.filter((img) => keep.includes(img)), ...newImages],
+        video_url: req.body.removeVideo === '1' ? '' : current.video_url
+      };
+      const sections = {};
+      for (const key of HomeSections.SECTION_KEYS) {
+        const file = (files[`${key}_image`] || [])[0];
+        sections[key] = {
+          enabled: req.body[`${key}_enabled`] === '1',
+          image: file ? await previewImage(file) : HomeSections.get(key).image,
+          eyebrow: req.body[`${key}_eyebrow`] || '',
+          heading: req.body[`${key}_heading`] || '',
+          text: req.body[`${key}_text`] || '',
+          cta_text: req.body[`${key}_cta_text`] || '',
+          cta_link: req.body[`${key}_cta_link`] || ''
+        };
+      }
+      res.locals.noindex = true;
+      res.render('index', { ...homeRenderData(res, hero, sections), previewMode: true });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.post(
   '/pocetna',

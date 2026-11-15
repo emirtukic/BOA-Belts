@@ -23,6 +23,7 @@ const requireAdmin = require('./middleware/requireAdmin');
 const Customer = require('./models/Customer');
 const Popup = require('./models/Popup');
 const Category = require('./models/Category');
+const Page = require('./models/Page');
 const { getNewsletterTexts } = require('./config/newsletterTexts');
 const { passport } = require('./config/passport');
 
@@ -102,7 +103,8 @@ app.use('/uploads', express.static(UPLOADS_DIR, { maxAge: '30d', immutable: true
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: isProduction ? '7d' : 0 }));
 
 app.use(morgan(isProduction ? 'combined' : 'dev'));
-app.use(express.urlencoded({ extended: true }));
+// Stranice iz admina salju sav sadrzaj (blokove) u jednom polju.
+app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(express.json());
 // Provjerava i body (obicni urlencoded formulari) i query string (potrebno
 // za multipart/form-data formulare kao upload slika, gdje se body parsira
@@ -152,6 +154,7 @@ app.use((req, res, next) => {
   res.locals.sitePopup = Popup.findActive();
   res.locals.newsletterTexts = getNewsletterTexts();
   res.locals.navCategories = Category.all();
+  res.locals.menuPages = { header: Page.menu('header'), footer: Page.menu('footer') };
   res.locals.noindex =
     process.env.SITE_NOINDEX === 'true' || /^\/(korpa|narudzba|nalog|admin|newsletter)/.test(req.path);
   next();
@@ -181,6 +184,7 @@ app.use('/admin', require('./routes/admin/auth'));
 app.use('/admin', requireAdmin, require('./routes/admin/dashboard'));
 app.use('/admin', requireAdmin, require('./routes/admin/hero'));
 app.use('/admin/popup', requireAdmin, require('./routes/admin/popup'));
+app.use('/admin/stranice', requireAdmin, require('./routes/admin/pageBuilder'));
 app.use('/admin/stranice', requireAdmin, require('./routes/admin/pages'));
 app.use('/admin/kategorije', requireAdmin, require('./routes/admin/categories'));
 app.use('/admin/promo-kodovi', requireAdmin, require('./routes/admin/promoCodes'));
@@ -191,6 +195,7 @@ app.use('/admin/statistika', requireAdmin, require('./routes/admin/stats'));
 app.use('/admin/mjerenje-struka', requireAdmin, require('./routes/admin/waist'));
 app.use('/admin/korisnici', requireAdmin, require('./routes/admin/customers'));
 app.use('/admin/podsjetnici', requireAdmin, require('./routes/admin/reminders'));
+app.use('/', require('./routes/customPages'));
 
 app.use((req, res) => {
   res.locals.noindex = true;
@@ -210,7 +215,7 @@ app.use((err, req, res, next) => {
   // Pogresan upload u adminu nije pad servera: admin ostaje na formi i vidi razlog.
   if (req.session && req.session.adminId && req.method !== 'GET' && req.originalUrl.startsWith('/admin')) {
     const message = uploadErrorMessage(err);
-    if (req.path.endsWith('/slika')) return res.status(400).json({ error: message });
+    if (req.path.endsWith('/slika') || req.path.endsWith('/video')) return res.status(400).json({ error: message });
     req.flash('error', message);
     return res.redirect(303, req.get('Referer') || '/admin');
   }

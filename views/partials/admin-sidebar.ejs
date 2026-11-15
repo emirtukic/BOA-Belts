@@ -25,7 +25,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
         Početna
       </a>
-      <a href="/admin/stranice/o-nama" class="<%= currentPath === '/admin/stranice/o-nama' ? 'active' : '' %>">
+      <a href="/admin/stranice" class="<%= currentPath === '/admin/stranice' || currentPath.startsWith('/admin/stranice/uredi') || currentPath.startsWith('/admin/stranice/nova') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M12 11v6M9 14h6"/></svg>
+        Stranice
+      </a>
+      <a href="/admin/stranice/o-nama"class="<%= currentPath === '/admin/stranice/o-nama' ? 'active' : '' %>">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg>
         O nama
       </a>

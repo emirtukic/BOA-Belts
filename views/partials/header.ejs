@@ -9,6 +9,11 @@
     { href: '/o-nama', label: 'O nama', active: currentPath === '/o-nama' },
     { href: '/kontakt', label: 'Kontakt', active: currentPath === '/kontakt' }
   ];
+  // Stranice iz admina sa izborom "Meni gore" idu prije Kontakta.
+  const pageMenus = typeof menuPages !== 'undefined' ? menuPages : { header: [], footer: [] };
+  navLinks.splice(navLinks.length - 1, 0, ...pageMenus.header.map(function(p) {
+    return { href: '/' + p.slug, label: p.menuLabel, active: currentPath === '/' + p.slug };
+  }));
 %>
 <div class="announcement-bar">
   <div class="announcement-track">
@@ -89,6 +94,9 @@
   <a href="/lista-zelja" class="<%= currentPath === '/lista-zelja' ? 'active' : '' %>">Lista želja</a>
   <a href="/program-lojalnosti" class="<%= currentPath === '/program-lojalnosti' ? 'active' : '' %>">Program lojalnosti</a>
   <a href="/bh-fashion-week" class="<%= currentPath === '/bh-fashion-week' ? 'active' : '' %>">BH Fashion Week</a>
+  <% pageMenus.header.concat(pageMenus.footer).forEach(function(p) { %>
+    <a href="/<%= p.slug %>" class="<%= currentPath === '/' + p.slug ? 'active' : '' %>"><%= p.menuLabel %></a>
+  <% }) %>
   <div class="mobile-nav-divider"></div>
   <a href="<%= isCustomerLoggedIn ? '/nalog' : '/nalog/prijava' %>" class="mobile-nav-account">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
