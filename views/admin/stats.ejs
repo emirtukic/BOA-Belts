@@ -1,0 +1,276 @@
+<%- include('../partials/admin-head') %>
+<%- include('../partials/admin-sidebar') %>
+<%
+  const km = function(v) { return v.toFixed(2) + ' KM'; };
+  const r = stats.range;
+  const unitLabel = stats.unit === 'day' ? 'Dan' : 'Mjesec';
+  const perUnit = stats.unit === 'day' ? 'po danu' : 'po mjesecu';
+
+  // Promjena prema prethodnom periodu: strelica + rijec, boja samo dodatno.
+  const delta = function(d, upIsGood) {
+    if (!d) return '';
+    if (d.direction === 'flat') return '<span class="kpi-delta">isto kao prethodni period</span>';
+    if (d.percent === null) return '<span class="kpi-delta ' + (upIsGood ? 'is-good' : 'is-bad') + '">&#9650; novo (prethodni period: 0)</span>';
+    const good = (d.direction === 'up') === upIsGood;
+    const arrow = d.direction === 'up' ? '&#9650;' : '&#9660;';
+    const word = d.direction === 'up' ? 'više' : 'manje';
+    return '<span class="kpi-delta ' + (good ? 'is-good' : 'is-bad') + '">' + arrow + ' ' + d.percent + '% ' + word + ' nego prethodni period</span>';
+  };
+
+  const shareBar = function(value, max) {
+    const pct = max > 0 ? Math.max(2, Math.round(value / max * 100)) : 0;
+    return '<span class="share-bar" aria-hidden="true"><span style="width:' + pct + '%"></span></span>';
+  };
+%>
+
+<div class="admin-header">
+  <h1>Statistika</h1>
+</div>
+
+<form class="stats-filter" method="GET" action="/admin/statistika">
+  <div class="stats-presets" role="group" aria-label="Period">
+    <% stats.presets.forEach(function(p) { %>
+      <a href="/admin/statistika?period=<%= p.id %>" class="stats-preset<%= r.period === p.id ? ' is-active' : '' %>" <%= r.period === p.id ? 'aria-current=true' : '' %>>
+        <% if (r.period === p.id) { %><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><% } %><%= p.label %>
+      </a>
+    <% }) %>
+  </div>
+  <div class="stats-custom">
+    <input type="hidden" name="period" value="custom">
+    <label>Od <input type="date" name="od" value="<%= r.from %>" required></label>
+    <label>Do <input type="date" name="do" value="<%= r.to %>" required></label>
+    <button type="submit" class="btn btn-outline btn-small">Prikaži</button>
+  </div>
+</form>
+
+<div class="stats-range-row">
+  <p class="stats-range">
+    Prikazano: <strong><%= r.label %></strong> (<%= r.rangeText %>)<% if (r.previous) { %>, poređenje s prethodnih <%= r.length %> <%= r.length === 1 ? 'danom' : 'dana' %><% } %>.
+    Otkazane narudžbe se ne računaju u prihod i prodaju.
+  </p>
+  <a href="/admin/narudzbe/izvoz?od=<%= r.from %>&amp;do=<%= r.to %>" class="btn btn-outline btn-small stats-export">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    Narudžbe u Excel
+  </a>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card kpi-hero">
+    <div class="kpi-label">Prihod</div>
+    <div class="kpi-value"><%= km(stats.current.revenue) %></div>
+    <%- delta(stats.deltas.revenue, true) %>
+    <div class="kpi-note">s poštarinom, nakon popusta</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Narudžbe</div>
+    <div class="kpi-value"><%= stats.current.orders %></div>
+    <%- delta(stats.deltas.orders, true) %>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Prosječna narudžba</div>
+    <div class="kpi-value"><%= km(stats.current.averageOrder) %></div>
+    <%- delta(stats.deltas.averageOrder, true) %>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Prodanih komada</div>
+    <div class="kpi-value"><%= stats.current.units %></div>
+    <%- delta(stats.deltas.units, true) %>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Novi registrovani korisnici</div>
+    <div class="kpi-value"><%= stats.current.newCustomers %></div>
+    <%- delta(stats.deltas.newCustomers, true) %>
+    <div class="kpi-note">ukupno <%= stats.totals.customers %> na dan <%= r.rangeText.split(' - ').pop() %></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Nove prijave na newsletter</div>
+    <div class="kpi-value"><%= stats.current.newSubscribers %></div>
+    <%- delta(stats.deltas.newSubscribers, true) %>
+    <div class="kpi-note">ukupno <%= stats.totals.subscribers %></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Kupci</div>
+    <div class="kpi-value"><%= stats.buyers.total %></div>
+    <div class="kpi-note"><%= stats.buyers.returning %> povratnih (naručili više puta)</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Otkazane narudžbe</div>
+    <div class="kpi-value"><%= stats.current.cancelled %></div>
+    <%- delta(stats.deltas.cancelled, false) %>
+  </div>
+</div>
+
+<div class="stats-facts">
+  <span>Popusti s promo kodovima: <strong><%= km(stats.extras.discount) %></strong></span>
+  <span>Narudžbe registrovanih korisnika: <strong><%= stats.extras.registeredOrders %></strong> od <%= stats.current.orders %></span>
+</div>
+
+<div class="chart-grid">
+  <%- include('../partials/stats-chart', { title: 'Prihod ' + perUnit, subtitle: 'Ukupno ' + km(stats.charts.revenue.total), chart: stats.charts.revenue, unitLabel: unitLabel, valueLabel: 'Prihod' }) %>
+  <%- include('../partials/stats-chart', { title: 'Narudžbe ' + perUnit, subtitle: 'Ukupno ' + stats.charts.orders.total, chart: stats.charts.orders, unitLabel: unitLabel, valueLabel: 'Narudžbe' }) %>
+  <%- include('../partials/stats-chart', { title: 'Novi registrovani korisnici ' + perUnit, subtitle: 'Ukupno novih: ' + stats.charts.customers.total + ', svih registrovanih: ' + stats.totals.customers, chart: stats.charts.customers, unitLabel: unitLabel, valueLabel: 'Novi korisnici' }) %>
+  <%- include('../partials/stats-chart', { title: 'Posjetioci ' + perUnit, subtitle: 'Ukupno ' + stats.visits.visitors + ' posjetilaca, ' + stats.visits.pageViews + ' pregleda stranica', chart: stats.charts.visitors, unitLabel: unitLabel, valueLabel: 'Posjetioci' }) %>
+</div>
+
+<h2 class="stats-section-title">Posjete sajtu</h2>
+<p class="stats-range">
+  Broje se bez kolačića i bez čuvanja IP adresa, pa nije potreban cookie banner. Ne broje se roboti (npr. Google) ni tvoje posjete dok si prijavljen u admin.
+  <% if (stats.visits.since) { %>Podaci postoje od <%= humanDay(stats.visits.since) %><% } else { %>Još nema zabilježenih posjeta<% } %>.
+</p>
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Posjetioci</div>
+    <div class="kpi-value"><%= stats.visits.visitors %></div>
+    <%- delta(stats.visits.delta, true) %>
+    <div class="kpi-note">ista osoba se računa jednom dnevno</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Pregledi stranica</div>
+    <div class="kpi-value"><%= stats.visits.pageViews %></div>
+    <% if (stats.visits.pagesPerVisitor !== null) { %><div class="kpi-note"><%= String(stats.visits.pagesPerVisitor).replace('.', ',') %> stranice po posjetiocu</div><% } %>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Konverzija</div>
+    <div class="kpi-value"><%= stats.visits.conversion === null ? '-' : String(stats.visits.conversion).replace('.', ',') + '%' %></div>
+    <div class="kpi-note">koliko posjetilaca je naručilo</div>
+  </div>
+</div>
+
+<div class="stats-tables stats-visit-tables">
+  <section class="stats-panel">
+    <h2>Najposjećenije stranice</h2>
+    <% if (stats.visits.pages.length) { %>
+      <% const maxViews = stats.visits.pages[0].units; %>
+      <div class="admin-table-wrap">
+        <table class="admin-table stats-table">
+          <thead><tr><th>Stranica</th><th class="num">Pregledi</th><th class="num">Posjetioci</th><th class="share-col"><span class="visually-hidden">Udio</span></th></tr></thead>
+          <tbody>
+            <% stats.visits.pages.forEach(function(p) { %>
+              <tr>
+                <td><a href="<%= p.path %>" target="_blank" rel="noopener"><%= p.name %></a></td>
+                <td class="num"><%= p.units %></td>
+                <td class="num"><%= p.visitors %></td>
+                <td class="share-col"><%- shareBar(p.units, maxViews) %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <p class="stats-empty">U ovom periodu nema posjeta.</p>
+    <% } %>
+  </section>
+  <% [{ title: 'Odakle dolaze', rows: stats.visits.sources, hint: 'Direktno = upisali adresu, sačuvan link ili aplikacija koja ne šalje izvor.' }, { title: 'Uređaji', rows: stats.visits.devices }].forEach(function(t) { %>
+    <section class="stats-panel">
+      <h2><%= t.title %></h2>
+      <% if (t.rows.length) { %>
+        <% const max = t.rows[0].units; %>
+        <div class="admin-table-wrap">
+          <table class="admin-table stats-table">
+            <thead><tr><th>Naziv</th><th class="num">Posjetioci</th><th class="share-col"><span class="visually-hidden">Udio</span></th></tr></thead>
+            <tbody>
+              <% t.rows.forEach(function(row) { %>
+                <tr><td><%= row.name %></td><td class="num"><%= row.units %></td><td class="share-col"><%- shareBar(row.units, max) %></td></tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <% if (t.hint) { %><p class="stats-note"><%= t.hint %></p><% } %>
+      <% } else { %>
+        <p class="stats-empty">U ovom periodu nema posjeta.</p>
+      <% } %>
+    </section>
+  <% }) %>
+</div>
+
+<h2 class="stats-section-title">Prodaja</h2>
+<div class="stats-tables">
+  <section class="stats-panel stats-panel-wide">
+    <h2>Najprodavaniji proizvodi</h2>
+    <% if (stats.tables.products.length) { %>
+      <% const maxUnits = stats.tables.products[0].units; %>
+      <div class="admin-table-wrap">
+        <table class="admin-table stats-table">
+          <thead><tr><th>#</th><th>Proizvod</th><th class="num">Kom.</th><th class="num">Prihod</th><th class="share-col"><span class="visually-hidden">Udio</span></th></tr></thead>
+          <tbody>
+            <% stats.tables.products.forEach(function(p, i) { %>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td><% if (p.id) { %><a href="/admin/proizvodi/<%= p.id %>/izmijeni"><%= p.name %></a><% } else { %><%= p.name %> <small>(obrisan)</small><% } %></td>
+                <td class="num"><%= p.units %></td>
+                <td class="num"><%= km(p.revenue) %></td>
+                <td class="share-col"><%- shareBar(p.units, maxUnits) %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <p class="stats-note">Prihod ovdje je cijena proizvoda bez poštarine, pakovanja i popusta.</p>
+    <% } else { %>
+      <p class="stats-empty">U ovom periodu nema prodaje.</p>
+    <% } %>
+  </section>
+
+  <%
+    const simpleTables = [
+      { title: 'Obim struka (cm)', rows: stats.tables.sizes, unit: 'Kom.', money: 'Prihod', empty: 'Nema prodaje.' },
+      { title: 'Boja', rows: stats.tables.colors, unit: 'Kom.', money: 'Prihod', empty: 'Nema prodaje.', swatch: true },
+      { title: 'Boja detalja', rows: stats.tables.detailColors, unit: 'Kom.', money: 'Prihod', empty: 'Nema prodaje.', swatch: true },
+      { title: 'Kategorije', rows: stats.tables.categories, unit: 'Kom.', money: 'Prihod', empty: 'Nema prodaje.' },
+      { title: 'Gradovi', rows: stats.tables.cities, unit: 'Narudžbe', money: 'Prihod', empty: 'Nema narudžbi.' },
+      { title: 'Promo kodovi', rows: stats.tables.promos, unit: 'Upotrebe', money: 'Popust', empty: 'Promo kodovi nisu korišteni.' }
+    ];
+  %>
+  <% simpleTables.forEach(function(t) { %>
+    <section class="stats-panel">
+      <h2><%= t.title %></h2>
+      <% if (t.rows.length) { %>
+        <% const max = Math.max.apply(null, t.rows.map(function(x) { return x.units; })); %>
+        <div class="admin-table-wrap">
+          <table class="admin-table stats-table">
+            <thead><tr><th><%= t.title === 'Obim struka (cm)' ? 'Obim' : 'Naziv' %></th><th class="num"><%= t.unit %></th><th class="num"><%= t.money %></th><th class="share-col"><span class="visually-hidden">Udio</span></th></tr></thead>
+            <tbody>
+              <% t.rows.forEach(function(row) { %>
+                <tr>
+                  <td>
+                    <% if (t.swatch) { %><span class="color-swatch<%= row.hex ? '' : ' is-unknown' %>"<% if (row.hex) { %> style="--swatch: <%= row.hex %>"<% } %> aria-hidden="true"></span><% } %>
+                    <%= row.name %>
+                  </td>
+                  <td class="num"><%= row.units %></td>
+                  <td class="num"><%= km(row.revenue) %></td>
+                  <td class="share-col"><%- shareBar(row.units, max) %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <p class="stats-empty"><%= t.empty %></p>
+      <% } %>
+    </section>
+  <% }) %>
+
+  <section class="stats-panel">
+    <h2>Narudžbe po statusu</h2>
+    <div class="admin-table-wrap">
+      <table class="admin-table stats-table">
+        <thead><tr><th>Status</th><th class="num">Narudžbe</th></tr></thead>
+        <tbody>
+          <% stats.tables.statuses.forEach(function(s) { %>
+            <tr>
+              <td><a href="/admin/narudzbe?status=<%= s.id %>" class="status-tag status-<%= s.id %>"><%= s.name %></a></td>
+              <td class="num"><%= s.count %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div class="chart-tooltip" id="chartTooltip" role="tooltip" hidden>
+  <strong></strong>
+  <span></span>
+</div>
+
+<%- include('../partials/admin-footer') %>

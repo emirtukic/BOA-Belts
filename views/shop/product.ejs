@@ -1,0 +1,192 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<%
+  const isBelt = /kaisevi$/.test(product.category);
+%>
+
+<section class="section">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Putanja">
+      <% crumbs.forEach(function(crumb, idx) { %>
+        <% if (idx < crumbs.length - 1) { %>
+          <a href="<%= crumb.url %>"><%= crumb.name %></a><span aria-hidden="true">/</span>
+        <% } else { %>
+          <span aria-current="page"><%= crumb.name %></span>
+        <% } %>
+      <% }) %>
+    </nav>
+    <div class="product-detail">
+      <div>
+        <div class="product-gallery-main">
+          <img src="<%= product.coverImage %>" alt="<%= product.name %>" fetchpriority="high">
+          <% if (product.images.length > 1) { %>
+            <button type="button" class="gallery-nav-btn prev" aria-label="Prethodna slika">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+            </button>
+            <button type="button" class="gallery-nav-btn next" aria-label="Sljedeća slika">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+          <% } %>
+        </div>
+        <% if (product.images.length > 1) { %>
+          <div class="product-gallery-thumbs">
+            <% product.images.forEach(function(img, idx) { %>
+              <img src="<%= product.smallImage(img) %>" data-full="<%= img %>" alt="<%= product.name %><%= product.imageColors[img] ? ' - ' + product.imageColors[img] : ' - slika ' + (idx + 1) %>" class="<%= img === product.coverImage ? 'active' : '' %>" data-color="<%= product.imageColors[img] || '' %>" loading="lazy" decoding="async">
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="product-info">
+        <div class="eyebrow"><%= categoryLabel %></div>
+        <h1><%= product.name %></h1>
+        <div class="product-price">
+          <% if (product.onSale) { %>
+            <span class="price-old"><%= product.price_km.toFixed(2) %> KM</span>
+            <span class="price-now"><%= product.sale_price_km.toFixed(2) %> KM</span>
+            <span class="price-discount-tag">-<%= product.discountPercent %>%</span>
+          <% } else { %>
+            <%= product.price_km.toFixed(2) %> KM
+          <% } %>
+        </div>
+        <p><%= product.description %></p>
+
+        <% if (!product.available) { %>
+          <p class="badge-placeholder">Trenutno nema na stanju - kontaktirajte nas za dostupnost.</p>
+        <% } else { %>
+          <form action="/korpa/dodaj" method="POST">
+            <input type="hidden" name="productId" value="<%= product.id %>">
+
+            <% if (product.waistRequired) { %>
+              <div class="form-row waist-field">
+                <label for="waist">Obim struka (cm)</label>
+                <input type="number" id="waist" name="size" inputmode="numeric" min="<%= waist.min %>" max="<%= waist.max %>" step="1" required placeholder="npr. 85" aria-describedby="waistHelp">
+                <% if (waist.intro) { %><p class="waist-help" id="waistHelp"><%= waist.intro %></p><% } %>
+              </div>
+            <% } %>
+
+            <% if (product.colors.length) { %>
+              <div class="form-row option-group" role="radiogroup" aria-labelledby="colorLabel">
+                <div class="option-label" id="colorLabel">Boja: <span class="option-chosen">izaberite</span></div>
+                <div class="color-options">
+                  <% product.colors.forEach(function(color) { %>
+                    <% const swatch = product.swatchOf(color); %>
+                    <label class="color-option">
+                      <input type="radio" name="color" value="<%= color %>" class="option-input">
+                      <span class="color-option-inner">
+                        <span class="color-swatch<%= swatch ? '' : ' is-unknown' %>"<% if (swatch) { %> style="--swatch: <%= swatch %>"<% } %> aria-hidden="true"></span>
+                        <%= color %>
+                      </span>
+                    </label>
+                  <% }) %>
+                </div>
+                <p class="option-error" hidden>Izaberite boju.</p>
+              </div>
+            <% } %>
+
+            <% if (product.detailColors.length) { %>
+              <div class="form-row option-group" role="radiogroup" aria-labelledby="detailColorLabel">
+                <div class="option-label" id="detailColorLabel">Boja detalja: <span class="option-chosen">izaberite</span></div>
+                <div class="color-options">
+                  <% product.detailColors.forEach(function(color) { %>
+                    <% const swatch = detailSwatches[color] || product.swatchOf(color); %>
+                    <label class="color-option">
+                      <input type="radio" name="detailColor" value="<%= color %>" class="option-input">
+                      <span class="color-option-inner">
+                        <span class="color-swatch<%= swatch ? '' : ' is-unknown' %>"<% if (swatch) { %> style="--swatch: <%= swatch %>"<% } %> aria-hidden="true"></span>
+                        <%= color %>
+                      </span>
+                    </label>
+                  <% }) %>
+                </div>
+                <p class="option-error" hidden>Izaberite boju detalja.</p>
+              </div>
+            <% } %>
+
+            <div class="form-row">
+              <label for="qty">Količina</label>
+              <input type="number" id="qty" name="qty" value="1" min="1" class="qty-input">
+            </div>
+
+            <div class="product-buy-row">
+              <button type="submit" class="btn btn-primary">Dodajte u korpu</button>
+              <button type="button" class="wish-btn wish-btn-large" data-wish="<%= product.id %>" aria-pressed="false" aria-label="Dodaj u listu želja: <%= product.name %>">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.8-4.7-9.3-9.6C1.6 7.4 3.9 4.2 7.3 4.2c2 0 3.6 1.1 4.7 2.8 1.1-1.7 2.7-2.8 4.7-2.8 3.4 0 5.7 3.2 4.6 6.7-1.5 4.9-9.3 9.6-9.3 9.6z"/></svg>
+              </button>
+            </div>
+          </form>
+        <% } %>
+
+        <% const chatText = 'Zdravo, zanima me ' + product.name + ': ' + siteUrl + '/kolekcija/' + product.slug; %>
+        <div class="product-ask">
+          <span>Imate pitanje o ovom proizvodu?</span>
+          <a href="<%= chat.whatsapp %>?text=<%= encodeURIComponent(chatText) %>" target="_blank" rel="noopener" class="product-ask-link chat-whatsapp">WhatsApp</a>
+          <a href="<%= chat.viber %>" class="product-ask-link chat-viber">Viber</a>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <span class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.2 2.4 4 6.5 4c2 0 3.6 1.1 4.5 2.7C11.9 5.1 13.5 4 15.5 4 19.6 4 21.5 8.2 20 11.9 19.5 15.4 12 21 12 21z"/></svg></span>
+            Ručna izrada, Travnik BiH
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon"><svg viewBox="0 0 24 24"><path d="M20 4C10 4 4 10 4 18c0 .6.4 1 1 1 8 0 14-6 14-15 0-.6-.4-1-1-1z"/><path d="M5 19c3-6 8-10 14-11"/></svg></span>
+            Prirodna koža
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span>
+            Dostava 3-4 radna dana
+          </div>
+          <div class="trust-badge">
+            <span class="trust-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+            Plaćanje pouzećem
+          </div>
+        </div>
+
+        <div class="faq-list" style="max-width:none; margin:0;">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              Materijal i izrada
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Ručno rađeno u radionici Boa Belts u Travniku, od prirodne kože. <%= product.colors.length ? 'Proizvod izrađujemo u boji koju izaberete.' : 'Proizvod izrađujemo u boji koja je prikazana na fotografijama.' %><% if (product.waistRequired) { %> Kaiš izrađujemo prema obimu struka koji upišete pri narudžbi.<% } %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              Njega proizvoda
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Nakon nošenja prebrišite prašinu mekom krpom, a dva puta godišnje nanesite neutralni balzam za kožu.<% if (isBelt) { %> Kaiš čuvajte blago urolan kako biste izbjegli lomljenje.<% } %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              Dostava i plaćanje
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Dostava širom Bosne i Hercegovine traje 3-4 radna dana, a poštarina iznosi <%= shippingPrice.toFixed(2) %> KM. Plaćate pouzećem prilikom preuzimanja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if (relatedProducts.length) { %>
+      <div class="related-products">
+        <h2 class="shelf-heading">Možda će vam se svidjeti</h2>
+        <div class="product-grid">
+          <% relatedProducts.forEach(function(related) { %>
+            <%- include('../partials/product-card', { product: related, categories: categories }) %>
+          <% }) %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,52 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Promo kodovi (<%= promoCodes.length %>)</h1>
+  <a href="/admin/promo-kodovi/novi" class="btn btn-primary">+ Novi kod</a>
+</div>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Kod</th>
+        <th>Popust</th>
+        <th>Za koga</th>
+        <th>Status</th>
+        <th>Iskorišteno</th>
+        <th>Ističe</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (promoCodes.length === 0) { %>
+        <tr><td colspan="7">Još nema promo kodova.</td></tr>
+      <% } %>
+      <% promoCodes.forEach(function(promo) { %>
+        <tr>
+          <td><a href="/admin/promo-kodovi/<%= promo.id %>"><strong><%= promo.code %></strong></a></td>
+          <td><%= promo.type === 'percent' ? promo.value + '%' : promo.value.toFixed(2) + ' KM' %></td>
+          <td><%= audienceLabels[promo.audience] %><%= promo.audience === 'novi_korisnici' ? ' (' + (promo.new_customer_days || 30) + ' dana)' : '' %></td>
+          <td>
+            <% if (promo.active) { %>
+              <span class="status-tag status-zavrseno">Aktivan</span>
+            <% } else { %>
+              <span class="status-tag status-novo">Neaktivan</span>
+            <% } %>
+          </td>
+          <td><%= promo.used_count %><%= promo.usage_limit ? ' / ' + promo.usage_limit : '' %></td>
+          <td><%= promo.expires_at ? promo.expires_at : '-' %></td>
+          <td style="display:flex; gap:8px;">
+            <a href="/admin/promo-kodovi/<%= promo.id %>/izmijeni" class="btn btn-outline btn-small">Izmijeni</a>
+            <form action="/admin/promo-kodovi/<%= promo.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Obrisati ovaj promo kod?');">
+              <button type="submit" class="btn btn-danger btn-small">Obriši</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/admin-footer') %>

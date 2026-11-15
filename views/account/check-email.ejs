@@ -1,0 +1,18 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="check-email-box">
+      <div class="check-email-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </div>
+      <div class="eyebrow">Skoro gotovo</div>
+      <h1>Potvrdite svoju e-mail adresu</h1>
+      <p>Poslali smo link za potvrdu na <strong><%= email %></strong>. Kliknite na link u e-mailu da aktivirate svoj nalog - provjerite i spam/junk folder ako ga ne vidite odmah.</p>
+      <p class="mt-lg"><small>Niste dobili e-mail? <a href="/nalog/ponovi-verifikaciju">Pošaljite ponovo</a></small></p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="check-email-box">
+      <div class="eyebrow">Newsletter</div>
+      <% if (done) { %>
+        <h1>Odjavljeni ste sa newslettera</h1>
+        <p>Adresa <strong><%= email %></strong> više neće primati naš newsletter. E-mailove o vašim narudžbama i nalogu i dalje ćete dobijati.</p>
+        <a href="/kolekcija" class="btn btn-primary mt-lg">Pogledajte kolekciju</a>
+      <% } else { %>
+        <h1>Odjava sa newslettera</h1>
+        <p>Želite li da adresa <strong><%= email %></strong> više ne prima naš newsletter?</p>
+        <form action="<%= actionUrl %>" method="POST">
+          <button type="submit" class="btn btn-primary mt-lg">Potvrdite odjavu</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

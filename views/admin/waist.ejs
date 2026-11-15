@@ -1,0 +1,33 @@
+<%- include('../partials/admin-head') %>
+<%- include('../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Mjerenje struka</h1>
+</div>
+
+<form class="form-panel" style="max-width: 640px;" action="/admin/mjerenje-struka" method="POST">
+  <p style="color:#6a6a6a; margin-top:0;">
+    Kod proizvoda označenih sa "Kupac upisuje obim struka" kupac prije dodavanja u korpu upisuje obim struka u cm. Ova uputa mu se prikazuje ispod polja.
+  </p>
+
+  <div class="form-row">
+    <label for="intro">Uputa kupcu</label>
+    <textarea id="intro" name="intro" rows="3" maxlength="500"><%= settings.intro %></textarea>
+  </div>
+
+  <div class="admin-form-grid">
+    <div class="form-row">
+      <label for="min">Najmanji obim (cm)</label>
+      <input type="number" id="min" name="min" min="1" max="300" value="<%= settings.min %>" required>
+    </div>
+    <div class="form-row">
+      <label for="max">Najveći obim (cm)</label>
+      <input type="number" id="max" name="max" min="1" max="300" value="<%= settings.max %>" required>
+    </div>
+  </div>
+  <p style="color:#6a6a6a; font-size:0.85rem;">Kupac ne može upisati broj izvan ovog raspona.</p>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj</button>
+</form>
+
+<%- include('../partials/admin-footer') %>

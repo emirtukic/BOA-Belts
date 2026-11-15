@@ -1,0 +1,156 @@
+<%- include('../../partials/admin-head') %>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.min.css" rel="stylesheet">
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Newsletter</h1>
+</div>
+
+<div class="admin-form-grid">
+  <div class="form-panel full">
+    <h3 style="margin-top:0;">Tekstovi na sajtu i dobrodošlica</h3>
+    <p style="color:#7a7266; margin-top:-8px;">
+      Kad se promijeni ili ukine popust za prijavu, ovdje promijeni ili obriši tekst. Prazno polje se ne prikazuje na sajtu.
+    </p>
+    <form action="/admin/newsletter/tekstovi" method="POST">
+      <div class="form-row">
+        <label for="nlHeading">Naslov u podnožju sajta</label>
+        <input type="text" id="nlHeading" name="heading" maxlength="120" value="<%= texts.heading %>" placeholder="<%= defaults.heading %>">
+      </div>
+      <div class="form-row">
+        <label for="nlText">Tekst ispod naslova</label>
+        <textarea id="nlText" name="text" rows="2" maxlength="400" placeholder="npr. Prijavite se i prvi saznajte za nove kolekcije."><%= texts.text %></textarea>
+      </div>
+      <div class="form-row">
+        <label for="nlRegister">Tekst pored kvačice pri registraciji</label>
+        <input type="text" id="nlRegister" name="registerLabel" maxlength="200" value="<%= texts.registerLabel %>" placeholder="Želim primati newsletter sa novim kolekcijama i ponudama">
+        <small>Ako ga obrišeš, piše "Želim primati newsletter sa novim kolekcijama i ponudama".</small>
+      </div>
+      <div class="form-row">
+        <label for="nlCode">Promo kod u e-mailu dobrodošlice</label>
+        <select id="nlCode" name="welcomeCode">
+          <option value="">Bez promo koda</option>
+          <% promoCodes.forEach(function(p) { %>
+            <option value="<%= p.code %>" <%= texts.welcomeCode === p.code ? 'selected' : '' %>>
+              <%= p.code %> (<%= p.type === 'percent' ? p.value + '%' : p.value.toFixed(2) + ' KM' %><%= p.active ? '' : ', neaktivan' %>)
+            </option>
+          <% }) %>
+        </select>
+        <small>Novi pretplatnik dobija ovaj kod u e-mailu dobrodošlice, ako je kod aktivan i nije istekao. Kodove praviš u Promo kodovi.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Sačuvaj tekstove</button>
+    </form>
+  </div>
+
+  <div class="form-panel full">
+    <h3 style="margin-top:0;">Pošalji newsletter</h3>
+    <p style="color:#7a7266; margin-top:-8px;">
+      Šalje se na <strong><%= recipientCount %></strong> adresa - svi koji su se sami prijavili na newsletter (forma na sajtu ili registracija), bez onih koji su se odjavili. Svaki e-mail automatski sadrži link za odjavu.
+    </p>
+    <form action="/admin/newsletter/posalji" method="POST" id="newsletterForm">
+      <div class="form-row">
+        <label for="subject">Naslov e-maila</label>
+        <input type="text" id="subject" name="subject" placeholder="npr. Nova jesenja kolekcija je stigla" required>
+      </div>
+      <div class="form-row">
+        <label>Tekst</label>
+        <div id="newsletterEditor"></div>
+        <input type="hidden" name="body_html" id="bodyHtmlInput">
+        <small>Koristi alatnu traku za naslove, podebljano, liste i ubacivanje slika direktno u tekst.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Pošalji svima</button>
+    </form>
+  </div>
+
+  <div class="form-panel full">
+    <h3 style="margin-top:0;">Prijavljeni na newsletter (<%= subscribers.length %>)</h3>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>E-mail</th>
+            <th>Prijavljen</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (subscribers.length === 0) { %>
+            <tr><td colspan="3">Još nema prijavljenih.</td></tr>
+          <% } %>
+          <% subscribers.forEach(function(s) { %>
+            <tr>
+              <td><%= s.email %></td>
+              <td><%= formatDate(s.subscribed_at) %></td>
+              <td>
+                <form action="/admin/newsletter/<%= s.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Ukloniti ovu e-mail adresu sa liste?');">
+                  <button type="submit" class="btn btn-danger btn-small">Ukloni</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
+<script>
+  (function () {
+    var toolbarOptions = [
+      [{ header: [2, 3, false] }],
+      ['bold', 'italic', 'underline'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image'],
+      ['clean']
+    ];
+
+    var quill = new Quill('#newsletterEditor', {
+      theme: 'snow',
+      placeholder: 'Napišite tekst newslettera...',
+      modules: { toolbar: toolbarOptions }
+    });
+
+    quill.getModule('toolbar').addHandler('image', function () {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/jpeg,image/png,image/webp');
+      input.click();
+      input.onchange = function () {
+        var file = input.files[0];
+        if (!file) return;
+        var range = quill.getSelection(true);
+        var formData = new FormData();
+        formData.append('image', file);
+        fetch('/admin/newsletter/slika', { method: 'POST', body: formData })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.url) {
+              quill.insertEmbed(range.index, 'image', data.url, 'user');
+              quill.setSelection(range.index + 1);
+            } else {
+              alert(data.error || 'Greška pri slanju slike.');
+            }
+          })
+          .catch(function () {
+            alert('Greška pri slanju slike.');
+          });
+      };
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+      var html = quill.root.innerHTML;
+      if (quill.getText().trim().length === 0) {
+        e.preventDefault();
+        alert('Tekst newslettera ne može biti prazan.');
+        return;
+      }
+      document.getElementById('bodyHtmlInput').value = html;
+      if (!confirm('Poslati newsletter na <%= recipientCount %> adresa?')) {
+        e.preventDefault();
+      }
+    });
+  })();
+</script>
+
+<%- include('../../partials/admin-footer') %>

@@ -1,0 +1,297 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Narudžba</div>
+      <h1>Podaci za dostavu</h1>
+      <hr class="divider">
+    </div>
+
+    <div class="checkout-layout">
+      <form class="form-panel checkout-form" action="/narudzba" method="POST" id="checkoutForm">
+        <div id="checkoutFields">
+          <div class="form-row">
+            <label for="customer_name">Ime i prezime</label>
+            <input type="text" id="customer_name" name="customer_name" value="<%= customer ? customer.name : '' %>" required>
+          </div>
+          <div class="form-row">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" value="<%= customer ? customer.email : '' %>" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" value="<%= customer && customer.phone ? customer.phone : '' %>" required>
+          </div>
+          <div class="form-row">
+            <label for="address">Adresa</label>
+            <input type="text" id="address" name="address" value="<%= customer && customer.address ? customer.address : '' %>" required>
+          </div>
+          <div class="form-row">
+            <label for="city">Grad</label>
+            <input type="text" id="city" name="city" value="<%= customer && customer.city ? customer.city : '' %>" required>
+          </div>
+          <div class="form-row">
+            <label for="notes">Napomena (opciono)</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="promoCodeInput">Promo kod (opciono)</label>
+            <div class="promo-code-row">
+              <input type="text" id="promoCodeInput" placeholder="Unesite kod" autocomplete="off" style="text-transform:uppercase;">
+              <button type="button" id="promoApplyBtn" class="btn btn-outline">Primijenite</button>
+            </div>
+            <small id="promoMessage"></small>
+            <input type="hidden" name="promo_code" id="promoCodeHidden">
+          </div>
+
+          <div class="form-row">
+            <label>Način plaćanja</label>
+            <% paymentMethods.forEach(function(method) { %>
+              <label class="checkbox-row" style="margin-bottom:8px; <%= !method.enabled ? 'opacity:0.5;' : '' %>">
+                <input type="radio" name="payment_method" value="<%= method.id %>" <%= method.enabled ? '' : 'disabled' %> <%= method.id === 'pouzece' ? 'checked' : '' %>>
+                <%= method.label %>
+              </label><br>
+            <% }) %>
+          </div>
+
+          <p class="checkout-note">Dostava je moguća samo unutar Bosne i Hercegovine i traje 3-4 radna dana. Narudžbu plaćate pouzećem, prilikom preuzimanja.</p>
+
+          <div class="form-row">
+            <label class="checkbox-row">
+              <input type="checkbox" name="terms" id="termsCheckbox" required>
+              <span>Prihvatam <a href="/uslovi-koristenja" target="_blank">uslove korištenja</a> te sam upoznat/a s <a href="/politika-privatnosti" target="_blank">politikom privatnosti</a>.</span>
+            </label>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="reviewBtn">Pregledajte narudžbu</button>
+        </div>
+
+        <div id="checkoutReview" hidden>
+          <h3 style="margin-top:0;">Provjerite podatke</h3>
+          <div class="review-box">
+            <p><strong>Ime i prezime:</strong> <span id="reviewName"></span></p>
+            <p><strong>E-mail:</strong> <span id="reviewEmail"></span></p>
+            <p><strong>Telefon:</strong> <span id="reviewPhone"></span></p>
+            <p><strong>Adresa:</strong> <span id="reviewAddress"></span>, <span id="reviewCity"></span></p>
+            <p id="reviewNotesRow" hidden><strong>Napomena:</strong> <span id="reviewNotes"></span></p>
+            <p id="reviewPromoRow" hidden><strong>Promo kod:</strong> <span id="reviewPromo"></span></p>
+            <p><strong>Način plaćanja:</strong> <span id="reviewPayment"></span></p>
+          </div>
+          <p style="color:#6a6a6a; font-size:0.85rem;">Provjerite podatke prije potvrde - ako nešto treba izmijeniti, vratite se nazad.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button type="button" class="btn btn-outline" id="backBtn">&larr; Izmijenite podatke</button>
+            <button type="submit" class="btn btn-primary" id="placeOrderBtn">Potvrdite i naručite</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="form-panel checkout-summary">
+        <h3>Vaša narudžba</h3>
+        <table class="cart-table">
+          <% items.forEach(function(item) { %>
+            <tr>
+              <td class="checkout-summary-item">
+                <img src="<%= item.product.smallImage(item.product.imageFor(item.color)) %>" alt="<%= item.product.name %>">
+                <div class="checkout-summary-item-info">
+                  <span><%= item.product.name %> &times; <%= item.qty %></span>
+                  <div class="checkout-summary-item-meta">
+                    <%= itemOptions(item).join(' · ') %>
+                  </div>
+                  <% if (item.product.onSale) { %>
+                    <div><span class="price-old"><%= item.product.price_km.toFixed(2) %> KM</span><span class="price-now"><%= item.product.sale_price_km.toFixed(2) %> KM</span></div>
+                  <% } %>
+                </div>
+              </td>
+              <td><%= item.lineTotal.toFixed(2) %> KM</td>
+            </tr>
+          <% }) %>
+          <tr>
+            <td>Međuzbir</td>
+            <td id="checkoutSubtotal"><%= total.toFixed(2) %> KM</td>
+          </tr>
+          <tr id="checkoutDiscountRow" hidden>
+            <td id="checkoutDiscountLabel">Popust</td>
+            <td id="checkoutDiscountAmount"></td>
+          </tr>
+          <tr>
+            <td>Poštarina</td>
+            <td><%= shippingPrice.toFixed(2) %> KM</td>
+          </tr>
+          <tr class="cart-total-row">
+            <td>Ukupno</td>
+            <td id="checkoutGrandTotal"><%= (total + shippingPrice).toFixed(2) %> KM</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var grandTotalEl = document.getElementById('checkoutGrandTotal');
+        var discountRow = document.getElementById('checkoutDiscountRow');
+        var discountLabel = document.getElementById('checkoutDiscountLabel');
+        var discountAmountEl = document.getElementById('checkoutDiscountAmount');
+        var promoInput = document.getElementById('promoCodeInput');
+        var promoApplyBtn = document.getElementById('promoApplyBtn');
+        var promoMessage = document.getElementById('promoMessage');
+        var promoCodeHidden = document.getElementById('promoCodeHidden');
+        if (!grandTotalEl) return;
+
+        var subtotal = <%= total %>;
+        var shippingPrice = <%= shippingPrice %>;
+        var appliedDiscount = 0;
+
+        function update() {
+          var grandTotal = Math.max(0, subtotal - appliedDiscount + shippingPrice);
+          grandTotalEl.textContent = grandTotal.toFixed(2) + ' KM';
+        }
+
+        if (promoApplyBtn) {
+          promoApplyBtn.addEventListener('click', function () {
+            var code = (promoInput.value || '').trim();
+            if (!code) return;
+            promoApplyBtn.disabled = true;
+            promoMessage.textContent = 'Provjera...';
+            promoMessage.style.color = '#6a6a6a';
+            fetch('/narudzba/promo', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams({
+                code: code,
+                email: (document.getElementById('email') || {}).value || '',
+                phone: (document.getElementById('phone') || {}).value || ''
+              }).toString()
+            })
+              .then(function (r) { return r.json(); })
+              .then(function (data) {
+                if (data.ok) {
+                  appliedFor = contactKey();
+                  appliedDiscount = data.discount;
+                  promoCodeHidden.value = data.code;
+                  discountRow.hidden = false;
+                  discountLabel.textContent = 'Popust (' + data.code + ')';
+                  discountAmountEl.textContent = '-' + data.discount.toFixed(2) + ' KM';
+                  promoMessage.textContent = 'Kod je primijenjen!';
+                  promoMessage.style.color = '#2e5a24';
+                } else {
+                  appliedDiscount = 0;
+                  promoCodeHidden.value = '';
+                  discountRow.hidden = true;
+                  promoMessage.textContent = data.error;
+                  promoMessage.style.color = '#7a2222';
+                }
+                update();
+              })
+              .catch(function () {
+                promoMessage.textContent = 'Greška, pokušajte ponovo.';
+                promoMessage.style.color = '#7a2222';
+              })
+              .finally(function () {
+                promoApplyBtn.disabled = false;
+              });
+          });
+        }
+
+        update();
+
+        // Kod za prvu narudzbu ovisi o e-mailu i telefonu: kad se oni promijene
+        // poslije primjene, kod se provjerava ponovo.
+        var appliedFor = '';
+        function contactKey() {
+          return ((document.getElementById('email') || {}).value || '') + '|' + ((document.getElementById('phone') || {}).value || '');
+        }
+        ['email', 'phone'].forEach(function (id) {
+          var field = document.getElementById(id);
+          if (!field) return;
+          field.addEventListener('change', function () {
+            if (promoCodeHidden.value && appliedFor !== contactKey() && promoApplyBtn) {
+              promoInput.value = promoCodeHidden.value;
+              promoApplyBtn.click();
+            }
+          });
+        });
+
+        /* --- Korak 2: pregled prije narudzbe --- */
+        var checkoutForm = document.getElementById('checkoutForm');
+        var checkoutFields = document.getElementById('checkoutFields');
+        var checkoutReview = document.getElementById('checkoutReview');
+        var reviewBtn = document.getElementById('reviewBtn');
+        var backBtn = document.getElementById('backBtn');
+
+        function paymentLabel() {
+          var checked = checkoutForm.querySelector('input[name="payment_method"]:checked');
+          if (!checked) return '-';
+          var label = checked.closest('label');
+          return label ? label.textContent.trim() : checked.value;
+        }
+
+        function showReview() {
+            if (!checkoutForm.reportValidity()) return;
+
+            document.getElementById('reviewName').textContent = document.getElementById('customer_name').value;
+            document.getElementById('reviewEmail').textContent = document.getElementById('email').value;
+            document.getElementById('reviewPhone').textContent = document.getElementById('phone').value;
+            document.getElementById('reviewAddress').textContent = document.getElementById('address').value;
+            document.getElementById('reviewCity').textContent = document.getElementById('city').value;
+
+            var notes = document.getElementById('notes').value.trim();
+            var notesRow = document.getElementById('reviewNotesRow');
+            if (notes) {
+              document.getElementById('reviewNotes').textContent = notes;
+              notesRow.hidden = false;
+            } else {
+              notesRow.hidden = true;
+            }
+
+            var promoRow = document.getElementById('reviewPromoRow');
+            if (promoCodeHidden.value) {
+              document.getElementById('reviewPromo').textContent = promoCodeHidden.value;
+              promoRow.hidden = false;
+            } else {
+              promoRow.hidden = true;
+            }
+
+            document.getElementById('reviewPayment').textContent = paymentLabel();
+
+            checkoutFields.hidden = true;
+            checkoutReview.hidden = false;
+            checkoutReview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        if (reviewBtn) reviewBtn.addEventListener('click', showReview);
+
+        // Enter u nekom polju ne smije odmah poslati narudzbu: prvo ide pregled,
+        // a Enter u polju za promo kod samo primjenjuje kod.
+        checkoutForm.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' && e.target === promoInput) {
+            e.preventDefault();
+            if (promoApplyBtn) promoApplyBtn.click();
+          }
+        });
+        var placeOrderBtn = document.getElementById('placeOrderBtn');
+        checkoutForm.addEventListener('submit', function (e) {
+          if (checkoutReview.hidden) {
+            e.preventDefault();
+            showReview();
+            return;
+          }
+          // Spor internet ili dvostruki klik ne smiju napraviti dvije narudzbe.
+          placeOrderBtn.disabled = true;
+          placeOrderBtn.textContent = 'Slanje narudžbe...';
+        });
+
+        if (backBtn) {
+          backBtn.addEventListener('click', function () {
+            checkoutReview.hidden = true;
+            checkoutFields.hidden = false;
+          });
+        }
+      })();
+    </script>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

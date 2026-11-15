@@ -1,0 +1,48 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Kolekcija</div>
+      <h1><%= searchQuery ? `Rezultati za "${searchQuery}"` : (activeCategoryName || 'Cijela kolekcija') %></h1>
+      <hr class="divider">
+    </div>
+
+    <form action="/kolekcija" method="GET" class="catalog-search">
+      <% if (activeCategory) { %><input type="hidden" name="kategorija" value="<%= activeCategory %>"><% } %>
+      <input type="text" name="pretraga" value="<%= searchQuery || '' %>" placeholder="Pretražite proizvode..." aria-label="Pretražite proizvode">
+      <button type="submit" aria-label="Pretražite">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+    </form>
+
+    <div class="category-filters">
+      <a href="/kolekcija<%= searchQuery ? '?pretraga=' + encodeURIComponent(searchQuery) : '' %>" class="<%= !activeCategory ? 'active' : '' %>">Svi proizvodi</a>
+      <% categories.forEach(function(cat) { %>
+        <a href="/kolekcija?kategorija=<%= cat.slug %><%= searchQuery ? '&pretraga=' + encodeURIComponent(searchQuery) : '' %>" class="<%= activeCategory === cat.slug ? 'active' : '' %>"><%= cat.name %></a>
+      <% }) %>
+    </div>
+
+    <% if (products.length === 0) { %>
+      <div class="empty-state">
+        <% if (searchQuery) { %>
+          <h3>Nema rezultata za "<%= searchQuery %>".</h3>
+          <p>Pokušajte s drugim pojmom ili pogledajte cijelu kolekciju.</p>
+          <a href="/kolekcija" class="btn btn-outline mt-lg">Pogledajte sve proizvode</a>
+        <% } else { %>
+          <h3>Trenutno nema proizvoda u ovoj kategoriji.</h3>
+          <p>Pogledajte ostale kategorije ili se vratite kasnije.</p>
+        <% } %>
+      </div>
+    <% } else { %>
+      <div class="product-grid">
+        <% products.forEach(function(product) { %>
+          <%- include('../partials/product-card', { product: product, categories: categories }) %>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,196 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<%
+  const heroIsVideo = hero.media_type === 'video' && hero.video_url;
+  const heroImages = !heroIsVideo && hero.images ? hero.images : [];
+  const heroSlideSeconds = 6;
+  const heroDuration = Math.max(heroImages.length, 1) * heroSlideSeconds;
+  const heroFadeIn = (1 / heroDuration * 100).toFixed(2);
+  const heroHoldEnd = ((heroSlideSeconds - 1) / heroDuration * 100).toFixed(2);
+  const heroFadeOut = (heroSlideSeconds / heroDuration * 100).toFixed(2);
+  const smallOf = function(src) { return src && /\.webp$/i.test(src) && !/-sm\.webp$/i.test(src) ? src.replace(/\.webp$/i, '-sm.webp') : src; };
+  const lifestyle = sections.lifestyle;
+  const story = sections.story;
+%>
+<% if (heroImages.length > 1) { %>
+<style>
+  .home-hero-slide { animation: home-hero-fade <%= heroDuration %>s infinite, home-hero-zoom <%= heroDuration %>s infinite linear; }
+  .home-hero-slide:first-child { opacity: 1; }
+  @keyframes home-hero-fade {
+    0% { opacity: 0; }
+    <%= heroFadeIn %>% { opacity: 1; }
+    <%= heroHoldEnd %>% { opacity: 1; }
+    <%= heroFadeOut %>% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes home-hero-zoom {
+    0% { transform: scale(1.1); }
+    <%= heroFadeOut %>% { transform: scale(1); }
+    100% { transform: scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero-slide { animation: none; }
+  }
+</style>
+<% } %>
+
+<section class="home-hero">
+  <div class="home-hero-media">
+    <% if (heroIsVideo) { %>
+      <video class="home-hero-slide is-static" autoplay muted loop playsinline>
+        <source src="<%= hero.video_url %>">
+      </video>
+    <% } else { %>
+      <% heroImages.forEach(function(img, idx) { %>
+        <img class="home-hero-slide<%= heroImages.length === 1 ? ' is-static' : '' %>" style="animation-delay:<%= idx * heroSlideSeconds %>s" src="<%= img %>" alt="<%= idx === 0 ? 'Ručno rađeni kožni kaiševi Boa Belts' : '' %>" <%- idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"' %> decoding="async">
+      <% }) %>
+    <% } %>
+  </div>
+  <div class="container home-hero-inner">
+    <div class="home-hero-text">
+      <% if (hero.eyebrow) { %><div class="eyebrow"><%= hero.eyebrow %></div><% } %>
+      <h1><%= hero.heading %></h1>
+      <% if (hero.text) { %><p><%= hero.text %></p><% } %>
+      <div class="home-hero-actions">
+        <a href="/kolekcija" class="btn home-btn-light"><%= hero.cta_text || 'Istraži kolekciju' %></a>
+        <a href="/kolekcija?kategorija=zenski-kaisevi" class="btn home-btn-ghost">Kaiševi po mjeri</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-usp" aria-label="Zašto Boa Belts">
+  <div class="container home-usp-list">
+    <div class="home-usp-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.5 8.2 2.4 4 6.5 4c2 0 3.6 1.1 4.5 2.7C11.9 5.1 13.5 4 15.5 4 19.6 4 21.5 8.2 20 11.9 19.5 15.4 12 21 12 21z"/></svg>
+      <div><strong>Ručna izrada</strong><span>Radionica u Travniku</span></div>
+    </div>
+    <div class="home-usp-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="20" height="8" rx="1.5"/><path d="M6 8v3M10 8v4M14 8v3M18 8v4"/></svg>
+      <div><strong>Kaiš po mjeri</strong><span>Prema obimu vašeg struka</span></div>
+    </div>
+    <div class="home-usp-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      <div><strong>Dostava 3-4 dana</strong><span>Širom Bosne i Hercegovine</span></div>
+    </div>
+    <div class="home-usp-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+      <div><strong>Plaćanje pouzećem</strong><span>Platite kad preuzmete</span></div>
+    </div>
+  </div>
+</section>
+
+<% if (categories.length) { %>
+<section class="section home-categories-section">
+  <div class="container">
+    <div class="boa-section-head">
+      <h2>Kupujte po kategoriji</h2>
+      <a href="/kolekcija" class="boa-link-arrow">Cijela kolekcija</a>
+    </div>
+    <div class="home-categories count-<%= categories.length %>">
+      <% categories.forEach(function(cat, idx) { %>
+        <a href="/kolekcija?kategorija=<%= cat.slug %>" class="home-category<%= idx === 0 ? ' is-large' : '' %>">
+          <img src="<%= idx === 0 ? cat.image : smallOf(cat.image) %>" alt="" loading="lazy" decoding="async">
+          <span class="home-category-label">
+            <strong><%= cat.name %></strong>
+            <small><%= cat.count %> <%= cat.count % 10 === 1 && cat.count % 100 !== 11 ? 'model' : 'modela' %></small>
+          </span>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (tabs.length) { %>
+<section class="section home-products-section">
+  <div class="container">
+    <div class="home-products-head">
+      <h2>Iz naše kolekcije</h2>
+      <div class="home-tabs" role="tablist" aria-label="Kategorije proizvoda">
+        <% tabs.forEach(function(tab, idx) { %>
+          <button type="button" class="home-tab<%= idx === 0 ? ' is-active' : '' %>" role="tab" id="tab-<%= tab.id %>" aria-controls="panel-<%= tab.id %>" aria-selected="<%= idx === 0 ? 'true' : 'false' %>"><%= tab.label %></button>
+        <% }) %>
+      </div>
+    </div>
+    <% tabs.forEach(function(tab, idx) { %>
+      <div class="home-tab-panel" role="tabpanel" id="panel-<%= tab.id %>" aria-labelledby="tab-<%= tab.id %>"<%= idx === 0 ? '' : ' hidden' %>>
+        <div class="product-grid home-grid">
+          <% tab.products.forEach(function(product) { %>
+            <%- include('partials/product-card', { product: product }) %>
+          <% }) %>
+        </div>
+        <div class="home-products-more">
+          <a href="<%= tab.link %>" class="btn btn-outline">Pogledajte sve: <%= tab.label.toLowerCase() %></a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+<% } %>
+
+<section class="home-measure">
+  <div class="container home-measure-inner">
+    <div class="home-measure-image">
+      <img src="<%= lifestyle.image %>" alt="Ručno rađeni kožni kaiš Boa Belts" loading="lazy" decoding="async">
+    </div>
+    <div class="home-measure-text">
+      <% if (lifestyle.eyebrow) { %><div class="eyebrow"><%= lifestyle.eyebrow %></div><% } %>
+      <h2><%= lifestyle.heading %></h2>
+      <% if (lifestyle.text) { %><p><%= lifestyle.text %></p><% } %>
+      <ol class="home-steps">
+        <li><strong>Izaberite model</strong><span>Pronađite kaiš koji vam se sviđa u kolekciji.</span></li>
+        <li><strong>Upišite obim struka</strong><span>Izmjerite struk ili mjesto gdje ćete nositi kaiš i izaberite zlatne ili srebrene detalje.</span></li>
+        <li><strong>Platite pri preuzimanju</strong><span>Dostava širom BiH traje 3-4 radna dana, a plaćate pouzećem.</span></li>
+      </ol>
+      <% if (lifestyle.cta_text) { %>
+        <a href="<%= lifestyle.cta_link || '/kolekcija' %>" class="btn btn-primary"><%= lifestyle.cta_text %></a>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="home-banner">
+  <picture>
+    <source media="(max-width: 700px)" srcset="/images/revija/DSC_0870-sm.webp">
+    <img src="/images/revija/DSC_0870.webp" alt="Boa Belts revija na BH Fashion Weeku" loading="lazy" decoding="async">
+  </picture>
+  <div class="container home-banner-inner">
+    <div class="eyebrow">BH Fashion Week 2025</div>
+    <h2>Boa Belts na pisti 49. BH Fashion Weeka</h2>
+    <p>Fotografije sa naše revije na otvaranju 49. BH Fashion Weeka u Sarajevu.</p>
+    <a href="/bh-fashion-week" class="btn home-btn-light">Pogledajte reviju</a>
+  </div>
+</section>
+
+<section class="section home-story-section">
+  <div class="container home-story">
+    <div class="home-story-image">
+      <img src="<%= story.image %>" alt="Radionica Boa Belts u Travniku" loading="lazy" decoding="async">
+    </div>
+    <div class="home-story-text">
+      <% if (story.eyebrow) { %><div class="eyebrow"><%= story.eyebrow %></div><% } %>
+      <h2><%= story.heading %></h2>
+      <% if (story.text) { %><p><%= story.text %></p><% } %>
+      <% if (story.cta_text) { %>
+        <a href="<%= story.cta_link || '/o-nama' %>" class="boa-link-arrow"><%= story.cta_text %></a>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="home-loyalty-section">
+  <div class="container">
+    <a href="/program-lojalnosti" class="home-loyalty">
+      <div>
+        <div class="eyebrow">Loyalty kartica</div>
+        <h2>Program lojalnosti</h2>
+        <p>Svaka narudžba vas vodi do većih pogodnosti: popusti i iznenađenja iz naše radionice.</p>
+      </div>
+      <span class="btn home-btn-light">Pogledajte pogodnosti</span>
+    </a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

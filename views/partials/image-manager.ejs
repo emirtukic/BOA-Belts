@@ -1,0 +1,34 @@
+<%
+  // Izbor boje postoji samo na formi proizvoda; ostale stranice salju samo images.
+  const colorChoices = typeof colors !== 'undefined' ? colors : null;
+  const colorOfImage = typeof imageColors !== 'undefined' ? imageColors : {};
+%>
+<% if (images && images.length) { %>
+  <div class="form-row full">
+    <label>Postojeće slike</label>
+    <p class="image-manager-hint">Kliknite na &times; da uklonite sliku (klik ponovo za vraćanje).<% if (colorChoices) { %> Ispod slike izaberite boju koju slika prikazuje - kad kupac izabere tu boju, prikazaće mu se ta slika.<% } %></p>
+    <div class="image-thumb-grid">
+      <% images.forEach(function(img, idx) { %>
+        <div class="image-thumb-item">
+          <label class="image-thumb">
+            <input type="checkbox" name="keepImages" value="<%= img %>" checked class="image-thumb-input">
+            <img src="<%= img %>" alt="">
+            <span class="image-thumb-badge">
+              <span class="icon-remove">&times;</span>
+              <span class="icon-undo">&#8635;</span>
+            </span>
+          </label>
+          <% if (colorChoices) { %>
+          <input type="hidden" name="imagePath_<%= idx %>" value="<%= img %>">
+          <select name="imageColor_<%= idx %>" class="image-color-select" aria-label="Boja slike <%= idx + 1 %>" data-selected="<%= colorOfImage[img] || '' %>">
+            <option value="">Sve boje</option>
+            <% colorChoices.forEach(function(color) { %>
+              <option value="<%= color %>" <%= colorOfImage[img] === color ? 'selected' : '' %>><%= color %></option>
+            <% }) %>
+          </select>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+<% } %>

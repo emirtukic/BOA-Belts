@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Nalog</div>
+      <h1>Prijavite se</h1>
+      <hr class="divider">
+    </div>
+
+
+    <div class="form-panel" style="max-width: 420px; margin: 0 auto;">
+      <%- include('../partials/oauth-buttons') %>
+      <form action="/nalog/prijava" method="POST">
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="password">Lozinka</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <p class="text-right" style="text-align:right; margin: -8px 0 16px;"><small><a href="/nalog/zaboravljena-lozinka">Zaboravili ste lozinku?</a></small></p>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Prijavite se</button>
+      </form>
+      <p class="text-center mt-lg"><small>Nemate nalog? <a href="/nalog/registracija">Registrujte se</a></small></p>
+      <p class="text-center"><small>Niste potvrdili e-mail? <a href="/nalog/ponovi-verifikaciju">Pošaljite link ponovo</a></small></p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

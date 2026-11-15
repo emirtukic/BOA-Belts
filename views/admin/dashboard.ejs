@@ -1,0 +1,142 @@
+<%- include('../partials/admin-head') %>
+<%- include('../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7L12 3 4 7l8 4 8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= productCount %></div>
+      <div class="stat-label">Proizvoda ukupno</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= inStockCount %></div>
+      <div class="stat-label">Na stanju</div>
+    </div>
+  </div>
+  <a href="/admin/narudzbe?status=novo" class="stat-card stat-card-link">
+    <div class="stat-icon stat-icon-gold">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h15l-1.6 9.5a1.5 1.5 0 0 1-1.48 1.25H8.4a1.5 1.5 0 0 1-1.48-1.25L5.2 4.5H2"/><circle cx="9.5" cy="21" r="1.15"/><circle cx="18" cy="21" r="1.15"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= orderCounts.novo %></div>
+      <div class="stat-label">Nove narudžbe</div>
+    </div>
+  </a>
+  <a href="/admin/narudzbe" class="stat-card stat-card-link">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h3.5l3.5 3v4h-7"/><circle cx="6" cy="19.5" r="1.6"/><circle cx="18" cy="19.5" r="1.6"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= orderCounts.u_obradi + orderCounts.poslano %></div>
+      <div class="stat-label">U obradi / poslano</div>
+    </div>
+  </a>
+  <a href="/admin/korisnici" class="stat-card stat-card-link">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.5 7.5-5.5s6.1 1.9 7.5 5.5"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= customerCount %></div>
+      <div class="stat-label">Registrovani korisnici</div>
+    </div>
+  </a>
+  <div class="stat-card">
+    <div class="stat-icon stat-icon-gold">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 9.5c0-1 1-1.8 2.2-1.8h1.6c1.4 0 2.2.9 2.2 1.8 0 2.2-6 1.4-6 3.8 0 1 1 1.8 2.4 1.8h1.6c1.2 0 2.2-.8 2.2-1.8"/><path d="M12 6v1.5M12 16.5V18"/></svg>
+    </div>
+    <div>
+      <div class="stat-number"><%= revenue.toFixed(0) %> KM</div>
+      <div class="stat-label">Prihod (bez novih i otkazanih)</div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-panel-box low-stock-box">
+  <h3>Nije na stanju</h3>
+  <% if (outOfStock.length === 0) { %>
+    <p>Svi proizvodi se mogu naručiti.</p>
+  <% } else { %>
+    <p class="low-stock-hint">Kupci ove proizvode vide, ali ih ne mogu naručiti. Klikni proizvod i uključi "Na stanju" kad ga opet imaš.</p>
+    <div class="low-stock-list">
+      <% outOfStock.forEach(function(item) { %>
+        <a href="/admin/proizvodi/<%= item.id %>/izmijeni" class="low-stock-item is-out">
+          <span class="low-stock-name"><%= item.name %></span>
+          <span class="low-stock-count">nije na stanju</span>
+        </a>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+<div class="admin-panels-row">
+  <div class="admin-panel-box" style="flex:2;">
+    <h3>Nedavne narudžbe</h3>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Kupac</th>
+            <th>Ukupno</th>
+            <th>Status</th>
+            <th class="hide-mobile">Datum</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (recentOrders.length === 0) { %>
+            <tr><td colspan="6">Još nema narudžbi.</td></tr>
+          <% } %>
+          <% recentOrders.forEach(function(order) { %>
+            <tr>
+              <td>#<%= order.id %></td>
+              <td><%= order.customer_name %></td>
+              <td><%= order.total_km.toFixed(2) %> KM</td>
+              <td><span class="status-tag status-<%= order.status %>"><%= statusLabels[order.status] || order.status %></span></td>
+              <td class="hide-mobile"><%= formatDate(order.created_at) %></td>
+              <td><a href="/admin/narudzbe/<%= order.id %>" class="btn btn-outline btn-small">Otvori</a></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="admin-panel-box" style="flex:1;">
+    <h3>Podsjetnici</h3>
+    <% if (pendingReminders.length === 0) { %>
+      <p>Nema aktivnih podsjetnika.</p>
+    <% } else { %>
+      <div class="todo-list">
+        <% pendingReminders.forEach(function(r) { %>
+          <div class="todo-item">
+            <form action="/admin/podsjetnici/<%= r.id %>/toggle?_method=PUT" method="POST">
+              <label class="todo-checkbox">
+                <input type="checkbox" onchange="this.form.submit()">
+                <span></span>
+              </label>
+            </form>
+            <div class="todo-text">
+              <%= r.text %>
+              <% if (r.due_date) { %><span class="todo-due">Rok: <%= r.due_date %></span><% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+    <a href="/admin/podsjetnici" class="btn btn-outline btn-small mt-lg">Svi podsjetnici</a>
+  </div>
+</div>
+
+<%- include('../partials/admin-footer') %>

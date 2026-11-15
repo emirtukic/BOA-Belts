@@ -1,0 +1,72 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Korpa</div>
+      <h1>Vaša korpa</h1>
+      <hr class="divider">
+    </div>
+
+
+    <% if (items.length === 0) { %>
+      <div class="empty-state">
+        <h3>Vaša korpa je prazna.</h3>
+        <a href="/kolekcija" class="btn btn-primary mt-lg">Pogledajte kolekciju</a>
+      </div>
+    <% } else { %>
+      <% const showOptions = items.some(function(i) { return i.size || i.color || i.detailColor; }); %>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Proizvod</th>
+            <% if (showOptions) { %><th>Izbor</th><% } %>
+            <th>Količina</th>
+            <th>Cijena</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% items.forEach(function(item) { %>
+            <tr>
+              <td style="display:flex; align-items:center; gap:12px;">
+                <img src="<%= item.product.smallImage(item.product.imageFor(item.color)) %>" alt="<%= item.product.name %>">
+                <div>
+                  <a href="/kolekcija/<%= item.product.slug %>"><%= item.product.name %></a>
+                  <% if (item.product.onSale) { %>
+                    <div><span class="price-old"><%= item.product.price_km.toFixed(2) %> KM</span><span class="price-now"><%= item.product.sale_price_km.toFixed(2) %> KM</span></div>
+                  <% } %>
+                </div>
+              </td>
+              <% if (showOptions) { %><td><%= itemOptions(item).join(', ') || '-' %></td><% } %>
+              <td>
+                <form action="/korpa/<%= item.index %>?_method=PUT" method="POST" style="display:flex; gap:8px;">
+                  <input type="number" name="qty" value="<%= item.qty %>" min="1"<% if (item.maxQty !== null) { %> max="<%= item.maxQty %>"<% } %> class="qty-input" aria-label="Količina">
+                  <button type="submit" class="btn btn-outline btn-small">Ažurirajte</button>
+                </form>
+              </td>
+              <td><%= item.lineTotal.toFixed(2) %> KM</td>
+              <td>
+                <form action="/korpa/<%= item.index %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger btn-small">Uklonite</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+          <tr class="cart-total-row">
+            <td colspan="3">Ukupno</td>
+            <td colspan="2"><%= total.toFixed(2) %> KM</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-center" style="color:#6a6a6a; font-size:0.85rem; margin-top:-16px;">Poštarina se dodaje u sljedećem koraku.</p>
+
+      <div class="text-center">
+        <a href="/narudzba" class="btn btn-primary">Završite narudžbu</a>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

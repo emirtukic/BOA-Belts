@@ -1,0 +1,21 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="section">
+  <div class="container story-content">
+    <div class="section-header">
+      <div class="eyebrow">Loyalty kartica</div>
+      <h1><%= content.heading || 'Program lojalnosti' %></h1>
+      <hr class="divider">
+    </div>
+    <% if (content.intro) { %><p class="story-lead"><%= content.intro %></p><% } %>
+    <div class="loyalty-card-box">
+      <%- bodyHtml %>
+    </div>
+    <div class="text-center mt-lg">
+      <a href="/kolekcija" class="btn btn-primary">Pogledajte kolekciju</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

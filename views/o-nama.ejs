@@ -1,0 +1,51 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="section">
+  <div class="container story-content">
+    <div class="section-header">
+      <div class="eyebrow">O nama</div>
+      <h1><%= content.heading || 'O nama' %></h1>
+      <hr class="divider">
+    </div>
+
+    <p class="story-lead"><%= content.intro %></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container story-content">
+    <%- include('partials/value-props') %>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container story-content">
+    <%- bodyHtml %>
+
+    <% if (content.images.length) { %>
+      <div class="story-gallery">
+        <% content.images.forEach(function(img, idx) { %>
+          <img src="<%= img.replace(/\.webp$/i, '-sm.webp') %>" data-full="<%= img %>" alt="Radionica Boa Belts, fotografija <%= idx + 1 %>" loading="lazy" decoding="async">
+        <% }) %>
+      </div>
+    <% } %>
+
+    <div class="text-center mt-lg">
+      <a href="/kolekcija" class="btn btn-primary">Pogledajte kolekciju</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Pitanja</div>
+      <h2>Često postavljana pitanja</h2>
+      <hr class="divider">
+    </div>
+    <%- include('partials/faq') %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,46 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Korisnici (<%= customers.length %>)</h1>
+</div>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Ime</th>
+        <th>E-mail</th>
+        <th>Telefon</th>
+        <th>Grad</th>
+        <th>Prijava preko</th>
+        <th>Verifikovan</th>
+        <th>Narudžbe</th>
+        <th>Registrovan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (customers.length === 0) { %>
+        <tr><td colspan="8">Nema registrovanih korisnika.</td></tr>
+      <% } %>
+      <% customers.forEach(function(c) { %>
+        <tr>
+          <td><%= c.name %></td>
+          <td><%= c.email %></td>
+          <td><%= c.phone || '-' %></td>
+          <td><%= c.city || '-' %></td>
+          <td>
+            <span class="login-method-tag">
+              <% if (c.google_id) { %>Google<% } else if (c.facebook_id) { %>Facebook<% } else { %>E-mail<% } %>
+            </span>
+          </td>
+          <td><span class="status-tag <%= c.email_verified ? 'status-zavrseno' : 'status-novo' %>"><%= c.email_verified ? 'Da' : 'Ne' %></span></td>
+          <td><%= c.orderCount %></td>
+          <td><%= formatDate(c.created_at) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/admin-footer') %>

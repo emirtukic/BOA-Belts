@@ -1,0 +1,40 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Kategorije (<%= categories.length %>)</h1>
+  <a href="/admin/kategorije/nova" class="btn btn-primary">+ Nova kategorija</a>
+</div>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Naziv</th>
+        <th>Redoslijed</th>
+        <th>Broj proizvoda</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (categories.length === 0) { %>
+        <tr><td colspan="4">Još nema kategorija.</td></tr>
+      <% } %>
+      <% categories.forEach(function(category) { %>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= category.sort_order %></td>
+          <td><%= category.productCount %></td>
+          <td style="display:flex; gap:8px;">
+            <a href="/admin/kategorije/<%= category.id %>/izmijeni" class="btn btn-outline btn-small">Izmijeni</a>
+            <form action="/admin/kategorije/<%= category.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Obrisati ovu kategoriju?');">
+              <button type="submit" class="btn btn-danger btn-small">Obriši</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/admin-footer') %>

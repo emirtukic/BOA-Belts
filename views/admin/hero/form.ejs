@@ -1,0 +1,134 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Početna stranica</h1>
+</div>
+
+<form action="/admin/pocetna" method="POST" enctype="multipart/form-data">
+
+<div class="form-panel" style="max-width: 780px; margin-bottom: 24px;">
+  <h2 style="margin-top:0;">Hero sekcija (vrh stranice)</h2>
+  <div class="admin-form-grid">
+    <div class="form-row full">
+      <label for="eyebrow">Nadnaslov</label>
+      <input type="text" id="eyebrow" name="eyebrow" value="<%= hero.eyebrow %>">
+    </div>
+
+    <div class="form-row full">
+      <label for="heading">Naslov</label>
+      <input type="text" id="heading" name="heading" value="<%= hero.heading %>" required>
+    </div>
+
+    <div class="form-row full">
+      <label for="text">Tekst</label>
+      <textarea id="text" name="text" rows="3"><%= hero.text %></textarea>
+    </div>
+
+    <div class="form-row full">
+      <label for="cta_text">Tekst dugmeta</label>
+      <input type="text" id="cta_text" name="cta_text" value="<%= hero.cta_text %>">
+      <small>Dugme uvijek vodi na /kolekcija.</small>
+    </div>
+
+    <div class="form-row full">
+      <label>Vrsta medija</label>
+      <div class="pill-options">
+        <label>
+          <input type="radio" name="media_type" value="images" <%= hero.media_type !== 'video' ? 'checked' : '' %>>
+          <span>Slike (karusel)</span>
+        </label>
+        <label>
+          <input type="radio" name="media_type" value="video" <%= hero.media_type === 'video' ? 'checked' : '' %>>
+          <span>Video</span>
+        </label>
+      </div>
+    </div>
+
+    <%- include('../../partials/image-manager', { images: hero.images }) %>
+
+    <div class="form-row full">
+      <label>Dodaj nove slike za karusel</label>
+      <label class="image-upload-dropzone">
+        <input type="file" id="images" name="images" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <span class="dropzone-label">Klikni da dodaš slike ili ih prevuci ovdje</span>
+      </label>
+      <small>Preporučeno: portret/pejzaž fotografije, automatski se optimizuju.</small>
+    </div>
+
+    <div class="form-row full">
+      <label>Video pozadina</label>
+      <% if (hero.video_url) { %>
+        <video src="<%= hero.video_url %>" controls style="max-width:320px; display:block; margin-bottom:10px;"></video>
+        <label class="checkbox-row">
+          <input type="checkbox" name="removeVideo" value="1">
+          Ukloni trenutni video
+        </label>
+      <% } %>
+      <input type="file" id="video" name="video" accept="video/mp4,video/webm">
+      <small>MP4 ili WEBM. Koristi se samo ako je iznad izabrana vrsta medija "Video".</small>
+    </div>
+  </div>
+</div>
+
+<% [
+  { key: 'lifestyle', title: 'Sekcija "Kaiševi koji podižu svaki izgled"', hasEyebrow: true, hasText: true },
+  { key: 'story', title: 'Sekcija "Izrađeno u Travniku"', hasEyebrow: true, hasText: true }
+].forEach(function(block) {
+  const section = sections[block.key];
+%>
+  <div class="form-panel" style="max-width: 780px; margin-bottom: 24px;">
+    <h2 style="margin-top:0;"><%= block.title %></h2>
+    <div class="admin-form-grid">
+      <div class="form-row full">
+        <label>Slika</label>
+        <div class="image-thumb-grid">
+          <div class="image-thumb" style="cursor:default;">
+            <img src="<%= section.image %>" alt="">
+          </div>
+        </div>
+        <label class="image-upload-dropzone">
+          <input type="file" name="<%= block.key %>_image" accept="image/jpeg,image/png,image/webp" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+          <span class="dropzone-label">Klikni da zamijeniš sliku</span>
+        </label>
+      </div>
+
+      <% if (block.hasEyebrow) { %>
+        <div class="form-row full">
+          <label for="<%= block.key %>_eyebrow">Nadnaslov</label>
+          <input type="text" id="<%= block.key %>_eyebrow" name="<%= block.key %>_eyebrow" value="<%= section.eyebrow %>">
+        </div>
+      <% } %>
+
+      <div class="form-row full">
+        <label for="<%= block.key %>_heading">Naslov</label>
+        <input type="text" id="<%= block.key %>_heading" name="<%= block.key %>_heading" value="<%= section.heading %>" required>
+      </div>
+
+      <% if (block.hasText) { %>
+        <div class="form-row full">
+          <label for="<%= block.key %>_text">Tekst</label>
+          <textarea id="<%= block.key %>_text" name="<%= block.key %>_text" rows="3"><%= section.text %></textarea>
+        </div>
+      <% } %>
+
+      <div class="form-row">
+        <label for="<%= block.key %>_cta_text">Tekst dugmeta</label>
+        <input type="text" id="<%= block.key %>_cta_text" name="<%= block.key %>_cta_text" value="<%= section.cta_text %>">
+      </div>
+
+      <div class="form-row">
+        <label for="<%= block.key %>_cta_link">Dugme vodi na</label>
+        <input type="text" id="<%= block.key %>_cta_link" name="<%= block.key %>_cta_link" value="<%= section.cta_link %>">
+      </div>
+    </div>
+  </div>
+<% }) %>
+
+<button type="submit" class="btn btn-primary">Sačuvaj sve</button>
+<a href="/" target="_blank" class="btn btn-outline">Pogledaj početnu &#8599;</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>

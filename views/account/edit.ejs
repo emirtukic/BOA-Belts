@@ -1,0 +1,52 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Nalog</div>
+      <h1>Izmijenite podatke</h1>
+      <hr class="divider">
+    </div>
+
+
+    <div class="form-panel" style="max-width: 480px; margin: 0 auto;">
+      <form action="/nalog/izmjena" method="POST">
+        <div class="form-row">
+          <label for="name">Ime i prezime</label>
+          <input type="text" id="name" name="name" value="<%= customer.name %>" required>
+        </div>
+        <div class="form-row">
+          <label>E-mail</label>
+          <input type="email" value="<%= customer.email %>" disabled>
+        </div>
+        <div class="form-row">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" value="<%= customer.phone || '' %>">
+        </div>
+        <div class="form-row">
+          <label for="address">Adresa</label>
+          <input type="text" id="address" name="address" value="<%= customer.address || '' %>">
+        </div>
+        <div class="form-row">
+          <label for="city">Grad</label>
+          <input type="text" id="city" name="city" value="<%= customer.city || '' %>">
+        </div>
+        <hr class="divider" style="margin: 24px auto;">
+        <p><small>Ostavite prazno ako ne želite mijenjati lozinku.</small></p>
+        <div class="form-row">
+          <label for="password">Nova lozinka</label>
+          <input type="password" id="password" name="password" minlength="6">
+        </div>
+        <div class="form-row">
+          <label for="password2">Ponovite novu lozinku</label>
+          <input type="password" id="password2" name="password2" minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Sačuvajte izmjene</button>
+      </form>
+      <p class="text-center mt-lg"><a href="/nalog">&larr; Nazad na moj nalog</a></p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

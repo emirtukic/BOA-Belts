@@ -1,0 +1,25 @@
+<div class="shelf-card">
+  <a href="/kolekcija/<%= product.slug %>" class="shelf-card-image-link">
+    <img src="<%= product.smallImage(product.coverImage) %>" alt="<%= product.name %>" class="shelf-card-image" loading="lazy" decoding="async">
+    <% if (product.images.length > 1) { %>
+      <img src="<%= product.smallImage(product.images[1]) %>" alt="" class="shelf-card-image shelf-card-image-hover" loading="lazy" decoding="async">
+    <% } %>
+    <% if (product.onSale) { %><span class="product-card-tag product-card-tag-sale">-<%= product.discountPercent %>%</span><% } %>
+  </a>
+  <div class="shelf-card-info">
+    <div class="shelf-card-text">
+      <h4><a href="/kolekcija/<%= product.slug %>"><%= product.name %></a></h4>
+      <div class="shelf-card-price">
+        <% if (product.onSale) { %>
+          <span class="price-old"><%= product.price_km.toFixed(2) %> KM</span>
+          <span class="price-now"><%= product.sale_price_km.toFixed(2) %> KM</span>
+        <% } else { %>
+          <%= product.price_km.toFixed(2) %> KM
+        <% } %>
+      </div>
+    </div>
+    <a href="/kolekcija/<%= product.slug %>" class="shelf-add-btn" aria-label="Pogledajte proizvod: <%= product.name %>">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>

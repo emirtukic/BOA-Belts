@@ -1,0 +1,57 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Nalog</div>
+      <h1>Kreirajte nalog</h1>
+      <hr class="divider">
+    </div>
+
+
+    <div class="form-panel" style="max-width: 480px; margin: 0 auto;">
+      <%- include('../partials/oauth-buttons') %>
+      <form action="/nalog/registracija" method="POST">
+        <div class="form-row">
+          <label for="name">Ime i prezime</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Telefon (opciono)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-row">
+          <label for="address">Adresa (opciono)</label>
+          <input type="text" id="address" name="address">
+        </div>
+        <div class="form-row">
+          <label for="city">Grad (opciono)</label>
+          <input type="text" id="city" name="city">
+        </div>
+        <div class="form-row">
+          <label for="password">Lozinka</label>
+          <input type="password" id="password" name="password" required minlength="6">
+        </div>
+        <div class="form-row">
+          <label for="password2">Ponovite lozinku</label>
+          <input type="password" id="password2" name="password2" required minlength="6">
+        </div>
+        <div class="form-row">
+          <label class="checkbox-row">
+            <input type="checkbox" name="newsletter">
+            <span><%= newsletterTexts ? newsletterTexts.registerLabelShown : 'Želim primati newsletter sa novim kolekcijama i ponudama' %></span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Kreirajte nalog</button>
+      </form>
+      <p class="text-center mt-lg"><small>Već imate nalog? <a href="/nalog/prijava">Prijavite se</a></small></p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,27 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Nalog</div>
+      <h1>Pošaljite ponovo link za potvrdu</h1>
+      <hr class="divider">
+      <p>Unesite e-mail adresu koju ste koristili prilikom registracije.</p>
+    </div>
+
+
+    <div class="form-panel" style="max-width: 420px; margin: 0 auto;">
+      <form action="/nalog/ponovi-verifikaciju" method="POST">
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Pošaljite link</button>
+      </form>
+      <p class="text-center mt-lg"><small><a href="/nalog/prijava">&larr; Nazad na prijavu</a></small></p>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

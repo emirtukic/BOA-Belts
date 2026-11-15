@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="section">
+  <div class="container story-content">
+    <div class="section-header">
+      <div class="eyebrow">BH Fashion Week 2025</div>
+      <h1>Boa Belts na 49. BH Fashion Weeku</h1>
+      <hr class="divider">
+    </div>
+    <p class="story-lead">Na otvaranju 49. BH Fashion Weeka u hotelu Bosmal Arjaan by Rotana prikazali smo kolekciju uz No Nation Fashion, AMAL i druge brendove koji podržavaju kampanju "Udružene protiv nasilja nad ženama".</p>
+    <p>Revija u Sarajevu bila je prilika da domaću publiku i goste iz regiona upoznamo s ručno rađenim kaiševima i torbama iz Travnika.</p>
+    <h3>Šta smo zabilježili</h3>
+    <ul>
+      <li>Otvorili smo pistu prve večeri zajedno sa No Nation Fashion i međunarodnim gostima.</li>
+      <li>Kroz kreacije smo naglasili poruke kampanje "Udružene protiv nasilja nad ženama".</li>
+      <li>Mediji su prenijeli atmosferu i fotografije iz Bosmal Arjaan by Rotana hotela.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="story-gallery revija-gallery">
+      <% images.forEach(function(img, idx) { %>
+        <img src="<%= img.replace(/\.webp$/i, '-sm.webp') %>" data-full="<%= img %>" alt="Revija Boa Belts na BH Fashion Weeku, fotografija <%= idx + 1 %>" loading="lazy" decoding="async" width="600" height="900">
+      <% }) %>
+    </div>
+    <div class="text-center mt-lg">
+      <a href="/kolekcija" class="btn btn-primary">Pogledajte kolekciju</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,59 @@
+<%
+  // Stupcasti grafikon jedne serije: chart = { points, ticks, format, total }.
+  const fmt = function(v) { return chart.format === 'km' ? v.toFixed(2) + ' KM' : String(v); };
+  const tickLabel = function(v) {
+    if (v >= 10000) return (v / 1000).toLocaleString('bs-BA', { maximumFractionDigits: 1 }) + 'K';
+    return Number.isInteger(v) ? String(v) : v.toFixed(1);
+  };
+  const top = chart.ticks[chart.ticks.length - 1] || 1;
+  const n = chart.points.length;
+  const labelEvery = Math.max(1, Math.ceil(n / 7));
+  const maxValue = Math.max(0, ...chart.points.map(function(p) { return p.value; }));
+  const maxIndex = maxValue > 0 ? chart.points.findIndex(function(p) { return p.value === maxValue; }) : -1;
+%>
+<figure class="chart-card">
+  <figcaption class="chart-head">
+    <h2><%= title %></h2>
+    <p><%= subtitle %></p>
+  </figcaption>
+  <div class="col-chart">
+    <div class="col-chart-plot">
+      <% chart.ticks.forEach(function(t) { %>
+        <div class="col-chart-gridline<%= t === 0 ? ' is-baseline' : '' %>" style="bottom: <%= (t / top * 100).toFixed(2) %>%">
+          <span><%= tickLabel(t) %></span>
+        </div>
+      <% }) %>
+      <div class="col-chart-bars">
+        <% chart.points.forEach(function(p, i) { %>
+          <div class="col-chart-slot" tabindex="0" role="img"
+               aria-label="<%= p.long %>: <%= fmt(p.value) %>"
+               data-tip-label="<%= p.long %>" data-tip-value="<%= fmt(p.value) %>">
+            <% if (p.value > 0) { %>
+              <div class="col-chart-bar" style="height: <%= (p.value / top * 100).toFixed(2) %>%">
+                <% if (i === maxIndex) { %><span class="col-chart-peak"><%= fmt(p.value) %></span><% } %>
+              </div>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+    <div class="col-chart-xaxis" aria-hidden="true">
+      <% chart.points.forEach(function(p, i) { %>
+        <span><%= i % labelEvery === 0 ? p.short : '' %></span>
+      <% }) %>
+    </div>
+  </div>
+  <details class="chart-table">
+    <summary>Prikaži kao tabelu</summary>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead><tr><th><%= unitLabel %></th><th class="num"><%= valueLabel %></th></tr></thead>
+        <tbody>
+          <% chart.points.forEach(function(p) { %>
+            <tr><td><%= p.long %></td><td class="num"><%= fmt(p.value) %></td></tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>

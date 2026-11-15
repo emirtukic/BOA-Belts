@@ -1,0 +1,76 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= popup ? 'Izmijeni popup' : 'Novi popup' %></h1>
+  <a href="/admin/popup" class="btn btn-outline">&larr; Nazad na listu</a>
+</div>
+
+<form class="form-panel" style="max-width: 700px;"
+      action="<%= popup ? `/admin/popup/${popup.id}?_method=PUT` : '/admin/popup' %>"
+      method="POST" enctype="multipart/form-data">
+  <div class="admin-form-grid">
+    <div class="form-row full">
+      <label for="name">Naziv popupa (samo za admina)</label>
+      <input type="text" id="name" name="name" value="<%= popup ? popup.name : '' %>" placeholder="npr. Jesenja akcija 2026" required>
+    </div>
+
+    <div class="form-row full">
+      <label>Slika</label>
+      <% if (popup && popup.image) { %>
+        <div class="image-thumb-grid">
+          <label class="image-thumb">
+            <input type="checkbox" name="keepImage" value="1" checked class="image-thumb-input">
+            <img src="<%= popup.image %>" alt="">
+            <span class="image-thumb-badge">
+              <span class="icon-remove">&times;</span>
+              <span class="icon-undo">&#8635;</span>
+            </span>
+          </label>
+        </div>
+      <% } %>
+      <label class="image-upload-dropzone">
+        <input type="file" name="image" accept="image/jpeg,image/png,image/webp" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <span class="dropzone-label"><%= popup && popup.image ? 'Zamijeni sliku' : 'Klikni da dodaš sliku' %></span>
+      </label>
+    </div>
+
+    <div class="form-row full">
+      <label for="heading">Naslov</label>
+      <input type="text" id="heading" name="heading" value="<%= popup ? popup.heading : '' %>" placeholder="npr. Prijavite se. Budite u toku.">
+    </div>
+
+    <div class="form-row full">
+      <label for="text">Tekst</label>
+      <textarea id="text" name="text" rows="3" placeholder="npr. Budite prvi koji saznaju za nove kolekcije i popuste."><%= popup ? popup.text : '' %></textarea>
+    </div>
+
+    <div class="form-row">
+      <label for="cta_text">Tekst dugmeta</label>
+      <input type="text" id="cta_text" name="cta_text" value="<%= popup ? popup.cta_text : '' %>" placeholder="npr. Pogledajte kolekciju">
+    </div>
+
+    <div class="form-row">
+      <label for="cta_link">Dugme vodi na</label>
+      <input type="text" id="cta_link" name="cta_link" value="<%= popup ? popup.cta_link : '/kolekcija' %>" placeholder="/kolekcija">
+    </div>
+
+    <div class="form-row">
+      <label for="delay_seconds">Kašnjenje prikaza (sekunde)</label>
+      <input type="number" id="delay_seconds" name="delay_seconds" min="0" max="30" value="<%= popup ? popup.delay_seconds : 2 %>">
+      <small>Koliko čekati nakon učitavanja stranice prije nego se popup pojavi.</small>
+    </div>
+
+    <div class="form-row">
+      <label for="auto_close_seconds">Auto-gašenje nakon (sekunde)</label>
+      <input type="number" id="auto_close_seconds" name="auto_close_seconds" min="0" max="120" value="<%= popup ? popup.auto_close_seconds : 0 %>">
+      <small>0 = popup se ne gasi sam, korisnik ga zatvara ručno (X). Npr. 10 = nestane sam nakon 10 sekundi.</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj</button>
+  <a href="/admin/popup" class="btn btn-outline">Otkaži</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>

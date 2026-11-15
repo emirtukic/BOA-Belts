@@ -1,0 +1,86 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= promoCode ? 'Izmijeni promo kod' : 'Novi promo kod' %></h1>
+</div>
+
+<form
+  class="form-panel"
+  style="max-width: 560px;"
+  action="<%= promoCode ? '/admin/promo-kodovi/' + promoCode.id + '?_method=PUT' : '/admin/promo-kodovi' %>"
+  method="POST"
+>
+  <div class="admin-form-grid">
+    <div class="form-row full">
+      <label for="code">Kod</label>
+      <input type="text" id="code" name="code" value="<%= promoCode ? promoCode.code : '' %>" placeholder="npr. LJETO20" style="text-transform:uppercase;" required>
+      <small>Kupci ga unose pri završetku narudžbe (nije osjetljivo na velika/mala slova).</small>
+    </div>
+
+    <div class="form-row">
+      <label for="type">Vrsta popusta</label>
+      <select id="type" name="type">
+        <option value="percent" <%= !promoCode || promoCode.type === 'percent' ? 'selected' : '' %>>Procenat (%)</option>
+        <option value="fixed" <%= promoCode && promoCode.type === 'fixed' ? 'selected' : '' %>>Fiksni iznos (KM)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="value">Vrijednost</label>
+      <input type="number" id="value" name="value" step="0.01" min="0" value="<%= promoCode ? promoCode.value : '' %>" required>
+    </div>
+
+    <div class="form-row">
+      <label for="usage_limit">Max broj korištenja</label>
+      <input type="number" id="usage_limit" name="usage_limit" min="1" value="<%= promoCode && promoCode.usage_limit ? promoCode.usage_limit : '' %>" placeholder="bez ograničenja">
+    </div>
+
+    <div class="form-row">
+      <label for="expires_at">Ističe (opciono)</label>
+      <input type="date" id="expires_at" name="expires_at" value="<%= promoCode && promoCode.expires_at ? promoCode.expires_at.slice(0, 10) : '' %>">
+    </div>
+
+    <div class="form-row">
+      <label for="audience">Ko može koristiti kod</label>
+      <select id="audience" name="audience">
+        <% audiences.forEach(function(a) { %>
+          <option value="<%= a.id %>" <%= (promoCode ? promoCode.audience : 'svi') === a.id ? 'selected' : '' %>><%= a.label %></option>
+        <% }) %>
+      </select>
+      <small>
+        <strong>Prva narudžba:</strong> kupac s tim e-mailom, telefonom ili nalogom još nije naručivao (otkazane se ne računaju).
+        <strong>Novi korisnici:</strong> kupac mora biti prijavljen na nalog napravljen u zadnjih X dana.
+      </small>
+    </div>
+
+    <div class="form-row" id="newCustomerDaysRow">
+      <label for="new_customer_days">Nalog napravljen u zadnjih (dana)</label>
+      <input type="number" id="new_customer_days" name="new_customer_days" min="1" max="365" value="<%= promoCode && promoCode.new_customer_days ? promoCode.new_customer_days : defaultDays %>">
+      <small>Važi samo za "Samo novi korisnici".</small>
+    </div>
+
+    <div class="form-row full">
+      <label class="checkbox-row">
+        <input type="checkbox" name="active" <%= !promoCode || promoCode.active ? 'checked' : '' %>>
+        Aktivan
+      </label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj</button>
+  <a href="/admin/promo-kodovi" class="btn btn-outline">Otkaži</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>
+
+<script>
+  (function () {
+    var audience = document.getElementById('audience');
+    var daysRow = document.getElementById('newCustomerDaysRow');
+    if (!audience || !daysRow) return;
+    function toggle() { daysRow.hidden = audience.value !== 'novi_korisnici'; }
+    audience.addEventListener('change', toggle);
+    toggle();
+  })();
+</script>

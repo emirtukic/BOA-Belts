@@ -1,0 +1,51 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<section class="section">
+  <div class="container text-center">
+    <div class="eyebrow">Hvala Vam</div>
+    <h1>Narudžba #<%= order.id %> je primljena!</h1>
+    <hr class="divider">
+    <p>Vaša narudžba je zaprimljena i uskoro krećemo u pripremu. Plaćanje: pouzećem prilikom preuzimanja.</p>
+
+    <div class="form-panel" style="margin: 32px auto; text-align:left;">
+      <h3>Pregled narudžbe</h3>
+      <table class="cart-table">
+        <% order.items.forEach(function(item) { %>
+          <tr>
+            <% const details = itemOptions(item).join(', '); %>
+            <td><%= item.name %><% if (details) { %> (<%= details %>)<% } %> &times; <%= item.qty %></td>
+            <td><%= (item.priceKm * item.qty).toFixed(2) %> KM</td>
+          </tr>
+        <% }) %>
+        <% if (order.discount_km) { %>
+          <tr>
+            <td>Popust<%= order.promo_code ? ' (' + order.promo_code + ')' : '' %></td>
+            <td>-<%= order.discount_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <% if (order.gift_wrap_price_km) { %>
+          <tr>
+            <td>Poklon pakovanje</td>
+            <td><%= order.gift_wrap_price_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <% if (order.shipping_km) { %>
+          <tr>
+            <td>Poštarina</td>
+            <td><%= order.shipping_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <tr class="cart-total-row">
+          <td>Ukupno</td>
+          <td><%= order.total_km.toFixed(2) %> KM</td>
+        </tr>
+      </table>
+      <p>Dostava na adresu: <%= order.address %>, <%= order.city %></p>
+    </div>
+
+    <a href="/kolekcija" class="btn btn-primary">Nastavite kupovinu</a>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

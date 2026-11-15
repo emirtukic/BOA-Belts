@@ -1,0 +1,117 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Narudžba #<%= order.id %></h1>
+  <span class="status-tag status-<%= order.status %>"><%= statusLabels[order.status] || order.status %></span>
+</div>
+
+<div class="admin-form-grid">
+  <div class="form-panel">
+    <h3>Podaci o kupcu</h3>
+    <p><strong>Ime:</strong> <%= order.customer_name %></p>
+    <% if (order.email) { %><p><strong>E-mail:</strong> <a href="mailto:<%= order.email %>"><%= order.email %></a></p><% } %>
+    <p><strong>Telefon:</strong> <a href="tel:<%= order.phone.replace(/[^+0-9]/g, '') %>"><%= order.phone %></a></p>
+    <p><strong>Adresa:</strong> <%= order.address %>, <%= order.city %></p>
+    <p><strong>Napomena:</strong> <%= order.notes || '-' %></p>
+    <p><strong>Način plaćanja:</strong> <%= paymentLabel %></p>
+    <p><strong>Datum:</strong> <%= formatDate(order.created_at) %></p>
+    <% if (linkedCustomer) { %>
+      <p><strong>Nalog:</strong> <a href="/admin/korisnici">Registrovan korisnik &#8599;</a></p>
+    <% } %>
+  </div>
+
+  <div class="form-panel">
+    <h3>Promijeni status</h3>
+    <p><small>Status "Poslano" kupcu šalje e-mail o slanju, s brojem pošiljke ako ga upišeš. "Otkazano" kupcu šalje e-mail o otkazivanju i vraća proizvode na stanje.</small></p>
+    <form action="/admin/narudzbe/<%= order.id %>/status?_method=PUT" method="POST">
+      <div class="form-row">
+        <select name="status">
+          <% statuses.forEach(function(s) { %>
+            <option value="<%= s.id %>" <%= order.status === s.id ? 'selected' : '' %>><%= s.label %></option>
+          <% }) %>
+        </select>
+      </div>
+      <fieldset class="tracking-fields">
+        <legend>Pošiljka (za status "Poslano")</legend>
+        <div class="form-row">
+          <label for="tracking_carrier">Kurir</label>
+          <select id="tracking_carrier" name="tracking_carrier">
+            <% carriers.forEach(function(c) { %>
+              <option value="<%= c.id %>" <%= (order.tracking_carrier || 'bh-posta') === c.id ? 'selected' : '' %>><%= c.label %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="tracking_number">Broj pošiljke</label>
+          <input type="text" id="tracking_number" name="tracking_number" maxlength="60" value="<%= order.tracking_number || '' %>" placeholder="npr. RR123456789BA" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label for="tracking_url">Direktan link za praćenje (opciono)</label>
+          <input type="url" id="tracking_url" name="tracking_url" maxlength="500" value="<%= order.tracking_url || '' %>" placeholder="https://...">
+          <small>Ako ga nema, kupac dobija link na stranicu kurira i broj koji tamo upiše.</small>
+        </div>
+        <% if (order.status === 'poslano' && order.shipped_email_sent) { %>
+          <p><small>Mail o slanju je već poslan. Ako sada dodaš ili promijeniš broj, kupac automatski dobija novi e-mail s brojem.</small></p>
+        <% } %>
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Sačuvaj</button>
+    </form>
+  </div>
+
+  <div class="form-panel full">
+    <h3>Stavke narudžbe</h3>
+    <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Proizvod</th>
+          <th>Obim struka</th>
+          <th>Boja</th>
+          <th>Boja detalja</th>
+          <th>Količina</th>
+          <th>Cijena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% order.items.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.size ? item.size + ' cm' : '' %></td>
+            <td><%= item.color %></td>
+            <td><%= item.detailColor || '' %></td>
+            <td><%= item.qty %></td>
+            <td><%= (item.priceKm * item.qty).toFixed(2) %> KM</td>
+          </tr>
+        <% }) %>
+        <% if (order.discount_km) { %>
+          <tr>
+            <td colspan="4" style="text-align:right;">Popust<%= order.promo_code ? ' (' + order.promo_code + ')' : '' %></td>
+            <td>-<%= order.discount_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <% if (order.gift_wrap_price_km) { %>
+          <tr>
+            <td colspan="4" style="text-align:right;">Poklon pakovanje</td>
+            <td><%= order.gift_wrap_price_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <% if (order.shipping_km) { %>
+          <tr>
+            <td colspan="4" style="text-align:right;">Poštarina</td>
+            <td><%= order.shipping_km.toFixed(2) %> KM</td>
+          </tr>
+        <% } %>
+        <tr>
+          <td colspan="4" style="text-align:right;"><strong>Ukupno</strong></td>
+          <td><strong><%= order.total_km.toFixed(2) %> KM</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<a href="/admin/narudzbe" class="btn btn-outline mt-lg">&larr; Sve narudžbe</a>
+
+<%- include('../../partials/admin-footer') %>

@@ -1,0 +1,32 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= category ? 'Izmijeni kategoriju' : 'Nova kategorija' %></h1>
+</div>
+
+<form
+  class="form-panel"
+  style="max-width: 560px;"
+  action="<%= category ? '/admin/kategorije/' + category.id + '?_method=PUT' : '/admin/kategorije' %>"
+  method="POST"
+>
+  <div class="admin-form-grid">
+    <div class="form-row full">
+      <label for="name">Naziv kategorije</label>
+      <input type="text" id="name" name="name" value="<%= category ? category.name : '' %>" placeholder="npr. Baletanke" required>
+      <small>Koristi se za filtriranje i prikaz u prodavnici.</small>
+    </div>
+
+    <div class="form-row full">
+      <label for="sort_order">Redoslijed prikaza</label>
+      <input type="number" id="sort_order" name="sort_order" value="<%= category ? category.sort_order : 0 %>">
+      <small>Manji broj se prikazuje prije (npr. 1, 2, 3...).</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj</button>
+  <a href="/admin/kategorije" class="btn btn-outline">Otkaži</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>

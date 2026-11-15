@@ -1,0 +1,24 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="section">
+  <div class="container">
+    <div class="boa-section-head">
+      <div>
+        <h1 class="wishlist-title">Lista želja</h1>
+        <p>Proizvodi koje ste sačuvali klikom na srce. Lista se čuva na ovom uređaju.</p>
+      </div>
+    </div>
+    <div id="wishlistItems" class="wishlist-items" aria-live="polite">
+      <p class="wishlist-loading">Učitavanje...</p>
+    </div>
+    <div id="wishlistEmpty" class="wishlist-empty" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.8-4.7-9.3-9.6C1.6 7.4 3.9 4.2 7.3 4.2c2 0 3.6 1.1 4.7 2.8 1.1-1.7 2.7-2.8 4.7-2.8 3.4 0 5.7 3.2 4.6 6.7-1.5 4.9-9.3 9.6-9.3 9.6z"/></svg>
+      <h3>Vaša lista želja je prazna.</h3>
+      <p>Kliknite na srce na proizvodu da ga sačuvate za kasnije.</p>
+      <a href="/kolekcija" class="btn btn-primary">Pogledajte kolekciju</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

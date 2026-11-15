@@ -1,0 +1,35 @@
+<%
+  const matchedCategory = typeof categories !== 'undefined' ? categories.find(function(c) { return c.slug === product.category; }) : null;
+  const categoryLabel = matchedCategory ? matchedCategory.name : product.category;
+%>
+<div class="product-card">
+  <button type="button" class="wish-btn" data-wish="<%= product.id %>" aria-pressed="false" aria-label="Dodaj u listu želja: <%= product.name %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.8-4.7-9.3-9.6C1.6 7.4 3.9 4.2 7.3 4.2c2 0 3.6 1.1 4.7 2.8 1.1-1.7 2.7-2.8 4.7-2.8 3.4 0 5.7 3.2 4.6 6.7-1.5 4.9-9.3 9.6-9.3 9.6z"/></svg>
+  </button>
+  <a href="/kolekcija/<%= product.slug %>" class="product-card-image-link">
+    <img src="<%= product.smallImage(product.coverImage) %>" alt="<%= product.name %>" class="product-card-image" loading="lazy" decoding="async">
+    <% if (product.images.length > 1) { %>
+      <img src="<%= product.smallImage(product.images[1]) %>" alt="" class="product-card-image product-card-image-hover" loading="lazy" decoding="async">
+    <% } %>
+    <% if (product.onSale) { %><span class="product-card-tag product-card-tag-sale">-<%= product.discountPercent %>%</span>
+    <% } else if (product.featured) { %><span class="product-card-tag product-card-tag-gold">Izdvojeno</span><% } %>
+    <% if (!product.available) { %><span class="product-card-tag product-card-tag-dark">Nema na stanju</span><% } %>
+  </a>
+  <div class="product-card-body">
+    <div class="product-card-category"><%= categoryLabel %></div>
+    <h3><a href="/kolekcija/<%= product.slug %>"><%= product.name %></a></h3>
+    <div class="product-card-footer">
+      <div class="product-price">
+        <% if (product.onSale) { %>
+          <span class="price-old"><%= product.price_km.toFixed(2) %> KM</span>
+          <span class="price-now"><%= product.sale_price_km.toFixed(2) %> KM</span>
+        <% } else { %>
+          <%= product.price_km.toFixed(2) %> KM
+        <% } %>
+      </div>
+      <a href="/kolekcija/<%= product.slug %>" class="shelf-add-btn" aria-label="Pogledajte proizvod: <%= product.name %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>

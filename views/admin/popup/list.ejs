@@ -1,0 +1,66 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Popup na sajtu (<%= popups.length %>)</h1>
+  <a href="/admin/popup/novi" class="btn btn-primary">+ Novi popup</a>
+</div>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Slika</th>
+        <th>Naziv</th>
+        <th>Naslov</th>
+        <th>Status</th>
+        <th>Kašnjenje / auto-gašenje</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (popups.length === 0) { %>
+        <tr><td colspan="6">Još nema nijednog popupa. Klikni "+ Novi popup" da napraviš prvi.</td></tr>
+      <% } %>
+      <% popups.forEach(function(popup) { %>
+        <tr>
+          <td><% if (popup.image) { %><img src="<%= popup.image %>" alt=""><% } else { %>-<% } %></td>
+          <td><%= popup.name %></td>
+          <td><%= popup.heading || '-' %></td>
+          <td>
+            <% if (popup.is_active) { %>
+              <span class="status-tag status-zavrseno">Aktivan</span>
+            <% } else { %>
+              <span class="status-tag status-novo">Neaktivan</span>
+            <% } %>
+          </td>
+          <td>
+            <%= popup.delay_seconds %>s prikaz
+            &middot;
+            <%= popup.auto_close_seconds > 0 ? popup.auto_close_seconds + 's auto-gašenje' : 'ručno zatvaranje' %>
+          </td>
+          <td style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a href="/admin/popup/<%= popup.id %>/izmijeni" class="btn btn-outline btn-small">Izmijeni</a>
+            <% if (popup.is_active) { %>
+              <form action="/admin/popup/<%= popup.id %>/deaktiviraj" method="POST">
+                <button type="submit" class="btn btn-outline btn-small">Deaktiviraj</button>
+              </form>
+            <% } else { %>
+              <form action="/admin/popup/<%= popup.id %>/aktiviraj" method="POST">
+                <button type="submit" class="btn btn-primary btn-small">Aktiviraj</button>
+              </form>
+            <% } %>
+            <form action="/admin/popup/<%= popup.id %>/dupliraj" method="POST">
+              <button type="submit" class="btn btn-outline btn-small">Dupliraj</button>
+            </form>
+            <form action="/admin/popup/<%= popup.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Obrisati ovaj popup?');">
+              <button type="submit" class="btn btn-danger btn-small">Obriši</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/admin-footer') %>

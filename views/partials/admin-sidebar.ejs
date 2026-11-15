@@ -1,0 +1,86 @@
+<div class="admin-mobile-topbar">
+  <img src="/images/logo/boa-logo.svg" alt="Boa Belts" class="admin-mobile-topbar-logo">
+  <button type="button" class="admin-nav-toggle" id="adminNavToggle" aria-label="Meni">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+<div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <button type="button" class="admin-sidebar-close" id="adminSidebarClose" aria-label="Zatvori meni">&times;</button>
+    <div class="logo">
+      <img src="/images/logo/boa-logo.svg" alt="Boa Belts">
+    </div>
+    <nav>
+      <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="/admin/statistika" class="<%= currentPath.startsWith('/admin/statistika') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></svg>
+        Statistika
+      </a>
+      <a href="/admin/pocetna" class="<%= currentPath === '/admin/pocetna' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+        Početna
+      </a>
+      <a href="/admin/stranice/o-nama" class="<%= currentPath === '/admin/stranice/o-nama' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg>
+        O nama
+      </a>
+      <a href="/admin/stranice/program-lojalnosti" class="<%= currentPath === '/admin/stranice/program-lojalnosti' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+        Program lojalnosti
+      </a>
+      <a href="/admin/popup" class="<%= currentPath === '/admin/popup' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Popup
+      </a>
+      <a href="/admin/proizvodi" class="<%= currentPath.startsWith('/admin/proizvodi') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7L12 3 4 7l8 4 8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/></svg>
+        Proizvodi
+      </a>
+      <a href="/admin/mjerenje-struka" class="<%= currentPath.startsWith('/admin/mjerenje-struka') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="8" width="20" height="8" rx="1.5"/><path d="M6 8v3M10 8v4M14 8v3M18 8v4"/></svg>
+        Mjerenje struka
+      </a>
+      <a href="/admin/kategorije" class="<%= currentPath.startsWith('/admin/kategorije') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Kategorije
+      </a>
+      <a href="/admin/promo-kodovi" class="<%= currentPath.startsWith('/admin/promo-kodovi') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l5.59-5.59a2 2 0 0 0 0-2.83z"/><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Promo kodovi
+      </a>
+      <a href="/admin/newsletter" class="<%= currentPath.startsWith('/admin/newsletter') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        Newsletter
+      </a>
+      <a href="/admin/narudzbe" class="<%= currentPath.startsWith('/admin/narudzbe') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h15l-1.6 9.5a1.5 1.5 0 0 1-1.48 1.25H8.4a1.5 1.5 0 0 1-1.48-1.25L5.2 4.5H2"/><circle cx="9.5" cy="21" r="1.15"/><circle cx="18" cy="21" r="1.15"/></svg>
+        Narudžbe
+      </a>
+      <a href="/admin/korisnici" class="<%= currentPath.startsWith('/admin/korisnici') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.3-5.5 7.5-5.5s6.1 1.9 7.5 5.5"/></svg>
+        Korisnici
+      </a>
+      <a href="/admin/podsjetnici" class="<%= currentPath.startsWith('/admin/podsjetnici') ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10"/></svg>
+        Podsjetnici
+      </a>
+      <a href="/admin/lozinka" class="<%= currentPath === '/admin/lozinka' ? 'active' : '' %>">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        Promjena lozinke
+      </a>
+      <a href="/" target="_blank" class="admin-nav-external">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4h6v6"/><path d="M10 14L20 4"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
+        Pogledaj sajt
+      </a>
+    </nav>
+    <form action="/admin/odjava" method="POST">
+      <button type="submit" class="btn btn-outline btn-small" style="width:100%; color:#ffffff; border-color:#555555; background:transparent;">Odjava</button>
+    </form>
+  </aside>
+  <main class="admin-main">
+    <%- include('flash') %>

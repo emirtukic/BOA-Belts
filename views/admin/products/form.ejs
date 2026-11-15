@@ -1,0 +1,123 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= product ? 'Izmijeni proizvod' : 'Novi proizvod' %></h1>
+</div>
+
+<form
+  class="form-panel"
+  style="max-width: 780px;"
+  action="<%= product ? '/admin/proizvodi/' + product.id + '?_method=PUT' : '/admin/proizvodi' %>"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <div class="admin-form-grid">
+    <div class="form-row full">
+      <label for="name">Naziv proizvoda</label>
+      <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" required>
+      <% if (product) { %><small>Adresa stranice ostaje ista i kad promijeniš naziv: /kolekcija/<%= product.slug %></small><% } %>
+    </div>
+
+    <div class="form-row full">
+      <label for="description">Opis</label>
+      <textarea id="description" name="description" rows="4"><%= product ? product.description : '' %></textarea>
+    </div>
+
+    <div class="form-row">
+      <label for="price_km">Cijena (KM)</label>
+      <input type="number" id="price_km" name="price_km" step="0.01" min="0" value="<%= product ? product.price_km : '' %>" required>
+    </div>
+
+    <div class="form-row">
+      <label for="sale_price_km">Cijena na sniženju (KM)</label>
+      <input type="number" id="sale_price_km" name="sale_price_km" step="0.01" min="0" value="<%= product && product.sale_price_km ? product.sale_price_km : '' %>" placeholder="ostavi prazno ako nema sniženja">
+      <small>Ako je manja od redovne cijene, proizvod se svugdje prikazuje kao sniženje (precrtana stara cijena + oznaka popusta).</small>
+    </div>
+
+    <div class="form-row">
+      <label for="category">Kategorija</label>
+      <select id="category" name="category" required>
+        <% categories.forEach(function(cat) { %>
+          <option value="<%= cat.slug %>" <%= product && product.category === cat.slug ? 'selected' : '' %>><%= cat.name %></option>
+        <% }) %>
+      </select>
+      <small><a href="/admin/kategorije" target="_blank">Upravljaj kategorijama &#8599;</a></small>
+    </div>
+
+    <div class="form-row full">
+      <label class="checkbox-row">
+        <input type="checkbox" name="waistRequired" <%= (product ? product.waistRequired : false) ? 'checked' : '' %>>
+        Kupac upisuje obim struka (kaiš po mjeri)
+      </label>
+      <small>Kupac prije dodavanja u korpu upisuje obim struka u cm. Uputu i dozvoljeni raspon mijenjaš u <a href="/admin/mjerenje-struka" target="_blank">Mjerenje struka &#8599;</a>.</small>
+    </div>
+
+    <div class="form-row full">
+      <label>Boje detalja (nije obavezno)</label>
+      <div class="detail-color-checks">
+        <% detailPalette.forEach(function(c) { %>
+          <label class="checkbox-row">
+            <input type="checkbox" name="detailColors" value="<%= c.name %>" <%= product && product.detailColors.includes(c.name) ? 'checked' : '' %>>
+            <span class="color-swatch" style="--swatch: <%= c.hex %>" aria-hidden="true"></span> <%= c.name %>
+          </label>
+        <% }) %>
+      </div>
+      <small>Za kaiševe: označi boje kopče i detalja koje kupac može birati. Ništa ne označavaj ako proizvod nema izbor detalja.</small>
+    </div>
+
+    <div class="form-row full">
+      <label for="colors">Boje proizvoda (nije obavezno)</label>
+      <div class="color-tags" data-palette="<%= JSON.stringify(colorPalette) %>">
+        <input type="text" id="colors" name="colors" value="<%= product ? product.colors.join(', ') : '' %>" placeholder="npr. crna, smeđa, bordo">
+        <input type="hidden" name="colorHex" value="<%= JSON.stringify(product ? product.colorHex : {}) %>">
+      </div>
+      <small>Ostavi prazno ako je proizvod samo u boji sa slika. Ako dodaš boje, kupac mora izabrati jednu. Klikni boju ispod da je dodaš, ili upiši svoj naziv i pritisni Enter; klik na kružić bira tačnu nijansu.</small>
+    </div>
+
+    <%- include('../../partials/image-manager', {
+      images: product ? product.images : [],
+      imageColors: product ? product.imageColors : {},
+      colors: product ? product.colors : []
+    }) %>
+
+    <div class="form-row full">
+      <label>Dodaj nove slike</label>
+      <label class="image-upload-dropzone">
+        <input type="file" id="images" name="images" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <span class="dropzone-label">Klikni da dodaš slike ili ih prevuci ovdje</span>
+      </label>
+    </div>
+
+    <div class="form-row full">
+      <label for="newImagesColor">Boja novih slika</label>
+      <select id="newImagesColor" name="newImagesColor" class="image-color-select" data-selected="">
+        <option value="">Sve boje</option>
+        <% (product ? product.colors : []).forEach(function(color) { %>
+          <option value="<%= color %>"><%= color %></option>
+        <% }) %>
+      </select>
+      <small>Ako proizvod ima više boja, izaberi koju boju pokazuju nove slike: kupac tada pri izboru boje vidi tu sliku. Inače ostavi "Sve boje".</small>
+    </div>
+
+    <div class="form-row">
+      <label class="checkbox-row">
+        <input type="checkbox" name="in_stock" <%= !product || product.in_stock ? 'checked' : '' %>>
+        Na stanju
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label class="checkbox-row">
+        <input type="checkbox" name="featured" <%= product && product.featured ? 'checked' : '' %>>
+        Izdvojeno (prikazuje se na početnoj)
+      </label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj proizvod</button>
+  <a href="/admin/proizvodi" class="btn btn-outline">Otkaži</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>

@@ -1,0 +1,46 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1><%= pageMeta.title %></h1>
+</div>
+
+<form class="form-panel" style="max-width: 780px;" action="/admin/stranice/<%= pageKey %>" method="POST" enctype="multipart/form-data">
+  <div class="admin-form-grid">
+    <% if (pageMeta.hasHeading) { %>
+      <div class="form-row full">
+        <label for="heading">Naslov</label>
+        <input type="text" id="heading" name="heading" value="<%= content.heading %>">
+      </div>
+    <% } %>
+
+    <div class="form-row full">
+      <label for="intro">Uvodni tekst</label>
+      <textarea id="intro" name="intro" rows="3"><%= content.intro %></textarea>
+    </div>
+
+    <div class="form-row full">
+      <label for="body">Glavni tekst</label>
+      <textarea id="body" name="body" rows="14"><%= content.body %></textarea>
+      <small>
+        Prazan red = novi pasus. Red koji počinje sa <code>## </code> postaje podnaslov (npr. <code>## Naša radionica</code>).
+        Tekst između <code>**dvije zvjezdice**</code> postaje podebljan.
+      </small>
+    </div>
+
+    <div class="form-row full">
+      <label>Galerija slika</label>
+      <%- include('../../partials/image-manager', { images: content.images }) %>
+      <label class="image-upload-dropzone">
+        <input type="file" name="images" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <span class="dropzone-label">Klikni da dodaš nove slike ili ih prevuci ovdje</span>
+      </label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sačuvaj</button>
+  <a href="/<%= pageKey %>" target="_blank" class="btn btn-outline">Pogledaj stranicu &#8599;</a>
+</form>
+
+<%- include('../../partials/admin-footer') %>

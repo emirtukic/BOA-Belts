@@ -1,0 +1,57 @@
+<%- include('../../partials/admin-head') %>
+<%- include('../../partials/admin-sidebar') %>
+
+<div class="admin-header">
+  <h1>Proizvodi (<%= products.length %>)</h1>
+  <a href="/admin/proizvodi/novi" class="btn btn-primary">+ Novi proizvod</a>
+</div>
+
+<div class="admin-table-wrap">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Slika</th>
+        <th>Naziv</th>
+        <th>Kategorija</th>
+        <th>Cijena</th>
+        <th>Na stanju</th>
+        <th>Izdvojeno</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (products.length === 0) { %>
+        <tr><td colspan="7">Još nema proizvoda.</td></tr>
+      <% } %>
+      <% products.forEach(function(product) { %>
+        <tr>
+          <td><img src="<%= product.images[0] %>" alt=""></td>
+          <td><%= product.name %></td>
+          <td><%= (categories.find(function(c) { return c.slug === product.category; }) || {}).name || product.category %></td>
+          <td>
+            <% if (product.onSale) { %>
+              <span class="price-old"><%= product.price_km.toFixed(2) %> KM</span>
+              <span class="price-now"><%= product.sale_price_km.toFixed(2) %> KM</span>
+              <span class="status-tag status-poslano">-<%= product.discountPercent %>%</span>
+            <% } else { %>
+              <%= product.price_km.toFixed(2) %> KM
+            <% } %>
+          </td>
+          <td>
+            <span class="status-tag <%= product.available ? 'status-zavrseno' : 'status-novo' %>"><%= product.available ? 'Da' : 'Ne' %></span>
+            <% if (product.sizes.length) { %><small><%= product.totalStock %> kom.</small><% } %>
+          </td>
+          <td><% if (product.featured) { %><span class="status-tag status-poslano">Da</span><% } else { %>-<% } %></td>
+          <td style="display:flex; gap:8px;">
+            <a href="/admin/proizvodi/<%= product.id %>/izmijeni" class="btn btn-outline btn-small">Izmijeni</a>
+            <form action="/admin/proizvodi/<%= product.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Obrisati ovaj proizvod?');">
+              <button type="submit" class="btn btn-danger btn-small">Obriši</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../../partials/admin-footer') %>

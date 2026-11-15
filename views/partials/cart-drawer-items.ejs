@@ -1,0 +1,35 @@
+<% if (items.length === 0) { %>
+  <div class="drawer-empty">
+    <p>Vaša korpa je prazna.</p>
+    <a href="/kolekcija" class="btn btn-primary btn-small">Pogledajte kolekciju</a>
+  </div>
+<% } else { %>
+  <div class="drawer-items">
+    <% items.forEach(function(item) { %>
+      <div class="drawer-item">
+        <img src="<%= item.product.smallImage(item.product.imageFor(item.color)) %>" alt="<%= item.product.name %>">
+        <div class="drawer-item-info">
+          <a href="/kolekcija/<%= item.product.slug %>"><%= item.product.name %></a>
+          <% itemOptions(item).forEach(function(option) { %><div class="drawer-item-meta"><%= option %></div><% }) %>
+          <% if (item.product.onSale) { %>
+            <div><span class="price-old"><%= item.product.price_km.toFixed(2) %> KM</span><span class="price-now"><%= item.product.sale_price_km.toFixed(2) %> KM</span></div>
+          <% } %>
+          <div class="drawer-item-row">
+            <div class="qty-stepper" data-index="<%= item.index %>">
+              <button type="button" class="qty-btn" data-action="dec" aria-label="Smanjite količinu">&minus;</button>
+              <span class="qty-value"><%= item.qty %></span>
+              <button type="button" class="qty-btn" data-action="inc" aria-label="Povećajte količinu">&plus;</button>
+            </div>
+            <span class="drawer-item-price"><%= item.lineTotal.toFixed(2) %> KM</span>
+          </div>
+        </div>
+        <button type="button" class="drawer-item-remove" data-index="<%= item.index %>" aria-label="Uklonite proizvod">&times;</button>
+      </div>
+    <% }) %>
+  </div>
+  <div class="drawer-footer">
+    <div class="drawer-total"><span>Ukupno</span><span><%= total.toFixed(2) %> KM</span></div>
+    <a href="/narudzba" class="btn btn-primary drawer-checkout-btn">Završite narudžbu</a>
+    <a href="/korpa" class="btn btn-outline drawer-checkout-btn">Pogledajte korpu</a>
+  </div>
+<% } %>

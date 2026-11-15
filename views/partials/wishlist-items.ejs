@@ -1,0 +1,5 @@
+<div class="product-grid wishlist-grid">
+  <% products.forEach(function(product) { %>
+    <%- include('product-card', { product: product, categories: categories }) %>
+  <% }) %>
+</div>
