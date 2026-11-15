@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Jednokratno podesavanje Boa Belts webshopa na postojecem Oracle serveru,
-# pored Sehara webshopa. Sehara ostaje netaknuta: Boa ima svog korisnika,
-# foldere, port (3001), servis, backup i zaseban Caddy blok.
+# Jednokratno podesavanje Boa Belts webshopa na NOVOM, posebnom serveru
+# (Ubuntu 24.04, npr. Oracle Cloud). Server sluzi samo za Boa Belts.
 # Pokretanje na serveru: sudo bash setup-server.sh
 # Smije se pokrenuti ponovo; postojece postavke i podaci ostaju.
 set -euo pipefail
@@ -14,10 +13,9 @@ DATA_DIR="/var/lib/boabelts"
 BACKUP_DIR="/var/backups/boabelts"
 ENV_DIR="/etc/boabelts"
 ENV_FILE="$ENV_DIR/boabelts.env"
-PORT="3001"
+PORT="3000"
 DOMAIN="boabelts.com"
 CANONICAL="www.$DOMAIN"
-CADDY_SITES="/etc/caddy/sites"
 
 if [ "$(id -u)" -ne 0 ]; then
   echo "Pokreni sa sudo: sudo bash setup-server.sh" >&2
@@ -25,12 +23,6 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 export DEBIAN_FRONTEND=noninteractive
-
-# Port 3000 koristi Sehara: ako je 3001 zauzet necim drugim, stajemo odmah.
-if ss -ltn "sport = :$PORT" | grep -q LISTEN && ! systemctl is-active --quiet boabelts.service; then
-  echo "Port $PORT je vec zauzet. Provjeri: sudo ss -ltnp | grep $PORT" >&2
-  exit 1
-fi
 
 # Tajne se traze na pocetku, da ostatak moze raditi bez nadzora.
 if [ ! -f "$ENV_FILE" ]; then
@@ -50,16 +42,16 @@ if [ ! -f "$ENV_FILE" ]; then
   fi
 fi
 
-echo "== Paketi (samo ono sto nedostaje) =="
-missing=""
-for pkg in ca-certificates curl git openssl caddy rclone; do
-  dpkg -s "$pkg" >/dev/null 2>&1 || missing="$missing $pkg"
-done
-if [ -n "$missing" ]; then
-  apt-get update -y
-  # shellcheck disable=SC2086
-  apt-get install -y $missing
-fi
+echo "== Sistemski paketi =="
+apt-get update -y
+apt-get upgrade -y
+apt-get install -y ca-certificates curl git openssl iptables iptables-persistent unattended-upgrades caddy rclone
+
+echo "== Automatska sigurnosna azuriranja =="
+cat > /etc/apt/apt.conf.d/20auto-upgrades <<'EOF'
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+EOF
 
 echo "== Node.js 24 =="
 if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(".")[0]')" != "24" ]; then
@@ -137,13 +129,12 @@ EnvironmentFile=$ENV_FILE
 Environment=BACKUP_DIR=$BACKUP_DIR
 ExecStart=/bin/bash $APP_DIR/deploy/backup.sh
 EOF
-# 15 minuta poslije Sehara backupa, da se ne preklapaju.
 cat > /etc/systemd/system/boabelts-backup.timer <<'EOF'
 [Unit]
 Description=Dnevni backup Boa Belts webshopa
 
 [Timer]
-OnCalendar=*-*-* 03:45:00
+OnCalendar=*-*-* 03:30:00
 Persistent=true
 
 [Install]
@@ -151,35 +142,42 @@ WantedBy=timers.target
 EOF
 
 echo "== HTTPS (Caddy) =="
-# Postojeci Caddyfile (Sehara) se ne prepisuje: dodaje mu se samo jedan red
-# koji ucitava sajtove iz $CADDY_SITES, a Boa dobija svoj fajl tamo.
-mkdir -p "$CADDY_SITES"
-cat > "$CADDY_SITES/boabelts.caddy" <<EOF
-$DOMAIN, $CANONICAL {
+# True-Client-IP postavlja Caddy, da posjetilac ne moze lazirati adresu i
+# zaobici ogranicenje broja pokusaja. Adresa bez www trajno vodi na www.
+cat > /etc/caddy/Caddyfile <<EOF
+$CANONICAL {
   encode zstd gzip
   reverse_proxy localhost:$PORT {
     header_up True-Client-IP {remote_host}
   }
 }
+
+$DOMAIN {
+  redir https://$CANONICAL{uri} permanent
+}
 EOF
-if ! grep -qF "import $CADDY_SITES/*.caddy" /etc/caddy/Caddyfile; then
-  cp /etc/caddy/Caddyfile "/etc/caddy/Caddyfile.prije-boabelts.$(date +%Y%m%d%H%M%S)"
-  printf '\nimport %s/*.caddy\n' "$CADDY_SITES" >> /etc/caddy/Caddyfile
-fi
-# Neispravna konfiguracija bi srusila i Seharu: provjera prije ucitavanja.
 caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+
+echo "== Firewall na serveru =="
+# Oracle Ubuntu slike podrazumijevano blokiraju sve osim SSH-a.
+for port in 80 443; do
+  iptables -C INPUT -p tcp --dport "$port" -m conntrack --ctstate NEW -j ACCEPT 2>/dev/null \
+    || iptables -I INPUT 1 -p tcp --dport "$port" -m conntrack --ctstate NEW -j ACCEPT
+done
+netfilter-persistent save
 
 systemctl daemon-reload
 systemctl enable --now boabelts.service boabelts-backup.timer
 systemctl restart boabelts.service
-# reload (ne restart): Sehara radi bez prekida.
-systemctl reload caddy
+systemctl enable caddy
+systemctl restart caddy
 
 echo "== Provjera =="
-for _ in $(seq 1 20); do
+for _ in $(seq 1 30); do
   if curl -fsS "http://localhost:$PORT/healthz" >/dev/null 2>&1; then
     echo "Boa Belts webshop radi."
-    echo "HTTPS proradi kad DNS za $DOMAIN i $CANONICAL pokazuje na ovaj server."
+    echo "HTTPS proradi kad DNS za $DOMAIN i $CANONICAL pokazuje na ovaj server"
+    echo "i kad su portovi 80 i 443 otvoreni u Oracle konzoli (Security List)."
     exit 0
   fi
   sleep 1

@@ -1,30 +1,39 @@
 # Pokretanje na www.boabelts.com
 
-Webshop radi na istom Oracle serveru kao Sehara webshop (`129.159.25.184`, Ubuntu 24.04). Sehara ostaje netaknuta. Boa Belts ima svog korisnika (`boabelts`), foldere, port `3001`, servis i backup.
+Webshop radi na **svom, posebnom serveru** (Ubuntu 24.04). Sa Sehara webshopom ne dijeli ništa: ni server, ni bazu, ni podešavanja.
 
-| Šta | Sehara | Boa Belts |
-| --- | --- | --- |
-| Kod | `/opt/sehara` | `/opt/boabelts` |
-| Baza i slike | `/var/lib/sehara` | `/var/lib/boabelts` |
-| Tajne (.env) | `/etc/sehara/sehara.env` | `/etc/boabelts/boabelts.env` |
-| Port | `3000` | `3001` |
-| Caddy | `/etc/caddy/Caddyfile` | `/etc/caddy/sites/boabelts.caddy` |
+| Šta | Gdje na serveru |
+| --- | --- |
+| Kod | `/opt/boabelts` |
+| Baza i slike | `/var/lib/boabelts` |
+| Tajne (.env) | `/etc/boabelts/boabelts.env` |
+| Port | `3000` (spolja se ide preko Caddy-ja na 80/443) |
+| Backup | `/var/backups/boabelts`, svaki dan u 03:30 |
 
 Glavna adresa je `https://www.boabelts.com`. Server sam preusmjerava `http` i `boabelts.com` bez `www` na nju. Stare adrese sa Vercel sajta (`/kaisevi`, `/proizvod/w68`, `/lojalnost`...) trajno vode na nove.
 
 ## 1. Kod na `main`
 
-Server preuzima granu `main` sa GitHuba (`emirtukic/BOA-Belts`, javni repozitorij). Webshop se razvija na grani `webshop` i prelazi na `main` tek kad sve odobriš.
+Server preuzima granu `main` sa GitHuba (`emirtukic/BOA-Belts`, javni repozitorij). Dok DNS još pokazuje na Vercel, Vercel pokušava izgraditi novi `main` i to ne uspijeva, jer to više nije Next.js projekat. Stari sajt ostaje online sve dok ne promijeniš DNS. Nakon prelaska Vercel projekat možeš ugasiti.
 
-Dok DNS još pokazuje na Vercel, Vercel će pokušati izgraditi novi `main` i to neće uspjeti, jer to više nije Next.js projekat. Stari sajt ostaje online sve dok ne promijeniš DNS. Nakon prelaska Vercel projekat možeš ugasiti.
+## 2. Napravi novi server (Oracle Cloud)
 
-## 2. Podesi server
+U Oracle Cloud konzoli: **Compute > Instances > Create instance**.
 
-Portovi 80 i 443 su već otvoreni za Seharu. Na Windowsu otvori PowerShell, prebaci skriptu na server i poveži se:
+- **Image:** Canonical Ubuntu 24.04.
+- **Shape:** besplatni (Always Free), npr. `VM.Standard.A1.Flex` sa 1 OCPU i 6 GB memorije, ili `VM.Standard.E2.1.Micro`.
+- **SSH keys:** neka Oracle napravi novi par ključeva (**Generate a key pair for me**) i preuzmi privatni ključ. Sačuvaj ga kao `C:\Users\tukic\.ssh\boabelts.key`.
+- Kad se server napravi, zapiši njegovu **Public IP address**.
+
+Otvori portove 80 i 443: na stranici servera klikni subnet, pa **Security List > Add Ingress Rules**: Source CIDR `0.0.0.0/0`, IP Protocol TCP, Destination Port Range `80,443`.
+
+## 3. Podesi server
+
+U PowerShellu (umjesto `IP-SERVERA` upiši javnu IP adresu novog servera):
 
 ```powershell
-scp -i $HOME\.ssh\ssh-key-2026-11-06.key $HOME\Documents\boa-belts\deploy\setup-server.sh ubuntu@129.159.25.184:~/boabelts-setup.sh
-ssh -i $HOME\.ssh\ssh-key-2026-11-06.key ubuntu@129.159.25.184
+scp -i $HOME\.ssh\boabelts.key $HOME\Documents\boa-belts\deploy\setup-server.sh ubuntu@IP-SERVERA:~/boabelts-setup.sh
+ssh -i $HOME\.ssh\boabelts.key ubuntu@IP-SERVERA
 ```
 
 Na serveru:
@@ -33,24 +42,20 @@ Na serveru:
 sudo bash boabelts-setup.sh
 ```
 
-Skripta traži admin lozinku i Gmail app password za `boabelts.webshop@gmail.com`. Oni ostaju samo na serveru, u `/etc/boabelts/boabelts.env`.
+Skripta traži admin lozinku i Gmail app password za `boabelts.webshop@gmail.com`. Oni ostaju samo na serveru, u `/etc/boabelts/boabelts.env`. Ostalo radi sama: instalira programe, preuzme kod, napravi bazu sa svim proizvodima, pokrene sajt, HTTPS i dnevni backup.
 
-Caddyfile od Sehare se ne prepisuje. Skripta mu dodaje samo red `import /etc/caddy/sites/*.caddy` (prije toga pravi kopiju `Caddyfile.prije-boabelts.*`). Konfiguraciju provjerava prije učitavanja i radi `reload`, pa Sehara radi bez prekida.
+## 4. Podesi DNS na Global Hostu
 
-**Važno:** Sehara `setup-server.sh` prepisuje cijeli Caddyfile. Ako se ona ikad ponovo pokrene, nakon nje pokreni i ovu skriptu, da se vrati red za Boa Belts.
-
-## 3. Podesi DNS na Global Hostu
-
-Kad server radi (`curl http://localhost:3001/healthz` na serveru vraća `ok`), u DNS zoni domene `boabelts.com` obriši postojeće A, AAAA i CNAME zapise za `@` i `www` (to su Vercel zapisi), pa upiši ove. MX zapise ne diraj.
+Kad server radi (`curl http://localhost:3000/healthz` na serveru vraća `ok`), u DNS zoni domene `boabelts.com` obriši postojeće A, AAAA i CNAME zapise za `@` i `www` (to su Vercel zapisi), pa upiši ove. MX zapise ne diraj.
 
 | Tip | Ime | Vrijednost |
 | --- | --- | --- |
-| A | `@` | `129.159.25.184` |
-| A | `www` | `129.159.25.184` |
+| A | `@` | IP adresa novog servera |
+| A | `www` | IP adresa novog servera |
 
 HTTPS certifikat Caddy pravi sam, par minuta nakon što DNS proradi.
 
-## 4. Provjera prije objave
+## 5. Provjera prije objave
 
 - [ ] Otvori `https://www.boabelts.com`.
 - [ ] Prijavi se na `/admin` i promijeni lozinku.
@@ -59,7 +64,7 @@ HTTPS certifikat Caddy pravi sam, par minuta nakon što DNS proradi.
 - [ ] Pošalji upit preko kontakt forme.
 - [ ] Otvori jednu staru adresu, npr. `https://www.boabelts.com/kaisevi`, i provjeri da vodi na novu.
 
-## 5. Održavanje
+## 6. Održavanje
 
 | Šta | Komanda na serveru |
 | --- | --- |
@@ -69,7 +74,7 @@ HTTPS certifikat Caddy pravi sam, par minuta nakon što DNS proradi.
 
 Push na GitHub ne mijenja server sam od sebe. Nova verzija se prebacuje komandom iz tabele.
 
-**Backup:** svaki dan u 03:45 po UTC server pravi kopiju baze i slika u `/var/backups/boabelts` i čuva je 14 dana. Ako je Google Drive povezan, istu kopiju šalje u folder `boabelts-backup`, gdje se čuva 60 dana.
+**Backup:** svaki dan u 03:30 po UTC server pravi kopiju baze i slika u `/var/backups/boabelts` i čuva je 14 dana. Ako je Google Drive povezan, istu kopiju šalje u folder `boabelts-backup`, gdje se čuva 60 dana.
 
 Povezivanje Drivea (jednom): na računaru s browserom pokreni `rclone config create gdrive drive scope=drive.file` i prijavi se nalogom `boabelts.webshop@gmail.com`. Nastali `rclone.conf` kopiraj na server u `/home/boabelts/.config/rclone/rclone.conf` i postavi vlasnika: `sudo chown -R boabelts:boabelts /home/boabelts/.config`.
 
@@ -77,13 +82,13 @@ Provjera: `sudo journalctl -u boabelts-backup -n 5` na serveru, ili pogledaj fol
 
 Vraćanje iz backupa: zaustavi sajt (`sudo systemctl stop boabelts`), zamijeni `/var/lib/boabelts/boabelts.db` kopijom (fajlove `boabelts.db-wal` i `boabelts.db-shm` obriši), raspakuj `uploads-*.tar.gz` u `/var/lib/boabelts`, postavi vlasnika `sudo chown -R boabelts:boabelts /var/lib/boabelts` i pokreni sajt (`sudo systemctl start boabelts`).
 
-## 6. Nakon objave (SEO)
+## 7. Nakon objave (SEO)
 
 1. **Google Search Console**: dodaj domenu i pošalji `https://www.boabelts.com/sitemap.xml`.
 2. **Instagram i Facebook**: provjeri da link u opisu profila vodi na `https://www.boabelts.com`.
 3. **Provjera strukturiranih podataka**: otvori stranicu proizvoda u [Rich Results Test](https://search.google.com/test/rich-results).
 
-## 7. Prijava preko Google-a (opciono)
+## 8. Prijava preko Google-a (opciono)
 
 U Google Cloud Console napravi OAuth klijent s redirect adresom `https://www.boabelts.com/nalog/google/callback`, upiši `GOOGLE_CLIENT_ID` i `GOOGLE_CLIENT_SECRET` u `/etc/boabelts/boabelts.env` i restartuj servis komandom `sudo systemctl restart boabelts`. Dok ih nema, dugme za Google se ne prikazuje.
 

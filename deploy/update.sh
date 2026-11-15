@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Prebacuje najnoviji kod sa GitHuba na server: sudo bash /opt/boabelts/deploy/update.sh
-# Baza i uploadi su u /var/lib/boabelts i ova skripta ih ne dira. Sehara se ne dira.
+# Baza i uploadi su u /var/lib/boabelts i ova skripta ih ne dira.
 set -euo pipefail
 
 APP_USER="boabelts"
 APP_DIR="/opt/boabelts"
 BRANCH="main"
-PORT="3001"
+PORT="3000"
 
 sudo -u "$APP_USER" git -C "$APP_DIR" fetch origin "$BRANCH"
 sudo -u "$APP_USER" git -C "$APP_DIR" reset --hard "origin/$BRANCH"
