@@ -23,7 +23,9 @@
   <div class="container">
     <div class="story-gallery revija-gallery">
       <% images.forEach(function(img, idx) { %>
-        <img src="<%= img.replace(/\.webp$/i, '-sm.webp') %>" data-full="<%= img %>" alt="Revija Boa Belts na BH Fashion Weeku, fotografija <%= idx + 1 %>" loading="lazy" decoding="async" width="600" height="900">
+        <figure class="revija-item<%= img.width > img.height ? ' is-wide' : '' %>">
+          <img src="<%= img.small %>" srcset="<%= img.small %> 600w, <%= img.src %> <%= img.width %>w" sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 380px" data-full="<%= img.src %>" alt="Revija Boa Belts na BH Fashion Weeku, fotografija <%= idx + 1 %>" width="<%= img.width %>" height="<%= img.height %>" <%= idx < 3 ? '' : 'loading=lazy' %> decoding="async">
+        </figure>
       <% }) %>
     </div>
     <div class="text-center mt-lg">

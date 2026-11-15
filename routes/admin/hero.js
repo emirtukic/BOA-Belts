@@ -19,6 +19,7 @@ router.post(
     { name: 'images', maxCount: 12 },
     { name: 'video', maxCount: 1 },
     { name: 'lifestyle_image', maxCount: 1 },
+    { name: 'banner_image', maxCount: 1 },
     { name: 'story_image', maxCount: 1 }
   ]),
   processHeroUploads,
@@ -63,6 +64,7 @@ router.post(
         image = uploadedImage;
       }
       HomeSections.save(key, {
+        enabled: req.body[`${key}_enabled`] === '1',
         image,
         eyebrow: req.body[`${key}_eyebrow`] || '',
         heading: req.body[`${key}_heading`] || '',

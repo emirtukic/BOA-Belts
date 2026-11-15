@@ -6,7 +6,7 @@ const { saveUploadedImage } = require('../config/images');
 
 const { UPLOADS_DIR: uploadsDir } = require('../config/paths');
 
-const SECTION_IMAGE_FIELDS = ['lifestyle_image', 'story_image', 'workshop_image'];
+const SECTION_IMAGE_FIELDS = ['lifestyle_image', 'banner_image', 'story_image'];
 
 const storage = multer.memoryStorage();
 

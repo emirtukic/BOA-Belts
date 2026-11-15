@@ -2,6 +2,7 @@ const Settings = require('./Settings');
 
 const DEFAULTS = {
   lifestyle: {
+    enabled: true,
     image: '/images/studio/studio-4.webp',
     eyebrow: 'Kaiševi po mjeri',
     heading: 'Kaiš izrađen po vašoj mjeri',
@@ -9,7 +10,17 @@ const DEFAULTS = {
     cta_text: 'Izaberite kaiš',
     cta_link: '/kolekcija?kategorija=zenski-kaisevi'
   },
+  banner: {
+    enabled: true,
+    image: '/images/revija/DSC_0870.webp',
+    eyebrow: 'BH Fashion Week 2025',
+    heading: 'Boa Belts na pisti 49. BH Fashion Weeka',
+    text: 'Fotografije sa naše revije na otvaranju 49. BH Fashion Weeka u Sarajevu.',
+    cta_text: 'Pogledajte reviju',
+    cta_link: '/bh-fashion-week'
+  },
   story: {
+    enabled: true,
     image: '/images/home/radionica.webp',
     eyebrow: 'Naša priča',
     heading: 'Izrađeno u Travniku, Bosna i Hercegovina',

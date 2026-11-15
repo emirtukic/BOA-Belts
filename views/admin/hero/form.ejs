@@ -73,13 +73,21 @@
 </div>
 
 <% [
-  { key: 'lifestyle', title: 'Sekcija "Kaiševi koji podižu svaki izgled"', hasEyebrow: true, hasText: true },
-  { key: 'story', title: 'Sekcija "Izrađeno u Travniku"', hasEyebrow: true, hasText: true }
+  { key: 'lifestyle', title: 'Sekcija "Kaiš po mjeri" (slika, tekst i tri koraka)', hasEyebrow: true, hasText: true },
+  { key: 'banner', title: 'Velika slika preko cijele širine (npr. BH Fashion Week)', hasEyebrow: true, hasText: true, wide: true },
+  { key: 'story', title: 'Sekcija "Naša priča"', hasEyebrow: true, hasText: true }
 ].forEach(function(block) {
   const section = sections[block.key];
 %>
   <div class="form-panel" style="max-width: 780px; margin-bottom: 24px;">
     <h2 style="margin-top:0;"><%= block.title %></h2>
+    <label class="checkbox-row" style="display:flex; gap:10px; align-items:center; margin-bottom:18px; font-weight:600;">
+      <input type="checkbox" name="<%= block.key %>_enabled" value="1" <%= section.enabled ? 'checked' : '' %>>
+      Prikaži ovu sekciju na početnoj stranici
+    </label>
+    <% if (block.wide) { %>
+      <p style="margin:-8px 0 16px; font-size:.85rem; opacity:.75;">Najbolje izgleda položena (vodoravna) fotografija. Tekst stoji preko lijeve strane slike.</p>
+    <% } %>
     <div class="admin-form-grid">
       <div class="form-row full">
         <label>Slika</label>

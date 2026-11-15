@@ -610,6 +610,17 @@ document.addEventListener('DOMContentLoaded', () => {
   refreshWishUi();
   if (wishlistItems) loadWishlistPage();
 
+  /* --- Viber na iPhoneu: Viber tamo odbija direktan razgovor sa brojem koji
+     kupac nema u kontaktima ("Request unavailable"), a otvaranje kontakta radi.
+     Kupac odatle jednim klikom na "Message" pise poruku. --- */
+  const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIos) {
+    document.querySelectorAll('a[href^="viber://chat?number="]').forEach((link) => {
+      link.href = link.getAttribute('href').replace('viber://chat?number=', 'viber://contact?number=');
+    });
+  }
+
   /* --- Dugme "Pisite nam" (Viber / WhatsApp) --- */
   const chatToggle = document.getElementById('chatToggle');
   const chatMenu = document.getElementById('chatMenu');

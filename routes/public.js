@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const sharp = require('sharp');
 const router = express.Router();
 const Product = require('../models/Product');
 const Hero = require('../models/Hero');
@@ -33,14 +34,28 @@ const HOME_TABS = [
 ];
 
 const REVIJA_DIR = path.join(__dirname, '..', 'public', 'images', 'revija');
+// Galerija revije: svaka slika nosi svoje stvarne dimenzije, da se uspravne i
+// polozene fotografije slazu bez sjecenja i bez skakanja stranice pri ucitavanju.
 let revijaCache = null;
-function fashionWeekImages() {
+async function fashionWeekImages() {
   if (!revijaCache) {
-    revijaCache = fs
+    const sorted = fs
       .readdirSync(REVIJA_DIR)
       .filter((f) => f.endsWith('.webp') && !f.endsWith('-sm.webp'))
-      .sort()
-      .map((f) => `/images/revija/${f}`);
+      .sort();
+    // Fotografije snimljene jedna za drugom su skoro iste. Rasporedjuju se
+    // ispreplitano (svaka sedma), da slicne ne stoje jedna do druge.
+    const STRIDE = 7;
+    const files = [];
+    for (let start = 0; start < STRIDE; start++) {
+      for (let i = start; i < sorted.length; i += STRIDE) files.push(sorted[i]);
+    }
+    revijaCache = await Promise.all(
+      files.map(async (f) => {
+        const { width, height } = await sharp(path.join(REVIJA_DIR, f)).metadata();
+        return { src: `/images/revija/${f}`, small: `/images/revija/${f.replace(/\.webp$/, '-sm.webp')}`, width, height };
+      })
+    );
   }
   return revijaCache;
 }
@@ -93,14 +108,18 @@ router.get('/program-lojalnosti', (req, res) => {
   });
 });
 
-router.get('/bh-fashion-week', (req, res) => {
-  res.render('bh-fashion-week', {
-    title: 'Boa Belts na 49. BH Fashion Weeku - Boa Belts',
-    description:
-      'Fotografije sa revije Boa Belts na otvaranju 49. BH Fashion Weeka u hotelu Bosmal Arjaan by Rotana u Sarajevu.',
-    ogImage: '/images/revija/8J3A0630.webp',
-    images: fashionWeekImages()
-  });
+router.get('/bh-fashion-week', async (req, res, next) => {
+  try {
+    res.render('bh-fashion-week', {
+      title: 'Boa Belts na 49. BH Fashion Weeku - Boa Belts',
+      description:
+        'Fotografije sa revije Boa Belts na otvaranju 49. BH Fashion Weeka u hotelu Bosmal Arjaan by Rotana u Sarajevu.',
+      ogImage: '/images/revija/8J3A0630.webp',
+      images: await fashionWeekImages()
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // Lista zelja se cuva u pregledniku kupca (localStorage); stranica samo

@@ -12,6 +12,7 @@
   const smallOf = function(src) { return src && /\.webp$/i.test(src) && !/-sm\.webp$/i.test(src) ? src.replace(/\.webp$/i, '-sm.webp') : src; };
   const lifestyle = sections.lifestyle;
   const story = sections.story;
+  const banner = sections.banner;
 %>
 <% if (heroImages.length > 1) { %>
 <style>
@@ -130,6 +131,7 @@
 </section>
 <% } %>
 
+<% if (lifestyle.enabled) { %>
 <section class="home-measure">
   <div class="container home-measure-inner">
     <div class="home-measure-image">
@@ -150,20 +152,26 @@
     </div>
   </div>
 </section>
+<% } %>
 
+<% if (banner.enabled) { %>
 <section class="home-banner">
   <picture>
-    <source media="(max-width: 700px)" srcset="/images/revija/DSC_0870-sm.webp">
-    <img src="/images/revija/DSC_0870.webp" alt="Boa Belts revija na BH Fashion Weeku" loading="lazy" decoding="async">
+    <source media="(max-width: 700px)" srcset="<%= smallOf(banner.image) %>">
+    <img src="<%= banner.image %>" alt="<%= banner.heading %>" loading="lazy" decoding="async">
   </picture>
   <div class="container home-banner-inner">
-    <div class="eyebrow">BH Fashion Week 2025</div>
-    <h2>Boa Belts na pisti 49. BH Fashion Weeka</h2>
-    <p>Fotografije sa naše revije na otvaranju 49. BH Fashion Weeka u Sarajevu.</p>
-    <a href="/bh-fashion-week" class="btn home-btn-light">Pogledajte reviju</a>
+    <% if (banner.eyebrow) { %><div class="eyebrow"><%= banner.eyebrow %></div><% } %>
+    <h2><%= banner.heading %></h2>
+    <% if (banner.text) { %><p><%= banner.text %></p><% } %>
+    <% if (banner.cta_text && banner.cta_link) { %>
+      <a href="<%= banner.cta_link %>" class="btn home-btn-light"><%= banner.cta_text %></a>
+    <% } %>
   </div>
 </section>
+<% } %>
 
+<% if (story.enabled) { %>
 <section class="section home-story-section">
   <div class="container home-story">
     <div class="home-story-image">
@@ -179,6 +187,7 @@
     </div>
   </div>
 </section>
+<% } %>
 
 <section class="home-loyalty-section">
   <div class="container">
