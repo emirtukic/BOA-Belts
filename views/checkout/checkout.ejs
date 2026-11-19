@@ -229,7 +229,7 @@
         }
 
         function showReview() {
-            if (!checkoutForm.reportValidity()) return;
+            if (!(window.boaValidateForm ? window.boaValidateForm(checkoutForm) : checkoutForm.reportValidity())) return;
 
             document.getElementById('reviewName').textContent = document.getElementById('customer_name').value;
             document.getElementById('reviewEmail').textContent = document.getElementById('email').value;

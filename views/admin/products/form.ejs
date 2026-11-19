@@ -72,7 +72,7 @@
         <input type="text" id="colors" name="colors" value="<%= product ? product.colors.join(', ') : '' %>" placeholder="npr. crna, smeđa, bordo">
         <input type="hidden" name="colorHex" value="<%= JSON.stringify(product ? product.colorHex : {}) %>">
       </div>
-      <small>Ostavi prazno ako je proizvod samo u boji sa slika. Ako dodaš boje, kupac mora izabrati jednu. Klikni boju ispod da je dodaš, ili upiši svoj naziv i pritisni Enter; klik na kružić bira tačnu nijansu.</small>
+      <small>Ostavi prazno ako boju dogovarate sa kupcem nakon narudžbe (kupac tada vidi tu poruku umjesto izbora). Ako dodaš boje, kupac mora izabrati jednu. Klikni boju ispod da je dodaš, ili upiši svoj naziv i pritisni Enter; klik na kružić bira tačnu nijansu.</small>
     </div>
 
     <%- include('../../partials/image-manager', {

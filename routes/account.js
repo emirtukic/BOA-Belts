@@ -4,7 +4,14 @@ const Customer = require('../models/Customer');
 const Order = require('../models/Order');
 const requireCustomer = require('../middleware/requireCustomer');
 const { LABELS } = require('../config/orderStatuses');
-const { sendWelcomeEmail, sendPasswordResetEmail, sendVerificationEmail } = require('../config/mailer');
+const { sendWelcomeEmail, sendPasswordResetEmail, sendVerificationEmail, sendNewCustomerNotificationEmail } = require('../config/mailer');
+
+// Vlasnik dobija mail o svakom novom nalogu i o potvrdi naloga.
+function notifyOwner(res, customer, stage) {
+  sendNewCustomerNotificationEmail(customer, stage, res.locals.siteUrl + '/admin/korisnici').catch((err) =>
+    console.error('Greška pri slanju obavijesti o novom kupcu:', err.message)
+  );
+}
 const { passport, googleConfigured } = require('../config/passport');
 const { cleanText, isValidEmail } = require('../config/format');
 const { subscribeWithWelcome } = require('../config/newsletter');
@@ -63,6 +70,7 @@ router.post('/registracija', (req, res) => {
   sendVerificationEmail(customer, verifyUrl).catch((err) =>
     console.error('Greška pri slanju verifikacionog e-maila:', err.message)
   );
+  notifyOwner(res, customer, 'registered');
 
   res.render('account/check-email', {
     title: 'Potvrdite e-mail - Boa Belts',
@@ -81,6 +89,7 @@ router.get('/verifikacija/:token', (req, res, next) => {
   // Prijava vazi tek sad: bez potvrde bi neko mogao prijaviti tudju adresu.
   if (customer.newsletter_opt_in) subscribeWithWelcome(customer.email);
   sendWelcomeEmail(customer).catch((err) => console.error('Greška pri slanju welcome e-maila:', err.message));
+  notifyOwner(res, customer, 'verified');
   startAuthenticatedSession(req, 'customerId', customer.id, (err) => {
     if (err) return next(err);
     req.flash('success', `Dobrodošli, ${customer.name}! Vaš nalog je potvrđen.`);
@@ -239,6 +248,7 @@ function handleOAuthLogin(req, res, next, provider, profile) {
 
   if (isNew) {
     sendWelcomeEmail(customer).catch((err) => console.error('Greška pri slanju welcome e-maila:', err.message));
+    notifyOwner(res, customer, 'google');
   }
   startAuthenticatedSession(req, 'customerId', customer.id, (err) => {
     if (err) return next(err);

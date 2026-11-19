@@ -61,7 +61,7 @@
             <% if (product.waistRequired) { %>
               <div class="form-row waist-field">
                 <label for="waist">Obim struka (cm)</label>
-                <input type="number" id="waist" name="size" inputmode="numeric" min="<%= waist.min %>" max="<%= waist.max %>" step="1" required placeholder="npr. 85" aria-describedby="waistHelp">
+                <input type="number" id="waist" name="size" data-unit="cm" inputmode="numeric" min="<%= waist.min %>" max="<%= waist.max %>" step="1" required placeholder="npr. 85" aria-describedby="waistHelp">
                 <% if (waist.intro) { %><p class="waist-help" id="waistHelp"><%= waist.intro %></p><% } %>
               </div>
             <% } %>
@@ -82,6 +82,11 @@
                   <% }) %>
                 </div>
                 <p class="option-error" hidden>Izaberite boju.</p>
+              </div>
+            <% } else { %>
+              <div class="form-row color-after-order">
+                <div class="option-label">Boja</div>
+                <p>Nakon narudžbe Boa Belts tim će Vas kontaktirati vezano za odabir boje.</p>
               </div>
             <% } %>
 
@@ -151,7 +156,7 @@
               <span class="faq-icon"></span>
             </button>
             <div class="faq-answer">
-              <p>Ručno rađeno u radionici Boa Belts u Travniku, od prirodne kože. <%= product.colors.length ? 'Proizvod izrađujemo u boji koju izaberete.' : 'Proizvod izrađujemo u boji koja je prikazana na fotografijama.' %><% if (product.waistRequired) { %> Kaiš izrađujemo prema obimu struka koji upišete pri narudžbi.<% } %></p>
+              <p>Ručno rađeno u radionici Boa Belts u Travniku, od prirodne kože. <%= product.colors.length ? 'Proizvod izrađujemo u boji koju izaberete.' : 'Boju dogovaramo s Vama nakon narudžbe.' %><% if (product.waistRequired) { %> Kaiš izrađujemo prema obimu struka koji upišete pri narudžbi.<% } %></p>
             </div>
           </div>
           <div class="faq-item">

@@ -122,7 +122,7 @@ router.get('/izvoz', (req, res) => {
         LABELS[o.status] || o.status,
         i.name,
         i.size || '',
-        i.color || '',
+        i.color || 'Po dogovoru',
         i.detailColor || '',
         i.qty,
         i.priceKm || 0,

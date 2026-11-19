@@ -78,7 +78,7 @@
           <tr>
             <td><%= item.name %></td>
             <td><%= item.size ? item.size + ' cm' : '' %></td>
-            <td><%= item.color %></td>
+            <td><%= item.color || "Po dogovoru" %></td>
             <td><%= item.detailColor || '' %></td>
             <td><%= item.qty %></td>
             <td><%= (item.priceKm * item.qty).toFixed(2) %> KM</td>

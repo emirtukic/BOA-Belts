@@ -4636,3 +4636,212 @@ h1, h2, h3, h4 {
     margin-bottom: 36px;
   }
 }
+
+/* Proizvod bez izbora boje: boja se dogovara nakon narudzbe. */
+.color-after-order p {
+  margin: 6px 0 0;
+  padding: 12px 14px;
+  background: var(--color-cream, #f6f2ed);
+  border-left: 3px solid #c9a24b;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+/* Korpa: redovi na kompjuteru, kartice na mobitelu. */
+.cart-list {
+  margin-bottom: 24px;
+}
+
+.cart-list-head,
+.cart-row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) 220px 120px 110px;
+  grid-template-areas: 'img info qty price remove';
+  gap: 18px;
+  align-items: center;
+}
+
+.cart-list-head {
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--color-cream-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.cart-list-head span:first-child {
+  grid-column: 1 / 3;
+}
+
+.cart-row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-cream-dark);
+}
+
+.cart-row-image {
+  grid-area: img;
+}
+
+.cart-row-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.cart-row-info {
+  grid-area: info;
+  min-width: 0;
+}
+
+.cart-row-name {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cart-row-sale {
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+.cart-row-options {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  color: #6a6a6a;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.cart-row-qty {
+  grid-area: qty;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.cart-row-qty .qty-input {
+  width: 70px;
+  min-width: 70px;
+}
+
+.cart-row-price {
+  grid-area: price;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cart-row-remove {
+  grid-area: remove;
+  justify-self: end;
+}
+
+.cart-list-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px 0;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .cart-list-head {
+    display: none;
+  }
+
+  .cart-row {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    grid-template-areas:
+      'img info info'
+      'qty qty price'
+      'remove remove remove';
+    gap: 12px 14px;
+    align-items: start;
+  }
+
+  .cart-row-image img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .cart-row-price {
+    align-self: center;
+    font-size: 1.05rem;
+  }
+
+  .cart-row-remove {
+    justify-self: start;
+  }
+
+  .cart-row-remove .btn {
+    background: none;
+    border: 0;
+    color: #8f2b2b;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 0.8rem;
+  }
+}
+
+/* Poruke provjere formi (umjesto oblacica preglednika). */
+.field-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 9px 12px;
+  background: #fbeceb;
+  border-left: 3px solid #b3261e;
+  border-radius: 6px;
+  color: #8c1d18;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0;
+  animation: field-error-in 0.18s ease-out;
+}
+
+.field-error::before {
+  content: '!';
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #b3261e;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: #b3261e !important;
+  box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.12);
+}
+
+@keyframes field-error-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-error {
+    animation: none;
+  }
+}

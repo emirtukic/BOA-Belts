@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer-core');
 const path = require('path');
 const B = process.argv[2] || 'http://localhost:3111';
 const S = process.argv[3] || '.';
+require('fs').mkdirSync(S, { recursive: true });
 const IMG = path.join(__dirname, '..', 'public', 'images', 'revija') + '/';
 let fails = 0;
 const ok = (name, cond) => { console.log((cond ? 'OK   ' : 'FAIL ') + name); if (!cond) fails++; };

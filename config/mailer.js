@@ -114,6 +114,39 @@ async function sendContactEmail({ name, email, phone, message }) {
   await send({ to, subject: `Novi upit sa sajta - ${name}`, bodyHtml, preheader: `Upit od ${name}`, replyTo: email });
 }
 
+// Obavijest vlasniku: novi nalog (registrovan / potvrdjen / preko Google-a).
+const NEW_CUSTOMER_STAGES = {
+  registered: {
+    title: 'Nova registracija',
+    note: 'Kupac je napravio nalog. Nalog postaje aktivan kad kupac potvrdi e-mail adresu.'
+  },
+  verified: { title: 'Kupac je potvrdio nalog', note: 'Kupac je potvrdio e-mail adresu i nalog je aktivan.' },
+  google: { title: 'Nova registracija preko Google-a', note: 'Kupac je napravio nalog preko Google-a; e-mail je već potvrđen.' }
+};
+
+async function sendNewCustomerNotificationEmail(customer, stage, adminUrl) {
+  const info = NEW_CUSTOMER_STAGES[stage] || NEW_CUSTOMER_STAGES.registered;
+  const to = process.env.CONTACT_TO_EMAIL || CONTACT_EMAIL;
+  const row = (label, value) => `<p style="margin:0 0 6px;"><strong>${label}:</strong> ${value || '-'}</p>`;
+  const bodyHtml = `
+    <h2 style="margin:0 0 16px; color:#111111;">${info.title}</h2>
+    ${row('Ime', esc(customer.name))}
+    ${row('E-mail', `<a href="mailto:${esc(customer.email)}" style="color:#111111;">${esc(customer.email)}</a>`)}
+    ${row('Telefon', customer.phone ? `<a href="tel:${esc(String(customer.phone).replace(/[^\d+]/g, ''))}" style="color:#111111;">${esc(customer.phone)}</a>` : '')}
+    ${row('Grad', esc(customer.city))}
+    ${row('Newsletter', customer.newsletter_opt_in || customer.newsletterOptIn ? 'Da' : 'Ne')}
+    <p style="margin:16px 0 0; font-size:13px; color:#6a6a6a;">${info.note}</p>
+    ${adminUrl ? button('Pogledajte kupce u adminu', adminUrl) : ''}
+  `;
+  await send({
+    to,
+    subject: `${info.title} - ${customer.name}`,
+    replyTo: customer.email,
+    bodyHtml,
+    preheader: `${info.title}: ${customer.name}, ${customer.email}`
+  });
+}
+
 async function sendVerificationEmail(customer, verifyUrl) {
   const bodyHtml = `
     <h2 style="margin:0 0 16px; color:#111111;">Potvrdite svoju e-mail adresu</h2>
@@ -299,6 +332,7 @@ module.exports = {
   isConfigured,
   sendContactEmail,
   sendVerificationEmail,
+  sendNewCustomerNotificationEmail,
   sendWelcomeEmail,
   sendPasswordResetEmail,
   sendOrderConfirmationEmail,

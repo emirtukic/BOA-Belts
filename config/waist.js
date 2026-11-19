@@ -35,12 +35,15 @@ function parseWaist(value, settings = getWaistSettings()) {
 }
 
 // Opis izbora stavke za korpu, narudzbe, mailove i Excel.
+// Proizvod bez boja u adminu: boju Boa Belts dogovara sa kupcem nakon narudzbe.
+const COLOR_AFTER_ORDER = 'po dogovoru nakon narudžbe';
+
 function itemOptions(item) {
   const parts = [];
   if (item.size) parts.push(`Obim struka: ${item.size} cm`);
-  if (item.color) parts.push(`Boja: ${item.color}`);
+  parts.push(`Boja: ${item.color || COLOR_AFTER_ORDER}`);
   if (item.detailColor) parts.push(`Boja detalja: ${item.detailColor}`);
   return parts;
 }
 
-module.exports = { DETAIL_COLORS, DETAIL_PALETTE, getWaistSettings, saveWaistSettings, parseWaist, itemOptions };
+module.exports = { DETAIL_COLORS, DETAIL_PALETTE, COLOR_AFTER_ORDER, getWaistSettings, saveWaistSettings, parseWaist, itemOptions };
